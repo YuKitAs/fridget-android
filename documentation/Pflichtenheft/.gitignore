@@ -1,0 +1,15 @@
+# Latex Docs
+*.toc
+*.aux
+*.lof
+*.log
+*.out
+*.synctex.gz
+*.glg
+*.glo
+*.gls
+*.glsdefs
+*.ist
+*.fdb_latexmk
+*.fls
+*.pyg
