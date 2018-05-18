@@ -6,3 +6,21 @@
 /build
 /captures
 .externalNativeBuild
+documentation/remove-temp-files.sh
+
+# Latex temp files
+*.toc
+*.aux
+*.lof
+*.log
+*.out
+*.synctex.gz
+*.glg
+*.glo
+*.gls
+*.glsdefs
+*.ist
+*.fdb_latexmk
+*.fls
+*.pyg
+*.pdf
