@@ -1,0 +1,76 @@
+\documentclass[a4paper]{scrreprt}
+\usepackage[german]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage{ae}
+
+\begin{document}
+    \chapter{Anwendungsfälle}
+    		\begin{figure}[h]
+			\centering
+			\includegraphics[scale = .6]{anwendungsfalldiagramm.png}
+			\caption{Anwendungsfalldiagramm}
+		\end{figure}
+    		    		
+        \section{Anmelden}
+        \textbf{Teilnehmende Akteure}: Benutzer \\
+		\textbf{Eingangsbedingungen}: Der Benutzer hat Fridget installiert und besitzt ein Google-Konto. Das Internet ist verfügbar. \\
+		\textbf{Ausgangsbedingung}: Der Benutzer hat sich angemeldet. \\
+		\textbf{Ereignisfluss}: Benutzer wird angemeldet
+		
+		\section{WG erstellen und Zugangscode erhalten}
+		\textbf{Teilnehmende Akteure}: Benutzer \\
+		\textbf{Eingangsbedingungen}: Der Benutzer hat sich angemeldet. Das Internet ist verfügbar. \\
+		\textbf{Ausgangsbedingung}: Ein Zugangscode wird angezeigt. \\
+		\textbf{Ereignisfluss}: WG wird erstellt $\rightarrow$ Zugangscode wird generiert
+		
+		\section{WG beitreten}
+		\textbf{Teilnehmende Akteure}: Benutzer \\
+		\textbf{Eingangsbedingungen}: Der Benutzer hat sich angemeldet und besitzt einen gültigen Zugangscode. Die WG ist nicht voll. Das Internet ist verfügbar. \\
+		\textbf{Ausgangsbedingung}: Der Benutzer ist einer WG beigetreten. \\
+		\textbf{Ereignisfluss}: WG wird beigetreten
+		
+		\section{Cool Notes erstellen}
+		\textbf{Teilnehmende Akteure}: Benutzer \\
+		\textbf{Eingangsbedingungen}: Der Benutzer hat sich angemeldet und ist einer WG beigetreten. Die Pinnwand ist nicht voll und keiner erstellt gerade die letzte Cool Note. Das Internet ist verfügbar. \\
+		\textbf{Ausgangsbedingung}: Der Benutzer bestätigt das Erstellen. \\
+		\textbf{Ereignisfluss}: Cool Note wird erstellt
+		
+		\section{Cool Notes löschen}
+		\textbf{Teilnehmende Akteure}: Benutzer \\
+		\textbf{Eingangsbedingungen}: Der Benutzer hat sich angemeldet und ist einer WG beigetreten. Der Benutzer ist der Ersteller von der Cool Note und keiner liest gerade dieselbe Cool Note. Das Internet ist verfügbar. \\
+		\textbf{Ausgangsbedingung}: Der Benutzer bestätigt das Löschen. \\
+		\textbf{Ereignisfluss}: Cool Note wird gelöscht
+		
+		\section{Frozen Notes bearbeiten}
+		\textbf{Teilnehmende Akteure}: Benutzer \\
+		\textbf{Eingangsbedingungen}: Der Benutzer hat sich angemeldet und ist einer WG beigetreten. Keiner bearbeitet gerade dieselbe Frozen Note. Das Internet ist verfügbar. \\
+		\textbf{Ausgangsbedingung}: Der Benutzer bestätigt das Bearbeiten. \\
+		\textbf{Ereignisfluss}: Frozen Note wird bearbeitet
+		
+		\section{Frozen/Cool Notes ansehen}
+		\textbf{Teilnehmende Akteure}: Benutzer \\
+		\textbf{Eingangsbedingungen}: Der Benutzer hat sich angemeldet und ist einer WG beigetreten. Die Pinnwand ist nicht leer. Das Internet ist verfügbar. \\
+		\textbf{Ausgangsbedingung}: Eine Frozen/Cool Note wird angezeigt. \\
+		\textbf{Ereignisfluss}: Frozen/Cool Note wird geöffnet $\rightarrow$ Frozen/Cool Note wird angesehen
+		
+		\section{WG-Mitgelieder ansehen}
+		\textbf{Teilnehmende Akteure}: Benutzer \\
+		\textbf{Eingangsbedingungen}: Der Benutzer hat sich angemeldet und ist einer WG beigetreten. Das Internet ist verfügbar. \\
+		\textbf{Ausgangsbedingung}: Die WG-Mitgelieder werden angezeigt. \\
+		\textbf{Ereignisfluss}: WG-Mitgelieder-View wird geöffnet $\rightarrow$ WG-Mitgelieder werden angesehen
+		
+		\section{Push-Benachrichtigung erhalten}
+		\textbf{Teilnehmende Akteure}: Benutzer \\
+		\textbf{Eingangsbedingungen}: Der Benutzer hat sich angemeldet und ist einer WG beigetreten. Der Benutzer hat "Push-Benachrichtigung" von Fridget aktiviert. Das Internet ist verfügbar. \\
+		\textbf{Ausgangsbedingung}: Die Push-Benachrichtigung wird auf den Geräten des Benutzers angezeigt. \\
+		\textbf{Ereignisfluss}: Neue Cool Note wird erstellt $\rightarrow$ Push-Benachrichtigung wird erhalten
+		
+		\section{WG verlassen}
+		\textbf{Teilnehmende Akteure}: Benutzer \\
+		\textbf{Eingangsbedingungen}: Der Benutzer hat sich angemeldet und ist einer WG beigetreten. Das Internet ist verfügbar. \\
+		\textbf{Ausgangsbedingung}: Der Benutzer bestätigt das Verlassen der WG. \\
+		\textbf{Ereignisfluss}: WG wird verlassen
+\end{document}
