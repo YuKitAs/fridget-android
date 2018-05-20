@@ -23,4 +23,5 @@ documentation/remove-temp-files.sh
 *.fdb_latexmk
 *.fls
 *.pyg
+*.dvi
 *.pdf
