@@ -145,11 +145,86 @@
     		\end{tabular}
     	\end{table}
     	
-    	
+    	\vspace{1cm}    	
 
-        \section{Wunschkriterien}
-
-        \section{Abgrenzungskriterien}
+        \section{Wunschkriterien - KW}
+		\begin{table}[h!]
+			\centering
+			\label{my-label}
+			\begin{tabular}{p{2cm}p{12cm}}
+				
+				\multicolumn{2}{c}{\textbf{1 - Taggen}} \\ \hline
+				\centering{[}KW1010{]} & Benutzer können in ihrer Cool Note einen oder mehrere Mitglieder taggen.\\
+				\centering{[}KW1020{]}& Nur die getaggten Mitglieder bekommen eine Push-Benachrichtigung.                               \\
+				\hline
+			\end{tabular}
+		\end{table}
+		
+		\vspace{5mm}
+		
+		\begin{table}[h!]
+			\centering
+			\label{my-label}
+			\begin{tabular}{p{2cm}p{12cm}}
+				
+				\multicolumn{2}{c}{\textbf{2 - Interaktion mit der Pinnwand}} \\ \hline
+				\centering{[}KW2010{]} & Beim Erstellen der Cool Notes kann deren Wichtigkeit durch das Auswählen der Zettelfarbe festgelegt und angezeigt werden.\\
+				\centering{[}KW2020{]}& Der Benutzer kann eine Cool Note mit einer Beschreibung und Bildinhalt erstellen und löschen.                              \\
+				\centering{[}KW2030{]}& Benutzer können unter Cool Notes Kommentare schreiben.\\ 
+				\centering{[}KW2040{]}& Der Benutzer kann eine Cool Note archivieren.\\ 
+				\hline
+			\end{tabular}
+		\end{table}
+		
+		\vspace{5mm}
+		
+		\begin{table}[h!]
+			\centering
+			\label{my-label}
+			\begin{tabular}{p{2cm}p{12cm}}
+				
+				\multicolumn{2}{c}{\textbf{3 - App-Menü}} \\ \hline
+				\centering{[}KW3010{]} & Die App kann auf mehrere Sprachen umgestellt werden.\\
+				\centering{[}KW3020{]} & Der Benutzer kann archivierte Cool Notes aufrufen.\\
+				\hline
+			\end{tabular}
+		\end{table}
+		
+		\vspace{5mm}
+		
+		\begin{table}[h!]
+			\centering
+			\label{my-label}
+			\begin{tabular}{p{2cm}p{12cm}}
+				
+				\multicolumn{2}{c}{\textbf{4 - Hilfe-Button}} \\ \hline
+				\centering{[}KM4010{]} & Beim Drücken des Buttons erscheint ein Tutorial-Overlay.\\
+				
+				
+				\hline
+			\end{tabular}
+		\end{table}
+	
+		\vspace{1cm}
+		
+        \section{Abgrenzungskriterien - KA}
+        
+        \begin{table}[h!]
+        	\centering
+        	\label{my-label}
+        	\begin{tabular}{p{2cm}p{12cm}}
+        		
+        		\multicolumn{2}{c}{\textbf{1.3}} \\ \hline
+        		\centering{[}KA1010{]} & Die App kann nicht im Querformat benutzt werden.\\
+        		\centering{[}KA1020{]}& Keine Browserapp ist geplant.                                 \\
+        		\centering{[}KA1030{]}& Man kann nur Mitglieder einer WG sein.\\ 
+        		\centering{[}KA1040{]}& Eine WG kann nicht mehr als 15 Mitglieder haben..\\ 
+        		\centering{[}KA1050{]}& Cool Notes können nicht bearbeitet werden.\\ 
+        		\centering{[}KA1060{]}& Es können nicht mehr als neun Cool Notes pro Pinnwand erstellt werden.\\ 
+        		\centering{[}KA1070{]}& Jedes Mitglied kann nur ein Kommentar pro Note schreiben.\\ 
+        		\hline
+        	\end{tabular}
+        \end{table}
 
     \chapter{Produkteinsatz}
         \section{Anwendungsbereiche}
@@ -347,6 +422,7 @@
         		\\
         		Elemente:
         		\begin{itemize}
+        		\renewcommand\labelitemi{--}
         		\item Button zum Erstellen der WG
         		\item Button zum Eingeben des Zugangscodes
         		\end{itemize}
@@ -363,17 +439,18 @@
         \end{figure}
     
     	\begin{figure}[h!]
-    		\begin{minipage}[b]{0.4\linewidth}
+    		\begin{minipage}[t]{0.4\linewidth}
     			\flushright
     			\centering
-    			\raisebox{-0.5\height}{\includegraphics[width=0.7\textwidth]{fridget_nameenter.JPG}} 
+    			\vspace{9mm}
+    			\includegraphics[width=0.7\textwidth]{fridget_nameenter.JPG}
     			\caption{default}
     			\label{fig:figure1}
     		\end{minipage}
     		\hspace{0.5cm}
-    		\begin{minipage}[b]{0.55\linewidth}
+    		\begin{minipage}[t]{0.55\linewidth}
     			\flushleft
-    			
+    			\vspace{9mm}
     			{[}S02{]} Namensgebung
     			
     			Beschreibung: \\
@@ -381,6 +458,7 @@
     			\\
     			Elemente:
     			\begin{itemize}
+    				\renewcommand\labelitemi{--}
     				\item Textfeld zum Eingeben des Namens
     				\item Button zum endgültigen Erstellen der WG
     				
