@@ -1,26 +1,41 @@
-\documentclass[a4paper]{scrreprt}
-\usepackage[german]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{ae}
-
-\begin{document}
-    \chapter{Produktdaten}
-        \section{WG- und Notizendaten}
-        \begin{itemize}
-        \item Beim Erstellen einer WG werden der WG-Name und ihr zugehöriger Zugangscode gespeichert.
-		\item Beim Beitreten einer WG wird der Benutzer und die zugeteilte Magnetfarbe in dieser WG gespeichert.
-		\item Beim Erstellen einer Cool Note werden das Erstelldatum, der Benutzer, der die Notiz erstellt hat, die Überschrift und der Textinhalt bis zum Löschen der Notiz gespeichert.
-		\item Beim Bearbeiten einer Frozen Note werden die geänderte Überschrift und der Textinhalt gespeichert.
-        \end{itemize}
-       
-		\section{Verlaufsdaten}
-		\begin{itemize}
-		\item Beim Markieren der Checkbox in der Großansicht einer Cool Note wird der Benutzer, der die Notiz markiert hat, in dieser Notiz bis zum Löschen der Notiz gespeichert.
-		\end{itemize}
+\begin{flushleft}
+    	\begin{table}[h!]
+    		\centering
+    		\label{my-label}
+    		\begin{tabular}{p{2cm}p{12cm}}
+    			
+    			\multicolumn{2}{c}{\textbf{1 - WG- und Notizendaten}} \\ \hline
+    			\centering{[}PD1010{]} & Beim Erstellen einer WG werden der WG-Name und ihr zugehöriger Zugangscode gespeichert.\\
+    			\centering{[}PD1020{]}& Beim Beitreten einer WG wird der Benutzer und die zugeteilte Magnetfarbe in dieser WG gespeichert.\\
+    			\centering{[}PD1030{]}& Beim Erstellen einer Cool Note werden das Erstelldatum, der Benutzer, der die Notiz erstellt hat, die Überschrift und der Textinhalt bis zum Löschen der Notiz gespeichert.\\ 
+    			\centering{[}PD1040{]}& Beim Bearbeiten einer Frozen Note werden die geänderte Überschrift und der Textinhalt gespeichert.\\
+    			\hline
+    		\end{tabular}
+    	\end{table}
+    
+        \vspace{5mm}
         
-        \section{Anmeldedaten}
-        \begin{itemize}
-        \item Beim ersten Anmelden werden die Profildaten (Benutzername, Email-Adresse, Passwort) und die Geräte-ID des Benutzers gespeichert.
-        \end{itemize}
-\end{document}
+    	\begin{table}[h!]
+    		\centering
+    		\label{my-label}
+    		\begin{tabular}{p{2cm}p{12cm}}
+    			
+    			\multicolumn{2}{c}{\textbf{2 - Verlaufdaten}} \\ \hline
+    			\centering{[}PD2010{]} & Beim Markieren der Checkbox in der Großansicht einer Cool Note wird der Benutzer, der die Notiz markiert hat, in dieser Notiz bis zum Löschen der Notiz gespeichert. \\ 
+    			\hline
+    		\end{tabular}
+    	\end{table}
+    	
+    	\vspace{5mm}
+    	
+    	\begin{table}[h!]
+    		\centering
+    		\label{my-label}
+    		\begin{tabular}{p{2cm}p{12cm}}
+    			
+    			\multicolumn{2}{c}{\textbf{3 - Anmeldedaten}} \\ \hline
+    			\centering{[}PD3010{]} & Beim ersten Anmelden werden die Profildaten (Benutzername, Email-Adresse, Passwort) und die Geräte-ID des Benutzers gespeichert.\\ 
+    			\hline
+    		\end{tabular}
+    	\end{table}
+\end{flushleft}
