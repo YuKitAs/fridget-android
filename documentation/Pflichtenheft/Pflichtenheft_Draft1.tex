@@ -6,10 +6,12 @@
 \usepackage{ae}
 \usepackage[bookmarks,bookmarksnumbered]{hyperref}
 \usepackage{graphicx}
+\usepackage{parskip}
 \usepackage[toc]{glossaries}
 \usepackage{tocbasic}
 \usepackage{booktabs}
 \usepackage{float}
+\usepackage{wrapfig}
 \graphicspath{ {images/} }
 \setcounter{secnumdepth}{5}
 \makeglossaries
@@ -56,7 +58,7 @@
     \chapter{Zielbestimmung}
     
     	\section{Einleitung}
-    	Im Rahmen des Softwareprojekts PSE entwickelte unser Team die Applikation Fridget. Der Name setzt sich aus den englischen Begriffen für Kühlschrank “fridge” und Apparat “gadget” zusammen. Die App ermöglicht es Wohn- und Lebensgemeinschaften, eine Online-Pinnwand zu erstellen und diese mit zahlreichen Notizzetteln zu füllen. Anstelle einer langweiligen Kork-Pinnwand-Ansicht bietet sie, wie der Name schon andeutet, eine moderne Kühlschrank-Ansicht im Retro-Design.
+    	Im Rahmen des Softwareprojekts PSE entwickelte unser Team die Applikation Fridget. Der Name setzt sich aus den englischen Begriffen für Kühlschrank ``fridge” und Apparat ``gadget” zusammen. Die App ermöglicht es Wohn- und Lebensgemeinschaften, eine Online-Pinnwand zu erstellen und diese mit zahlreichen Notizzetteln zu füllen. Anstelle einer langweiligen Kork-Pinnwand-Ansicht bietet sie, wie der Name schon andeutet, eine moderne Kühlschrank-Ansicht im Retro-Design.
     	Unser Ziel ist es, für Studenten das WG-Leben einfacher zu gestalten und ihnen die Möglichkeit zu geben, alle wichtigen WG-Informationen an einem Ort festhalten zu können.
     	
     	\newpage
@@ -155,6 +157,8 @@
     	\end{table}
     	
     	\vspace{1cm}    	
+    	
+    	\clearpage
 
         \section{Wunschkriterien - KW}
 		\begin{table}[h!]
@@ -215,6 +219,7 @@
 		\end{table}
 	
 		\vspace{1cm}
+		\clearpage
 		
         \section{Abgrenzungskriterien - KA}
         
@@ -236,6 +241,7 @@
         \end{table}
 
     \chapter{Produkteinsatz}
+    
         \input{Produkteinsatz.tex}
 
     \chapter{Produktfunktionen}
@@ -284,7 +290,7 @@
     			\begin{tabular}{p{2cm}p{12cm}}
     				
     				\multicolumn{2}{c}{\textbf{3 - App-Menü}} \\ \hline
-    				\centering{[}FG3010{]} & Verlassen der WG\\
+    				\centering{[}FG3010{]} & Verlassen der WG und Löschen aller vorhandenen \textit{Cool Notes} der Verlassenden\\
     				\centering{[}FG3020{]} & Anzeigen und Scrollen von Mitgliederliste \\
     				\centering{[}FG3030{]} & Automatisches Aktualisieren der Mitgliederliste\\
     				\hline
@@ -300,7 +306,7 @@
     				
     				\multicolumn{2}{c}{\textbf{4 - Lesebestätigung}} \\ \hline
     				\centering{[}FG4010{]} & Anzeigen der Leser einer \textit{Cool Note}\\
-    				\centering{[}FG4020{]}& Darstellen einer “I have seen this”-Checkbox                               \\
+    				\centering{[}FG4020{]}& Darstellen einer ``I have seen this”-Checkbox                               \\
     				\centering{[}FG4030{]}& Speichern der Checkbox-Markierung \\ 
     				
     				\hline
@@ -323,6 +329,7 @@
     		\end{table}
     		
     		\vspace{1cm}
+    		\clearpage
     		
     		\section{Optionale Funktionen - FO}
     		
@@ -332,8 +339,8 @@
     			\begin{tabular}{p{2cm}p{12cm}}
     				
     				\multicolumn{2}{c}{\textbf{1 - Taggen}} \\ \hline
-    				\centering{[}FO1010{]} & Taggen von anderen Mitgliedern mit “@”-Zeichen im Content-Feld\\
-    				\centering{[}FO1020{]}& Anzeigen von Namensvorschlägen bei der Eingabe von “@”                               \\
+    				\centering{[}FO1010{]} & Taggen von anderen Mitgliedern mit ``@”-Zeichen im Content-Feld\\
+    				\centering{[}FO1020{]}& Anzeigen von Namensvorschlägen bei der Eingabe von ``@”                               \\
     				\hline
     			\end{tabular}
     		\end{table}
@@ -377,8 +384,8 @@
     			\label{my-label}
     			\begin{tabular}{p{2cm}p{12cm}}
     				
-    				\multicolumn{2}{c}{\textbf{4 - Hilfe-Button / "Tutorial"}} \\ \hline
-    				\centering{[}F4010{]} & Ansehen des Tutorial-Overlays\\    				
+    				\multicolumn{2}{c}{\textbf{4 - Hilfe-Button / ``Tutorial"}} \\ \hline
+    				\centering{[}FO4010{]} & Ansehen des Tutorial-Overlays\\    				
     				\hline
     			\end{tabular}
     		\end{table}
@@ -504,7 +511,7 @@
         
         \subsection{Was mache ich mit meinem Kuchen?}
         Max Mustermann wohnt seit 2016 in einer WG. Am Wochenende hatte er Geburtstag und hat von zu Hause Kuchen mitgebracht. In einer großen Dose sind Stücke von seinem Lieblings-Schokokuchen und auch Zitronenkuchen. Er will die Dose nicht in das Gemeinschaftsfach im Kühlschrank legen, da er für sich und seine Freundin den Schokokuchen behalten möchte, aber er möchte nicht noch mal zwei Dosen beschmutzen, um die zwei Sorten zu teilen.\\
-        Dann erinnert er sich daran, dass, als er mit seinen Kumpels die WG gegründet hat, einer seiner Mitbewohner die WG mit Fridget bekanntgemacht hat. Er kann jetzt in der App eine neue  erstellen, mit der Überschrift „Kuchen!“, in der er allen seinen Mitbewohnern mitteilen kann, dass es Kuchen zum Essen gibt, aber spezifizieren kann, was gegessen und was übrig bleiben soll. Er kann außerdem durch die Lesebestätigungen sehen, dass alle seine Mitbewohner die Notiz gelesen haben.
+        Dann erinnert er sich daran, dass, als er mit seinen Kumpels die WG gegründet hat, einer seiner Mitbewohner die WG mit Fridget bekanntgemacht hat. Er kann jetzt in der App eine neue  erstellen, mit der Überschrift ``Kuchen!“, in der er allen seinen Mitbewohnern mitteilen kann, dass es Kuchen zum Essen gibt, aber spezifizieren kann, was gegessen und was übrig bleiben soll. Er kann außerdem durch die Lesebestätigungen sehen, dass alle seine Mitbewohner die Notiz gelesen haben.
         \\
         
         \subsection{Medizinischer Notfall}
@@ -529,13 +536,13 @@
         		\flushright
         		\centering
         		\includegraphics[width=0.7\textwidth]{fridget_start.JPG}
-        		\caption{default}
+        		\caption{Startbildschirm}
         		\label{fig:figure1}
         	\end{minipage}
         	\hspace{0.5cm}
         	\begin{minipage}[b]{0.55\linewidth}
         		\flushleft
-        		{[}S01{]} Startbildschirm 
+        		{[}S01{]} Startbildschirm \\
         		
         		Beschreibung: \\
         		Startbildschirm der App. Dieser erscheint nachdem man sich mit dem Google-Account angemeldet hat. Man hat die Wahl zwischen WG erstellen und Zugangscode eingeben, um einer bereits vorhandenen WG beizutreten.
@@ -564,14 +571,14 @@
     			\centering
     			\vspace{9mm}
     			\includegraphics[width=0.7\textwidth]{fridget_nameenter.JPG}
-    			\caption{default}
+    			\caption{Namensgebung}
     			\label{fig:figure1}
     		\end{minipage}
     		\hspace{0.5cm}
     		\begin{minipage}[t]{0.55\linewidth}
     			\flushleft
     			\vspace{9mm}
-    			{[}S02{]} Namensgebung
+    			{[}S02{]} Namensgebung\\
     			
     			Beschreibung: \\
     			View zur Namesgebung einer WG.
@@ -586,7 +593,7 @@
     			
     			Verwendung:\\
     			Durch das Tippen auf das Textfeld kann man
-    			den Namen der WG eingeben.
+    			den Namen der WG eingeben. \\
     			Durch das Tippen auf den Button wird ein 
     			zufälliger aber einzigartiger Zugangscode 
     			generiert und ausgegeben {[}S03{]}.
@@ -595,10 +602,177 @@
     			
     		\end{minipage}
     	\end{figure}
+    
+    	\clearpage
+    	
+    	\begin{figure}[h]
+    		\begin{minipage}[b]{0.4\linewidth}
+    			
+    			\flushright
+    			\centering
+    			\includegraphics[width=0.7\textwidth]{fridget_accesscode.JPG}
+    			\caption{Zugangscode bekommen}
+    			\label{fig:figure1}
+    		\end{minipage}
+    		\hspace{0.5cm}
+    		\begin{minipage}[b]{0.55\linewidth}
+    			\flushleft
+    			{[}S03{]} Zugangscode bekommen \\
+    			
+    			Beschreibung: \\
+    			View zum Erhalten des Zugangscodes.
+    			\\
+    			Elemente:
+    			\begin{itemize}
+    				\renewcommand\labelitemi{--}
+    				\item Textfeld für die Ausgabe des Zugangscodes
+    				\item Button zum Gelangen zur WG-Pinnwand
+    				
+    			\end{itemize}
+    			
+    			Verwendung:\\
+    			Durch das Tippen auf den Button gelangt man
+    			zur erstellten WG-Pinnwand. {[}S05{]}.
+    			
+    			\vspace{20mm}
+    			
+    		\end{minipage}
+    	\end{figure}
+    	
+    	\begin{figure}[h!]
+    		\begin{minipage}[t]{0.4\linewidth}
+    			\flushright
+    			\centering
+    			\vspace{9mm}
+    			\includegraphics[width=0.7\textwidth]{fridget_accesscodeenter.JPG}
+    			\caption{Zugangscode eingeben}
+    			\label{fig:figure1}
+    		\end{minipage}
+    		\hspace{0.5cm}
+    		\begin{minipage}[t]{0.55\linewidth}
+    			\flushleft
+    			\vspace{9mm}
+    			{[}S04{]} Zugangscode eingeben \\
+    			
+    			Beschreibung: \\
+    			View zum Eingeben des Zugangscodes.
+    			\\
+    			Elemente:
+    			\begin{itemize}
+    				\renewcommand\labelitemi{--}
+    				\item Textfeld zur Eingabe des Zugangscodes
+    				\item Button zum Gelangen zur WG-Pinnwand
+    				\item Fehlermeldung bei falscher Eingabe
+    			\end{itemize}
+    			
+    			Verwendung:\\
+    			Durch das Tippen auf das Textfeld kann man
+    			den Zugangscode eingeben. Falls dieser falsch 
+    			ist, erscheint die Fehlermeldung in Rot.
+    			\\
+    			Durch das Tippen auf den Button gelangt man
+    			zur erstellten WG-Pinnwand. {[}S05{]}. 
+    			
+    			
+    			
+    		\end{minipage}
+    	\end{figure}
+    
+    	\clearpage
+    	
+    	\hspace{6.3cm}{[}S05{]} WG-Pinnwand \\
+    	
+    	\begin{wrapfigure}{l}{6cm}
+    			\caption{WG-Pinnwand}
+    			\includegraphics{fridget_fridge.JPG}
+    		
+    	\end{wrapfigure}
+    
+    	
+    	
+    	Beschreibung: \\
+    	View der WG-Pinnwand, man sieht die Notes mit Überschrift und Magnet und einige Buttons. \\ Drei Frozen Notes sind von Anfang an enthalten. Frozen Notes haben immer einen schwarzen Magneten.
+    	\\
+    	\newline
+    	Elemente:
+    	\begin{itemize}
+    		\renewcommand\labelitemi{--}
+    		\item  Drei fixed \textit{Frozen Notes}
+    		\item Ein paar \textit{Cool Notes} (Text und Bild)
+    		\item Menü-Button {[}B01{]} für das Menü (links oben)
+    		\item Hilfe-Button {[}B08{]} für das Tutorial (links unten)
+    		\item Plus-Button {[}B04{]} zum Erstellen einer \textit{Cool Note}
+    		(rechts unten)
+    		
+    	\end{itemize}
+    
+    	\hfill
+    	
+    	Verwendung:\\
+    	Durch das Tippen auf eine Frozen oder Cool
+    	Note gelangt man in die Großansicht {[}S06{]}.
+    	\\
+    	Durch das Tippen auf den Menü-Button {[}B01{]} 
+    	öffnet sich das Menü {[}S07{]}.\\
+    	Durch das Tippen auf den Hilfe-Button  {[}B08{]} erscheint
+    	ein Tutorial-Overlay {[}S16{]} auf der Pinnwand.	\\
+    	Durch das Tippen auf den  Plus-Button [B04]  erscheint 
+    	ein Pop-Up zur Entscheidung {[}S08{]}, welche Art von Cool Note man erstellen möchte (Text oder
+    	Bild).\\
+    	Durch Hinunterswipen kann man manuell aktualisieren.
+    	
+    	\clearpage
+    	
+    	{[}S06{]} Großansicht einer Textnotiz \\
+    	
+    	\begin{wrapfigure}{}{6cm}
+    		
+    		\caption{Großansicht einer Textnotiz}
+    		\includegraphics{fridget_notebig.JPG}
+    	
+    	\end{wrapfigure}
+    	
+    	
+    	
+    	Beschreibung: \\
+    	Großansicht einer Note mit zugehörigen Magnet  (bei einer \textit{Frozen Note} wäre dieser schwarz), Erstelldatum, Tags, Titel, Inhalt, Lesebestätigungen und Kommentaren. Der @All-Tag ist immer da, wenn keine Tags spezifiziert werden. Man sieht außerdem wieder einige Buttons, der Edit-Button {[}B05{]} ist nur bei \textit{Frozen Notes} sichtbar. Der Minus-Button {[}B03{]}  und Kommentar-Button {[}B06{]} ist nur bei seinen eigenen \textit{Cool Notes} sichtbar. Die Anzeige der Tags und die Lesebestätigungen sind auch nur bei \textit{Cool Notes} sichtbar. Bei diesem View kann man scrollen.
+    	
+    	
+    	\hfill
+    	Elemente:
+    	\begin{itemize}
+    		\renewcommand\labelitemi{--}
+    		\item  Menü-Button {[}B01{]} für das Menü ({[}S07{]}).
+    		\item Zurück-Button {[}B02{]} zum Gelangen zur
+    		WG-Pinnwand-Ansicht {[}S05{]}.
+    		\item Kommentar-Button {[}B06{]} zum Erstellen eines
+    		Kommentars.
+    		\item Minus-Button {[}B03{]} zum Löschen der Note.
+    		\item Edit-Button {[}B05{]} zum Editieren der Note.
+    		\item Checkbox zum Abhaken, ob man die Note gelesen hat oder nicht.
+    		
+    	\end{itemize}
+    	
+    	\hfill
+    	
+    	Verwendung:\\
+    	Man kann den Inhalt der Note lesen und durch
+    	das Tippen des Kommentar-Buttons {[}B06{]}
+    	kommentieren. \\
+    	Durch das Tippen auf den 
+    	Minus-Button {[}B03{]} erscheint ein Pop-Up, das abfragt, ob man die Note wirklich löschen möchte {[}S08{]}.\\
+    	Durch das Tippen des Edit-Buttons {[}B05{]} erscheint
+    	dasselbe View wie beim Erstellen einer Note {[}S10{]}, nur ohne die Auswahl der Wichtigkeit.\\ Durch Antippen der Checkbox kann man für sich Markieren, ob man die Note gesehen hat oder nicht.\\
+    	 Durch Hinunterswipen kann man die Note aktualisieren.
+    	
+    	\clearpage
+    	
+    	
 
     \chapter{Testfälle}
     
     	\section{Basistestfälle - TB}    
+    	
 	    \begin{table}[h!]
 	    	\centering
 	    	\label{my-label}
@@ -659,7 +833,7 @@
 	    		
 	    		\multicolumn{2}{c}{\textbf{4 - Lesebestätigung}} \\ \hline
 	    		\centering{[}TB4010{]} & Auf die \textit{Cool Note} zugreifen nachdem alle Mitglieder sie  gelesen haben {[}FG4010{]}\\
-	    		\centering{[}TB4030{]}& ``I have seen this``-Checkbox markieren {[}FG4030{]}\\ 
+	    		\centering{[}TB4030{]}& ``I have seen this"-Checkbox markieren {[}FG4030{]}\\ 
 	    		
 	    		\hline
 	    	\end{tabular}
@@ -690,7 +864,7 @@
 	    	\begin{tabular}{p{2cm}p{12cm}}
 	    		
 	    		\multicolumn{2}{c}{\textbf{1 - Taggen}} \\ \hline
-	    		\centering{[}TE1010{]} & Mitglieder mit “@”-Zeichen taggen {[}FO1010{]}{[}FO1020{]}{[}KW1020{]}\\
+	    		\centering{[}TE1010{]} & Mitglieder mit ``@”-Zeichen taggen {[}FO1010{]}{[}FO1020{]}{[}KW1020{]}\\
 	    		\hline
 	    	\end{tabular}
 	    \end{table}
@@ -707,8 +881,8 @@
 	    		\centering{[}TE2020{]}& Eine \textit{Cool Note}  mit Bildinhalt und Beschreibung erstellen {[}FO2020{]}                             \\
 	    		\centering{[}TE2030{]}& Eine \textit{Cool Note} mit Bildinhalt und Beschreibung löschen {[}FO2030{]}\\ 
 	    		\centering{[}TE2040{]}& Eine \textit{Cool Note} kommentieren {[}F02040{]}  \\ 
-	    		\centering{[}TE2050{]}& Eine \textit{Cool Note} archivieren\\ 
-	    		\centering{[}TE2060{]}& Durch die Kommentare scrollen\\ 
+	    		\centering{[}TE2050{]}& Eine \textit{Cool Note} archivieren {[}F02050{]}\\ 
+	    		\centering{[}TE2060{]}& Durch die Kommentare scrollen {[}F02060{]}\\ 
 	    		\hline
 	    	\end{tabular}
 	    \end{table}
@@ -734,7 +908,7 @@
 	    	\label{my-label}
 	    	\begin{tabular}{p{2cm}p{12cm}}
 	    		
-	    		\multicolumn{2}{c}{\textbf{4 - Hilfe-Button / "Tutorial"}} \\ \hline
+	    		\multicolumn{2}{c}{\textbf{4 - Hilfe-Button / ``Tutorial"}} \\ \hline
 	    		\centering{[}TE4010{]} & Das Tutorial-Overlay ansehen {[}FO4010{]}\\    				
 	    		\hline
 	    	\end{tabular}
@@ -745,8 +919,115 @@
 	    \clearpage
 	    
 	  	\section{Testszenarien}
+	  	
+	  	\begin{table}[h!]
+	  		\centering
+	  		\label{my-label}
+	  		\begin{tabular}{p{2cm}p{12cm}}
+	  			
+	  			\multicolumn{2}{c}{\textbf{{[}TS01{]} - Erste Benutzung der App}} \\ \hline
+	  			\multicolumn{2}{p\linewidth}{Die Bewohner einer WG entscheidet sich die App zu benutzen. Einer von ihnen registriert ihre WG und gibt den Zugangscode den anderen weiter. Sie registrieren sich alle mit ihrem Google-Account und gelangen zu ihrer WG-Pinnwand, wo sie zunächst sich das Tutorial anschauen.} 
+	  			\vspace{7mm}\\
+	  			\centering{[}TB1010{]} & Mit Google-Account registrieren\\
+	  			\centering{[}TB1020{]}& Neue WG-Pinnwand erstellen    \\
+	  			\centering{[}TB1030{]} & Der neuerstellten WG-Pinnwand einen Namen geben \\ 
+	  			\centering{[}TB1040{]}& Zugangscode generieren \\ 
+	  			\centering{[}TB1050{]}& Anmelden mit Zugangscode\\ 
+	  			\centering{[}TB2070{]}& 15 Mitglieder hinzufügen\\ 
+	  			\centering{[}TE4010{]} & Das Tutorial-Overlay ansehen \\
+	  			\hline
+	  		\end{tabular}
+	  	\end{table}
+  		
+  		\vspace{1cm}
+  		
+  		\begin{table}[h!]
+  			\centering
+  			\label{my-label}
+  			\begin{tabular}{p{2cm}p{12cm}}
+  				
+  				\multicolumn{2}{c}{\textbf{{[}TS02{]} - Erstellung einer \textit{Cool Note}}} \\ \hline
+  				\multicolumn{2}{p{\linewidth}}{Ein Mitglied erstellt eine \textit{Cool Note} mit einer Frage, welches er direkt an einem seiner Mitbewohner richten möchte. Er taggt diesen. Kurz darauf merkt er, dass er die Frage doch an alle richten möchte. Er löscht die \textit{Cool Note}, archiviert diesen und erstellt eine neue \textit{Cool Note}. Da für ihm die Notiz sehr dringend ist, achtet er darauf, wer die Note schon alles gelesen hat und sie kommentiert hat. Die anderen Mitglieder erhalten eine Push-Benachrichtigung und öffnen die \textit{Cool Note} sofort.} 
+  				\vspace{7mm}\\
+  				
+  				\centering{[}TB2010{]} & \textit{Cool Note} erstellen und eine Überschrift geben \\
+  				\centering{[}TB2020{]} & \textit{Cool Note} erstellen und im Text-Feld schreiben \\
+  				\centering{[}TB2030{]} & Textinhalte unterstreichen, kursiv-schreiben oder fett-drucken\\
+  				\centering{[}TB2040{]} & Eine \textit{Frozen-} oder \textit{Cool Note} antippen \\ 
+  				\centering{[}TB2050{]} & Eine \textit{Cool Note} mit Textinhalt und Überschrift löschen \\ 
+  				\centering{[}TB4010{]} & Auf die \textit{Cool Note} zugreifen nachdem alle Mitglieder sie  gelesen haben \\
+  				\centering{[}TB5010{]} & Push-Benachrichtigung antippen \\
+  				\centering{[}TE1010{]} & Mitglieder mit ``@”-Zeichen taggen\\
+  				\centering{[}TE2010{]} & Zettelfarbe festlegen \\
+  				\centering{[}TE2040{]}& Eine \textit{Cool Note} kommentieren   \\ 
+  				\centering{[}TE2050{]}& Eine \textit{Cool Note} archivieren\\ 
+  				\centering{[}TE2060{]}& Durch die Kommentare scrollen\\ 
+  				
+  				\hline
+  			\end{tabular}
+  		\end{table}
+  	
+	  	\begin{table}[h!]
+	  		\centering
+	  		\label{my-label}
+	  		\begin{tabular}{p{2cm}p{12cm}}
+	  			
+	  			\multicolumn{2}{c}{\textbf{{[}TS03{]} - Bearbeitung einer \textit{Frozen Note}}} \\ \hline
+	  			\multicolumn{2}{p\linewidth}{Ein WG-Mitglied tippt auf eine leere \textit{Frozen Note} und sieht die Großansicht. Es möchte sie bearbeiten und tippt auf den Edit-Button. Dadurch öffnet sich die Edit-Ansicht. Es kann nun der \textit{Frozen Note} eine Überschrift geben und den Inhalt schreiben. Durch das Antippen des ``Post it!”-Buttons, werden die Änderungen gespeichert und das Mitglied sieht seine editierte \textit{Frozen Note} in der Großansicht.}
+	  			\vspace{7mm} \\
+	  			\centering{[}TB2040{]} & Eine \textit{Frozen Note} antippen\\
+	  			\centering{[}TB2060{]}& \textit{Frozen Note} bearbeiten    \\
+	  			\hline
+	  		\end{tabular}
+	  	\end{table}
+  	
+  		\begin{table}[h!]
+  			\centering
+  			\label{my-label}
+  			\begin{tabular}{p{2cm}p{12cm}}
+  				
+  				\multicolumn{2}{c}{\textbf{{[}TS04{]} - Verlassen der WG}} \\ \hline
+  				\multicolumn{2}{p\linewidth}{WG-Mitglied A möchte die WG verlassen und tippt auf den Menüpunkt ``Leave flatshare”. WG-Mitglied B aktualisiert die Pinnwand manuell und sieht nun, dass alle \textit{Cool Notes} des Verlassenden gelöscht wurden. Danach öffnet WG-Mitglied B das Menü und sieht unter dem Menüpunkt ``Members”, dass die Mitgliederliste aktualisiert wurde und der Name von Mitglied A sowie der zugehörige Magnet entfernt wurden.}
+  				\vspace{7mm} \\
+  				\centering{[}TB3010{]} & Die WG verlassen\\
+  				\centering{[}TB3020{]}& Auf die Mitgliederliste zugreifen  \\
+  				\hline
+  			\end{tabular}
+  		\end{table}
+	  	
     
     \chapter{Entwicklungsumgebung}
+    
+    \begin{table}[h!]
+    	\centering
+    	\label{my-label}
+    	\begin{tabular}{p{5.5cm}p{8.5cm}}
+    		
+    		\multicolumn{2}{c}{\textbf{1 - Software}} \\ \hline
+    		Entwicklungsumgebung & Android Studio 3.1.2\\
+    		Graphische Oberfläche& Evolus Pencil                               \\
+    		Versionierung & GitHub \\
+    		Dokumentation & TeXstudio \newline Microsoft Powerpoint \newline Microsoft Word \\
+    		\hline
+    	\end{tabular}
+    \end{table}
+    
+    \vspace{5mm}
+    
+    \begin{table}[h!]
+    	\centering
+    	\label{my-label}
+    	\begin{tabular}{p{5.5cm}p{8.5cm}}
+    		
+    		\multicolumn{2}{c}{\textbf{2 - Hardware}} \\ \hline
+    		Lenovo G570 & Intel Core i5 2410M / 2.3 GHz \newline 8GB DDR3 SDRAM \newline 64-bit Ubuntu 16.04\\
+    		Toshiba Satellite \newline L50-B-2H8 & Intel Core i5 5200U / 2.2 GHz \newline 8GB DDR3L RAM \newline 64-bit Windows 10                              \\
+    		MacBook Pro & Intel Core i5 5257U / 2.7 GHz \newline 8GB DDR3 SDRAM \newline macOS High Sierra 10.13.3\\ 
+    		Toshiba Satellite \newline L50-C-1K4 & Intel Core i7 5500U / 2.40 GHz \newline 8GB DDR3L RAM \newline 64-bit Windows 10\\ 
+    		Samsung G. Book & Intel Core i5 7200U / 2.5 GHz \newline 8GB LPDDR3-1867 RAM \newline 64-bit Windows 10 Pro \\
+    		\hline
+    	\end{tabular}
+    \end{table}
 
 	\chapter{Glossar}
 	
