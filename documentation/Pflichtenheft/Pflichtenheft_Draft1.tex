@@ -54,6 +54,13 @@
     \tableofcontents
 
     \chapter{Zielbestimmung}
+    
+    	\section{Einleitung}
+    	Im Rahmen des Softwareprojekts PSE entwickelte unser Team die Applikation Fridget. Der Name setzt sich aus den englischen Begriffen für Kühlschrank “fridge” und Apparat “gadget” zusammen. Die App ermöglicht es Wohn- und Lebensgemeinschaften, eine Online-Pinnwand zu erstellen und diese mit zahlreichen Notizzetteln zu füllen. Anstelle einer langweiligen Kork-Pinnwand-Ansicht bietet sie, wie der Name schon andeutet, eine moderne Kühlschrank-Ansicht im Retro-Design.
+    	Unser Ziel ist es, für Studenten das WG-Leben einfacher zu gestalten und ihnen die Möglichkeit zu geben, alle wichtigen WG-Informationen an einem Ort festhalten zu können.
+    	
+    	\newpage
+    
         \section{Musskriterien - KM}
         \begin{table}[h!]
         	\centering
@@ -64,9 +71,9 @@
         		\centering{[}KM1010{]} & Eine Person muss sich in der App mit einem Google Account registrieren.\\
         		\centering{[}KM1020{]}& Ein Benutzer kann sich mit einem Zugangscode bei einer bestehenden WG-Pinnwand anmelden oder eine neue WG-Pinnwand erstellen.                                 \\
         		\centering{[}KM1030{]}& Beim Erstellen einer neuen WG-Pinnwand gibt der Benutzer der neuen WG-Pinnwand einen Namen.\\ 
-        		\centering{[}KM1040{]}& Die Pinnwand ist unterteilt in Frozen Notes und Cool Notes.\\ 
-        		\centering{[}KM1050{]}& Die Frozen Notes sind feste, nicht löschbare, bearbeitbare Notizen und werden beim Erstellen der WG generiert.\\ 
-        		\centering{[}KM1060{]}& Die Cool Notes sind löschbare, nicht bearbeitbare Notizen und werden vom Benutzer erstellt.\\ 
+        		\centering{[}KM1040{]}& Die Pinnwand ist unterteilt in \textit{Frozen Notes} und \textit{Cool Notes}.\\ 
+        		\centering{[}KM1050{]}& Die \textit{Frozen Notes} sind feste, nicht löschbare, bearbeitbare Notizen und werden beim Erstellen der WG generiert.\\ 
+        		\centering{[}KM1060{]}& Die \textit{Cool Notes} sind löschbare, nicht bearbeitbare Notizen und werden vom Benutzer erstellt.\\ 
         		\hline
         	\end{tabular}
         \end{table}
@@ -79,8 +86,8 @@
     		\begin{tabular}{p{2cm}p{12cm}}
     			
     			\multicolumn{2}{c}{\textbf{2 - Interaktion mit der Pinnwand}} \\ \hline
-    			\centering{[}KM2010{]} & Der Benutzer kann eine Cool Note mit einer Überschrift und Textinhalt erstellen und löschen.\\
-    			\centering{[}KM2020{]}& Der Benutzer kann die Frozen Notes bearbeiten.                                 \\
+    			\centering{[}KM2010{]} & Der Benutzer kann eine \textit{Cool Note} mit einer Überschrift und Textinhalt erstellen und löschen.\\
+    			\centering{[}KM2020{]}& Der Benutzer kann die \textit{Frozen Notes} bearbeiten.                                 \\
     			\centering{[}KM2030{]}& Dem Benutzer wird eine Magnetfarbe zugeteilt.\\ 
     			
     			\hline
@@ -125,8 +132,8 @@
     		\begin{tabular}{p{2cm}p{12cm}}
     			
     			\multicolumn{2}{c}{\textbf{5 - Lesebestätigung}} \\ \hline
-    			\centering{[}KM5010{]} & Der Ersteller sieht, wer seine Cool Notes gelesen hat.\\
-    			\centering{[}KM5020{]}& Der Benutzer kann markieren, welche Cool Notes er gelesen hat.                               \\ 
+    			\centering{[}KM5010{]} & Der Ersteller sieht, wer seine \textit{Cool Notes} gelesen hat.\\
+    			\centering{[}KM5020{]}& Der Benutzer kann markieren, welche \textit{Cool Notes} er gelesen hat.                               \\ 
     			
     			\hline
     		\end{tabular}
@@ -139,9 +146,9 @@
     		\label{my-label}
     		\begin{tabular}{p{2cm}p{12cm}}
     			
-    			\multicolumn{2}{c}{\textbf{5 - Push-Benachrichtigung}} \\ \hline
-    			\centering{[}KM5010{]} & Alle Mitglieder bekommen für eine neue Cool Note eine Push-Benachrichtigung.\\
-    			\centering{[}KM5020{]}& Über die Push-Benachrichtigung gelangt der Benutzer direkt zur neuen Cool Note.                               \\
+    			\multicolumn{2}{c}{\textbf{6 - Push-Benachrichtigung}} \\ \hline
+    			\centering{[}KM5010{]} & Alle Mitglieder bekommen für eine neue \textit{Cool Note} eine Push-Benachrichtigung.\\
+    			\centering{[}KM5020{]}& Über die Push-Benachrichtigung gelangt der Benutzer direkt zur neuen \textit{Cool Note}.                               \\
     			
     			\hline
     		\end{tabular}
@@ -156,7 +163,7 @@
 			\begin{tabular}{p{2cm}p{12cm}}
 				
 				\multicolumn{2}{c}{\textbf{1 - Taggen}} \\ \hline
-				\centering{[}KW1010{]} & Benutzer können nur in ihrer Cool Note einen oder mehrere Mitglieder taggen.\\
+				\centering{[}KW1010{]} & Benutzer können nur in ihrer \textit{Cool Note} einen oder mehrere Mitglieder taggen.\\
 				\centering{[}KW1020{]}& Nur die getaggten Mitglieder bekommen eine Push-Benachrichtigung.                               \\
 				\hline
 			\end{tabular}
@@ -170,10 +177,10 @@
 			\begin{tabular}{p{2cm}p{12cm}}
 				
 				\multicolumn{2}{c}{\textbf{2 - Interaktion mit der Pinnwand}} \\ \hline
-				\centering{[}KW2010{]} & Beim Erstellen der Cool Notes kann deren Wichtigkeit durch das Auswählen der Zettelfarbe festgelegt und angezeigt werden.\\
-				\centering{[}KW2020{]}& Der Benutzer kann eine Cool Note mit einer Beschreibung und Bildinhalt erstellen und löschen.                              \\
-				\centering{[}KW2030{]}& Benutzer können unter Cool Notes Kommentare schreiben.\\ 
-				\centering{[}KW2040{]}& Der Benutzer kann eine Cool Note archivieren.\\ 
+				\centering{[}KW2010{]} & Beim Erstellen der \textit{Cool Notes} kann deren Wichtigkeit durch das Auswählen der Zettelfarbe festgelegt und angezeigt werden.\\
+				\centering{[}KW2020{]}& Der Benutzer kann eine \textit{Cool Note} mit einer Beschreibung und Bildinhalt erstellen und löschen.                              \\
+				\centering{[}KW2030{]}& Benutzer können unter \textit{Cool Notes} Kommentare schreiben.\\ 
+				\centering{[}KW2040{]}& Der Benutzer kann eine \textit{Cool Note} archivieren.\\ 
 				\hline
 			\end{tabular}
 		\end{table}
@@ -187,7 +194,7 @@
 				
 				\multicolumn{2}{c}{\textbf{3 - App-Menü}} \\ \hline
 				\centering{[}KW3010{]} & Die App kann auf mehrere Sprachen umgestellt werden.\\
-				\centering{[}KW3020{]} & Der Benutzer kann archivierte Cool Notes aufrufen.\\
+				\centering{[}KW3020{]} & Der Benutzer kann archivierte \textit{Cool Notes} aufrufen.\\
 				\hline
 			\end{tabular}
 		\end{table}
@@ -221,8 +228,8 @@
         		\centering{[}KA1020{]}& Keine Browserapp ist geplant.                                 \\
         		\centering{[}KA1030{]}& Man kann nur Mitglieder einer WG sein.\\ 
         		\centering{[}KA1040{]}& Eine WG kann nicht mehr als 15 Mitglieder haben..\\ 
-        		\centering{[}KA1050{]}& Cool Notes können nicht bearbeitet werden.\\ 
-        		\centering{[}KA1060{]}& Es können nicht mehr als neun Cool Notes pro Pinnwand erstellt werden.\\ 
+        		\centering{[}KA1050{]}& \textit{Cool Notes} können nicht bearbeitet werden.\\ 
+        		\centering{[}KA1060{]}& Es können nicht mehr als neun \textit{Cool Notes} pro Pinnwand erstellt werden.\\ 
         		\centering{[}KA1070{]}& Jedes Mitglied kann nur ein Kommentar pro Note schreiben.\\ 
         		\hline
         	\end{tabular}
@@ -244,7 +251,7 @@
     				\centering{[}FG1020{]}& Erstellen einer neuen WG Pinnwand mit Namen                                 \\
     				\centering{[}FG1030{]}& Generierung eines zufälligen Zugangscode aus Nummern und Buchstaben\\ 
     				\centering{[}FG1040{]}& Anmelden mit Zugangscode\\ 
-    				\centering{[}FG1050{]}& Generieren und Anzeigen von drei Frozen Notes\\ 
+    				\centering{[}FG1050{]}& Generieren und Anzeigen von drei \textit{Frozen Notes}\\ 
     				\hline
     			\end{tabular}
     		\end{table}
@@ -257,12 +264,12 @@
     			\begin{tabular}{p{2cm}p{12cm}}
     				
     				\multicolumn{2}{c}{\textbf{2 - Interaktion mit der Pinnwand}} \\ \hline
-    				\centering{[}FG2010{]} & Erstellen einer Cool Note mit obligatorischer Überschrift und optionalem Textinhalt\\
-    				\centering{[}FG2020{]}& Unterstreichen, Kursiv-Schreiben oder Fett-Drucken von Textinhalten in Cool und Frozen Notes                               \\
-    				\centering{[}FG2030{]}& Zufällige Positionierung der Cool Note mit Überschrift und entsprechender Magnetfarbe auf der Pinnwand\\ 
-    				\centering{[}FG2040{]}& Öffnen einer Frozen oder Cool Note durch Antippen\\ 
-    				\centering{[}FG2050{]}& Löschen einer Cool Note mit Textinhalt und Überschrift\\ 
-    				\centering{[}FG2060{]}& Bearbeitung der Frozen Notes\\ 
+    				\centering{[}FG2010{]} & Erstellen einer \textit{Cool Note} mit obligatorischer Überschrift und optionalem Textinhalt\\
+    				\centering{[}FG2020{]}& Unterstreichen, Kursiv-Schreiben oder Fett-Drucken von Textinhalten in Cool und \textit{Frozen Notes}                               \\
+    				\centering{[}FG2030{]}& Zufällige Positionierung der \textit{Cool Note} mit Überschrift und entsprechender Magnetfarbe auf der Pinnwand\\ 
+    				\centering{[}FG2040{]}& Öffnen einer Frozen oder \textit{Cool Note} durch Antippen\\ 
+    				\centering{[}FG2050{]}& Löschen einer \textit{Cool Note} mit Textinhalt und Überschrift\\ 
+    				\centering{[}FG2060{]}& Bearbeitung der \textit{Frozen Notes}\\ 
     				\centering{[}FG2070{]}& Zuordnung unterschiedlicher Magnetfarben pro Mitglied\\ 
     				\centering{[}FG2080{]}& Manuelle Aktualisierung der Pinnwand durch Hinunterswipen\\ 
     				\hline
@@ -292,7 +299,7 @@
     			\begin{tabular}{p{2cm}p{12cm}}
     				
     				\multicolumn{2}{c}{\textbf{4 - Lesebestätigung}} \\ \hline
-    				\centering{[}FG4010{]} & Anzeigen der Leser einer Cool Note\\
+    				\centering{[}FG4010{]} & Anzeigen der Leser einer \textit{Cool Note}\\
     				\centering{[}FG4020{]}& Darstellen einer “I have seen this”-Checkbox                               \\
     				\centering{[}FG4030{]}& Speichern der Checkbox-Markierung \\ 
     				
@@ -340,11 +347,11 @@
     				
     				\multicolumn{2}{c}{\textbf{2 - Interaktion mit der Pinnwand}} \\ \hline
     				\centering{[}FO2010{]} & Festlegen der Zettelfarben\\
-    				\centering{[}FO2020{]}& Erstellen einer Cool Note mit Bildinhalt und Beschreibung                              \\
-    				\centering{[}FO2030{]}& Löschen einer Cool Note mit Bildinhalt und Beschreibung\\ 
-    				\centering{[}FO2040{]}& Kommentieren der Cool Notes\\ 
-    				\centering{[}FO2050{]}& Archivieren einer Cool Note\\ 
-    				\centering{[}FO2060{]}& Scrollen von den Kommentaren in den Cool Notes\\ 
+    				\centering{[}FO2020{]}& Erstellen einer \textit{Cool Note} mit Bildinhalt und Beschreibung                              \\
+    				\centering{[}FO2030{]}& Löschen einer \textit{Cool Note} mit Bildinhalt und Beschreibung\\ 
+    				\centering{[}FO2040{]}& Kommentieren der \textit{Cool Notes}\\ 
+    				\centering{[}FO2050{]}& Archivieren einer \textit{Cool Note}\\ 
+    				\centering{[}FO2060{]}& Scrollen von den Kommentaren in den \textit{Cool Notes}\\ 
     				\hline
     			\end{tabular}
     		\end{table}
@@ -371,7 +378,7 @@
     			\begin{tabular}{p{2cm}p{12cm}}
     				
     				\multicolumn{2}{c}{\textbf{4 - Hilfe-Button / "Tutorial"}} \\ \hline
-    				\centering{[}F=4010{]} & Ansehen des Tutorial-Overlays\\    				
+    				\centering{[}F4010{]} & Ansehen des Tutorial-Overlays\\    				
     				\hline
     			\end{tabular}
     		\end{table}
@@ -403,7 +410,7 @@
     			\begin{tabular}{p{2cm}p{12cm}}
     				
     				\multicolumn{2}{c}{\textbf{2 - Interaktion mit der Pinnwand}} \\ \hline
-    				\centering{[}FL2010{]} & Pro Pinnwand können drei Frozen Notes und neun Cool Notes dargestellt werden.\\
+    				\centering{[}FL2010{]} & Pro Pinnwand können drei \textit{Frozen Notes} und neun \textit{Cool Notes} dargestellt werden.\\
     				\centering{[}FL2020{]}& Es müssen maximal 15 Teilnehmer verwaltet werden können.                             \\ 
     				\hline
     			\end{tabular}
@@ -473,20 +480,22 @@
     	\end{table}
 
     \chapter{Produktdaten - PD}
+    
 		\input{Produktdaten.tex}
     
     \chapter{Systemmodelle}
+    
         \section{Szenarien}
         
         
         \subsection{Was mache ich mit meinem Kuchen?}
         Max Mustermann wohnt seit 2016 in einer WG. Am Wochenende hatte er Geburtstag und hat von zu Hause Kuchen mitgebracht. In einer großen Dose sind Stücke von seinem Lieblings-Schokokuchen und auch Zitronenkuchen. Er will die Dose nicht in das Gemeinschaftsfach im Kühlschrank legen, da er für sich und seine Freundin den Schokokuchen behalten möchte, aber er möchte nicht noch mal zwei Dosen beschmutzen, um die zwei Sorten zu teilen.\\
-        Dann erinnert er sich daran, dass, als er mit seinen Kumpels die WG gegründet hat, einer seiner Mitbewohner die WG mit Fridget bekanntgemacht hat. Er kann jetzt in der App eine neue Cool Note erstellen, mit der Überschrift „Kuchen!“, in der er allen seinen Mitbewohnern mitteilen kann, dass es Kuchen zum Essen gibt, aber spezifizieren kann, was gegessen und was übrig bleiben soll. Er kann außerdem durch die Lesebestätigungen sehen, dass alle seine Mitbewohner die Notiz gelesen haben.
+        Dann erinnert er sich daran, dass, als er mit seinen Kumpels die WG gegründet hat, einer seiner Mitbewohner die WG mit Fridget bekanntgemacht hat. Er kann jetzt in der App eine neue  erstellen, mit der Überschrift „Kuchen!“, in der er allen seinen Mitbewohnern mitteilen kann, dass es Kuchen zum Essen gibt, aber spezifizieren kann, was gegessen und was übrig bleiben soll. Er kann außerdem durch die Lesebestätigungen sehen, dass alle seine Mitbewohner die Notiz gelesen haben.
         \\
         
         \subsection{Medizinischer Notfall}
         Hannah Schmidt ist schon im vierten Semester ihres Studiums und hat endlich eine WG in Laufdistanz zur Uni gefunden. Sie lernt ihre Mitbewohner einen nach dem anderen kennen und erfährt, dass einer ihrer Mitbewohner eine schwere Allergie hat. Dann fällt ihr ein, wie viele Schwierigkeiten sie hatte, mit den Eltern Kontakt aufzunehmen, als ihre ehemalige Mitbewohnerin einen schweren Unfall hatte.\\
-        Zum Glück gibt es bei Fridget eine Möglichkeit, durch Frozen Notes Notfallkontakte immer zur Hand zu haben. Die Frozen Notes sind fest, nicht löschbar und klar sichtbar in der App. Hannah lädt die App herunter und registriert sich mit ihrem Google Account. Dann kann sie eine WG-Pinnwand mit einem einzigartigen Zugangscode generieren und ihre Mitbewohner können damit auf genau diese WG-Pinnwand zugreifen. Hannah empfiehlt dann jedem ihrer Mitbewohner, seine Notfallkontakte hineinzuschreiben, sodass diese immer verfügbar sind, ohne danach suchen oder fragen zu müssen.
+        Zum Glück gibt es bei Fridget eine Möglichkeit, durch \textit{Frozen Notes} Notfallkontakte immer zur Hand zu haben. Die \textit{Frozen Notes} sind fest, nicht löschbar und klar sichtbar in der App. Hannah lädt die App herunter und registriert sich mit ihrem Google Account. Dann kann sie eine WG-Pinnwand mit einem einzigartigen Zugangscode generieren und ihre Mitbewohner können damit auf genau diese WG-Pinnwand zugreifen. Hannah empfiehlt dann jedem ihrer Mitbewohner, seine Notfallkontakte hineinzuschreiben, sodass diese immer verfügbar sind, ohne danach suchen oder fragen zu müssen.
         \newpage
         
         \subsection{Ankündigungen}
@@ -574,6 +583,155 @@
     	\end{figure}
 
     \chapter{Testfälle}
+    
+    	\section{Basistestfälle - TB}    
+	    \begin{table}[h!]
+	    	\centering
+	    	\label{my-label}
+	    	\begin{tabular}{p{2cm}p{12cm}}
+	    		
+	    		\multicolumn{2}{c}{\textbf{1 - Erstellen einer WG-Pinnwand}} \\ \hline
+	    		\centering{[}TB1010{]} & Mit Google-Account registrieren {[}FG1010{]}\\
+	    		\centering{[}TB1020{]}& Neue WG-Pinnwand erstellen {[}FG1020{]}                                \\
+	    		\centering{[}TB1030{]}& Zugangscode generieren {[}FG1030{]}\\ 
+	    		\centering{[}TB1040{]}& Anmelden mit Zugangscode {[}FG1050{]}\\ 
+	    		\centering{[}TB1050{]}& \textit{Frozen Notes} automatisch generieren und anzeigen {[}FG1060{]}\\ 
+	    		\hline
+	    	\end{tabular}
+	    \end{table}
+	    
+	    \vspace{5mm}
+	    
+	    \begin{table}[h!]
+	    	\centering
+	    	\label{my-label}
+	    	\begin{tabular}{p{2cm}p{12cm}}
+	    		
+	    		\multicolumn{2}{c}{\textbf{2 - Interaktion mit der Pinnwand}} \\ \hline
+	    		\centering{[}TB2010{]} & \textit{Cool Note} erstellen und eine Überschrift geben {[}FG2010{]}{[}FG2030{]}\\
+	    		\centering{[}TB2020{]} & \textit{Cool Note} erstellen und im Text-Feld schreiben {[}FG2010{]}\\
+	    		\centering{[}TB2030{]} & Textinhalte unterstreichen, kursiv-schreiben oder fett-drucken {[}FG2020{]}\\
+	    		\centering{[}TB2040{]} & Eine \textit{Frozen-} oder \textit{Cool Note} antippen {[}FG2040{]}\\ 
+	    		\centering{[}TB2050{]} & Eine \textit{Cool Note} mit Textinhalt und Überschrift löschen {[}FG2050{]}\\ 
+	    		\centering{[}TB2060{]} & \textit{Frozen Note} bearbeiten {[}FG2040{]}\\ 
+				\centering{[}TB2070{]} & 15 Mitglieder hinzufügen {[}FG2070{]}\\ 
+
+	    		\centering{[}TB2080{]} & Die Pinnwand aktualisieren durch Hinunterswipen {[}FG2080{]}\\ 
+	    		\hline
+	    	\end{tabular}
+	    \end{table}
+	    
+	    \vspace{5mm}
+	    
+	    \begin{table}[h!]
+	    	\centering
+	    	\label{my-label}
+	    	\begin{tabular}{p{2cm}p{12cm}}
+	    		
+	    		\multicolumn{2}{c}{\textbf{3 - App-Menü}} \\ \hline
+	    		\centering{[}TB3010{]} & Die WG verlassen {[}FG3010{]}\\
+	    		\centering{[}TB3020{]} & Auf der Mitgliederliste zugreifen {[}FG3020{]}\\
+	    		\centering{[}TB3030{]} & Nach Hinzufügen einen neuen Mitglieder auf der Mitgliederliste zugreifen {[}FG3030{]}\\
+	    		\hline
+	    	\end{tabular}
+	    \end{table}
+	    
+	    \vspace{5mm}
+	    
+	    \begin{table}[h!]
+	    	\centering
+	    	\label{my-label}
+	    	\begin{tabular}{p{2cm}p{12cm}}
+	    		
+	    		\multicolumn{2}{c}{\textbf{4 - Lesebestätigung}} \\ \hline
+	    		\centering{[}TB4010{]} & Auf der  zugreifen nachdem alle Mitglieder die  gelesen haben {[}FG4010{]}\\
+	    		\centering{[}TB4030{]}& "I have seen this"-Checkbox markieren {[}FG4030{]}\\ 
+	    		
+	    		\hline
+	    	\end{tabular}
+	    \end{table}
+	    
+	    \vspace{5mm}
+	    
+	    \begin{table}[h!]
+	    	\centering
+	    	\label{my-label}
+	    	\begin{tabular}{p{2cm}p{12cm}}
+	    		
+	    		\multicolumn{2}{c}{\textbf{5 - Push-Benachrichtigung}} \\ \hline
+	    		\centering{[}TB5010{]} & Push-Benachrichtigung antippen {[}FG5020{]}\\
+	    		
+	    		
+	    		\hline
+	    	\end{tabular}
+	    \end{table}
+	    
+	    \clearpage
+	    
+	    \section{Erweiterte Testfälle - TE}
+	    
+	    \begin{table}[h]
+	    	\centering
+	    	\label{my-label}
+	    	\begin{tabular}{p{2cm}p{12cm}}
+	    		
+	    		\multicolumn{2}{c}{\textbf{1 - Taggen}} \\ \hline
+	    		\centering{[}FO1010{]} & Taggen von anderen Mitgliedern mit “@”-Zeichen im Content-Feld\\
+	    		\centering{[}FO1020{]}& Anzeigen von Namensvorschlägen bei der Eingabe von “@”                               \\
+	    		\hline
+	    	\end{tabular}
+	    \end{table}
+	    
+	    \vspace{5mm}
+	    
+	    \begin{table}[h!]
+	    	\centering
+	    	\label{my-label}
+	    	\begin{tabular}{p{2cm}p{12cm}}
+	    		
+	    		\multicolumn{2}{c}{\textbf{2 - Interaktion mit der Pinnwand}} \\ \hline
+	    		\centering{[}FO2010{]} & Festlegen der Zettelfarben\\
+	    		\centering{[}FO2020{]}& Erstellen einer  mit Bildinhalt und Beschreibung                              \\
+	    		\centering{[}FO2030{]}& Löschen einer  mit Bildinhalt und Beschreibung\\ 
+	    		\centering{[}FO2040{]}& Kommentieren der s\\ 
+	    		\centering{[}FO2050{]}& Archivieren einer \\ 
+	    		\centering{[}FO2060{]}& Scrollen von den Kommentaren in den s\\ 
+	    		\hline
+	    	\end{tabular}
+	    \end{table}
+	    
+	    \vspace{5mm}
+	    
+	    \begin{table}[h!]
+	    	\centering
+	    	\label{my-label}
+	    	\begin{tabular}{p{2cm}p{12cm}}
+	    		
+	    		\multicolumn{2}{c}{\textbf{3 - App Einstellungen / App-Menü}} \\ \hline
+	    		\centering{[}FO3010{]} & Umstellen der App-Sprache\\
+	    		\centering{[}FO3020{]} & Aufrufen und Scrollen von dem Cool-Note-Archiv\\
+	    		\hline
+	    	\end{tabular}
+	    \end{table}
+	    
+	    \vspace{5mm}
+	    
+	    \begin{table}[h!]
+	    	\centering
+	    	\label{my-label}
+	    	\begin{tabular}{p{2cm}p{12cm}}
+	    		
+	    		\multicolumn{2}{c}{\textbf{4 - Hilfe-Button / "Tutorial"}} \\ \hline
+	    		\centering{[}F4010{]} & Ansehen des Tutorial-Overlays\\    				
+	    		\hline
+	    	\end{tabular}
+	    \end{table}
+	    
+	   
+	    
+	    \clearpage
+	    
+	  	\section{Testszenarien}
     
     \chapter{Entwicklungsumgebung}
 
