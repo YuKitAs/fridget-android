@@ -453,29 +453,29 @@
     		\begin{tabular}{llll}
     			\multicolumn{1}{l}{\textit{Produktqualität}}& \multicolumn{1}{c}{\textit{Sehr hoch}} & \multicolumn{1}{c}{\textit{Hoch}} & \multicolumn{1}{c}{\textit{Normal}}  \\
     			\multicolumn{4}{c}{- Funktionalität -} \\
-    			RICHTIGKEIT                                  &                                        &                                   &                                      \\
-    			INTEROPERABILITÄT                            &                                        &                                   &                                      \\
-    			ORDNUNGSMÄSSIGKEIT                           &                                        &                                   &                                      \\
-    			SICHERHEIT                                   &                                        &                                   &                                      \\
+    			RICHTIGKEIT                                  &                                        &    \hspace{6mm}               X               &                                      \\
+    			INTEROPERABILITÄT                            &                                        &                                   &    \hspace{6mm}                     X               \\
+    			ORDNUNGSMÄSSIGKEIT                           &                                        &                                   &    \hspace{6mm}                     X               \\
+    			SICHERHEIT                                   &                                        &                                   &    \hspace{6mm}                     X               \\
     			\multicolumn{4}{c}{- Zuverlässigkeit -}\\
-    			REIFE                                        &                                        &                                   &                                      \\
-    			FEHLERTOLERANZ                               &                                        &                                   &                                      \\
-    			WIEDERHERSTELLBARKEIT                        &                                        &                                   &                                      \\
-    			STABILITÄT                                   &                                        &                                   &                                      \\
+    			REIFE                                        &                                        &                                   &     \hspace{6mm}                    X               \\
+    			FEHLERTOLERANZ                               &                                        &  \hspace{6mm}                    X               &                                      \\
+    			WIEDERHERSTELLBARKEIT                        &                                        &   \hspace{6mm}                   X               &                                      \\
+    			STABILITÄT                                   &                                        &  \hspace{6mm}                    X               &                                      \\
     			\multicolumn{4}{c}{- Benutzbarkeit -}\\
-    			VERSTÄNDLICHKEIT                             &                                        &                                   &                                      \\
-    			ERLERNBERKEIT                                &                                        &                                   &                                      \\
-    			BEDIENBARKEIT                                &                                        &                                   &                                      \\
+    			VERSTÄNDLICHKEIT                             &                    X                    &                                   &                                      \\
+    			ERLERNBERKEIT                                &                    X                    &                                   &                                      \\
+    			BEDIENBARKEIT                                &                    X                    &                                   &                                      \\
     			\multicolumn{4}{c}{- Effizienz -}\\
-    			ZEITVERHALTEN                                &                                        &                                   &                                      \\
-    			VERBRAUCHSVERHALTEN                          &                                        &                                   &                                      \\
+    			ZEITVERHALTEN                                &                                        &                                   &      \hspace{6mm}                 X                \\
+    			VERBRAUCHSVERHALTEN                          &                                        &                                   &      \hspace{6mm}                 X                \\
     			\multicolumn{4}{c}{- Änderbarkeit -}\\
-    			ANALYSIERBARKEIT                             &                                        &                                   &                                      \\
-    			MODIFIZIERBARKEIT                            &                                        &                                   &                                      \\
-    			PRÜFBARKEIT                                  &                                        &                                   &                                      \\
+    			ANALYSIERBARKEIT                             &                                        &                                   &       \hspace{6mm}                X                \\
+    			MODIFIZIERBARKEIT                            &                                        &                                   &        \hspace{6mm}               X                \\
+    			PRÜFBARKEIT                                  &                                        &     \hspace{6mm}                 X               &                                     \\
     			\multicolumn{4}{c}{- Übertragbarkeit -}\\
-    			ANPASSBARKEIT                                &                                        &                                   &                                      \\
-    			KONFORMITÄT                                  &                                        &                                   &                                     
+    			ANPASSBARKEIT                                &                                        &                                   &        \hspace{6mm}               X                \\
+    			KONFORMITÄT                                  &                                        &                                   &        \hspace{6mm}               X             \\  
     		\end{tabular}
     	\end{table}
 
@@ -486,6 +486,18 @@
     \chapter{Systemmodelle}
     
     	\section{Systemarchitektur}
+    	
+    	\begin{figure}[H]
+    		\centering
+    		\includegraphics[scale = .6]{systemarchitektur.png}
+    		\caption{Systemarchitektur}
+    	\end{figure}
+    
+    	Die Systemarchitektur der App trennt sich in die Server- und die Client-Seite mit dem REST (Representational State Transfer) Architektur-Stil. Dabei stellt der Server einen Dienst bereit, der bei Bedarf vom Client durch die Verwendung von HTTP-Methoden angefragt werden kann. \\
+    	Die Client-Seite verwendet das MVVM (Model-View-ViewModel) Architektur-Muster mit Datenbindung. Auf der Server-Seite wird das MVC (Model-View-Controller) Architektur-Muster eingesetzt.
+    	
+    
+    	\clearpage
     		
         \section{Szenarien}
         
@@ -595,7 +607,7 @@
 	    		\multicolumn{2}{c}{\textbf{1 - Erstellen einer WG-Pinnwand}} \\ \hline
 	    		\centering{[}TB1010{]} & Mit Google-Account registrieren {[}FG1010{]}\\
 	    		\centering{[}TB1020{]}& Neue WG-Pinnwand erstellen {[}FG1020{]}                                \\
-	    		\centering{[}TB1030{]} Der neuerstellten WG-Pinnwand einen Namen geben {[}FG1020{]}  
+	    		\centering{[}TB1030{]} & Der neuerstellten WG-Pinnwand einen Namen geben {[}FG1020{]} \\ 
 	    		\centering{[}TB1040{]}& Zugangscode generieren {[}FG1030{]}\\ 
 	    		\centering{[}TB1050{]}& Anmelden mit Zugangscode {[}FG1050{]}\\ 
 	    		\centering{[}TB1060{]}& \textit{Frozen Notes} automatisch generieren und anzeigen {[}FG1060{]}\\ 
@@ -633,8 +645,7 @@
 	    		
 	    		\multicolumn{2}{c}{\textbf{3 - App-Menü}} \\ \hline
 	    		\centering{[}TB3010{]} & Die WG verlassen {[}FG3010{]}\\
-	    		\centering{[}TB3020{]} & Auf der Mitgliederliste zugreifen {[}FG3020{]}\\
-	    		\centering{[}TB3030{]} & Nach Hinzufügen einen neuen Mitglieder auf der Mitgliederliste zugreifen {[}FG3030{]}\\
+	    		\centering{[}TB3020{]} & Auf die Mitgliederliste zugreifen {[}FG3020{]}{[}FG3030{]}\\
 	    		\hline
 	    	\end{tabular}
 	    \end{table}
@@ -647,8 +658,8 @@
 	    	\begin{tabular}{p{2cm}p{12cm}}
 	    		
 	    		\multicolumn{2}{c}{\textbf{4 - Lesebestätigung}} \\ \hline
-	    		\centering{[}TB4010{]} & Auf der  zugreifen nachdem alle Mitglieder die  gelesen haben {[}FG4010{]}\\
-	    		\centering{[}TB4030{]}& "I have seen this"-Checkbox markieren {[}FG4030{]}\\ 
+	    		\centering{[}TB4010{]} & Auf die \textit{Cool Note} zugreifen nachdem alle Mitglieder sie  gelesen haben {[}FG4010{]}\\
+	    		\centering{[}TB4030{]}& ``I have seen this``-Checkbox markieren {[}FG4030{]}\\ 
 	    		
 	    		\hline
 	    	\end{tabular}
