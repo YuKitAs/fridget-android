@@ -1,0 +1,106 @@
+\documentclass[a4paper]{scrreprt}
+
+\usepackage[german]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ae}
+\usepackage[bookmarks,bookmarksnumbered]{hyperref}
+\usepackage{tocbasic}
+\usepackage{longtable}
+
+\begin{document}
+    \chapter{RESTful API}
+    \section{Authentifizierung mithilfe der Google APIs}
+    Die Authentifizierung bei Fridget wird mithilfe von Google Sign-In für Android realisiert. Dabei sendet der Client beim Anmelden mit Google Account einen ID-Token, welchen er vom Googleserver erhält, zu dem Fridget-Server per HTTPS POST. Dort wird die Integrität des Tokens mithilfe von GoogleTokenVerifier geprüft. Danach werden die Benutzerinformationen aus dem Token vom Fridget-Server benutzt, um eine Session aufzubauen oder einen neuen Benutzer in Datenbank zu speichern.
+    
+    \newpage
+    \section{HTTP-Protokoll}
+    Folgende REST Endpoints verwenden wir für die Kommunikation zwischen Client und Server:
+	\begin{flushleft}
+		\begin{longtable}{|p{.12\textwidth}|p{.48\textwidth}|p{.4\textwidth}|}
+		\hline
+		\textbf{HTTP Methode} & \textbf{Endpoint} & \textbf{Beschreibung} \\
+		\hline
+		\multicolumn{3}{|l|} {FlatshareController} \\
+		\hline
+		GET & /flatshares/\{id\} & WG beitreten \\
+		POST & /flatshares & WG erstellen \\ 
+		\hline
+		\multicolumn{3}{|l|}{AccessCodeController} \\
+		\hline
+		POST & /flatshares/\{id\}/access-code & Zugangscode anfordern \\ \hline
+		\multicolumn{3}{|l|}{User} \\
+		\hline
+		POST & /users & Anmelden \\
+		\hline
+		\multicolumn{3}{|l|}{MembershipController} \\
+		\hline
+		GET & /flatshares/\{id\}/users & Mitglieder ansehen \\
+		GET & /flatshares/\{id\}/users/\{userId\} & Zugeteilte Magnetfarbe anfordern \\
+		POST & /flatshares/\{id\}/users & WG beitreten (mit Zugangscode) \\
+		DELETE & /flatshares/\{id\}/users/\{userId\} & WG verlassen \\
+		\hline
+		\multicolumn{3}{|l|}{CoolNoteController} \\
+		\hline
+		GET & /flatshares/\{id\}/cool-notes & Cool Notes aktualisieren \\
+		GET & /flatshares/\{id\}/cool-notes/\{coolNoteId\} & Großansicht einer Cool Note ansehen \\
+		POST & /flatshares/\{id\}/cool-notes & Cool Note erstellen \\
+		DELETE & /flatshares/\{id\}/cool-notes/\{coolNoteId\} & Cool Note löschen \\
+		\hline
+		\multicolumn{3}{|l|}{ImageCoolNoteController*} \\
+		\hline
+		GET & /flatshares/\{id\}/image-notes & Image Cool Notes aktualisieren \\
+		GET & /flatshares/\{id\}/image-notes/\{imageCoolNoteId\} & Großansicht einer Image Cool Note ansehen \\
+		POST & /flatshares/\{id\}/image-notes & Image Cool Note erstellen \\
+		DELETE & /flatshares/\{id\}/image-notes/\{imageCoolNoteId\} & Image Cool Note löschen \\
+		\hline	
+		\multicolumn{3}{|l|}{FrozenNoteController} \\
+		\hline
+		GET & /flatshares/\{id\}/frozen-notes & Frozen Notes aktualisieren \\
+		GET & /flatshares/\{id\}/frozen-notes/\{frozenNoteId\} & Großansicht einer Frozen Note ansehen \\
+		PUT & /flatshares/\{id\}/frozen-notes/\{frozenNoteId\} & Frozen Note bearbeiten \\
+		\hline
+		\multicolumn{3}{|l|}{ReadConfirmationController} \\
+		\hline
+		GET & /cool-notes/\{id\}/readers & Leser einer Cool Note ansehen \\
+		POST & /cool-notes/\{id\}/readers & ``I have seen this''-Checkbox markieren \\
+		DELETE & /cool-notes/\{id\}/readers/\{userId\} & ``I have seen this''-Checkbox unmarkieren \\
+		\hline
+		\multicolumn{3}{|l|}{CommentController*} \\
+		\hline
+		GET & /cool-notes/\{id\}/comments & Kommentare einer Cool Note ansehen \\
+		POST & /cool-notes/\{id\}/comments & Kommentar schreiben \\
+		DELETE & /cool-notes/\{id\}/comments/\{commentId\} & Kommentar löschen \\
+		\hline
+		\end{longtable}
+	\end{flushleft}
+	* Wunschkriterien
+	
+	\newpage
+	\section{HTTP-Statuscodes}
+	Folgende Statuscodes liefern wir intern bei der HTTP-Antwort auf jede HTTP-Anfrage:
+	\begin{flushleft}
+		\begin{tabular}{|p{.15\textwidth}|p{.3\textwidth}|p{.55\textwidth}|}
+		\hline
+		\textbf{Code} & \textbf{Nachricht} & \textbf{Bedeutung} \\
+		\hline
+		\multicolumn{3}{|l|}{Erfolgreiche Operation} \\
+		\hline
+		200 & OK & Die Anfrage wurde erfolgreich bearbeitet und das Ergebnis der Anfrage wird in der Antwort übertragen. \\
+		201 & Created & Die Anfrage wurde erfolgreich bearbeitet. Die angeforderte Ressource wurde vor dem Senden der Antwort erstellt, z.B. beim Erstellen einer Cool Note. \\
+		204 & No Content & Die Anfrage wurde erfolgreich durchgeführt, die Antwort enthält jedoch bewusst keine Daten, z.B. beim Bearbeiten einer Frozon Note. \\
+		\hline
+		\multicolumn{3}{|l|}{Client-Fehler} \\
+		\hline
+		400 & Bad Request & Die Anfrage-Nachricht war fehlerhaft aufgebaut. \\
+		401 & Unauthorized & Die Anfrage kann nicht ohne gültige Authentifizierung durchgeführt werden, z.B. beim fehlenden Token im Header-Feld. \\
+		403 & Forbidden & Die Anfrage wurde mangels Berechtigung des Clients nicht durchgeführt, bspw. weil der authentifizierte Benutzer nicht berechtigt ist. \\
+		404 & Not Found & Die angeforderte Ressource wurde nicht gefunden. \\
+		\hline
+		\multicolumn{3}{|l|}{Server-Fehler} \\
+		\hline
+		500 & Internal Server Error & Dies ist ein „Sammel-Statuscode“ für unerwartete Serverfehler. \\
+		\hline	
+		\end{tabular}
+	\end{flushleft}
+\end{document}
