@@ -28,49 +28,53 @@
 		\hline
 		\multicolumn{3}{|l|}{AccessCodeController} \\
 		\hline
-		POST & /flatshares/\{id\}/access-code & Zugangscode anfordern \\ \hline
+		POST & /access-code & Zugangscode anfordern \\ \hline
 		\multicolumn{3}{|l|}{User} \\
 		\hline
 		POST & /users & Anmelden \\
 		\hline
 		\multicolumn{3}{|l|}{MembershipController} \\
 		\hline
-		GET & /flatshares/\{id\}/users & Mitglieder ansehen \\
-		GET & /flatshares/\{id\}/users/\{userId\} & Zugeteilte Magnetfarbe anfordern \\
-		POST & /flatshares/\{id\}/users & WG beitreten (mit Zugangscode) \\
-		DELETE & /flatshares/\{id\}/users/\{userId\} & WG verlassen \\
+		GET & /memberships/users?flatshare=\{id\} & Mitglieder ansehen \\
+		GET & /memberships?flatshare=\{fid\}\&user=\{uid\} & Zugeteilte Magnetfarbe anfordern \\
+		POST & /memberships & WG beitreten (mit Zugangscode) \\
+		DELETE & /memberships?flatshare=\{fid\}\&user=\{uid\} & WG verlassen \\
 		\hline
 		\multicolumn{3}{|l|}{CoolNoteController} \\
 		\hline
-		GET & /flatshares/\{id\}/cool-notes & Cool Notes aktualisieren \\
-		GET & /flatshares/\{id\}/cool-notes/\{coolNoteId\} & Großansicht einer Cool Note ansehen \\
-		POST & /flatshares/\{id\}/cool-notes & Cool Note erstellen \\
-		DELETE & /flatshares/\{id\}/cool-notes/\{coolNoteId\} & Cool Note löschen \\
+		GET & /cool-notes?flatshare=\{id\} & Cool Notes aktualisieren \\
+		GET & /cool-notes/\{id\} & Großansicht einer Cool Note ansehen \\
+		POST & /cool-notes & Cool Note erstellen \\
+		DELETE & /cool-notes/\{id\} & Cool Note löschen \\
+		\hline
+		\multicolumn{3}{|l|}{FrozenNoteController} \\
+		\hline
+		GET & /frozen-notes?flatshare=\{id\} & Frozen Notes aktualisieren \\
+		GET & /frozen-notes/\{id\} & Großansicht einer Frozen Note ansehen \\
+		PUT & /frozen-notes/\{id\} & Frozen Note bearbeiten \\
 		\hline
 		\multicolumn{3}{|l|}{ImageCoolNoteController*} \\
 		\hline
-		GET & /flatshares/\{id\}/image-notes & Image Cool Notes aktualisieren \\
-		GET & /flatshares/\{id\}/image-notes/\{imageCoolNoteId\} & Großansicht einer Image Cool Note ansehen \\
-		POST & /flatshares/\{id\}/image-notes & Image Cool Note erstellen \\
-		DELETE & /flatshares/\{id\}/image-notes/\{imageCoolNoteId\} & Image Cool Note löschen \\
+		GET & /image-notes?flatshare=\{id\} & Image Cool Notes aktualisieren \\
+		GET & /image-notes/\{id\} & Großansicht einer Image Cool Note ansehen \\
+		POST & /image-notes & Image Cool Note erstellen \\
+		DELETE & /image-notes/\{id\} & Image Cool Note löschen \\
 		\hline	
-		\multicolumn{3}{|l|}{FrozenNoteController} \\
-		\hline
-		GET & /flatshares/\{id\}/frozen-notes & Frozen Notes aktualisieren \\
-		GET & /flatshares/\{id\}/frozen-notes/\{frozenNoteId\} & Großansicht einer Frozen Note ansehen \\
-		PUT & /flatshares/\{id\}/frozen-notes/\{frozenNoteId\} & Frozen Note bearbeiten \\
-		\hline
 		\multicolumn{3}{|l|}{ReadConfirmationController} \\
 		\hline
-		GET & /cool-notes/\{id\}/readers & Leser einer Cool Note ansehen \\
-		POST & /cool-notes/\{id\}/readers & ``I have seen this''-Checkbox markieren \\
-		DELETE & /cool-notes/\{id\}/readers/\{userId\} & ``I have seen this''-Checkbox unmarkieren \\
+		GET & /read-confirmations/users?cool-note=\{id\} & Leser einer Cool Note ansehen \\
+		POST & /read-confirmations & ``I have seen this''-Checkbox markieren \\
+		DELETE & /read-confirmations?cool-note=\{cid\}\&user=\{uid\} & ``I have seen this''-Checkbox unmarkieren \\
 		\hline
 		\multicolumn{3}{|l|}{CommentController*} \\
 		\hline
-		GET & /cool-notes/\{id\}/comments & Kommentare einer Cool Note ansehen \\
-		POST & /cool-notes/\{id\}/comments & Kommentar schreiben \\
-		DELETE & /cool-notes/\{id\}/comments/\{commentId\} & Kommentar löschen \\
+		GET & /comments?cool-note=\{cid\} & Kommentare einer Cool Note ansehen \\
+		POST & /comments & Kommentar schreiben \\
+		DELETE & /comments/?cool-note=\{cid\}\&user=\{uid\} & Kommentar löschen \\
+		\hline
+		\multicolumn{3}{|l|}{TaggedMemberController*} \\
+		\hline
+		GET & /tagged-members/users?cool-note=\{cid\} & Getaggte Mitglieder einer Cool Note ansehen \\
 		\hline
 		\end{longtable}
 	\end{flushleft}
