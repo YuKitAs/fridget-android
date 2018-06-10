@@ -11,7 +11,7 @@
 \begin{document}
     \chapter{RESTful API}
     \section{Authentifizierung mithilfe der Google APIs}
-    Die Authentifizierung bei Fridget wird mithilfe von Google Sign-In für Android realisiert. Dabei sendet der Client beim Anmelden mit Google Account einen ID-Token, welchen er vom Googleserver erhält, zu dem Fridget-Server per HTTPS POST. Dort wird die Integrität des Tokens mithilfe von GoogleTokenVerifier geprüft. Danach werden die Benutzerinformationen aus dem Token vom Fridget-Server benutzt, um eine Session aufzubauen oder einen neuen Benutzer in Datenbank zu speichern.
+    Die Authentifizierung bei Fridget wird mithilfe von Google Sign-In für Android realisiert. Dabei sendet der Client beim Anmelden mit Google Account einen ID-Token, welchen er vom Googleserver erhält, zu dem Fridget-Server per HTTPS POST. Dort wird die Integrität des Tokens mithilfe von GoogleTokenVerifier geprüft. Danach werden die Benutzerinformationen aus dem Token vom Fridget-Server benutzt, um eine Session aufzubauen oder einen neuen Benutzer in der Datenbank zu speichern.
     
     \newpage
     \section{HTTP-Protokoll}
@@ -28,7 +28,7 @@
 		\hline
 		\multicolumn{3}{|l|}{AccessCodeController} \\
 		\hline
-		POST & /access-code & Zugangscode anfordern \\ \hline
+		POST & /access-codes & Zugangscode anfordern \\ \hline
 		\multicolumn{3}{|l|}{User} \\
 		\hline
 		POST & /users & Anmelden \\
@@ -53,7 +53,7 @@
 		GET & /frozen-notes/\{id\} & Großansicht einer Frozen Note ansehen \\
 		PUT & /frozen-notes/\{id\} & Frozen Note bearbeiten \\
 		\hline
-		\multicolumn{3}{|l|}{ImageCoolNoteController*} \\
+		\multicolumn{3}{|l|}{ImageNoteController*} \\
 		\hline
 		GET & /image-notes?flatshare=\{id\} & Image Cool Notes aktualisieren \\
 		GET & /image-notes/\{id\} & Großansicht einer Image Cool Note ansehen \\
@@ -70,11 +70,7 @@
 		\hline
 		GET & /comments?cool-note=\{cid\} & Kommentare einer Cool Note ansehen \\
 		POST & /comments & Kommentar schreiben \\
-		DELETE & /comments/?cool-note=\{cid\}\&user=\{uid\} & Kommentar löschen \\
-		\hline
-		\multicolumn{3}{|l|}{TaggedMemberController*} \\
-		\hline
-		GET & /tagged-members/users?cool-note=\{cid\} & Getaggte Mitglieder einer Cool Note ansehen \\
+		DELETE & /comments/\{id\} & Kommentar löschen \\
 		\hline
 		\end{longtable}
 	\end{flushleft}
@@ -91,13 +87,13 @@
 		\multicolumn{3}{|l|}{Erfolgreiche Operation} \\
 		\hline
 		200 & OK & Die Anfrage wurde erfolgreich bearbeitet und das Ergebnis der Anfrage wird in der Antwort übertragen. \\
-		201 & Created & Die Anfrage wurde erfolgreich bearbeitet. Die angeforderte Ressource wurde vor dem Senden der Antwort erstellt, z.B. beim Erstellen einer Cool Note. \\
-		204 & No Content & Die Anfrage wurde erfolgreich durchgeführt, die Antwort enthält jedoch bewusst keine Daten, z.B. beim Bearbeiten einer Frozon Note. \\
+		201 & Created & Die Anfrage wurde erfolgreich bearbeitet. Die angeforderte Ressource wurde vor dem Senden der Antwort erstellt. \\
+		204 & No Content & Die Anfrage wurde erfolgreich durchgeführt, die Antwort enthält jedoch bewusst keine Daten. \\
 		\hline
 		\multicolumn{3}{|l|}{Client-Fehler} \\
 		\hline
 		400 & Bad Request & Die Anfrage-Nachricht war fehlerhaft aufgebaut. \\
-		401 & Unauthorized & Die Anfrage kann nicht ohne gültige Authentifizierung durchgeführt werden, z.B. beim fehlenden Token im Header-Feld. \\
+		401 & Unauthorized & Die Anfrage kann nicht ohne gültige Authentifizierung durchgeführt werden. \\
 		403 & Forbidden & Die Anfrage wurde mangels Berechtigung des Clients nicht durchgeführt, bspw. weil der authentifizierte Benutzer nicht berechtigt ist. \\
 		404 & Not Found & Die angeforderte Ressource wurde nicht gefunden. \\
 		422 & Unprocessable Entity & Die Verarbeitung der Anfrage wird z.B. wegen semantischer Fehler abgelehnt. \\
