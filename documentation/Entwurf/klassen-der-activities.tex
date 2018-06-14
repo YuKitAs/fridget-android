@@ -312,6 +312,12 @@ mit zugehörigem Magneten.} \\
 		\item\texttt{{public ResultReceiver(Handler handler)}}\\
 	\end{itemize}
 
+	\textbf{Parameter}
+	\begin{itemize}
+		\item\texttt{Handler handler}\\ 
+	\textit{Zum Bearbeiten und Schicken von Nachrichten und Runnable-Objekten}\\
+	\end{itemize}
+
 	\textbf{Methoden}
 	\begin{itemize}
 		\item\texttt{{public void onReceiverResult(int resultCode, Bundle resultData)}}\\
@@ -320,11 +326,9 @@ mit zugehörigem Magneten.} \\
 
 	\textbf{Parameter}
 	\begin{itemize}
-		\item\texttt{Handler handler}\\ 
-	\textit{Zum Bearbeiten und Schicken von Nachrichten und Runnable-Objekten}\\
-			\item\texttt{Integer resultCode}\\ 
+		\item\texttt{Integer resultCode}\\ 
 	\textit{Vom Sender definierter Ergebnis-Code}\\
-	\item\texttt{Bundle resultData}\\ 
+		\item\texttt{Bundle resultData}\\ 
 	\textit{Weitere Daten vom Sender }\\
 	\end{itemize}
 
@@ -337,17 +341,25 @@ mit zugehörigem Magneten.} \\
 	\begin{itemize}
 		\item\texttt{{public void setReceiver(Receiver receiver)}}\\
 	\textit{Zum Setzen des Receivers}\\
-	\item\texttt{{public void onReceiverResult(int resultCode, Bundle resultData)}}\\
+	\end{itemize}
+	
+	\textbf{Parameter}
+	\begin{itemize}
+		\item\texttt{Receiver receiver}\\ 
+	\textit{Broadcast Receiver}\\
+	\end{itemize}
+	
+	\textbf{Methoden}
+	\begin{itemize}
+		\item\texttt{{public void onReceiverResult(int resultCode, Bundle resultData)}}\\
 	\textit{Zum Bekommen und Bearbeiten der Ergebnisse}\\
 	\end{itemize}
 
 	\textbf{Parameter}
 	\begin{itemize}
-		\item\texttt{Receiver receiver}\\ 
-	\textit{Broadcast Receiver}\\
-			\item\texttt{Integer resultCode}\\ 
+		\item\texttt{Integer resultCode}\\ 
 	\textit{Vom Sender definierter Ergebnis-Code}\\
-	\item\texttt{Bundle resultData}\\ 
+		\item\texttt{Bundle resultData}\\ 
 	\textit{Weitere Daten vom Sender }\\
 	\end{itemize}
 
