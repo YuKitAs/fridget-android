@@ -16,10 +16,13 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage[colorinlistoftodos]{todonotes}
-\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage[colorlinks=true, allcolors=blue, breaklinks = true]{hyperref}
+\usepackage{tocstyle}
+\usetocstyle{standard}
+\settocfeature{raggedhook}{\raggedright}
 
 \title{Entwurfsdokument}
-\author{   Yunjia Chen, Jasmin Jat, Min Hye Park, Alina Shah, Lisa Wang}
+\author{Yunjia Chen, Jasmin Jat, Min Hye Park, Alina Shah, Lisa Wang}
 
 \begin{document}
 \maketitle
@@ -38,6 +41,7 @@
 \chapter{Feinentwurf}
 	\section{Klassen des Clients}
 	\input{klassen-der-activities}
+	\input{klassen-des-models}
 
 	\section{Klassen des Servers}
 	\input{klassen-des-servers}

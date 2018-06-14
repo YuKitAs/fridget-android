@@ -1,0 +1,88 @@
+\subsection{package kit.edu.pse.fridget.client.datamodel}
+\subsubsection{\texttt{public class Accesscode}}
+
+	\textbf{Beschreibung} \\
+	\textit{Die Klasse Accesscode stellt der Access-Code, oder Zugangscode einer WG dar.} \\
+
+	\textbf{Methoden}
+	\begin{itemize}
+		\item{\texttt{public String getAccessCodeID()}}\\
+		\textit{Gibt die ID des Access-Codes der WG zurück.}\\
+		\item{\texttt{public String getAccessCodeContent()}}\\
+		\textit{Gibt den Access-Code als String zurück.}\\
+	\end{itemize}
+
+	
+
+\subsubsection{\texttt{public class User}}
+
+	\textbf{Beschreibung} \\
+	\textit{Die Klasse User stellt einen Benutzer der App dar.}\\
+
+	\textbf{Methoden}
+	\begin{itemize}
+	\item{\texttt{public String getUserID()}}\\
+	\textit{Gibt die ID des Benutzers der App zurück.}\\
+	\item{\texttt{public String getUserID()}}\\
+	\textit{Gibt den Namen des Benutzers zurück.}\\
+	\end{itemize}
+
+	
+
+\subsubsection{\texttt{public class Member}}
+
+	\textbf{Beschreibung} \\
+	\textit{Die Klasse Member stellt einen Mitglieder einer WG dar.} \\
+
+	\textbf{Methoden}
+	\begin{itemize}
+		\item\texttt{{public String getMemberID()}}\\
+		\textit{Gibt die ID des Benutzers der App zurück.}\\
+		\item\texttt{{public Member getMember()}}\\
+		\textit{Gibt den Mitglieder zurück.}\\
+		\item\texttt{{public String getMagnet()}}\\
+		\textit{Gibt den/die Magnet/Magnetfarbe des Benutzers zurück.}\\
+	\end{itemize}       
+
+\subsubsection{\texttt{public class Flatshare}}
+
+	\textbf{Beschreibung} \\
+	\textit{Die Klasse Flatshare stellt eine WG dar, die in das App registriert ist.} \\
+
+	\textbf{Methoden}
+	\begin{itemize}
+		\item\texttt{{public String getFlatshareID()}}\\
+		\textit{Gibt die ID der WG zurück.}\\
+		\item\texttt{{public String getFlatshareName()}}\\
+		\textit{Gibt den WG-Namen zurück.}\\
+	\end{itemize}
+
+\subsubsection{\texttt{public class CoolNote}}
+
+	\textbf{Beschreibung} \\
+	\textit{Die Klasse CoolNote stellt die Notiz der Art “Cool Note” dar, die aus einer Überschrift und schriftlichem Inhalt besteht. Cool Notes sind erstellbare, nicht editierbare, löschbare Notizen.} \\
+
+	\textbf{Methoden}
+	\begin{itemize}
+		\item\texttt{{public String getCoolNoteID(CoolNote coolNoteID)}}\\
+		\textit{Gibt die Cool-Note-ID zurück.}\\
+		\textbf{Parameter}\\
+		“CoolNote coolNoteID”: Die ID oder Kennnummer der Cool Note.\\
+		\item\texttt{{public String getTitleCoolNote()}}\\
+		\textit{Gibt die Überschrift einer Cool Note zurück.}\\
+		\item\texttt{{public String getWriterID(Member memberID)}}\\
+		\textit{Gibt die ID des Mitglieders zurück, der die Cool Note erstellt hat.}\\
+		\textbf{Parameter}\\
+		“UserID userID”: Die ID oder Kennnummer des Mitglieders, der die Cool Note erstellt hat.\\
+		
+		\item\texttt{{public String getContentCoolNote()}}\\
+		\textit{Gibt den Inhalt der Cool Note zurück.}\\
+		\item\texttt{{public List<Member> getTaggedMembers(Member member)}}\\
+		\textit{Gibt die Mitglieder zurück, die in der Cool Note getaggt sind. Wenn keine spezifiziert ist, sind alle Mitglieder der WG getaggt.}\\
+		\textbf{Parameter}\\
+		“Member member”: Der Benutzer, der in der Cool Note getaggt wird.\\
+		\item\texttt{{enum importance{NORMAL, IMPORTANT, IMMEDIATE}}}\\
+		\item\texttt{{public int getPosition()}}\\
+		\textit{Gibt die Position der Cool Note zurück.}\\
+	\end{itemize}
+
