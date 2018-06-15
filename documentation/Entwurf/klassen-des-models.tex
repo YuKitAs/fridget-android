@@ -1,4 +1,4 @@
-\subsection{package kit.edu.pse.fridget.client.datamodel}
+\subsection{package edu.kit.pse.fridget.client.datamodel}
 \subsubsection{\texttt{public class Accesscode}}
 
 	\textbf{Beschreibung} \\
@@ -86,3 +86,103 @@
 		\textit{Gibt die Position der Cool Note zurück.}\\
 	\end{itemize}
 
+\subsubsection{\texttt{public class FrozenNote}}
+
+	\textbf{Beschreibung} \\
+	\textit{Die Klasse FrozenNote stellt die Notiz der Art “Frozen Note” dar, die aus einer Überschrift und schriftlichem Inhalt besteht. Frozen Notes sind feste, editierbare, nicht löschbare Notizen.} \\
+	
+	\textbf{Methoden}
+	\begin{itemize}
+		\item\texttt{{public String getFrozenNoteID(FrozenNote frozenNoteID)}}\\
+		\textit{Gibt die Frozen-Note-ID zurück.}\\
+		\textbf{Parameter}\\
+		“FrozenNote frozenNoteID”: Die ID oder Kennnummer der Frozen Note.\\
+		
+		\item\texttt{{public String getTitleFrozenNote()}}\\
+		\textit{Gibt die Überschrift einer Frozen Note zurück.}\\
+		
+		\item\texttt{{public String getContentFrozenNote()}}\\
+		\textit{Gibt den Inhalt der Frozen Note zurück.}\\
+	\end{itemize}
+
+\subsubsection{\texttt{public class Notificiation}}
+
+	\textbf{Beschreibung} \\
+	\textit{Die Klasse Notification stellt die Benachrichtigung an den Benutzer über eine neue Cool Note dar.} \\
+	
+	\textbf{Methoden}
+	\begin{itemize}
+		\item\texttt{{public String getNotificationText()}}\\
+		\textit{Gibt den Benachrichtigungstext zurück.}\\
+	\end{itemize}
+
+\subsubsection{\texttt{public class Comment}}
+
+	\textbf{Beschreibung} \\
+	\textit{Die Klasse Comment stellt einen Kommentar dar, der unter der Cool Note geschrieben werden kann.} \\
+	
+	\textbf{Methoden}
+	\begin{itemize}
+		\item\texttt{{public String getCommentWriterID(Member memberID)}}\\
+		\textit{Gibt die UserID des Benutzers zurück, der den Kommentar geschrieben hat.}\\
+		\textbf{Parameter}\\
+		“MemberID memberID”: Die ID oder Kennnummer des Mitglieders, der den Kommentar geschrieben hat.\\
+		
+		\item\texttt{{public String getCoolNoteID(CoolNote coolNoteID)}}\\
+		\textit{Gibt die CoolNoteID zurück.}\\
+		\textbf{Parameter}\\
+		“CoolNoteID coolNoteID”: Die ID oder Kennnummer der Cool Note.\\
+		
+		\item\texttt{{public String getCommentContent()}}\\
+		\textit{Gibt den Inhalt des Kommentares zurück.}\\
+	\end{itemize}
+
+\subsubsection{\texttt{public class ImageNote}}
+
+	\textbf{Beschreibung} \\
+	\textit{Die Klasse ImageNote stellt die Notiz der Art “Cool Note” dar, die aus einer Überschrift und Bild besteht. Image Notes sind wie Cool Notes erstellbar, nicht editierbar und löschbar.} \\
+	
+	\textbf{Methoden}
+	\begin{itemize}
+		\item\texttt{{public String getImageNoteID(ImageNote imageNoteID)}}\\
+		\textit{Gibt die Image-Note-ID zurück.}\\
+		\textbf{Parameter}\\
+		“ImageNote imageNoteID”: Die ID oder Kennnummer der Image Note.\\
+		
+		\item\texttt{{public String getTitleImageNote()}}\\
+		\textit{Gibt die Überschrift einer Image Note zurück.}\\
+		
+		\item\texttt{{public String getWriterID(Member memberID)}}\\
+		\textit{Gibt die ID des Mitglieders zurück, der die Image Note erstellt hat.}\\
+		\textbf{Parameter}\\
+		“UserID userID”: Die ID oder Kennnummer des Mitglieders, der die Image Note erstellt hat.\\
+		
+		\item\texttt{{public byte[] getContentImageNote()}}\\
+		\textit{Gibt den Inhalt, also das Bild der Image Note zurück.}\\
+		
+		\item\texttt{{public List<Member> getTaggedMembers(Member member)}}\\
+		\textit{Gibt die Mitglieder zurück, die in der Image Note getaggt sind. Wenn keine spezifiziert ist, sind alle Mitglieder der WG getaggt.}\\
+		\textbf{Parameter}\\
+		“Member member”: Der Benutzer, der in der Image Note getaggt wird.\\
+		
+		\item\texttt{{public int getPosition()}}\\
+		\textit{Gibt die Position der Image Note zurück.}\\
+	\end{itemize}
+
+\subsubsection{\texttt{public class ReadConfirmation}}
+
+	\textbf{Beschreibung} \\
+	\textit{Die Klasse ReadConfirmation stellt die Check-Box dar, das dem Benutzer ermöglicht, für sich selbst sichtbar zu machen, ob der Benutzer eine Cool Note gelesen hat.} \\
+	
+	\textbf{Methoden}
+	\begin{itemize}
+		\item\texttt{{public String getCommentWriterID(Member memberID)}}\\
+		\textit{Gibt die ID des Mitglieders zurück, der die Check-Box benutzt.}\\
+		\textbf{Parameter}\\
+		“MemberID memberID”: Die ID oder Kennnummer des Mitglieders, der die Check-Box der Cool Note abhakt.\\
+		
+		\item\texttt{{public String getCoolNoteID(CoolNote coolNoteID)}}\\
+		\textit{Gibt die CoolNoteID zurück, die als gelesen oder ungelesen markiert wird.}\\
+		\textbf{Parameter}\\
+		“CoolNoteID coolNoteID”: Die ID oder Kennnummer der Cool Note, die als gelesen oder ungelesen markiert wird.\\
+	\end{itemize}
