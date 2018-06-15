@@ -440,7 +440,14 @@
     	
     	
     	\textbf{Rückgabewert} \\
-    	Wichtigkeit der Cool Note        \item{\texttt{public CoolNote buildNew(String title, String content, String flatshareId, String creatorUserId, int position, int importance)}}
+    	Wichtigkeit der Cool Note        \item{\texttt{public String getCreatedAt()}}
+    	
+    	\textit{Getter für Erstelldatum der Cool Note}
+    	
+    	
+    	
+    	\textbf{Rückgabewert} \\
+    	Erstelldatum der Cool Note        \item{\texttt{public CoolNote buildNew(String title, String content, String flatshareId, String creatorUserId, int position, int importance)}}
     	
     	\textit{Baut Cool Note mit zufälliger UUID und aktuellem Datum.}
     	
@@ -603,7 +610,14 @@
     	
     	
     	\textbf{Rückgabewert} \\
-    	Position der Image Cool Note        \item{\texttt{public ImageNote buildNew(String flatshareId, byte[] image, String description, String creatorUserId, int position)}}
+    	Position der Image Cool Note        \item{\texttt{public String getCreateAt()}}
+    	
+    	\textit{Getter für Erstelldatum der Image Cool Note}
+    	
+    	
+    	
+    	\textbf{Rückgabewert} \\
+    	Erstelldatum der Image Cool Note        \item{\texttt{public ImageNote buildNew(String flatshareId, byte[] image, String description, String creatorUserId, int position)}}
     	
     	\textit{Baut Image Cool Note mit zufälliger UUID und aktuellem Datum.}
     	
@@ -622,7 +636,14 @@
     \textit{Model für Mitgliedschaft}
     \paragraph*{Methoden}
     \begin{itemize}
-    	\item{\texttt{public String getUserId()}}
+    	\item{\texttt{public String getId()}}
+    	
+    	\textit{Getter für ID von der Mitgliedschaft}
+    	
+    	
+    	
+    	\textbf{Rückgabewert} \\
+    	Mitgliedschaft-ID        \item{\texttt{public String getUserId()}}
     	
     	\textit{Getter für ID vom Mitglied}
     	
@@ -1391,12 +1412,13 @@
     	userId Benutzer-ID
     	
     	\textbf{Rückgabewert} \\
-    	Gefundener UserMembershipRepresentation        \item{\texttt{public Membership saveMembership(String accessCode, Membership.Builder membershipBuilder)}}
+    	Gefundener UserMembershipRepresentation        \item{\texttt{public Membership saveMembership(String accessCode, String userId, Membership.Builder membershipBuilder)}}
     	
     	\textit{Speichert einen Benutzer mit gültigem Zugangscode in einer WG.}
     	
     	\textbf{Parameter} \\
     	accessCode Zugangscode\\
+    	userId Benutzer-ID\\
     	membershipBuilder membershipBuilder
     	
     	\textbf{Rückgabewert} \\
@@ -1451,7 +1473,6 @@
     	\textbf{Parameter} \\
     	coolNoteId CoolNote-ID\\
     	userId Benutzer-ID
-    	
     	
     \end{itemize}
     \subsubsection{\texttt{Class ReadConfirmationServiceImpl implements ReadConfirmationService}}
@@ -1508,6 +1529,5 @@
     \textit{Service für Benutzer}
     \paragraph*{Konstruktor}\mbox{} \\
     \texttt{public UserServiceImpl(UserRepository repository)} \\
-ss
 
 %\end{document}
