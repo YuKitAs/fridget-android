@@ -9,10 +9,6 @@
 %\usepackage{longtable}
 
 %\begin{document}
-    \subsection{Authentifizierung mithilfe der Google APIs}
-    Die Authentifizierung bei Fridget wird mithilfe von Google Sign-In für Android realisiert. Dabei sendet der Client beim Anmelden mit Google Account einen ID-Token, welchen er vom Googleserver erhält, zu dem Fridget-Server per HTTPS POST. Dort wird die Integrität des Tokens mithilfe von GoogleTokenVerifier geprüft. Danach werden die Benutzerinformationen aus dem Token vom Fridget-Server benutzt, um eine Session aufzubauen oder einen neuen Benutzer in der Datenbank zu speichern.
-    
-    \newpage
     \subsection{HTTP-Protokoll}
     Folgende REST Endpoints verwenden wir für die Kommunikation zwischen Client und Server:
 	\begin{flushleft}
@@ -78,7 +74,6 @@
 		\end{longtable}
 	\end{flushleft}
 	
-	\newpage
 	\subsection{HTTP-Statuscodes}
 	Folgende Statuscodes liefern wir intern bei der HTTP-Antwort auf jede HTTP-Anfrage:
 	\begin{flushleft}
