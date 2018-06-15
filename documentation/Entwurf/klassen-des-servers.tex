@@ -169,7 +169,7 @@
     	\textit{Updatet eine Frozen Note.}
     	
     	\textbf{Parameter} \\
-    	id FrozenNote-ID
+    	id FrozenNote-ID\\
     	frozenNote FrozenNote zum updaten
     	
     	\textbf{Rückgabewert} \\
@@ -236,7 +236,7 @@
     	\textit{Findet ein Mitglied in einer WG.}
     	
     	\textbf{Parameter} \\
-    	flatshareId WG-ID
+    	flatshareId WG-ID\\
     	userId Benutzer-ID
     	
     	\textbf{Rückgabewert} \\
@@ -253,7 +253,7 @@
     	\textit{Löscht ein Mitglied von einer WG.}
     	
     	\textbf{Parameter} \\
-    	flatshareId WG-ID
+    	flatshareId WG-ID\\
     	userId Benutzer-ID
     	
     	\textbf{Rückgabewert} \\
@@ -287,7 +287,7 @@
     	\textit{Löscht einen Benutzer als Leser einer Cool Note.}
     	
     	\textbf{Parameter} \\
-    	coolNoteId CoolNote-ID
+    	coolNoteId CoolNote-ID\\
     	userId Benutzer-ID
     	
     	\textbf{Rückgabewert} \\
@@ -335,7 +335,7 @@
     	\textit{Baut Zugangscode mit zufälliger UUID.}
     	
     	\textbf{Parameter} \\
-    	content Inhalt vom Zugangscode
+    	content Inhalt vom Zugangscode\\
     	flatshareId ID von der WG, die mit dem Zugangscode beigetreten werden kann
     	
     	\textbf{Rückgabewert} \\
@@ -379,8 +379,8 @@
     	\textit{Baut Kommentar mit zufälliger UUID.}
     	
     	\textbf{Parameter} \\
-    	userId ID von dem Benutzer, der den Kommentar geschrieben hat
-    	coolNoteId ID von der Cool Note, der der Kommentar gehört zu
+    	userId ID von dem Benutzer, der den Kommentar geschrieben hat\\
+    	coolNoteId ID von der Cool Note, der der Kommentar gehört zu\\
     	content Inhalt vom Kommentar
     	
     	\textbf{Rückgabewert} \\
@@ -445,11 +445,11 @@
     	\textit{Baut Cool Note mit zufälliger UUID und aktuellem Datum.}
     	
     	\textbf{Parameter} \\
-    	title Überschrift von der Cool Note
-    	content Inhalt von der Cool Note
-    	flatshareId ID von der WG, zu der diese Cool Note gehört
-    	creatorUserId ID vom Benutzer, der die Cool Note erstellt hat
-    	position Position der Cool Note auf der Pinnwand
+    	title Überschrift von der Cool Note\\
+    	content Inhalt von der Cool Note\\
+    	flatshareId ID von der WG, zu der diese Cool Note gehört\\
+    	creatorUserId ID vom Benutzer, der die Cool Note erstellt hat\\
+    	position Position der Cool Note auf der Pinnwand\\
     	importance Wichtigkeit der Cool Note
     	
     	\textbf{Rückgabewert} \\
@@ -486,7 +486,7 @@
     	\textit{Baut Gerät mit zufälliger UUID.}
     	
     	\textbf{Parameter} \\
-    	userId Benutzer-ID
+    	userId Benutzer-ID\\
     	instanceIdToken Instanz-ID-Token
     	
     	\textbf{Rückgabewert} \\
@@ -608,10 +608,10 @@
     	\textit{Baut Image Cool Note mit zufälliger UUID und aktuellem Datum.}
     	
     	\textbf{Parameter} \\
-    	flatshareId ID von der WG, zu der diese Image Cool Note gehört
-    	image Bild in der Image Cool Note
-    	description Beschreibung der Image Cool Note
-    	creatorUserId ID vom Benutzer, der die Image Cool Note erstellt hat
+    	flatshareId ID von der WG, zu der diese Image Cool Note gehört\\
+    	image Bild in der Image Cool Note\\
+    	description Beschreibung der Image Cool Note\\
+    	creatorUserId ID vom Benutzer, der die Image Cool Note erstellt hat\\
     	position Position der Image Cool Note auf der Pinnwand
     	
     	\textbf{Rückgabewert} \\
@@ -676,7 +676,7 @@
     	\textit{Baut Lesebestätigung.}
     	
     	\textbf{Parameter} \\
-    	userId ID vom Benutzer, der die Cool Note gelesen hat
+    	userId ID vom Benutzer, der die Cool Note gelesen hat\\
     	coolNoteId ID vom Cool Note, die gelesen wurde
     	
     	\textbf{Rückgabewert} \\
@@ -713,7 +713,7 @@
     	\textit{Baut getaggtes Mitglied.}
     	
     	\textbf{Parameter} \\
-    	userId ID vom Benutzer, der getaggt wurde
+    	userId ID vom Benutzer, der getaggt wurde\\
     	coolNoteId ID von der Cool Note, in der der Benutzer getaggt wurde
     	
     	\textbf{Rückgabewert} \\
@@ -750,7 +750,7 @@
     	\textit{Baut Benutzer mit zufälliger UUID.}
     	
     	\textbf{Parameter} \\
-    	googleUserId Google-ID vom Benutzer
+    	googleUserId Google-ID vom Benutzer\\
     	googleName Google-Name vom Benutzer
     	
     	\textbf{Rückgabewert} \\
@@ -1075,7 +1075,7 @@
     	\textit{Findet eine Mitgliedschaft über WG-ID und Benutzer-ID}
     	
     	\textbf{Parameter} \\
-    	flatshareId WG-ID
+    	flatshareId WG-ID\\
     	userId Benutzer-ID
     	
     	\textbf{Rückgabewert} \\
@@ -1084,7 +1084,7 @@
     	\textit{Löscht eine Mitgiedschaft über WG-ID und Benutzer-ID}
     	
     	\textbf{Parameter} \\
-    	flatshareId WG-ID
+    	flatshareId WG-ID\\
     	userId Benutzer-ID
     	
     	
@@ -1107,7 +1107,7 @@
     	\textit{Löscht eine Lesebestätigung über CoolNote-ID und Benutzer-ID}
     	
     	\textbf{Parameter} \\
-    	coolNoteId CoolNote-ID
+    	coolNoteId CoolNote-ID\\
     	userId Benutzer-ID
     	
     	
@@ -1270,7 +1270,7 @@
     	\textit{Speichert eine WG mit einem Namen.}
     	
     	\textbf{Parameter} \\
-    	flatshare WG zum speichern
+    	flatshare WG zum speichern\\
     	userId Benutzer-ID
     	
     	\textbf{Rückgabewert} \\
@@ -1307,7 +1307,7 @@
     	\textit{Updatet eine Frozen Note.}
     	
     	\textbf{Parameter} \\
-    	id FrozenNote-ID
+    	id FrozenNote-ID\\
     	frozenNote FrozenNote zum updaten
     	
     	\textbf{Rückgabewert} \\
@@ -1387,7 +1387,7 @@
     	\textit{Findet ein Mitglied in einer WG.}
     	
     	\textbf{Parameter} \\
-    	flatshareId WG-ID
+    	flatshareId WG-ID\\
     	userId Benutzer-ID
     	
     	\textbf{Rückgabewert} \\
@@ -1396,7 +1396,7 @@
     	\textit{Speichert einen Benutzer mit gültigem Zugangscode in einer WG.}
     	
     	\textbf{Parameter} \\
-    	accessCode Zugangscode
+    	accessCode Zugangscode\\
     	membershipBuilder membershipBuilder
     	
     	\textbf{Rückgabewert} \\
@@ -1413,7 +1413,7 @@
     	\textit{Löscht ein Mitglied von einer WG.}
     	
     	\textbf{Parameter} \\
-    	flatshareId WG-ID
+    	flatshareId WG-ID\\
     	userId Benutzer-ID
     	
     	
@@ -1449,7 +1449,7 @@
     	\textit{Löscht einen Benutzer als Leser einer Cool Note.}
     	
     	\textbf{Parameter} \\
-    	coolNoteId CoolNote-ID
+    	coolNoteId CoolNote-ID\\
     	userId Benutzer-ID
     	
     	
@@ -1477,7 +1477,7 @@
     	\textit{Speichert ein getaggtes Mitglied.}
     	
     	\textbf{Parameter} \\
-    	userId Benutzer-ID
+    	userId Benutzer-ID\\
     	coolNoteId CoolNote-ID
     	
     	\textbf{Rückgabewert} \\
@@ -1508,6 +1508,6 @@
     \textit{Service für Benutzer}
     \paragraph*{Konstruktor}\mbox{} \\
     \texttt{public UserServiceImpl(UserRepository repository)} \\
-
+ss
 
 %\end{document}
