@@ -23,7 +23,7 @@
 	\begin{itemize}
 	\item{\texttt{public String getUserID()}}\\
 	\textit{Gibt die ID des Benutzers der App zurück.}\\
-	\item{\texttt{public String getUserID()}}\\
+	\item{\texttt{public String getUserName()}}\\
 	\textit{Gibt den Namen des Benutzers zurück.}\\
 	\end{itemize}
 
@@ -73,7 +73,7 @@
 		\item\texttt{{public String getWriterID(Member memberID)}}\\
 		\textit{Gibt die ID des Mitglieders zurück, der die Cool Note erstellt hat.}\\
 		\textbf{Parameter}\\
-		“UserID userID”: Die ID oder Kennnummer des Mitglieders, der die Cool Note erstellt hat.\\
+		“MemberID memberID”: Die ID oder Kennnummer des Mitglieders, der die Cool Note erstellt hat.\\
 		
 		\item\texttt{{public String getContentCoolNote()}}\\
 		\textit{Gibt den Inhalt der Cool Note zurück.}\\
@@ -123,8 +123,8 @@
 	
 	\textbf{Methoden}
 	\begin{itemize}
-		\item\texttt{{public String getCommentWriterID(Member memberID)}}\\
-		\textit{Gibt die UserID des Benutzers zurück, der den Kommentar geschrieben hat.}\\
+		\item\texttt{{public String getWriterCommentID(Member memberID)}}\\
+		\textit{Gibt die MemberID des Mitglieders zurück, der den Kommentar geschrieben hat.}\\
 		\textbf{Parameter}\\
 		“MemberID memberID”: Die ID oder Kennnummer des Mitglieders, der den Kommentar geschrieben hat.\\
 		
@@ -133,7 +133,7 @@
 		\textbf{Parameter}\\
 		“CoolNoteID coolNoteID”: Die ID oder Kennnummer der Cool Note.\\
 		
-		\item\texttt{{public String getCommentContent()}}\\
+		\item\texttt{{public String getContentomment()}}\\
 		\textit{Gibt den Inhalt des Kommentares zurück.}\\
 	\end{itemize}
 
@@ -155,7 +155,7 @@
 		\item\texttt{{public String getWriterID(Member memberID)}}\\
 		\textit{Gibt die ID des Mitglieders zurück, der die Image Note erstellt hat.}\\
 		\textbf{Parameter}\\
-		“UserID userID”: Die ID oder Kennnummer des Mitglieders, der die Image Note erstellt hat.\\
+		“MemberID memberID”: Die ID oder Kennnummer des Mitglieders, der die Image Note erstellt hat.\\
 		
 		\item\texttt{{public byte[] getContentImageNote()}}\\
 		\textit{Gibt den Inhalt, also das Bild der Image Note zurück.}\\
@@ -176,7 +176,7 @@
 	
 	\textbf{Methoden}
 	\begin{itemize}
-		\item\texttt{{public String getCommentWriterID(Member memberID)}}\\
+		\item\texttt{{public String getComfirmationMemberID(Member memberID)}}\\
 		\textit{Gibt die ID des Mitglieders zurück, der die Check-Box benutzt.}\\
 		\textbf{Parameter}\\
 		“MemberID memberID”: Die ID oder Kennnummer des Mitglieders, der die Check-Box der Cool Note abhakt.\\
