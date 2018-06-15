@@ -11,8 +11,8 @@
     \subsubsection{\texttt{Class AccessCodeController}}
     \textbf{Beschreibung} \\
     \textit{Controller für Zugangscode}
-    \paragraph*{Konstruktor}
-    \texttt{public AccessCodeController(AccessCodeService service)}
+    \paragraph*{Konstruktor}\mbox{} \\
+    \texttt{public AccessCodeController(AccessCodeService service)} \\
     \paragraph*{Methoden}
     \begin{itemize}
     	\item{\texttt{public ResponseEntity<AccessCode> generateAccessCode(GenerateAccessCodeCommand generateAccessCodeCommand)}}
@@ -28,8 +28,8 @@
     \subsubsection{\texttt{Class CommentController}}
     \textbf{Beschreibung} \\
     \textit{Controller für Kommentar}
-    \paragraph*{Konstruktor}
-    \texttt{public CommentController(CommentService service)}
+    \paragraph*{Konstruktor}\mbox{} \\
+    \texttt{public CommentController(CommentService service)} \\
     \paragraph*{Methoden}
     \begin{itemize}
     	\item{\texttt{public ResponseEntity<List<Comment$>>$ getAllComments(String coolNoteId)}}
@@ -61,8 +61,8 @@
     \subsubsection{\texttt{Class CoolNoteController}}
     \textbf{Beschreibung} \\
     \textit{Controller für Cool Note}
-    \paragraph*{Konstruktor}
-    \texttt{public CoolNoteController(CoolNoteService coolNoteService, TaggedUserService taggedUserService)}
+    \paragraph*{Konstruktor}\mbox{} \\
+    \texttt{public CoolNoteController(CoolNoteService coolNoteService, TaggedUserService taggedUserService)} \\
     \paragraph*{Methoden}
     \begin{itemize}
     	\item{\texttt{public ResponseEntity<List<CoolNoteWithTaggedUsersRepresentation$>>$ getAllCoolNotes(String flatshareId)}}
@@ -102,8 +102,8 @@
     \subsubsection{\texttt{Class DeviceController}}
     \textbf{Beschreibung} \\
     \textit{Controller für Gerät}
-    \paragraph*{Konstruktor}
-    \texttt{public DeviceController(DeviceService service)}
+    \paragraph*{Konstruktor}\mbox{} \\
+    \texttt{public DeviceController(DeviceService service)} \\
     \paragraph*{Methoden}
     \begin{itemize}
     	\item{\texttt{public ResponseEntity<Device> saveDevice(Device device)}}
@@ -119,8 +119,8 @@
     \subsubsection{\texttt{Class FlatshareController}}
     \textbf{Beschreibung} \\
     \textit{Controller für WG}
-    \paragraph*{Konstruktor}
-    \texttt{public FlatshareController(FlatshareService service)}
+    \paragraph*{Konstruktor}\mbox{} \\
+    \texttt{public FlatshareController(FlatshareService service)} \\
     \paragraph*{Methoden}
     \begin{itemize}
     	\item{\texttt{public ResponseEntity<Flatshare> getFlatshare(String id)}}
@@ -144,8 +144,8 @@
     \subsubsection{\texttt{Class FrozenNoteController}}
     \textbf{Beschreibung} \\
     \textit{Controller für Frozen Note}
-    \paragraph*{Konstruktor}
-    \texttt{public FrozenNoteController(FrozenNoteService service)}
+    \paragraph*{Konstruktor}\mbox{} \\
+    \texttt{public FrozenNoteController(FrozenNoteService service)} \\
     \paragraph*{Methoden}
     \begin{itemize}
     	\item{\texttt{public ResponseEntity<List<FrozenNote$>>$ getAllFrozenNotes(String flatshareId)}}
@@ -178,8 +178,8 @@
     \subsubsection{\texttt{Class ImageNoteController}}
     \textbf{Beschreibung} \\
     \textit{Controller für Image Cool Note}
-    \paragraph*{Konstruktor}
-    \texttt{public ImageNoteController(ImageNoteService service)}
+    \paragraph*{Konstruktor}\mbox{} \\
+    \texttt{public ImageNoteController(ImageNoteService service)} \\
     \paragraph*{Methoden}
     \begin{itemize}
     	\item{\texttt{public ResponseEntity<List<ImageNote$>>$ getAllImageNotes(String flatshareId)}}
@@ -219,8 +219,8 @@
     \subsubsection{\texttt{Class MembershipController}}
     \textbf{Beschreibung} \\
     \textit{Controller für Mitgliedschaft}
-    \paragraph*{Konstruktor}
-    \texttt{public MembershipController(MembershipService service)}
+    \paragraph*{Konstruktor}\mbox{} \\
+    \texttt{public MembershipController(MembershipService service)} \\
     \paragraph*{Methoden}
     \begin{itemize}
     	\item{\texttt{public ResponseEntity<List<UserMembershipRepresentation$>>$ getAllUsers(String flatshareId)}}
@@ -262,8 +262,8 @@
     \subsubsection{\texttt{Class ReadConfirmationController}}
     \textbf{Beschreibung} \\
     \textit{Controller für Lesebestätigung}
-    \paragraph*{Konstruktor}
-    \texttt{public ReadConfirmationController(ReadConfirmationService service)}
+    \paragraph*{Konstruktor}\mbox{} \\
+    \texttt{public ReadConfirmationController(ReadConfirmationService service)} \\
     \paragraph*{Methoden}
     \begin{itemize}
     	\item{\texttt{public ResponseEntity<List<User$>>$ getAllUsers(String id)}}
@@ -296,8 +296,8 @@
     \subsubsection{\texttt{Class UserController}}
     \textbf{Beschreibung} \\
     \textit{Controller für Benutzer}
-    \paragraph*{Konstruktor}
-    \texttt{public UserController(UserService service)}
+    \paragraph*{Konstruktor}\mbox{} \\
+    \texttt{public UserController(UserService service)} \\
     \paragraph*{Methoden}
     \begin{itemize}
     	\item{\texttt{public ResponseEntity<UserWithJwtRepresentation> registerOrLogin(String googleIdToken)}}
@@ -760,8 +760,8 @@
     \subsubsection{\texttt{Class GenerateAccessCodeCommand}}
     \textbf{Beschreibung} \\
     \textit{Model für das Generieren des Zugangscodes}
-    \paragraph*{Konstruktor}
-    \texttt{public GenerateAccessCodeCommand(String flatshareId)}
+    \paragraph*{Konstruktor}\mbox{} \\
+    \texttt{public GenerateAccessCodeCommand(String flatshareId)} \\
     \paragraph*{Methoden}
     \begin{itemize}
     	\item{\texttt{public String getFlatshareId()}}
@@ -776,8 +776,8 @@
     \subsubsection{\texttt{Class SaveCoolNoteCommand}}
     \textbf{Beschreibung} \\
     \textit{Model für das Speichern der Cool Note}
-    \paragraph*{Konstruktor}
-    \texttt{public SaveCoolNoteCommand(String title, String content, String flatshareId, String creatorUserId, int position, int importance, List<String> taggedUserIds)}
+    \paragraph*{Konstruktor}\mbox{} \\
+    \texttt{public SaveCoolNoteCommand(String title, String content, String flatshareId, String creatorUserId, int position, int importance, List<String> taggedUserIds)} \\
     \paragraph*{Methoden}
     \begin{itemize}
     	\item{\texttt{public String getTitle()}}
@@ -834,8 +834,8 @@
     \subsubsection{\texttt{Class SaveFlatshareCommand}}
     \textbf{Beschreibung} \\
     \textit{Model für das Speichern der WG}
-    \paragraph*{Konstruktor}
-    \texttt{public SaveFlatshareCommand(String userId, String flatshareName)}
+    \paragraph*{Konstruktor}\mbox{} \\
+    \texttt{public SaveFlatshareCommand(String userId, String flatshareName)} \\
     \paragraph*{Methoden}
     \begin{itemize}
     	\item{\texttt{public String getUserId()}}
@@ -864,8 +864,8 @@
     \subsubsection{\texttt{Class SaveMembershipCommand}}
     \textbf{Beschreibung} \\
     \textit{Model für das Speichern der Mitgliedschaft}
-    \paragraph*{Konstruktor}
-    \texttt{public SaveMembershipCommand(String accessCode, String userId)}
+    \paragraph*{Konstruktor}\mbox{} \\
+    \texttt{public SaveMembershipCommand(String accessCode, String userId)} \\
     \paragraph*{Methoden}
     \begin{itemize}
     	\item{\texttt{public String getAccessCode()}}
@@ -895,8 +895,8 @@
     \subsubsection{\texttt{Class CoolNoteWithTaggedUsersRepresentation}}
     \textbf{Beschreibung} \\
     \textit{Model für Cool Note mit getaggten Mitgliedern}
-    \paragraph*{Konstruktor}
-    \texttt{public CoolNoteWithTaggedUsersRepresentation(CoolNote coolNote, List<String> taggedUserIds)}
+    \paragraph*{Konstruktor}\mbox{} \\
+    \texttt{public CoolNoteWithTaggedUsersRepresentation(CoolNote coolNote, List<String> taggedUserIds)} \\
     \paragraph*{Methoden}
     \begin{itemize}
     	\item{\texttt{public CoolNote getCoolNote()}}
@@ -918,8 +918,8 @@
     \subsubsection{\texttt{Class UserMembershipRepresentation}}
     \textbf{Beschreibung} \\
     \textit{Model für Benutzer mit Mitgliedschaft-Info}
-    \paragraph*{Konstruktor}
-    \texttt{public UserMembershipRepresentation(User user, Membership membership)}
+    \paragraph*{Konstruktor}\mbox{} \\
+    \texttt{public UserMembershipRepresentation(User user, Membership membership)} \\
     \paragraph*{Methoden}
     \begin{itemize}
     	\item{\texttt{public String getUserId()}}
@@ -955,8 +955,8 @@
     \subsubsection{\texttt{Class UserWithJwtRepresentation}}
     \textbf{Beschreibung} \\
     \textit{Model für Benutzer mit JWT (JSON Web Token)}
-    \paragraph*{Konstruktor}
-    \texttt{public UserWithJwtRepresentation(User user, String jwt)}
+    \paragraph*{Konstruktor}\mbox{} \\
+    \texttt{public UserWithJwtRepresentation(User user, String jwt)} \\
     \paragraph*{Methoden}
     \begin{itemize}
     	\item{\texttt{public User getUser()}}
@@ -1137,8 +1137,8 @@
     \subsubsection{\texttt{Class AccessCodeServiceImpl implements AccessCodeService}}
     \textbf{Beschreibung} \\
     \textit{Service für Zugangscode}
-    \paragraph*{Konstruktor}
-    \texttt{public AccessCodeServiceImpl(AccessCodeRepository repository)}
+    \paragraph*{Konstruktor}\mbox{} \\
+    \texttt{public AccessCodeServiceImpl(AccessCodeRepository repository)} \\
     \subsubsection{\texttt{Class AuthenticationService}}
     \textbf{Beschreibung} \\
     \textit{Service für Authentifizierung}
@@ -1187,8 +1187,8 @@
     \subsubsection{\texttt{Class CommentServiceImpl implements CommentService}}
     \textbf{Beschreibung} \\
     \textit{Service für Kommentar}
-    \paragraph*{Konstruktor}
-    \texttt{public CommentServiceImpl(CommentRepository repository)}
+    \paragraph*{Konstruktor}\mbox{} \\
+    \texttt{public CommentServiceImpl(CommentRepository repository)} \\
     \subsubsection{\texttt{Interface CoolNoteService}}
     \textbf{Beschreibung} \\
     \textit{Interface von Service für Cool Note}
@@ -1230,8 +1230,8 @@
     \subsubsection{\texttt{Class CoolNoteServiceImpl implements CoolNoteService}}
     \textbf{Beschreibung} \\
     \textit{Service für Cool Note}
-    \paragraph*{Konstruktor}
-    \texttt{public CoolNoteServiceImpl(CoolNoteRepository coolNoteRepository, TaggedUserRepository taggedUserRepository)}
+    \paragraph*{Konstruktor}\mbox{} \\
+    \texttt{public CoolNoteServiceImpl(CoolNoteRepository coolNoteRepository, TaggedUserRepository taggedUserRepository)} \\
     \subsubsection{\texttt{Interface DeviceService}}
     \textbf{Beschreibung} \\
     \textit{Interface von Service für Gerät}
@@ -1250,8 +1250,8 @@
     \subsubsection{\texttt{Class DeviceServiceImpl implements DeviceService}}
     \textbf{Beschreibung} \\
     \textit{Service für Gerät}
-    \paragraph*{Konstruktor}
-    \texttt{public DeviceServiceImpl(DeviceRepository repository)}
+    \paragraph*{Konstruktor}\mbox{} \\
+    \texttt{public DeviceServiceImpl(DeviceRepository repository)} \\
     \subsubsection{\texttt{Interface FlatshareService}}
     \textbf{Beschreibung} \\
     \textit{Interface von Service für WG}
@@ -1279,8 +1279,8 @@
     \subsubsection{\texttt{Class FlatshareServiceImpl implements FlatshareService}}
     \textbf{Beschreibung} \\
     \textit{Service für WG}
-    \paragraph*{Konstruktor}
-    \texttt{public FlatshareServiceImpl(FlatshareRepository flatshareRepository, MembershipService membershipService, FrozenNoteService frozenNoteService)}
+    \paragraph*{Konstruktor}\mbox{} \\
+    \texttt{public FlatshareServiceImpl(FlatshareRepository flatshareRepository, MembershipService membershipService, FrozenNoteService frozenNoteService)} \\
     \subsubsection{\texttt{Interface FrozenNoteService}}
     \textbf{Beschreibung} \\
     \textit{Interface von Service für Frozen Note}
@@ -1324,8 +1324,8 @@
     \subsubsection{\texttt{Class FrozenNoteServiceImpl implements FrozenNoteService}}
     \textbf{Beschreibung} \\
     \textit{Service für Frozen Note}
-    \paragraph*{Konstruktor}
-    \texttt{public FrozenNoteServiceImpl(FrozenNoteRepository repository)}
+    \paragraph*{Konstruktor}\mbox{} \\
+    \texttt{public FrozenNoteServiceImpl(FrozenNoteRepository repository)} \\
     \subsubsection{\texttt{Interface ImageNoteService}}
     \textbf{Beschreibung} \\
     \textit{Interface von Service für Image Cool Note}
@@ -1367,8 +1367,8 @@
     \subsubsection{\texttt{Class ImageNoteServiceImpl implements ImageNoteService}}
     \textbf{Beschreibung} \\
     \textit{Service für Image Cool Note}
-    \paragraph*{Konstruktor}
-    \texttt{public ImageNoteServiceImpl(ImageNoteRepository repository)}
+    \paragraph*{Konstruktor}\mbox{} \\
+    \texttt{public ImageNoteServiceImpl(ImageNoteRepository repository)} \\
     \subsubsection{\texttt{Interface MembershipService}}
     \textbf{Beschreibung} \\
     \textit{Interface von Service für Mitgliedschaft}
@@ -1421,8 +1421,8 @@
     \subsubsection{\texttt{Class MembershipServiceImpl implements MembershipService}}
     \textbf{Beschreibung} \\
     \textit{Service für Mitgliedschaft}
-    \paragraph*{Konstruktor}
-    \texttt{public MembershipServiceImpl(MembershipRepository membershipRepository, UserRepository userRepository, AccessCodeRepository accessCodeRepository)}
+    \paragraph*{Konstruktor}\mbox{} \\
+    \texttt{public MembershipServiceImpl(MembershipRepository membershipRepository, UserRepository userRepository, AccessCodeRepository accessCodeRepository)} \\
     \subsubsection{\texttt{Interface ReadConfirmationService}}
     \textbf{Beschreibung} \\
     \textit{Interface von Service für Lesebestätigung}
@@ -1457,8 +1457,8 @@
     \subsubsection{\texttt{Class ReadConfirmationServiceImpl implements ReadConfirmationService}}
     \textbf{Beschreibung} \\
     \textit{Service für Lesebestätigung}
-    \paragraph*{Konstruktor}
-    \texttt{public ReadConfirmationServiceImpl(ReadConfirmationRepository readConfirmationRepository, UserRepository userRepository)}
+    \paragraph*{Konstruktor}\mbox{} \\
+    \texttt{public ReadConfirmationServiceImpl(ReadConfirmationRepository readConfirmationRepository, UserRepository userRepository)} \\
     \subsubsection{\texttt{Interface TaggedUserService}}
     \textbf{Beschreibung} \\
     \textit{Interface von Service für getaggte Mitglieder}
@@ -1486,8 +1486,8 @@
     \subsubsection{\texttt{Class TaggedUserServiceImpl implements TaggedUserService}}
     \textbf{Beschreibung} \\
     \textit{Service für getaggte Mitglieder}
-    \paragraph*{Konstruktor}
-    \texttt{public TaggedUserServiceImpl(TaggedUserRepository repository)}
+    \paragraph*{Konstruktor}\mbox{} \\
+    \texttt{public TaggedUserServiceImpl(TaggedUserRepository repository)} \\
     \subsubsection{\texttt{Interface UserService}}
     \textbf{Beschreibung} \\
     \textit{Interface von Service für Benutzer}
@@ -1506,7 +1506,8 @@
     \subsubsection{\texttt{Class UserServiceImpl implements UserService}}
     \textbf{Beschreibung} \\
     \textit{Service für Benutzer}
-    \paragraph*{Konstruktor}
-    \texttt{public UserServiceImpl(UserRepository repository)}
+    \paragraph*{Konstruktor}\mbox{} \\
+    \texttt{public UserServiceImpl(UserRepository repository)} \\
+
 
 %\end{document}
