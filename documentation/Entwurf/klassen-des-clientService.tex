@@ -142,14 +142,15 @@
 	\textbf{Methoden} \\
 		\begin{itemize}
 		\item{@Headers()\\ @POST ("/flatshares") \\
-Call<Flatshare> createFlatshare(@Body Flatshare flatshare)
+Call<Flatshare> createFlatshare(@Body Flatshare flatshare, String userId)
 }
 
 		\textit{Diese Methode erstellt eine neue Flatshare auf dem Server
 }
 
 		\textbf{Parameter} \\
-	flatshare - zu erstellende Flatshare 
+	flatshare - Name der zu erstellenden flatshare
+	userID - ID des Users, der die flatshare erstellt
 
 		\textbf{Rückgabewert} \\
 	Flatshare
