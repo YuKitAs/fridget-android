@@ -10,12 +10,12 @@
 
 	\textbf{Methoden} \\
 		\begin{itemize}
-		\item{@GET\\ Call<User> getGoogleIdToken(String googleIdToken)}
+		\item{@GET\\ Call<User> getGoogleIdToken(String loginData)}
 
 		\textit{Diese Methode ruft den GoogleToken vom Goolge API Server ab}
 
 		\textbf{Parameter} \\
-	googleIDToken - zum speichern des GoogleToken
+	loginData - Logindaten des Users
 
 		\textbf{Rückgabewert} \\
 	GoogleToken
@@ -28,7 +28,7 @@
 		googleIdToken - zu sendender GoogleToken
 
 		\textbf{Rückgabewert} \\
-	GoogleToken
+	
 
 	 \end{itemize}
 
@@ -154,7 +154,7 @@ Call<Flatshare> createFlatshare(@Body Flatshare flatshare)
 		\textbf{Rückgabewert} \\
 	Flatshare
 
-      \item{@Headers()\\  @GET("/flatshares/{id}")\\ Call<Flatshare> getFlatshare(@Path("id") 					String flatshareId)}
+      \item{@Headers()\\  @GET("/flatshares/{id}")\\ Call<Flatshare> getFlatshare(@Path(\grqq id\grqq) 					String flatshareId)}
 
 		\textit{Diese Methode ruft eine Flatshare Daten vom Server ab }
 
@@ -175,7 +175,7 @@ Call<Flatshare> createFlatshare(@Body Flatshare flatshare)
 	\textbf{Methoden} \\
 		\begin{itemize}
 		\item{@Headers\\ @GET("/frozen-notes?flatshare={id}")\\
-Call<List<FrozenNote>> getAllFrozenNote(@Path("id") String flatShareId)}
+Call<List<FrozenNote>> getAllFrozenNote(@Path(\grqq id\grqq) String flatShareId)}
 
 		\textit{Diese Methode ruft die FrozenNotes vom Server ab}
 
@@ -185,7 +185,7 @@ Call<List<FrozenNote>> getAllFrozenNote(@Path("id") String flatShareId)}
 		\textbf{Rückgabewert} \\
 	FrozenNote
 
-      \item{@Headers\\ @GET("/frozen-notes/{id}")\\ Call<FrozenNote> getFrozenNote(@Path("id") String frozenNoteId)}
+      \item{@Headers\\ @GET("/frozen-notes/{id}")\\ Call<FrozenNote> getFrozenNote(@Path(\grqq id\grqq) String frozenNoteId)}
 
 		\textit{Diese Methode ruft den Inhalt einer FrozenNote ab }
 
@@ -195,7 +195,7 @@ Call<List<FrozenNote>> getAllFrozenNote(@Path("id") String flatShareId)}
 		\textbf{Rückgabewert} \\
 	FrozenNote
 
-	 \item{@Headers\\ @PUT("/frozen-notes/{id}")\\ Call<FrozenNote> updateFrozenNote(@Path("id") String frozenNoteId, @Body FrozenNote frozenNote)}
+	 \item{@Headers\\ @PUT("/frozen-notes/{id}")\\ Call<FrozenNote> updateFrozenNote(@Path(\grqq id\grqq) String frozenNoteId, @Body FrozenNote frozenNote)}
 
 		\textit{Diese Methode speichert Änderungen  in einer FrozenNote}
 
@@ -214,7 +214,7 @@ Call<List<FrozenNote>> getAllFrozenNote(@Path("id") String flatShareId)}
 	\textbf{Methoden} \\
 		\begin{itemize}
 		\item{@Headers()\\ @GET("/image-notes?flatshare={id}")\\
-Call<List<ImageNote>> getAllImageNotes(@Path("id") String flatshareId)}
+Call<List<ImageNote>> getAllImageNotes(@Path(\grqq id\grqq) String flatshareId)}
 
 		\textit{Diese Methode ruft die ImageCoolNotes vom server ab}
 
@@ -224,7 +224,7 @@ Call<List<ImageNote>> getAllImageNotes(@Path("id") String flatshareId)}
 		\textbf{Rückgabewert} \\
 	ImageCoolNote
 
-      \item{@Heders\\ @GET("/image-notes/{id}")\\ Call<ImageNote> getImageNote(@Path("id") String imageNoteId)}
+      \item{@Heders\\ @GET("/image-notes/{id}")\\ Call<ImageNote> getImageNote(@Path("\grqq id\grqq") String imageNoteId)}
 
 		\textit{Diese Methode ruft eine ImageNote ab }
 
@@ -244,7 +244,7 @@ Call<List<ImageNote>> getAllImageNotes(@Path("id") String flatshareId)}
 		\textbf{Rückgabewert} \\
 	ImageNote
 
-	     \item{@Headers\\ @DELETE("/image-notes/{id}")\\Call<ImageNote> deleteImageNote(@Path("id") String ImageNoteId)}
+	     \item{@Headers\\ @DELETE("/image-notes/{id}")\\Call<ImageNote> deleteImageNote(@Path("\grqq id\grqq") String ImageNoteId)}
 
 		\textit{Diese Methode löscht eine ImageNote}
 
@@ -269,7 +269,7 @@ Call<List<ImageNote>> getAllImageNotes(@Path("id") String flatshareId)}
 		\textbf{Rückgabewert} \\
 	MemberList
 
-      \item{@Headers()\\ @GET("memberships?flatshare={fid}\&user ={uid}")\\Call<Membership> getUser(@Path("fid") String flatshareId, @Path("uid") String userid)}
+      \item{@Headers()\\ @GET("memberships?flatshare={fid}\&user ={uid}")\\Call<Membership> getUser(@Path("fid") String flatshareId, @Path(\grqq uid\grqq) String userid)}
 
 		\textit{Diese Methode ruft die Daten eines Members ab}        	
 		\textbf{Parameter} \\
@@ -302,7 +302,7 @@ Call<List<ImageNote>> getAllImageNotes(@Path("id") String flatshareId)}
 	\textbf{Methoden} \\
 
     \begin{itemize}
-		\item{@Headers()\\@GET("/read-confirmations/users?cool-note={id}") \\ Call<List<User>> getReadStatus(@Path("id") String coolNoteId)}
+		\item{@Headers()\\@GET("/read-confirmations/users?cool-note={id}") \\ Call<List<User>> getReadStatus(@Path(\grqq id\grqq) String coolNoteId)}
 
 		\textit{Diese Methode ruft den gelesen Status vom Server ab}
 
@@ -326,7 +326,7 @@ Call<List<ImageNote>> getAllImageNotes(@Path("id") String flatshareId)}
 
 	\item{@Headers()\\ @DELETE("/read-confirmations?cool-note={cid}\&user={uid}")}
 \\Call<CoolNote> deleteReadStatus(@Path("cid") String coolNoteId,
-			     @Path("uid") String userID);
+			     @Path(\grqq uid\grqq) String userID);
 
 		\textit{Diese Methode setzt die Checkbox auf unmarkiert}
 
