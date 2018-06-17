@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>5</zoom_level>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>0</x>
+      <y>225</y>
+      <w>935</w>
+      <h>445</h>
+    </coordinates>
+    <panel_attributes>kit.edu.pse.fridget.client.Activity
+--
+bg=light_gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>260</y>
+      <w>165</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>AppCompatActivity
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>205</x>
+      <y>260</y>
+      <w>165</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+_View.OnClickListener_
+--
+
+--
++onClick(View v)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>205</x>
+      <y>315</y>
+      <w>165</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+_SwipeRefreshLayout.OnRefreshListener_
+--
+
+--
++onRefresh(View v): boolean
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>400</x>
+      <y>260</y>
+      <w>170</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract class&gt;&gt;
+ResultReceiver
+--
+
+--
+&lt;&lt;create&gt;&gt; ResultReceiver(Handler handler)
++onReceiveResult(int resultCode, Bundle resultData)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>400</x>
+      <y>355</y>
+      <w>170</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>ServiceResultReceiver
+--
+
+--
++setReceiver(Receiver receiver)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>310</y>
+      <w>15</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>585</x>
+      <y>305</y>
+      <w>170</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+Receiver
+--
+
+--
++onReceiveResult(int resultCode, Bundle resultData)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>565</x>
+      <y>345</y>
+      <w>125</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+</panel_attributes>
+    <additional_attributes>230.0;10.0;230.0;70.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>420</y>
+      <w>165</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>*LoginActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>195</x>
+      <y>420</y>
+      <w>165</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>*StartActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>500</y>
+      <w>165</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>*CreateFlatShareActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>575</y>
+      <w>165</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>*EnterAccessCodeActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>195</x>
+      <y>495</y>
+      <w>165</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>*GetAccessCodeActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>195</x>
+      <y>570</y>
+      <w>165</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>*HomeActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;implements SwipeRefreshLayout.OnRefreshListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>375</x>
+      <y>575</y>
+      <w>165</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>*FullImageCoolNoteActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;implements SwipeRefreshLayout.OnRefreshListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>375</x>
+      <y>495</y>
+      <w>165</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>*FullFrozenNoteActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;implements SwipeRefreshLayout.OnRefreshListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>375</x>
+      <y>420</y>
+      <w>165</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>*FullTextCoolNoteActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;implements SwipeRefreshLayout.OnRefreshListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>420</y>
+      <w>165</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>*CreateTextCoolNoteActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>495</y>
+      <w>165</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>*CreateImageCoolNoteActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>575</y>
+      <w>165</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>*CreateCommentActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>745</x>
+      <y>420</y>
+      <w>165</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>*EditFrozenNoteActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>745</x>
+      <y>575</y>
+      <w>165</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>*MemberListActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;implements SwipeRefreshLayout.OnRefreshListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>745</x>
+      <y>495</y>
+      <w>165</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>*LanguagetActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
