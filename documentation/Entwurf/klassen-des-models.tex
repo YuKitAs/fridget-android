@@ -6,9 +6,9 @@
 
 	\textbf{Methoden}
 	\begin{itemize}
-		\item{\texttt{public String getAccessCodeID()}}\\
-		\textit{Gibt die ID des Access-Codes der WG zurück.}\\
-		\item{\texttt{public String getAccessCodeContent()}}\\
+		\item{\texttt{public String getFlatshareID()}}\\
+		\textit{Gibt die ID der WG des Accesscodes zurück.}\\
+		\item{\texttt{public String getContent()}}\\
 		\textit{Gibt den Access-Code als String zurück.}\\
 	\end{itemize}
 
@@ -21,10 +21,13 @@
 
 	\textbf{Methoden}
 	\begin{itemize}
-	\item{\texttt{public String getUserID()}}\\
+	\item{\texttt{public String getID()}}\\
 	\textit{Gibt die ID des Benutzers der App zurück.}\\
-	\item{\texttt{public String getUserName()}}\\
-	\textit{Gibt den Namen des Benutzers zurück.}\\
+	\item{\texttt{public String getGoogleName()}}\\
+	\textit{Gibt den Google-Namen des Benutzers zurück.}\\
+	
+	\item{\texttt{public String getGoogleID()}}\\
+	\textit{Gibt die Google-ID des Benutzers der App zurück.}\\
 	\end{itemize}
 
 	
@@ -36,12 +39,12 @@
 
 	\textbf{Methoden}
 	\begin{itemize}
-		\item\texttt{{public String getMemberID()}}\\
-		\textit{Gibt die ID des Benutzers der App zurück.}\\
-		\item\texttt{{public Member getMember()}}\\
-		\textit{Gibt den Mitglieder zurück.}\\
-		\item\texttt{{public String getMagnet()}}\\
-		\textit{Gibt den/die Magnet/Magnetfarbe des Benutzers zurück.}\\
+		\item\texttt{{public String getUserID()}}\\
+		\textit{Gibt die ID des Benutzers der App, der Mitglied einer WG ist, zurück.}\\
+		\item\texttt{{public Member getID()}}\\
+		\textit{Gibt ID der Mitgliedschaft der Benutzer zur WG zurück.}\\
+		\item\texttt{{public String getMagnetColor()}}\\
+		\textit{Gibt die Magnetfarbe des Benutzers zurück.}\\
 	\end{itemize}       
 
 \subsubsection{\texttt{public class Flatshare}}
@@ -51,9 +54,9 @@
 
 	\textbf{Methoden}
 	\begin{itemize}
-		\item\texttt{{public String getFlatshareID()}}\\
+		\item\texttt{{public String getID()}}\\
 		\textit{Gibt die ID der WG zurück.}\\
-		\item\texttt{{public String getFlatshareName()}}\\
+		\item\texttt{{public String getName()}}\\
 		\textit{Gibt den WG-Namen zurück.}\\
 	\end{itemize}
 
@@ -64,26 +67,38 @@
 
 	\textbf{Methoden}
 	\begin{itemize}
-		\item\texttt{{public String getCoolNoteID(CoolNote coolNoteID)}}\\
+		\item\texttt{{public String getID(CoolNote coolNoteID)}}\\
 		\textit{Gibt die Cool-Note-ID zurück.}\\
 		\textbf{Parameter}\\
 		“CoolNote coolNoteID”: Die ID oder Kennnummer der Cool Note.\\
-		\item\texttt{{public String getTitleCoolNote()}}\\
+		
+		\item\texttt{{public String getTitle()}}\\
 		\textit{Gibt die Überschrift einer Cool Note zurück.}\\
-		\item\texttt{{public String getWriterID(Member memberID)}}\\
+		
+		\item\texttt{{public String getCreatorUserID(User userID)}}\\
 		\textit{Gibt die ID des Mitglieders zurück, der die Cool Note erstellt hat.}\\
 		\textbf{Parameter}\\
 		“MemberID memberID”: Die ID oder Kennnummer des Mitglieders, der die Cool Note erstellt hat.\\
 		
-		\item\texttt{{public String getContentCoolNote()}}\\
+		\item\texttt{{public String getContent()}}\\
 		\textit{Gibt den Inhalt der Cool Note zurück.}\\
-		\item\texttt{{public List<Member> getTaggedMembers(Member member)}}\\
+		
+		\item\texttt{{public String getFlatshareID()}}\\
+		\textit{Gibt die ID der WG zurück, zu der diese Cool Note gehört.}\\
+		
+		\item\texttt{{public List<User> getTaggedUsers(User user)}}\\
 		\textit{Gibt die Mitglieder zurück, die in der Cool Note getaggt sind. Wenn keine spezifiziert ist, sind alle Mitglieder der WG getaggt.}\\
 		\textbf{Parameter}\\
 		“Member member”: Der Benutzer, der in der Cool Note getaggt wird.\\
-		\item\texttt{{enum importance{NORMAL, IMPORTANT, IMMEDIATE}}}\\
+		
+		\item\texttt{public int getImportance()}\\
+		\textit{Gibt die Wichtigkeit der Cool Note zurück.}
+		
 		\item\texttt{{public int getPosition()}}\\
 		\textit{Gibt die Position der Cool Note zurück.}\\
+		
+		\item\texttt{{public String getCreateAt()}}\\
+		\textit{Gibt das Erstelldatum der Image Note zurück.}\\
 	\end{itemize}
 
 \subsubsection{\texttt{public class FrozenNote}}
@@ -99,16 +114,23 @@
 	
 	\textbf{Methoden}
 	\begin{itemize}
-		\item\texttt{{public String getFrozenNoteID(FrozenNote frozenNoteID)}}\\
+		\item\texttt{{public String getID(FrozenNote frozenNoteID)}}\\
 		\textit{Gibt die Frozen-Note-ID zurück.}\\
 		\textbf{Parameter}\\
 		“FrozenNote frozenNoteID”: Die ID oder Kennnummer der Frozen Note.\\
 		
-		\item\texttt{{public String getTitleFrozenNote()}}\\
+		\item\texttt{{public String getTitle()}}\\
 		\textit{Gibt die Überschrift einer Frozen Note zurück.}\\
 		
-		\item\texttt{{public String getContentFrozenNote()}}\\
+		\item\texttt{{public String getContent()}}\\
 		\textit{Gibt den Inhalt der Frozen Note zurück.}\\
+		
+		\item\texttt{{public String getFlatshareID(Flatshare flatshareID)}}\\
+		\textit{Gibt die ID der WG zurück, zu der diese Frozen Note gehört.}\\
+		"Flatshare flatshareID": Die ID oder Kennnummer der WG, zu der die Image Note gehört.
+		
+		\item\texttt{{public int getPosition()}}\\
+		\textit{Gibt die Position der Frozen Note zurück.}\\
 	\end{itemize}
 
 \subsubsection{\texttt{public class Notification}}
@@ -129,7 +151,10 @@
 	
 	\textbf{Methoden}
 	\begin{itemize}
-		\item\texttt{{public String getWriterCommentID(Member memberID)}}\\
+		\item\texttt{public String getID()}
+		\textit{Gibt die Kommentar-ID zurück}
+		
+		\item\texttt{{public String getUserID(User userID)}}\\
 		\textit{Gibt die MemberID des Mitglieders zurück, der den Kommentar geschrieben hat.}\\
 		\textbf{Parameter}\\
 		“MemberID memberID”: Die ID oder Kennnummer des Mitglieders, der den Kommentar geschrieben hat.\\
@@ -139,7 +164,7 @@
 		\textbf{Parameter}\\
 		“CoolNoteID coolNoteID”: Die ID oder Kennnummer der Cool Note.\\
 		
-		\item\texttt{{public String getContentomment()}}\\
+		\item\texttt{{public String getContent()}}\\
 		\textit{Gibt den Inhalt des Kommentares zurück.}\\
 	\end{itemize}
 
@@ -150,29 +175,37 @@
 	
 	\textbf{Methoden}
 	\begin{itemize}
-		\item\texttt{{public String getImageNoteID(ImageNote imageNoteID)}}\\
+		\item\texttt{{public String getID(ImageNote imageNoteID)}}\\
 		\textit{Gibt die Image-Note-ID zurück.}\\
 		\textbf{Parameter}\\
 		“ImageNote imageNoteID”: Die ID oder Kennnummer der Image Note.\\
 		
-		\item\texttt{{public String getTitleImageNote()}}\\
-		\textit{Gibt die Überschrift einer Image Note zurück.}\\
+		\item\texttt{{public String getFlatshareID(Flateshare flatshareID)}}\\
+		\textit{Gibt die ID der WG zurück, zu der die Image Note gehört}\\
+		\textbf{Parameter}\\
+		"Flatshare flatshareID": Die ID oder Kennnummer der WG, zu der die Image Note gehört.
 		
-		\item\texttt{{public String getWriterID(Member memberID)}}\\
+		\item\texttt{{public String getDescription()}}\\
+		\textit{Gibt die Beschreibung einer Image Note zurück.}\\
+		
+		\item\texttt{{public String getCreatorUserID(Member memberID)}}\\
 		\textit{Gibt die ID des Mitglieders zurück, der die Image Note erstellt hat.}\\
 		\textbf{Parameter}\\
 		“MemberID memberID”: Die ID oder Kennnummer des Mitglieders, der die Image Note erstellt hat.\\
 		
-		\item\texttt{{public byte[] getContentImageNote()}}\\
+		\item\texttt{{public byte[] getImage()}}\\
 		\textit{Gibt den Inhalt, also das Bild der Image Note zurück.}\\
 		
-		\item\texttt{{public List<Member> getTaggedMembers(Member member)}}\\
+		\item\texttt{{public List<User> getTaggedUsers(User user)}}\\
 		\textit{Gibt die Mitglieder zurück, die in der Image Note getaggt sind. Wenn keine spezifiziert ist, sind alle Mitglieder der WG getaggt.}\\
 		\textbf{Parameter}\\
 		“Member member”: Der Benutzer, der in der Image Note getaggt wird.\\
 		
 		\item\texttt{{public int getPosition()}}\\
 		\textit{Gibt die Position der Image Note zurück.}\\
+		
+		\item\texttt{{public String getCreateAt()}}\\
+		\textit{Gibt das Erstelldatum der Image Note zurück.}\\
 	\end{itemize}
 
 \subsubsection{\texttt{public class ReadConfirmation}}
@@ -182,10 +215,15 @@
 	
 	\textbf{Methoden}
 	\begin{itemize}
-		\item\texttt{{public String getComfirmationMemberID(Member memberID)}}\\
+		\item\texttt{{public String getID(ReadConfirmation readConfirmationID)}}\\
+		\textit{Gibt die Read-Confirmation- oder Lesebestätigung-ID zurück.}\\
+		\textbf{Parameter}\\
+		“ImageNote imageNoteID”: Die ID oder Kennnummer der Image Note.\\
+		
+		\item\texttt{{public String getUserID(User userID)}}\\
 		\textit{Gibt die ID des Mitglieders zurück, der die Check-Box benutzt.}\\
 		\textbf{Parameter}\\
-		“MemberID memberID”: Die ID oder Kennnummer des Mitglieders, der die Check-Box der Cool Note abhakt.\\
+		“User userID”: Die ID oder Kennnummer des Mitglieders, der die Check-Box der Cool Note abhakt.\\
 		
 		\item\texttt{{public String getCoolNoteID(CoolNote coolNoteID)}}\\
 		\textit{Gibt die CoolNoteID zurück, die als gelesen oder ungelesen markiert wird.}\\
