@@ -21,6 +21,9 @@
 \usepackage{longtable}
 \usetocstyle{standard}
 \settocfeature{raggedhook}{\raggedright}
+\usepackage{graphicx}
+\usepackage{float}
+\graphicspath{ {images/} }
 
 \title{Entwurfsdokument}
 \author{Yunjia Chen, Jasmin Jat, Min Hye Park, Alina Shah, Lisa Wang}
@@ -33,9 +36,15 @@
 
 \chapter{Grobentwurf}
 	\section{Entwurfsentscheidungen}
+	    \subsection{Systemkomponenten}
+	      \begin{figure}[H]
+	       \centering
+	       \includegraphics[scale = .35]{systemkomponenten.png}
+	       \caption{Systemkomponenten}
+	      \end{figure}
+	      
     	\subsection{Activity}
         Unsere App setzt sich aus 15 Activites zusammen. Die Activities stellen die Benutzerschnittstelle unserer App dar und kümmern sich um die Interaktionen mit unserer Benutzeroberfläche. In jeder Activity-Klasse befinden sich selbstverständlich die üblichen Methoden eines Activity-Lifecycles: onCreate() zum Erstellen, onStart() zum Starten, onPause() zum Pausieren , onResume() zum Fortsetzen, onStop() zum Stoppen und onDestroy() zum Zerstören der Activity.
-        
         
 \newpage
 
