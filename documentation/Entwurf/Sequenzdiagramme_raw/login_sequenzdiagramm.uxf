@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>3</zoom_level>
+  <zoom_level>8</zoom_level>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>174</x>
-      <y>324</y>
-      <w>54</w>
-      <h>9</h>
+      <x>0</x>
+      <y>48</y>
+      <w>144</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>_activity:LoginActivity_</panel_attributes>
     <additional_attributes/>
@@ -15,10 +15,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>198</x>
-      <y>330</y>
-      <w>9</w>
-      <h>21</h>
+      <x>64</x>
+      <y>64</y>
+      <w>24</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
@@ -26,10 +26,10 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>198</x>
-      <y>345</y>
-      <w>6</w>
-      <h>294</h>
+      <x>64</x>
+      <y>104</y>
+      <w>16</w>
+      <h>728</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -37,10 +37,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>201</x>
-      <y>345</y>
-      <w>51</w>
-      <h>12</h>
+      <x>72</x>
+      <y>104</y>
+      <w>136</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;create&gt;&gt;</panel_attributes>
@@ -49,10 +49,10 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>246</x>
-      <y>345</y>
-      <w>60</w>
-      <h>9</h>
+      <x>192</x>
+      <y>104</y>
+      <w>160</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>_viewmodel:LoginViewModel_</panel_attributes>
     <additional_attributes/>
@@ -60,21 +60,21 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>273</x>
-      <y>351</y>
-      <w>9</w>
-      <h>21</h>
+      <x>264</x>
+      <y>120</y>
+      <w>24</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>273</x>
-      <y>366</y>
-      <w>6</w>
-      <h>261</h>
+      <x>264</x>
+      <y>176</y>
+      <w>16</w>
+      <h>656</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -82,10 +82,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>201</x>
-      <y>366</y>
-      <w>78</w>
-      <h>12</h>
+      <x>72</x>
+      <y>160</y>
+      <w>208</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 checkGoogleLoginData()</panel_attributes>
@@ -94,10 +94,10 @@ checkGoogleLoginData()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>276</x>
-      <y>375</y>
-      <w>87</w>
-      <h>12</h>
+      <x>272</x>
+      <y>184</y>
+      <w>232</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;create&gt;&gt;</panel_attributes>
@@ -106,10 +106,10 @@ checkGoogleLoginData()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>357</x>
-      <y>375</y>
-      <w>60</w>
-      <h>9</h>
+      <x>488</x>
+      <y>184</y>
+      <w>160</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>_service:UserService_</panel_attributes>
     <additional_attributes/>
@@ -117,21 +117,21 @@ checkGoogleLoginData()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>384</x>
-      <y>381</y>
-      <w>9</w>
-      <h>21</h>
+      <x>560</x>
+      <y>200</y>
+      <w>24</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>384</x>
-      <y>396</y>
-      <w>6</w>
-      <h>216</h>
+      <x>560</x>
+      <y>264</y>
+      <w>16</w>
+      <h>536</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -139,10 +139,10 @@ checkGoogleLoginData()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>276</x>
-      <y>399</y>
-      <w>114</w>
-      <h>12</h>
+      <x>272</x>
+      <y>248</y>
+      <w>304</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 getGoogleIdToken(String email, String password)</panel_attributes>
@@ -151,10 +151,10 @@ getGoogleIdToken(String email, String password)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>387</x>
-      <y>408</y>
-      <w>114</w>
-      <h>12</h>
+      <x>568</x>
+      <y>272</y>
+      <w>304</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 getGoogleIdToken(String email, String password)</panel_attributes>
@@ -163,10 +163,10 @@ getGoogleIdToken(String email, String password)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>468</x>
-      <y>327</y>
-      <w>60</w>
-      <h>9</h>
+      <x>784</x>
+      <y>56</y>
+      <w>160</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>_server:GoogleAPIServer_</panel_attributes>
     <additional_attributes/>
@@ -174,21 +174,21 @@ getGoogleIdToken(String email, String password)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>495</x>
-      <y>333</y>
-      <w>9</w>
-      <h>75</h>
+      <x>856</x>
+      <y>72</y>
+      <w>24</w>
+      <h>232</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;230.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;270.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>495</x>
-      <y>402</y>
-      <w>6</w>
-      <h>42</h>
+      <x>856</x>
+      <y>288</y>
+      <w>16</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -196,10 +196,10 @@ getGoogleIdToken(String email, String password)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>387</x>
-      <y>429</y>
-      <w>114</w>
-      <h>12</h>
+      <x>568</x>
+      <y>328</y>
+      <w>304</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 String:googleIdToken</panel_attributes>
@@ -208,10 +208,10 @@ String:googleIdToken</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>387</x>
-      <y>453</y>
-      <w>195</w>
-      <h>12</h>
+      <x>568</x>
+      <y>392</y>
+      <w>520</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 sendGoogleIdToken()</panel_attributes>
@@ -220,10 +220,10 @@ sendGoogleIdToken()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>549</x>
-      <y>327</y>
-      <w>60</w>
-      <h>9</h>
+      <x>1000</x>
+      <y>56</y>
+      <w>160</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>_controller:UserContoller_</panel_attributes>
     <additional_attributes/>
@@ -231,43 +231,10 @@ sendGoogleIdToken()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>576</x>
-      <y>333</y>
-      <w>9</w>
-      <h>117</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;370.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>576</x>
-      <y>444</y>
-      <w>6</w>
-      <h>162</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>624</x>
-      <y>327</y>
-      <w>60</w>
-      <h>9</h>
-    </coordinates>
-    <panel_attributes>_service:UserService_</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>651</x>
-      <y>333</y>
-      <w>9</w>
-      <h>132</h>
+      <x>1072</x>
+      <y>72</y>
+      <w>24</w>
+      <h>352</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;420.0</additional_attributes>
@@ -275,10 +242,10 @@ sendGoogleIdToken()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>651</x>
-      <y>459</y>
-      <w>6</w>
-      <h>129</h>
+      <x>1072</x>
+      <y>408</y>
+      <w>16</w>
+      <h>352</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -286,10 +253,43 @@ sendGoogleIdToken()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>699</x>
-      <y>327</y>
-      <w>60</w>
-      <h>9</h>
+      <x>1200</x>
+      <y>56</y>
+      <w>160</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>_service:UserService_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1272</x>
+      <y>72</y>
+      <w>24</w>
+      <h>392</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;470.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1272</x>
+      <y>448</y>
+      <w>16</w>
+      <h>264</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1400</x>
+      <y>56</y>
+      <w>160</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>_repository:UserRepository_</panel_attributes>
     <additional_attributes/>
@@ -297,21 +297,21 @@ sendGoogleIdToken()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>726</x>
-      <y>333</y>
-      <w>9</w>
-      <h>150</h>
+      <x>1472</x>
+      <y>72</y>
+      <w>24</w>
+      <h>432</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;480.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;520.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>726</x>
-      <y>477</y>
-      <w>6</w>
-      <h>87</h>
+      <x>1472</x>
+      <y>488</y>
+      <w>16</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -319,10 +319,10 @@ sendGoogleIdToken()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>771</x>
-      <y>327</y>
-      <w>60</w>
-      <h>9</h>
+      <x>1592</x>
+      <y>56</y>
+      <w>160</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>_database:DataBase_</panel_attributes>
     <additional_attributes/>
@@ -330,21 +330,21 @@ sendGoogleIdToken()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>798</x>
-      <y>333</y>
-      <w>9</w>
-      <h>165</h>
+      <x>1664</x>
+      <y>72</y>
+      <w>24</w>
+      <h>472</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;530.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;570.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>798</x>
-      <y>492</y>
-      <w>6</w>
-      <h>48</h>
+      <x>1664</x>
+      <y>528</y>
+      <w>16</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -352,10 +352,10 @@ sendGoogleIdToken()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>579</x>
-      <y>468</y>
-      <w>78</w>
-      <h>12</h>
+      <x>1080</x>
+      <y>432</y>
+      <w>208</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 registerOrLogin()</panel_attributes>
@@ -364,10 +364,10 @@ registerOrLogin()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>654</x>
-      <y>483</y>
-      <w>78</w>
-      <h>12</h>
+      <x>1280</x>
+      <y>472</y>
+      <w>208</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 registerOrLogin()</panel_attributes>
@@ -376,10 +376,10 @@ registerOrLogin()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>729</x>
-      <y>498</y>
-      <w>75</w>
-      <h>12</h>
+      <x>1480</x>
+      <y>512</y>
+      <w>200</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 save()</panel_attributes>
@@ -388,10 +388,10 @@ save()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>729</x>
-      <y>525</y>
-      <w>75</w>
-      <h>12</h>
+      <x>1480</x>
+      <y>584</y>
+      <w>200</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 </panel_attributes>
@@ -400,10 +400,10 @@ save()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>654</x>
-      <y>543</y>
-      <w>78</w>
-      <h>12</h>
+      <x>1280</x>
+      <y>632</y>
+      <w>208</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 User:user</panel_attributes>
@@ -412,10 +412,10 @@ User:user</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>579</x>
-      <y>567</y>
-      <w>78</w>
-      <h>12</h>
+      <x>1080</x>
+      <y>696</y>
+      <w>208</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 User:user</panel_attributes>
@@ -424,10 +424,10 @@ User:user</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>387</x>
-      <y>585</y>
-      <w>195</w>
-      <h>12</h>
+      <x>568</x>
+      <y>744</y>
+      <w>520</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 ResponseEntity&lt;User&gt;</panel_attributes>
@@ -436,10 +436,10 @@ ResponseEntity&lt;User&gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>276</x>
-      <y>600</y>
-      <w>114</w>
-      <h>12</h>
+      <x>272</x>
+      <y>784</y>
+      <w>304</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 ResponseEntity&lt;User&gt;</panel_attributes>
@@ -448,13 +448,101 @@ ResponseEntity&lt;User&gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>201</x>
-      <y>612</y>
-      <w>78</w>
-      <h>12</h>
+      <x>72</x>
+      <y>816</y>
+      <w>208</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 Boolean:true</panel_attributes>
     <additional_attributes>10.0;20.0;240.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>64</x>
+      <y>824</y>
+      <w>24</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>264</x>
+      <y>824</y>
+      <w>24</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>792</y>
+      <w>24</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>856</x>
+      <y>336</y>
+      <w>24</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1072</x>
+      <y>752</y>
+      <w>24</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1272</x>
+      <y>704</y>
+      <w>24</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1472</x>
+      <y>640</y>
+      <w>24</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1664</x>
+      <y>592</y>
+      <w>24</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
 </diagram>
