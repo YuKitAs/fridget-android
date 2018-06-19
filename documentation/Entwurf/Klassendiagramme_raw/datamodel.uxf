@@ -4,17 +4,18 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>830</x>
-      <y>250</y>
+      <x>780</x>
+      <y>260</y>
       <w>360</w>
-      <h>160</h>
+      <h>200</h>
     </coordinates>
     <panel_attributes>User
 --
 
 --
-+String getUserID()
-+String getUserName()
++getID(): String
++getGoogleName(): String
++getGoogleID(): String
 
 bg=cyan
 </panel_attributes>
@@ -23,17 +24,17 @@ bg=cyan
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>70</x>
-      <y>70</y>
+      <x>20</x>
+      <y>40</y>
       <w>360</w>
-      <h>160</h>
+      <h>200</h>
     </coordinates>
     <panel_attributes>Accesscode
 --
 
 --
-+String getAccessCodeID()
-+String getAccessContent()
++getFlatshareID(): String
++getContent(): String
 
 bg=cyan
 </panel_attributes>
@@ -42,16 +43,16 @@ bg=cyan
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>450</x>
-      <y>610</y>
+      <x>400</x>
+      <y>700</y>
       <w>360</w>
-      <h>160</h>
+      <h>200</h>
     </coordinates>
     <panel_attributes>Notification
 --
 
 --
-+String getNotificationText()
++getNotificationText(): String
 
 bg=cyan</panel_attributes>
     <additional_attributes/>
@@ -59,18 +60,20 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>70</x>
-      <y>250</y>
+      <x>20</x>
+      <y>260</y>
       <w>360</w>
-      <h>160</h>
+      <h>200</h>
     </coordinates>
     <panel_attributes>FrozenNote
 --
 +position:int
 --
-+String getFrozenNoteID(FrozenNote frozenNoteID)
-+String getTitleFrozenNote()
-+String getContentFrozenNote()
++getID(FrozenNote frozenNoteID): String
++getTitle(): String
++getContent(): String
++getFlatshareID(Flatshare flatshareID): String
++getPosition(): int
 
 bg=cyan</panel_attributes>
     <additional_attributes/>
@@ -78,18 +81,18 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>450</x>
-      <y>430</y>
+      <x>400</x>
+      <y>480</y>
       <w>360</w>
-      <h>160</h>
+      <h>200</h>
     </coordinates>
     <panel_attributes>Member
 --
 
 --
-+String getMemberID()
-+Member getMember()
-+String getMagnet()
++getID(): String
++getUserID(): String
++getMagnetColor(): String
 
 bg=cyan</panel_attributes>
     <additional_attributes/>
@@ -97,10 +100,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>830</x>
-      <y>70</y>
+      <x>780</x>
+      <y>40</y>
       <w>360</w>
-      <h>160</h>
+      <h>200</h>
     </coordinates>
     <panel_attributes>Flatshare
 --
@@ -115,21 +118,24 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>70</x>
-      <y>430</y>
+      <x>20</x>
+      <y>480</y>
       <w>360</w>
-      <h>160</h>
+      <h>200</h>
     </coordinates>
     <panel_attributes>CoolNote
 --
 
 --
-+String getCoolNoteID(CoolNote coolNoteID)
-+String getTitleCoolNote()
-+String getWriterNoteID(Member memberID)
-+String getContentCoolNote()
-+List&lt;Member&gt; getTaggedMembers(Member member)
-+int getPosition()
++getID(CoolNote coolNoteID): String
++getTitle(): String
++getCreatorUserID(User userID): String
++getFlatshareID(): String
++getContent(): String
++getTaggedUsers(User user): List&lt;User&gt;
++getImportance(): int
++getPosition(): int
++getCreateAt(): String
 
 bg=cyan</panel_attributes>
     <additional_attributes/>
@@ -137,18 +143,19 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>450</x>
-      <y>70</y>
+      <x>400</x>
+      <y>40</y>
       <w>360</w>
-      <h>160</h>
+      <h>200</h>
     </coordinates>
     <panel_attributes>Comment
 --
 
 --
-+String getCoolNoteID(CoolNote coolNoteID)
-+String getWriterCommentID(Member memberID)
-+String getContentComment()
++getID(): String
++getCoolNoteID(CoolNote coolNoteID): String
++getUserID(User userID): String
++getContent(): String
 
 bg=cyan</panel_attributes>
     <additional_attributes/>
@@ -156,21 +163,23 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>450</x>
-      <y>250</y>
+      <x>400</x>
+      <y>260</y>
       <w>360</w>
-      <h>160</h>
+      <h>200</h>
     </coordinates>
     <panel_attributes>ImageNote
 --
 
 --
-+String getImageNoteID(ImageNote imageNoteID)
-+String getTitleImageNote()
-+String getWriterNoteID(Member memberID)
-+byte[] getContentImageNote()
-+List&lt;Member&gt; getTaggedMembers(Member member)
-+int getPosition()
++getID(ImageNote imageNoteID): String
++getFlatshareID(Flatshare flatShareID): String
++getDescription(): String
++getCreatorUserID(Member memberID): String
++getImage(): byte[]
++getTaggedUsers(User user): List&lt;User&gt; 
++getPosition(): int
++getCreateAt(): String
 
 bg=cyan</panel_attributes>
     <additional_attributes/>
@@ -178,17 +187,18 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>70</x>
-      <y>610</y>
+      <x>20</x>
+      <y>700</y>
       <w>360</w>
-      <h>160</h>
+      <h>200</h>
     </coordinates>
     <panel_attributes>ReadConfirmation
 --
 
 --
-+String getCoolNoteID(CoolNote coolNoteID)
-+String getConfirmationMemberID(Member memberID)
++getID(ReadConfirmation readConfirmationID): String
++getCoolNoteID(CoolNote coolNoteID): String
++getUserID(User userID): String
 
 bg=cyan</panel_attributes>
     <additional_attributes/>
@@ -196,10 +206,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>50</x>
-      <y>30</y>
+      <x>0</x>
+      <y>0</y>
       <w>1160</w>
-      <h>760</h>
+      <h>920</h>
     </coordinates>
     <panel_attributes>edu.kit.pse.fridget.client.datamodel
 --

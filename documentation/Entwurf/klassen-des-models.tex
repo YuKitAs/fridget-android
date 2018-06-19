@@ -41,7 +41,7 @@
 	\begin{itemize}
 		\item\texttt{{public String getUserID()}}\\
 		\textit{Gibt die ID des Benutzers der App, der Mitglied einer WG ist, zurück.}\\
-		\item\texttt{{public Member getID()}}\\
+		\item\texttt{{public String getID()}}\\
 		\textit{Gibt ID der Mitgliedschaft der Benutzer zur WG zurück.}\\
 		\item\texttt{{public String getMagnetColor()}}\\
 		\textit{Gibt die Magnetfarbe des Benutzers zurück.}\\
@@ -78,7 +78,7 @@
 		\item\texttt{{public String getCreatorUserID(User userID)}}\\
 		\textit{Gibt die ID des Mitglieders zurück, der die Cool Note erstellt hat.}\\
 		\textbf{Parameter}\\
-		“MemberID memberID”: Die ID oder Kennnummer des Mitglieders, der die Cool Note erstellt hat.\\
+		“User userID”: Die ID oder Kennnummer des Mitglieders, der die Cool Note erstellt hat.\\
 		
 		\item\texttt{{public String getContent()}}\\
 		\textit{Gibt den Inhalt der Cool Note zurück.}\\
@@ -89,7 +89,7 @@
 		\item\texttt{{public List<User> getTaggedUsers(User user)}}\\
 		\textit{Gibt die Mitglieder zurück, die in der Cool Note getaggt sind. Wenn keine spezifiziert ist, sind alle Mitglieder der WG getaggt.}\\
 		\textbf{Parameter}\\
-		“Member member”: Der Benutzer, der in der Cool Note getaggt wird.\\
+		“User user”: Der Benutzer, der in der Cool Note getaggt wird.\\
 		
 		\item\texttt{public int getImportance()}\\
 		\textit{Gibt die Wichtigkeit der Cool Note zurück.}
@@ -127,7 +127,7 @@
 		
 		\item\texttt{{public String getFlatshareID(Flatshare flatshareID)}}\\
 		\textit{Gibt die ID der WG zurück, zu der diese Frozen Note gehört.}\\
-		"Flatshare flatshareID": Die ID oder Kennnummer der WG, zu der die Image Note gehört.
+		``Flatshare flatshareID": Die ID oder Kennnummer der WG, zu der die Image Note gehört.
 		
 		\item\texttt{{public int getPosition()}}\\
 		\textit{Gibt die Position der Frozen Note zurück.}\\
@@ -157,12 +157,12 @@
 		\item\texttt{{public String getUserID(User userID)}}\\
 		\textit{Gibt die MemberID des Mitglieders zurück, der den Kommentar geschrieben hat.}\\
 		\textbf{Parameter}\\
-		“MemberID memberID”: Die ID oder Kennnummer des Mitglieders, der den Kommentar geschrieben hat.\\
+		“User userID”: Die ID oder Kennnummer des Mitglieders, der den Kommentar geschrieben hat.\\
 		
 		\item\texttt{{public String getCoolNoteID(CoolNote coolNoteID)}}\\
 		\textit{Gibt die CoolNoteID zurück.}\\
 		\textbf{Parameter}\\
-		“CoolNoteID coolNoteID”: Die ID oder Kennnummer der Cool Note.\\
+		“CoolNote coolNoteID”: Die ID oder Kennnummer der Cool Note.\\
 		
 		\item\texttt{{public String getContent()}}\\
 		\textit{Gibt den Inhalt des Kommentares zurück.}\\
@@ -180,10 +180,10 @@
 		\textbf{Parameter}\\
 		“ImageNote imageNoteID”: Die ID oder Kennnummer der Image Note.\\
 		
-		\item\texttt{{public String getFlatshareID(Flateshare flatshareID)}}\\
+		\item\texttt{{public String getFlatshareID(Flatshare flatshareID)}}\\
 		\textit{Gibt die ID der WG zurück, zu der die Image Note gehört}\\
 		\textbf{Parameter}\\
-		"Flatshare flatshareID": Die ID oder Kennnummer der WG, zu der die Image Note gehört.
+		``Flatshare flatshareID": Die ID oder Kennnummer der WG, zu der die Image Note gehört.
 		
 		\item\texttt{{public String getDescription()}}\\
 		\textit{Gibt die Beschreibung einer Image Note zurück.}\\
@@ -191,7 +191,7 @@
 		\item\texttt{{public String getCreatorUserID(Member memberID)}}\\
 		\textit{Gibt die ID des Mitglieders zurück, der die Image Note erstellt hat.}\\
 		\textbf{Parameter}\\
-		“MemberID memberID”: Die ID oder Kennnummer des Mitglieders, der die Image Note erstellt hat.\\
+		“User userID”: Die ID oder Kennnummer des Mitglieders, der die Image Note erstellt hat.\\
 		
 		\item\texttt{{public byte[] getImage()}}\\
 		\textit{Gibt den Inhalt, also das Bild der Image Note zurück.}\\
@@ -199,7 +199,7 @@
 		\item\texttt{{public List<User> getTaggedUsers(User user)}}\\
 		\textit{Gibt die Mitglieder zurück, die in der Image Note getaggt sind. Wenn keine spezifiziert ist, sind alle Mitglieder der WG getaggt.}\\
 		\textbf{Parameter}\\
-		“Member member”: Der Benutzer, der in der Image Note getaggt wird.\\
+		“User user”: Der Benutzer, der in der Image Note getaggt wird.\\
 		
 		\item\texttt{{public int getPosition()}}\\
 		\textit{Gibt die Position der Image Note zurück.}\\
@@ -228,5 +228,5 @@
 		\item\texttt{{public String getCoolNoteID(CoolNote coolNoteID)}}\\
 		\textit{Gibt die CoolNoteID zurück, die als gelesen oder ungelesen markiert wird.}\\
 		\textbf{Parameter}\\
-		“CoolNoteID coolNoteID”: Die ID oder Kennnummer der Cool Note, die als gelesen oder ungelesen markiert wird.\\
+		“CoolNote coolNoteID”: Die ID oder Kennnummer der Cool Note, die als gelesen oder ungelesen markiert wird.\\
 	\end{itemize}
