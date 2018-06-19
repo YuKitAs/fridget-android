@@ -1,0 +1,1162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>4</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1584</x>
+      <y>36</y>
+      <w>144</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Accesscode
+--
++flatshareID: String
++content: String
+--
++getFlatshareID(Flatshare flatshareID): String
++getContent(): String
+
+bg=cyan
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1736</x>
+      <y>36</y>
+      <w>144</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Comment
+--
++commentID: String
++content: String
++coolNoteID: String
++userID: String
+--
++getID(Comment commentID): String
++getCoolNoteID(CoolNote coolNoteID): String
++getUserID(User userID): String
++getContent(): String
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1888</x>
+      <y>36</y>
+      <w>144</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Flatshare
+--
++flatshareID: String
++flatshareName: String
+--
++String getID(Flatshare FlatshareID)
++String getName()
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1888</x>
+      <y>124</y>
+      <w>144</w>
+      <h>132</h>
+    </coordinates>
+    <panel_attributes>CoolNote
+--
++coolNoteID: String
++title: String
++content: String
++flatshareID: String
++cretorUserID: String
++position: int
++importance: int
++createAt: String
+--
++getID(CoolNote coolNoteID): String
++getTitle(): String
++getCreatorUserID(User userID): String
++getFlatshareID(Flatshare flatshareID): String
++getContent(): String
++getTaggedUsers(User user): List&lt;User&gt;
++getImportance(): int
++getPosition(): int
++getCreateAt(): String
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1736</x>
+      <y>124</y>
+      <w>144</w>
+      <h>132</h>
+    </coordinates>
+    <panel_attributes>ImageNote
+--
++imageNoteID: String
++description: String
++image: byte[]
++flatshareID: String
++cretorUserID: String
++position: int
++createAt: String
+--
++getID(ImageNote imageNoteID): String
++getFlatshareID(Flatshare flatShareID): String
++getDescription(): String
++getCreatorUserID(Member memberID): String
++getImage(): byte[]
++getTaggedUsers(User user): List&lt;User&gt; 
++getPosition(): int
++getCreateAt(): String
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1584</x>
+      <y>124</y>
+      <w>144</w>
+      <h>132</h>
+    </coordinates>
+    <panel_attributes>FrozenNote
+--
++frozenNoteID: String
++title: String
++content: String
++flatshareID: String
++position: int
+--
++getID(FrozenNote frozenNoteID): String
++getTitle(): String
++getContent(): String
++getFlatshareID(Flatshare flatshareID): String
++getPosition(): int
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1584</x>
+      <y>264</y>
+      <w>144</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>ReadConfirmation
+--
++readConfirmationID: String
++coolNoteID: String
++userID: String
+--
++getID(ReadConfirmation readConfirmationID): String
++getCoolNoteID(CoolNote coolNoteID): String
++getUserID(User userID): String
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1736</x>
+      <y>264</y>
+      <w>144</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Notification
+--
++notificationID: String
++text: String
+--
++getNotificationText(): String
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1888</x>
+      <y>264</y>
+      <w>144</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>User
+--
++userID: String
++googleName: String
++googleID: String
+--
++getID(User userID): String
++getGoogleName(): String
++getGoogleID(): String
+
+bg=cyan
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1584</x>
+      <y>352</y>
+      <w>144</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Member
+--
++memberID: String
++userID: String
++magnetColor: String
+--
++getID(Member memberID): String
++getUserID(User userID): String
++getFlatshareID(Flatshare flatshareID): String
++getMagnetColor(): String
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>1576</x>
+      <y>12</y>
+      <w>464</w>
+      <h>428</h>
+    </coordinates>
+    <panel_attributes>edu.kit.pse.fridget.client.datamodel
+--
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>0</x>
+      <y>0</y>
+      <w>756</w>
+      <h>420</h>
+    </coordinates>
+    <panel_attributes>kit.edu.pse.fridget.client.Activity
+--
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>16</x>
+      <y>28</y>
+      <w>132</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>AppCompatActivity
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>164</x>
+      <y>28</y>
+      <w>132</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+_View.OnClickListener_
+--
+
+--
++onClick(View v)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>28</y>
+      <w>136</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract class&gt;&gt;
+ResultReceiver
+--
+
+--
+&lt;&lt;create&gt;&gt; ResultReceiver(Handler handler)
++onReceiveResult(int resultCode, Bundle resultData)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>468</x>
+      <y>64</y>
+      <w>136</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+Receiver
+--
+
+--
++onReceiveResult(int resultCode, Bundle resultData)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>104</y>
+      <w>136</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>ServiceResultReceiver
+--
+
+--
++setReceiver(Receiver receiver)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>164</x>
+      <y>72</y>
+      <w>132</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+_SwipeRefreshLayout.OnRefreshListener_
+--
+
+--
++onRefresh(View v): boolean
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>68</y>
+      <w>12</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>452</x>
+      <y>96</y>
+      <w>100</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+</panel_attributes>
+    <additional_attributes>230.0;10.0;230.0;70.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>16</x>
+      <y>156</y>
+      <w>132</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>*LoginActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>156</x>
+      <y>156</y>
+      <w>132</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>*StartActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>300</x>
+      <y>156</y>
+      <w>132</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>*FullTextCoolNoteActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;implements SwipeRefreshLayout.OnRefreshListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>448</x>
+      <y>156</y>
+      <w>132</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>*CreateTextCoolNoteActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>596</x>
+      <y>156</y>
+      <w>132</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>*EditFrozenNoteActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>596</x>
+      <y>216</y>
+      <w>132</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>*LanguagetActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>448</x>
+      <y>216</y>
+      <w>132</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>*CreateImageCoolNoteActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>300</x>
+      <y>216</y>
+      <w>132</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>*FullFrozenNoteActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;implements SwipeRefreshLayout.OnRefreshListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>156</x>
+      <y>216</y>
+      <w>132</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>*GetAccessCodeActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>16</x>
+      <y>220</y>
+      <w>132</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>*CreateFlatShareActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>16</x>
+      <y>280</y>
+      <w>132</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>*EnterAccessCodeActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>156</x>
+      <y>276</y>
+      <w>132</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>*HomeActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;implements SwipeRefreshLayout.OnRefreshListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>300</x>
+      <y>280</y>
+      <w>132</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>*FullImageCoolNoteActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;implements SwipeRefreshLayout.OnRefreshListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>448</x>
+      <y>280</y>
+      <w>132</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>*CreateCommentActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>596</x>
+      <y>280</y>
+      <w>132</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>*MemberListActivity*
+&lt;&lt;extends AppCompatActivity&lt;&lt;
+&lt;&lt;implements View.OnClickListener&gt;&gt;
+&lt;&lt;implements SwipeRefreshLayout.OnRefreshListener&gt;&gt;
+&lt;&lt;MyResultReceiver.Receiver&gt;&gt;
+--
+
+--
++onCreate(@Nullable Bundle savedInstanceState)
+layer=1
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>832</x>
+      <y>616</y>
+      <w>192</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+UserService
+--
+
+--
+@GET
+Call&lt;User&gt; getGoogleIdToken(String googleIdToken)
+
+@POST
+Call&lt;User&gt; sendGoogleIdToken(String googleIdToken)
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1052</x>
+      <y>616</y>
+      <w>192</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+CommentService
+--
+
+--
+@GET
+Call&lt;List&lt;Comment&gt;&gt; getAllComments(@Path("ci") String coolNoteId)
+
+@POST
+Call&lt;Comment&gt; createComment(@Body Comment comment)
+
+@DELETE
+Call&lt;Comment&gt; deleteComment (@Path("id")String commentID)
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1272</x>
+      <y>620</y>
+      <w>264</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+MembershipService
+--
+
+--
+@GET
+Call&lt;List&lt;Membership&gt;&gt; getMemberList(@Path("id") String flatshareID)
+
+@GET
+Call&lt;Membership&gt; getUser(@Path("fid") String flatshareId, @Path("uid") String userid)
+
+@POST
+Call&lt;Membership&gt; createMembership(@Body User user)
+bg=cyan
+@DELETE
+Call&lt;Membership&gt; deleteMember(@Path("fid") String flatshareId, @Path("uid") String userId)
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1272</x>
+      <y>740</y>
+      <w>268</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+ReadConfirmationService
+--
+
+--
+@GET
+Call&lt;List&lt;User&gt;&gt; getReadStatus(@Path("id") String coolNoteId)
+
+@POST
+Call&lt;CoolNote&gt; createReadStatus(@Body Readstatus readstatus)
+
+@DELETE
+Call&lt;CoolNote&gt; deleteReadStatus(@Path("cid") String coolNoteId,@Path("uid") String userID)
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1052</x>
+      <y>740</y>
+      <w>192</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+DeviceService
+--
+
+--
+@POST
+ Call&lt;Device&gt; createDevice(@Body User user)
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>832</x>
+      <y>740</y>
+      <w>192</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+FlatShareService
+--
+
+--
+@GET
+Call&lt;Flatshare&gt; getFlatshare(@Path("id") String flatshareId)
+
+@POST
+Call&lt;Flatshare&gt; createFlatshare(@Body Flatshare flatshare, String userId)
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>832</x>
+      <y>864</y>
+      <w>192</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+ CoolNoteService 
+--
+bg=cyan
+--
+@GET
+Call&lt;List&lt;CoolNote&gt; &gt; getAllCoolNotes(@Path("id") String flatshareID) 
+
+@GET
+Call&lt;CoolNote&gt; getCoolNote(@Path("id") String coolNoteId) 
+
+@POST
+Call&lt;CoolNote&gt; createCoolNote(@Body CoolNote coolNote) 
+
+@DELETE
+Call&lt;CoolNote&gt; deleteCoolNote(@Path("id") String coolNoteId) </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1052</x>
+      <y>864</y>
+      <w>192</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+AccessCodeService
+--
+bg=cyan
+--
+@POST
+ Call&lt;AccessCode&gt;  getAccessCode(String flatshareID)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1272</x>
+      <y>864</y>
+      <w>268</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+FrozenNoteService
+--
+bg=cyan
+--
+@GET
+Call&lt;List&lt;FrozenNote&gt; &gt; getAllFrozenNote(@Path("id") String flatShareId) 
+
+@GET
+Call&lt;FrozenNote&gt; getFrozenNote(@Path("id") String frozenNoteId
+
+@PUT
+Call&lt;FrozenNote&gt; updateFrozenNote(@Path("id") String frozenNoteId, @Body FrozenNote frozenNote) </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>832</x>
+      <y>992</y>
+      <w>192</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+ImageNoteService 
+--
+bg=cyan
+--
+@GET
+Call&lt;List&lt;ImageNote&gt;&gt; getAllImageNotes(@Path("id") String flatshareId)
+
+@GET
+Call&lt;ImageNote&gt; getImageNote(@Path("id") String imageNoteId)
+
+@POST
+Call&lt;ImageNote&gt; createImageNote( @Body ImageNote imageNote) 
+
+@DELETE
+Call&lt;ImageNote&gt; deleteImageNote(@Path("id") String ImageNoteId)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>816</x>
+      <y>588</y>
+      <w>768</w>
+      <h>536</h>
+    </coordinates>
+    <panel_attributes>edu.kit.pse.fridget.client.service
+
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1196</x>
+      <y>308</y>
+      <w>172</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>TutorialViewModel
+&lt;&lt;extends ViewModel&gt;&gt;
+--
+
+--
++ String getTutorial()
+
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1016</x>
+      <y>308</y>
+      <w>172</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>LanguageViewModel
+&lt;&lt;extends ViewModel&gt;&gt;
+--
+
+--
++ void setLanguages()
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1016</x>
+      <y>248</y>
+      <w>172</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>HomeViewModel
+&lt;&lt;extends ViewModel&gt;&gt;
+--
+
+--
++  LiveData &lt;List&lt;FrozenNote&gt;&gt; getFrozenNotes()
++  LiveData &lt;List&lt;CoolNote&gt;&gt; getCoolNotes()
++  void leaveFlateshare()
+
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1196</x>
+      <y>244</y>
+      <w>172</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>MemberListViewModel
+&lt;&lt;extends ViewModel&gt;&gt;
+--
+
+--
++ LiveData &lt;List&lt;User&gt;&gt; getContent()
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1196</x>
+      <y>188</y>
+      <w>172</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>CreateCoolNoteViewModel
+&lt;&lt;extends ViewModel&gt;&gt;
+--
+
+--
++  void createNote()
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1016</x>
+      <y>188</y>
+      <w>172</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>GetAccessCodeViewModel
+&lt;&lt;extends ViewModel&gt;&gt;
+--
+
+--
++ String generateAccessCode()
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1016</x>
+      <y>128</y>
+      <w>172</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>StartViewModel
+&lt;&lt;extends ViewModel&gt;&gt;
+--
+
+--
++ void registerFlatshare(String flatshareName)
++ void enterAccessCode(String accessCode)
+
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1196</x>
+      <y>124</y>
+      <w>172</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>FullFrozenNoteViewModel
+&lt;&lt;extends ViewModel&gt;&gt;
+--
+
+--
++ void getFrozenNote()
++ void editFrozenNote()
+
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1196</x>
+      <y>68</y>
+      <w>172</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>FullTextCoolNoteViewModel
+&lt;&lt;extends ViewModel&gt;&gt;
+--
+
+--
++ void getCoolNote()
++ void deleteNote()
+
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1004</x>
+      <y>68</y>
+      <w>184</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>LoginViewModel
+&lt;&lt;extends ViewModel&gt;&gt;
+--
+
+--
++ void checkGoogleLoginData(String userName, String password)
+
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1152</x>
+      <y>20</y>
+      <w>84</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>ViewModel
+--
+
+--
+void onCleared()
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>996</x>
+      <y>4</y>
+      <w>396</w>
+      <h>432</h>
+    </coordinates>
+    <panel_attributes>package edu.kit.pse.fridget.client.ViewModel
+
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
