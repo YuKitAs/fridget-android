@@ -335,9 +335,7 @@ Call<List<ImageNote>> getAllImageNotes(@Path(\grqq id\grqq) String flatshareId)}
 	coolNoteID - die ID der aufgerufenen CoolNote
 	userID - die ID des aufgerufenen Users
 
-	 \todo{Rückgabewert bei DELETE und PUT}
-
-
+	
 	 \end{itemize}
 
 
@@ -346,7 +344,7 @@ Call<List<ImageNote>> getAllImageNotes(@Path(\grqq id\grqq) String flatshareId)}
 \\
 	\textbf{Methoden} \\
 		\begin{itemize}
-		\item{@Headers()\\@POST("/devices") \\ createDevice Call<@Body User user> ()}
+		\item{@Headers()\\@POST("/devices") \\ Call<Device> createDevice(@Body User user)}
 
 		\textit{Diese Methode fügt ein Device zu einer flatshare hinzu}
 
