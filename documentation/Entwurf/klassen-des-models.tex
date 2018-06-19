@@ -3,6 +3,15 @@
 
 	\textbf{Beschreibung} \\
 	\textit{Die Klasse Accesscode stellt der Access-Code, oder Zugangscode einer WG dar.} \\
+	
+	\textbf{Attribute}
+	\begin{itemize}
+		\item \textbf{flatshareID:} Die ID der WG zu der, die Accesscode gehört. \\
+		\textbf{Typ:} String
+
+		\item \textbf{content:} Der Inhalt der Accesscode.\\
+		\textbf{Typ:} String
+	\end{itemize}
 
 	\textbf{Methoden}
 	\begin{itemize}
@@ -18,6 +27,16 @@
 
 	\textbf{Beschreibung} \\
 	\textit{Die Klasse User stellt einen Benutzer der App dar.}\\
+	
+	\textbf{Attribute}
+	\begin{itemize}
+		\item \textbf{userID:} Die ID des Benutzers. \\
+		\textbf{Typ:} String
+		\item \textbf{googleName:} Der Google-Name des Benutzers. \\
+		\textbf{Typ:} String
+		\item \textbf{googleID:} Die Google-ID des Benutzers. \\
+		\textbf{Typ:} String
+	\end{itemize}
 
 	\textbf{Methoden}
 	\begin{itemize}
@@ -36,13 +55,28 @@
 
 	\textbf{Beschreibung} \\
 	\textit{Die Klasse Member stellt einen Mitglieder einer WG dar.} \\
+	
+	\textbf{Attribute}
+	\begin{itemize}
+		\item \textbf{memberID:} Die ID des Mitgliedschafts. \\
+		\textbf{Typ:} String
+		\item \textbf{userID:} Die ID des Benutzers, der Mitglied eine WG ist. \\
+		\textbf{Typ:} String
+		\item \textbf{magnetColor:} Die Magnetfarbe des Mitglieds. \\
+		\textbf{Typ:} String
+	\end{itemize}
 
 	\textbf{Methoden}
 	\begin{itemize}
-		\item\texttt{{public String getUserID()}}\\
+		\item\texttt{{public String getUserID(User userID)}}\\
 		\textit{Gibt die ID des Benutzers der App, der Mitglied einer WG ist, zurück.}\\
-		\item\texttt{{public String getID()}}\\
+		
+		\item\texttt{{public String getID(Member memberID)}}\\
 		\textit{Gibt ID der Mitgliedschaft der Benutzer zur WG zurück.}\\
+		
+		\item\texttt{{public String getFlatshareID(Flatshare flatshareID)}}\\
+		\textit{Gibt ID der Mitgliedschaft der Benutzer zur WG zurück.}\\
+		
 		\item\texttt{{public String getMagnetColor()}}\\
 		\textit{Gibt die Magnetfarbe des Benutzers zurück.}\\
 	\end{itemize}       
@@ -51,6 +85,14 @@
 
 	\textbf{Beschreibung} \\
 	\textit{Die Klasse Flatshare stellt eine WG dar, die in das App registriert ist.} \\
+	
+	\textbf{Attribute}
+	\begin{itemize}
+		\item \textbf{flatshareID:} Die ID der WG. \\
+		\textbf{Typ:} String
+		\item \textbf{flatshareName:} Der Name der WG. \\
+		\textbf{Typ:} String
+	\end{itemize}
 
 	\textbf{Methoden}
 	\begin{itemize}
@@ -64,6 +106,26 @@
 
 	\textbf{Beschreibung} \\
 	\textit{Die Klasse CoolNote stellt die Notiz der Art “Cool Note” dar, die aus einer Überschrift und schriftlichem Inhalt besteht. Cool Notes sind erstellbare, nicht editierbare, löschbare Notizen.} \\
+	
+	\textbf{Attribute}
+	\begin{itemize}
+		\item \textbf{coolNoteID:} Die ID der Cool Note. \\
+		\textbf{Typ:} String
+		\item \textbf{title:} Die Überschrift der Cool Note. \\
+		\textbf{Typ:} String
+		\item \textbf{content:} Der Inhalt der Cool Note. \\
+		\textbf{Typ:} String
+		\item \textbf{flatshareID:} Die ID der WG, zu der die Cool Note gehört. \\
+		\textbf{Typ:} String
+		\item \textbf{creatorUserID:} Die ID der Benutzer der die Cool Note erstellt hat. \\
+		\textbf{Typ:} String
+		\item \textbf{position:} Die Position der Cool Note. \\
+		\textbf{Typ:} int
+		\item \textbf{importance:} Die Wichtigkeit der Cool Note. \\
+		\textbf{Typ:} int
+		\item \textbf{createAt:} Das Erstelldatum der Cool Note.\\
+		\textbf{Typ:} String
+	\end{itemize}
 
 	\textbf{Methoden}
 	\begin{itemize}
@@ -108,7 +170,15 @@
 	
 	\textbf{Attribute}
 	\begin{itemize}
-		\item Position: Position der Frozen Note, die schon fest ist beim Erstellen der Pinnwand.\\
+		\item \textbf{frozenNoteID:} Die ID der Frozen Note. \\
+		\textbf{Typ:} String
+		\item \textbf{title:} Die Überschrift der Frozen Note. \\
+		\textbf{Typ:} String
+		\item \textbf{content:} Der Inhalt der Frozen Note. \\
+		\textbf{Typ:} String
+		\item \textbf{flatshareID:} Die ID der WG, zu der die Frozen Note gehört. \\
+		\textbf{Typ:} String
+		\item \textbf{position:} Position der Frozen Note, die schon fest ist beim Erstellen der Pinnwand.\\
 		\textbf{Typ:} int
 	\end{itemize}
 	
@@ -138,6 +208,14 @@
 	\textbf{Beschreibung} \\
 	\textit{Die Klasse Notification stellt die Benachrichtigung an den Benutzer über eine neue Cool Note dar.} \\
 	
+	\textbf{Attribute}
+	\begin{itemize}
+		\item \textbf{notificationID:} Die ID der Benachrichtigung. \\
+		\textbf{Typ:} String
+		\item \textbf{text:} Der Inhalt der Benachrichtigung. \\
+		\textbf{Typ:} String
+	\end{itemize}
+	
 	\textbf{Methoden}
 	\begin{itemize}
 		\item\texttt{{public String getNotificationText()}}\\
@@ -149,9 +227,21 @@
 	\textbf{Beschreibung} \\
 	\textit{Die Klasse Comment stellt einen Kommentar dar, der unter der Cool Note geschrieben werden kann.} \\
 	
+	\textbf{Attribute}
+	\begin{itemize}
+		\item \textbf{commentID:} Die ID des Kommentars. \\
+		\textbf{Typ:} String
+		\item \textbf{content:} Der Inhalt des Kommentars. \\
+		\textbf{Typ:} String
+		\item \textbf{coolNoteID:} Die ID der Cool Note, zu der der Kommentar gehört. \\
+		\textbf{Typ:} String
+		\item \textbf{userID:} Die ID des Benutzers, der den Kommentar geschrieben hat.\\
+		\textbf{Typ:} String
+	\end{itemize}
+	
 	\textbf{Methoden}
 	\begin{itemize}
-		\item\texttt{public String getID()}
+		\item\texttt{public String getID()}\\
 		\textit{Gibt die Kommentar-ID zurück}
 		
 		\item\texttt{{public String getUserID(User userID)}}\\
@@ -172,6 +262,24 @@
 
 	\textbf{Beschreibung} \\
 	\textit{Die Klasse ImageNote stellt die Notiz der Art “Cool Note” dar, die aus einer Überschrift und Bild besteht. Image Notes sind wie Cool Notes erstellbar, nicht editierbar und löschbar.} \\
+	
+	\textbf{Attribute}
+	\begin{itemize}
+		\item \textbf{imageNoteID:} Die ID der Image Note. \\
+		\textbf{Typ:} String
+		\item \textbf{description:} Die Beschreibung der Image Note. \\
+		\textbf{Typ:} String
+		\item \textbf{image:} Der Inhalt der Image Note. \\
+		\textbf{Typ:} byte[]
+		\item \textbf{flatshareID:} Die ID der WG, zu der die Image Note gehört. \\
+		\textbf{Typ:} String
+		\item \textbf{creatorUserID:} Die ID der Benutzer der die Image Note erstellt hat. \\
+		\textbf{Typ:} String
+		\item \textbf{position:} Die Position der Image Note. \\
+		\textbf{Typ:} int
+		\item \textbf{createAt:} Das Erstelldatum der Image Note.\\
+		\textbf{Typ:} String
+	\end{itemize}
 	
 	\textbf{Methoden}
 	\begin{itemize}
@@ -212,6 +320,16 @@
 
 	\textbf{Beschreibung} \\
 	\textit{Die Klasse ReadConfirmation stellt die Check-Box dar, das dem Benutzer ermöglicht, für sich selbst sichtbar zu machen, ob der Benutzer eine Cool Note gelesen hat.} \\
+	
+	\textbf{Attribute}
+	\begin{itemize}
+		\item \textbf{readConfirmationID:} Die ID der Check-Box. \\
+		\textbf{Typ:} String
+		\item \textbf{coolNoteID:} Die ID der Cool Note, die als gelesen oder ungelesen markiert wird. \\
+		\textbf{Typ:} String
+		\item \textbf{userID:} Die ID der Benutzer der die Check-Box benutzt. \\
+		\textbf{Typ:} String
+	\end{itemize}
 	
 	\textbf{Methoden}
 	\begin{itemize}

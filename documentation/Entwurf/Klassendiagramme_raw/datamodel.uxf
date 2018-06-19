@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>10</zoom_level>
+  <zoom_level>8</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>780</x>
-      <y>260</y>
-      <w>360</w>
-      <h>200</h>
+      <x>736</x>
+      <y>488</y>
+      <w>288</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>User
 --
-
++userID: String
++googleName: String
++googleID: String
 --
-+getID(): String
++getID(User userID): String
 +getGoogleName(): String
 +getGoogleID(): String
 
@@ -24,16 +26,17 @@ bg=cyan
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>20</x>
-      <y>40</y>
-      <w>360</w>
-      <h>200</h>
+      <x>128</x>
+      <y>32</y>
+      <w>288</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>Accesscode
 --
-
++flatshareID: String
++content: String
 --
-+getFlatshareID(): String
++getFlatshareID(Flatshare flatshareID): String
 +getContent(): String
 
 bg=cyan
@@ -43,14 +46,15 @@ bg=cyan
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>400</x>
-      <y>700</y>
-      <w>360</w>
-      <h>200</h>
+      <x>432</x>
+      <y>488</y>
+      <w>288</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>Notification
 --
-
++notificationID: String
++text: String
 --
 +getNotificationText(): String
 
@@ -60,14 +64,18 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>20</x>
-      <y>260</y>
-      <w>360</w>
-      <h>200</h>
+      <x>128</x>
+      <y>208</y>
+      <w>288</w>
+      <h>264</h>
     </coordinates>
     <panel_attributes>FrozenNote
 --
-+position:int
++frozenNoteID: String
++title: String
++content: String
++flatshareID: String
++position: int
 --
 +getID(FrozenNote frozenNoteID): String
 +getTitle(): String
@@ -81,17 +89,20 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>400</x>
-      <y>480</y>
-      <w>360</w>
-      <h>200</h>
+      <x>128</x>
+      <y>664</y>
+      <w>288</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>Member
 --
-
++memberID: String
++userID: String
++magnetColor: String
 --
-+getID(): String
-+getUserID(): String
++getID(Member memberID): String
++getUserID(User userID): String
++getFlatshareID(Flatshare flatshareID): String
 +getMagnetColor(): String
 
 bg=cyan</panel_attributes>
@@ -100,17 +111,18 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>780</x>
-      <y>40</y>
-      <w>360</w>
-      <h>200</h>
+      <x>736</x>
+      <y>32</y>
+      <w>288</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>Flatshare
 --
-
++flatshareID: String
++flatshareName: String
 --
-+String getFlatshareID()
-+String getFlatshareName()
++String getID(Flatshare FlatshareID)
++String getName()
 
 bg=cyan</panel_attributes>
     <additional_attributes/>
@@ -118,19 +130,26 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>20</x>
-      <y>480</y>
-      <w>360</w>
-      <h>200</h>
+      <x>736</x>
+      <y>208</y>
+      <w>288</w>
+      <h>264</h>
     </coordinates>
     <panel_attributes>CoolNote
 --
-
++coolNoteID: String
++title: String
++content: String
++flatshareID: String
++cretorUserID: String
++position: int
++importance: int
++createAt: String
 --
 +getID(CoolNote coolNoteID): String
 +getTitle(): String
 +getCreatorUserID(User userID): String
-+getFlatshareID(): String
++getFlatshareID(Flatshare flatshareID): String
 +getContent(): String
 +getTaggedUsers(User user): List&lt;User&gt;
 +getImportance(): int
@@ -143,16 +162,19 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>400</x>
-      <y>40</y>
-      <w>360</w>
-      <h>200</h>
+      <x>432</x>
+      <y>32</y>
+      <w>288</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>Comment
 --
-
++commentID: String
++content: String
++coolNoteID: String
++userID: String
 --
-+getID(): String
++getID(Comment commentID): String
 +getCoolNoteID(CoolNote coolNoteID): String
 +getUserID(User userID): String
 +getContent(): String
@@ -163,14 +185,20 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>400</x>
-      <y>260</y>
-      <w>360</w>
-      <h>200</h>
+      <x>432</x>
+      <y>208</y>
+      <w>288</w>
+      <h>264</h>
     </coordinates>
     <panel_attributes>ImageNote
 --
-
++imageNoteID: String
++description: String
++image: byte[]
++flatshareID: String
++cretorUserID: String
++position: int
++createAt: String
 --
 +getID(ImageNote imageNoteID): String
 +getFlatshareID(Flatshare flatShareID): String
@@ -187,14 +215,16 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>20</x>
-      <y>700</y>
-      <w>360</w>
-      <h>200</h>
+      <x>128</x>
+      <y>488</y>
+      <w>288</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>ReadConfirmation
 --
-
++readConfirmationID: String
++coolNoteID: String
++userID: String
 --
 +getID(ReadConfirmation readConfirmationID): String
 +getCoolNoteID(CoolNote coolNoteID): String
@@ -206,10 +236,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>0</x>
+      <x>112</x>
       <y>0</y>
-      <w>1160</w>
-      <h>920</h>
+      <w>928</w>
+      <h>840</h>
     </coordinates>
     <panel_attributes>edu.kit.pse.fridget.client.datamodel
 --
