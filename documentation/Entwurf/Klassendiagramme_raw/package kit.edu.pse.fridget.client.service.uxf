@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>4</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>284</x>
+      <y>24</y>
+      <w>192</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+UserService
+--
+
+--
+@GET
+Call&lt;User&gt; getGoogleIdToken(String googleIdToken)
+
+@POST
+Call&lt;User&gt; sendGoogleIdToken(String googleIdToken)
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>504</x>
+      <y>272</y>
+      <w>192</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+AccessCodeService
+--
+bg=cyan
+--
+@POST
+ Call&lt;AccessCode&gt;  getAccessCode(String flatshareID)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>284</x>
+      <y>272</y>
+      <w>192</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+ CoolNoteService 
+--
+bg=cyan
+--
+@GET
+Call&lt;List&lt;CoolNote&gt; &gt; getAllCoolNotes(@Path("id") String flatshareID) 
+
+@GET
+Call&lt;CoolNote&gt; getCoolNote(@Path("id") String coolNoteId) 
+
+@POST
+Call&lt;CoolNote&gt; createCoolNote(@Body CoolNote coolNote) 
+
+@DELETE
+Call&lt;CoolNote&gt; deleteCoolNote(@Path("id") String coolNoteId) </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>724</x>
+      <y>272</y>
+      <w>268</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+FrozenNoteService
+--
+bg=cyan
+--
+@GET
+Call&lt;List&lt;FrozenNote&gt; &gt; getAllFrozenNote(@Path("id") String flatShareId) 
+
+@GET
+Call&lt;FrozenNote&gt; getFrozenNote(@Path("id") String frozenNoteId
+
+@PUT
+Call&lt;FrozenNote&gt; updateFrozenNote(@Path("id") String frozenNoteId, @Body FrozenNote frozenNote) </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>504</x>
+      <y>24</y>
+      <w>192</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+CommentService
+--
+
+--
+@GET
+Call&lt;List&lt;Comment&gt;&gt; getAllComments(@Path("ci") String coolNoteId)
+
+@POST
+Call&lt;Comment&gt; createComment(@Body Comment comment)
+
+@DELETE
+Call&lt;Comment&gt; deleteComment (@Path("id")String commentID)
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>284</x>
+      <y>148</y>
+      <w>192</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+FlatShareService
+--
+
+--
+@GET
+Call&lt;Flatshare&gt; getFlatshare(@Path("id") String flatshareId)
+
+@POST
+Call&lt;Flatshare&gt; createFlatshare(@Body Flatshare flatshare, String userId)
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>284</x>
+      <y>400</y>
+      <w>192</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+ImageNoteService 
+--
+bg=cyan
+--
+@GET
+Call&lt;List&lt;ImageNote&gt;&gt; getAllImageNotes(@Path("id") String flatshareId)
+
+@GET
+Call&lt;ImageNote&gt; getImageNote(@Path("id") String imageNoteId)
+
+@POST
+Call&lt;ImageNote&gt; createImageNote( @Body ImageNote imageNote) 
+
+@DELETE
+Call&lt;ImageNote&gt; deleteImageNote(@Path("id") String ImageNoteId)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>724</x>
+      <y>28</y>
+      <w>264</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+MembershipService
+--
+
+--
+@GET
+Call&lt;List&lt;Membership&gt;&gt; getMemberList(@Path("id") String flatshareID)
+
+@GET
+Call&lt;Membership&gt; getUser(@Path("fid") String flatshareId, @Path("uid") String userid)
+
+@POST
+Call&lt;Membership&gt; createMembership(@Body User user)
+bg=cyan
+@DELETE
+Call&lt;Membership&gt; deleteMember(@Path("fid") String flatshareId, @Path("uid") String userId)
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>724</x>
+      <y>148</y>
+      <w>268</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+ReadConfirmationService
+--
+
+--
+@GET
+Call&lt;List&lt;User&gt;&gt; getReadStatus(@Path("id") String coolNoteId)
+
+@POST
+Call&lt;CoolNote&gt; createReadStatus(@Body Readstatus readstatus)
+
+@DELETE
+Call&lt;CoolNote&gt; deleteReadStatus(@Path("cid") String coolNoteId,@Path("uid") String userID)
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>504</x>
+      <y>148</y>
+      <w>192</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+DeviceService
+--
+
+--
+@POST
+ Call&lt;Device&gt; createDevice(@Body User user)
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>276</x>
+      <y>0</y>
+      <w>768</w>
+      <h>536</h>
+    </coordinates>
+    <panel_attributes>edu.kit.pse.fridget.client.service
+
+bg=light_gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
