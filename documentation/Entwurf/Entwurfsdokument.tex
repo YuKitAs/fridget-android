@@ -35,22 +35,38 @@
 \chapter{Einleitung}
 
 \chapter{Grobentwurf}
-	\section{Entwurfsentscheidungen}
-	    \subsection{Systemkomponenten}
+	\section{Systemarchitektur}
+		\subsection{MVVM}
+		\subsection{MVC}
+		
+	\section{Systemkomponenten}
 	      \begin{figure}[H]
 	       \centering
 	       \includegraphics[scale = .35]{systemkomponenten.png}
 	       \caption{Systemkomponenten}
 	      \end{figure}
-	      
-    	\subsection{Activity}
-        Unsere App setzt sich aus 15 Activites zusammen. Die Activities stellen die Benutzerschnittstelle unserer App dar und kümmern sich um die Interaktionen mit unserer Benutzeroberfläche. In jeder Activity-Klasse befinden sich selbstverständlich die üblichen Methoden eines Activity-Lifecycles: onCreate() zum Erstellen, onStart() zum Starten, onPause() zum Pausieren , onResume() zum Fortsetzen, onStop() zum Stoppen und onDestroy() zum Zerstören der Activity.
+	 
+	 \section{Komponentenbeschreibung}
+		 \subsection{Activity}
+		 \subsection{Binding}
+		 \subsection{ViewModel}
+	 	 \subsection{Service (Client)}
+	 	 \subsection{Controller}
+	 	 \subsection{Service (Server)}
+	 	 \subsection{Repository}
+	 	 \subsection{Datenbank}
+
         
 \newpage
 
 \chapter{Feinentwurf}
 	\section{Klassen des Clients}
+	\subsection{Klassendiagramm}
+	
+	 \subsection{Activity}
+        Unsere App setzt sich aus 15 Activites zusammen. Die Activities stellen die Benutzerschnittstelle unserer App dar und kümmern sich um die Interaktionen mit unserer Benutzeroberfläche. In jeder Activity-Klasse befinden sich selbstverständlich die üblichen Methoden eines Activity-Lifecycles: onCreate() zum Erstellen, onStart() zum Starten, onPause() zum Pausieren , onResume() zum Fortsetzen, onStop() zum Stoppen und onDestroy() zum Zerstören der Activity.
 	\input{klassen-der-activities}
+	    
 	\clearpage
 	\input{klassen-der-viewmodels}
 	\clearpage
@@ -62,14 +78,38 @@
 	\input{restful-api}
 	\clearpage
 	\section{Klassen des Servers}
+		\subsection{Klassendiagramm}
+
 	\input{klassen-des-servers}
  
 
-\chapter{Datenstrukturen}
+\chapter{Daten}
+	\section{Lokale Datenspeicherung}
+	\section{Aufbau der Datenbank}
 
 \chapter{Dynamische Modelle}
+		\section{Login}
+		 \begin{figure}[H]
+	       \centering
+	       \includegraphics[scale = .15]{login_sequenzdiagramm.png}
+	       \caption{Systemkomponenten}
+	      \end{figure}
+	 
+	 
+		\section{Erstellen einer Cool Note}
+		
+	      
+		\section{Frozen Note bearbeiten}
+ 	\begin{figure}[H]
+	       \centering
+	       \includegraphics[scale = .15]{Sequenzdiagram_EditFrozenNote.png}
+	       \caption{Systemkomponenten}
+	      \end{figure}		
+		
+		\section{WG verlassen}
 
-\chapter{Nicht entworfene Wunschkriterien}
+
+\chapter{Änderungen zum Pflichtenheft}
 
 \chapter{Glossar}
 
