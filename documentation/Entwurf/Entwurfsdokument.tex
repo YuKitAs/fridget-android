@@ -38,7 +38,9 @@
 \chapter{Grobentwurf}
 	\section{Systemarchitektur}
 		\subsection{MVVM}
+			\input{Systemarchitektur/mvvm}
 		\subsection{MVC}
+			\input{Systemarchitektur/mvc}
 		
 	\section{Systemkomponenten}
 	      \begin{figure}[H]
@@ -48,15 +50,12 @@
 	      \end{figure}
 	 
 	 \section{Komponentenbeschreibung}
-		 \subsection{Activity}
-		 \subsection{Binding}
-		 \subsection{ViewModel}
-	 	 \subsection{Service (Client)}
-	 	 \subsection{Controller}
-	 	 \subsection{Service (Server)}
-	 	 \subsection{Repository}
-	 	 \subsection{Datenbank}
-
+		 \subsection{Client}
+	 		\input{Komponentenbeschreibung/client}
+		
+		 \subsection{Server}
+	 	 	\input{Komponentenbeschreibung/server}
+	 	 
         
 \newpage
 
@@ -70,19 +69,19 @@
 	      \end{figure}
 	
 	
-	 \subsection{Activity}
-        Unsere App setzt sich aus 15 Activites zusammen. Die Activities stellen die Benutzerschnittstelle unserer App dar und kümmern sich um die Interaktionen mit unserer Benutzeroberfläche. In jeder Activity-Klasse befinden sich selbstverständlich die üblichen Methoden eines Activity-Lifecycles: onCreate() zum Erstellen, onStart() zum Starten, onPause() zum Pausieren , onResume() zum Fortsetzen, onStop() zum Stoppen und onDestroy() zum Zerstören der Activity.
-	\input{klassen-der-activities}
+	 \subsection{Activity} \todo{an die richtige Stelle}
+Unsere App setzt sich aus 15 Activites zusammen. Die Activities stellen die Benutzerschnittstelle unserer App dar und kümmern sich um die Interaktionen mit unserer Benutzeroberfläche. In jeder Activity-Klasse befinden sich selbstverständlich die üblichen Methoden eines Activity-Lifecycles: onCreate() zum Erstellen, onStart() zum Starten, onPause() zum Pausieren , onResume() zum Fortsetzen, onStop() zum Stoppen und onDestroy() zum Zerstören der Activity.
+	\input{Klassen/klassen-der-activities}
 	    
 	\clearpage
-	\input{klassen-der-viewmodels}
+	\input{Klassen/klassen-der-viewmodels}
 	\clearpage
-	\input{klassen-des-models}
+	\input{Klassen/klassen-des-models}
 	\clearpage
-	\input{klassen-des-clientService}
+	\input{Klassen/klassen-des-clientService}
 	\clearpage
 	\section{RESTful API}
-	\input{restful-api}
+	\input{Klassen/restful-api}
 	\clearpage
 	\section{Klassen des Servers}
 		\subsection{Klassendiagramm}
@@ -92,12 +91,15 @@
 	       \caption{Klassen des Servers}
 	      \end{figure}
 
-	\input{klassen-des-servers}
+	\input{Klassen/klassen-des-servers}
  
 
 \chapter{Daten}
 	\section{Lokale Datenspeicherung}
+			\input{Daten/lokale-Datenspeicherung}
 	\section{Aufbau der Datenbank}
+			\input{Daten/Aufbau-der-Datenbank}
+			
 
 \chapter{Dynamische Modelle}
 		\section{Login}
@@ -106,14 +108,19 @@
 	       \includegraphics[angle=90,scale = .28]{login_sequenzdiagramm.png}
 	       \caption{Login}
 	      \end{figure}
+	      
+	      	\input{Dynamische-Modelle/Login-text}
 	 
 	 
-		\section{Erstellen einer Cool Note}
+		\section{Dynamische Modelle/Erstellen einer Cool Note}
 		 \begin{figure}[H]
 	       \centering
 	       \includegraphics[scale = .35]{SD_CoolNote_erstellen.png}
 	       \caption{CoolNote erstellen}
 	      \end{figure}
+	      
+	      
+	      	\input{Dynamische-Modelle/CoolNote-text}
 		
 	      
 		\section{Frozen Note bearbeiten}
@@ -121,7 +128,9 @@
 	       \centering
 	       \includegraphics[scale = .35]{Sequenzdiagram_EditFrozenNote.png}
 	       \caption{FrozenNote bearbeiten}
-	      \end{figure}		
+	      \end{figure}	
+	      
+	      \input{Dynamische-Modelle/FrozenNote-text}	
 		
 		\section{WG verlassen}
 		 \begin{figure}[H]
@@ -129,12 +138,15 @@
 	       \includegraphics[scale = .35]{SD_WG_verlassen.png}
 	       \caption{WG verlassen}
 	      \end{figure}
+	      	\input{Dynamische-Modelle/WG-verlassen-text}
 		
 
 
 \chapter{Änderungen zum Pflichtenheft}
+	\input{Pflichtenheftänderungen}
 
 \chapter{Glossar}
+	\input{Glossar}
 
 \chapter{Anhang}
 \section{Klassendiagramm Client-Server}

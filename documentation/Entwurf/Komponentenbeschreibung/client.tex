@@ -1,0 +1,39 @@
+\subsubsection{MVVM-Architektur}
+
+\textbf{Model}\\
+Model-Klassen kapseln die Appdaten ab. Es handelt sich um eine Datenzugriffschicht, wo die Daten gehalten und zum Benutzen aufbereitet werden.
+
+
+\textbf{View}\\
+Zu jeder Activity gehört eine View, die als graphische Benutzeroberfläche dient. Sie stellt eine rechteckige Fläche auf dem Bildschirm dar und ist verantwortlich fürs Event-Handling. Die View ist das, was der Benutzer sieht und mit dem er interagieren kann (Buttons, Textfelder, etc.).
+
+
+\textbf{Viewmodel}\\
+Viewmodel definiert die in der View angezeigten Inhalte und dient zur Eingabeverarbeitung. Sie kümmern sich darum, Eigenschaften und Befehle zu implementieren und tauscht mit der View mittels Data Binding Daten aus. Außerdem sind Viewmodels dafür verantwortlich, die Views mittels Live Data über Zustandsänderungen zu benachrichtigen. Viewmodels kümmern sich also um die Geschäftslogik, die von den Views verwendet und angezeigt wird.
+
+
+\subsubsection{}   \todo{Überschriften finden}
+\textbf{Activity}\\
+Die Activities stellen die Benutzerschnittstelle unserer App dar und kümmern sich um die Interaktionen mit unserer Benutzeroberfläche. In jeder Activity-Klasse befinden sich selbstverständlich die üblichen Methoden eines Activity-Lifecycles: onCreate() zum Erstellen, onStart() zum Starten, onPause() zum Pausieren , onResume() zum Fortsetzen, onStop() zum Stoppen und onDestroy() zum Zerstören der Activity.
+
+\subsubsection{} \todo{Überschriften finden}
+\textbf{Service}\\
+Ein Dienst ist eine Komponente, die ohne direkte Interaktion mit dem Benutzer im Hintergrund abläuft. Da der Service keine Benutzeroberfläche hat, ist er nicht an den Lebenszyklus einer Aktivität gebunden.
+Jede Methode innerhalb einer Service- Schnittstelle repräsentiert einen möglichen API-Aufruf. Es muss eine HTTP-Annotation (GET, POST usw.) haben, um den Anforderungstyp und die relative URL anzugeben. Der Rückgabewert umschließt die Antwort in einem Call-Objekt mit dem Typ des erwarteten Ergebnisses.
+
+
+\subsubsection{} \todo{Überschriften finden}
+\textbf{Live-Data}\\
+Live-Data sind beobachtbare data holder Klassen. Live-Data ist wie der Observer-Entwurfsmuster. Sie benachrichtigt den Observer-Objekt, in unserem Fall die View, wenn sich die Objekte verändern. 
+
+\subsubsection{} \todo{Überschriften finden}
+\textbf{Retrofit}\\
+Retrofit ist ein typsicherer HTTP-Client für Android und Java. Es ist eine Open-Source-Bibliothek, die die HTTP-Kommunikation vereinfacht, indem MRemote-APIs zu deklarativen, typsicheren Schnittstellen werden. Es macht es relativ einfach, JSON (oder andere strukturierte Daten) über einen REST-basierten Webservice abzurufen und hochzuladen. Es serialisiert die JSON-Antwort automatisch unter Verwendung eines POJO(Plain Old Java Object), das für die JSON-Struktur im Voraus definiert werden muss.
+
+
+\subsubsection{} \todo{Überschriften finden}
+\textbf{REST-Client}\\
+Der REST-Client unserem Fall die Retrofit-Bibliothek, die auf der Clientseite (Android) verwendet wird, um eine HTTP-Anforderung an die REST-API zu stellen.
+
+\textbf{REST-API}\\
+Die REST-API definiert eine Reihe von Funktionen, mit denen Entwickler Anfragen ausführen und Antworten über HTTP-Protokoll wie GET und POST empfangen können.
