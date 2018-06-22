@@ -1,6 +1,6 @@
-Für die Client-Seite verwenden wir das MVVM (Model-View-View-Model) Architektur-Muster mit Datenbindung. 
-Dabei wird die Darstellung in View, die Eingabeverarbeitung in View Model und die Datenhaltung in Model aufgeteilt. Zusätzlich dient der Service noch als direkten Vermittler zwischen der Client- und Server-Seite. \\
+Für die Client-Seite verwenden wir das MVVM (Model-View-View-Model) Architektur-Muster mit Data Binding. 
+Dabei wird die Darstellung in View, die Eingabeverarbeitung in Viewmodel und die Datenhaltung in Model aufgeteilt. Zusätzlich dient der Service noch als direkter Vermittler zwischen der Client- und Server-Seite. \\
 Dieses Muster hat zwei wesentliche Vorteile.\\
-Erstens, es gibt keine Abhängigkeit zwischen der View und dem Model. Die Daten, die für die View benötigt werden, werden nämlich im ViewModel bereitgestellt. \\
-Zweitens, das ViewModel ist nicht von der View abhängig. Durch Data Binding kann ohne Referenz auf die View der Zustand der View im ViewModel verwaltet werden. \\
-Es ist also eine lose Kopplung vorhanden, welches die Testbarkeit verbessert.
+Erstens gibt es keine Abhängigkeit zwischen der View und dem Model. Die Daten, die für die View benötigt werden, werden nämlich im Viewmodel bereitgestellt. \\
+Zweitens ist das ViewModel nicht von der View abhängig. Durch Data Binding kann ohne Referenz auf die View der Zustand der View im Viewmodel verwaltet werden. \\
+Es ist also eine lose Kopplung vorhanden, welche die Testbarkeit verbessert.
