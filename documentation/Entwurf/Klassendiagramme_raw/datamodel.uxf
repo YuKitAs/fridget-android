@@ -4,14 +4,14 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>546</x>
-      <y>427</y>
+      <x>616</x>
+      <y>490</y>
       <w>252</w>
       <h>140</h>
     </coordinates>
     <panel_attributes>User
 --
--userId: String
+-id: String
 -googleName: String
 -googleUserId: String
 --
@@ -26,8 +26,8 @@ bg=cyan
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>14</x>
-      <y>28</y>
+      <x>84</x>
+      <y>91</y>
       <w>252</w>
       <h>140</h>
     </coordinates>
@@ -47,8 +47,8 @@ bg=cyan
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>280</x>
-      <y>427</y>
+      <x>350</x>
+      <y>490</y>
       <w>252</w>
       <h>140</h>
     </coordinates>
@@ -65,8 +65,8 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>14</x>
-      <y>182</y>
+      <x>84</x>
+      <y>245</y>
       <w>252</w>
       <h>231</h>
     </coordinates>
@@ -90,8 +90,8 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>14</x>
-      <y>581</y>
+      <x>84</x>
+      <y>644</y>
       <w>252</w>
       <h>140</h>
     </coordinates>
@@ -102,9 +102,9 @@ bg=cyan</panel_attributes>
 -flateshareId: String
 -magnetColor: String
 --
-+getID(): String
-+getUserID(): String
-+getFlatshareID(): String
++getId(): String
++getUserId(): String
++getFlatshareId(): String
 +getMagnetColor(): String
 
 bg=cyan</panel_attributes>
@@ -113,8 +113,8 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>546</x>
-      <y>28</y>
+      <x>616</x>
+      <y>91</y>
       <w>252</w>
       <h>140</h>
     </coordinates>
@@ -123,7 +123,7 @@ bg=cyan</panel_attributes>
 -id: String
 -name: String
 --
-+getID(): String
++getId(): String
 +getName(): String
 
 bg=cyan</panel_attributes>
@@ -132,8 +132,8 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>546</x>
-      <y>182</y>
+      <x>616</x>
+      <y>245</y>
       <w>252</w>
       <h>231</h>
     </coordinates>
@@ -148,11 +148,11 @@ bg=cyan</panel_attributes>
 -importance: int
 -createAt: String
 --
-+getID(): String
++getId(): String
 +getTitle(): String
-+getCreatorUserID(): String
++getCreatorUserId(): String
 +getContent(): String
-+getFlatshareID(): String
++getFlatshareId(): String
 +getTaggedUsers(): List&lt;User&gt;
 +getImportance(): int
 +getPosition(): int
@@ -164,8 +164,8 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>280</x>
-      <y>28</y>
+      <x>350</x>
+      <y>91</y>
       <w>252</w>
       <h>140</h>
     </coordinates>
@@ -187,14 +187,14 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>280</x>
-      <y>182</y>
+      <x>350</x>
+      <y>245</y>
       <w>252</w>
       <h>231</h>
     </coordinates>
     <panel_attributes>ImageNote
 --
--imageNoteId: String
+-id: String
 -description: String
 -image: byte[]
 -flatshareId: String
@@ -205,7 +205,7 @@ bg=cyan</panel_attributes>
 +getId(): String
 +getFlatshareId(): String
 +getDescription(): String
-+getCreatorUserID(): String
++getCreatorUserId(): String
 +getImage(): byte[]
 +getTaggedUsers(): List&lt;User&gt; 
 +getPosition(): int
@@ -217,14 +217,14 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>14</x>
-      <y>427</y>
+      <x>84</x>
+      <y>490</y>
       <w>252</w>
       <h>140</h>
     </coordinates>
     <panel_attributes>ReadConfirmation
 --
--readConfirmationId: String
+-id: String
 -coolNoteId: String
 -userId: String
 --
@@ -238,8 +238,8 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>0</x>
-      <y>0</y>
+      <x>70</x>
+      <y>63</y>
       <w>812</w>
       <h>735</h>
     </coordinates>
