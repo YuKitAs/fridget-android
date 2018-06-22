@@ -1,258 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>1</zoom_level>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>662</x>
-      <y>278</y>
-      <w>36</w>
-      <h>20</h>
-    </coordinates>
-    <panel_attributes>Accesscode
---
-+flatshareID: String
-+content: String
---
-+getFlatshareID(Flatshare flatshareID): String
-+getContent(): String
-
-bg=cyan
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>700</x>
-      <y>278</y>
-      <w>36</w>
-      <h>20</h>
-    </coordinates>
-    <panel_attributes>Comment
---
-+commentID: String
-+content: String
-+coolNoteID: String
-+userID: String
---
-+getID(Comment commentID): String
-+getCoolNoteID(CoolNote coolNoteID): String
-+getUserID(User userID): String
-+getContent(): String
-
-bg=cyan</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>738</x>
-      <y>278</y>
-      <w>36</w>
-      <h>20</h>
-    </coordinates>
-    <panel_attributes>Flatshare
---
-+flatshareID: String
-+flatshareName: String
---
-+String getID(Flatshare FlatshareID)
-+String getName()
-
-bg=cyan</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>738</x>
-      <y>300</y>
-      <w>36</w>
-      <h>33</h>
-    </coordinates>
-    <panel_attributes>CoolNote
---
-+coolNoteID: String
-+title: String
-+content: String
-+flatshareID: String
-+cretorUserID: String
-+position: int
-+importance: int
-+createAt: String
---
-+getID(CoolNote coolNoteID): String
-+getTitle(): String
-+getCreatorUserID(User userID): String
-+getFlatshareID(Flatshare flatshareID): String
-+getContent(): String
-+getTaggedUsers(User user): List&lt;User&gt;
-+getImportance(): int
-+getPosition(): int
-+getCreateAt(): String
-
-bg=cyan</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>700</x>
-      <y>300</y>
-      <w>36</w>
-      <h>33</h>
-    </coordinates>
-    <panel_attributes>ImageNote
---
-+imageNoteID: String
-+description: String
-+image: byte[]
-+flatshareID: String
-+cretorUserID: String
-+position: int
-+createAt: String
---
-+getID(ImageNote imageNoteID): String
-+getFlatshareID(Flatshare flatShareID): String
-+getDescription(): String
-+getCreatorUserID(Member memberID): String
-+getImage(): byte[]
-+getTaggedUsers(User user): List&lt;User&gt; 
-+getPosition(): int
-+getCreateAt(): String
-
-bg=cyan</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>662</x>
-      <y>300</y>
-      <w>36</w>
-      <h>33</h>
-    </coordinates>
-    <panel_attributes>FrozenNote
---
-+frozenNoteID: String
-+title: String
-+content: String
-+flatshareID: String
-+position: int
---
-+getID(FrozenNote frozenNoteID): String
-+getTitle(): String
-+getContent(): String
-+getFlatshareID(Flatshare flatshareID): String
-+getPosition(): int
-
-bg=cyan</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>662</x>
-      <y>335</y>
-      <w>36</w>
-      <h>20</h>
-    </coordinates>
-    <panel_attributes>ReadConfirmation
---
-+readConfirmationID: String
-+coolNoteID: String
-+userID: String
---
-+getID(ReadConfirmation readConfirmationID): String
-+getCoolNoteID(CoolNote coolNoteID): String
-+getUserID(User userID): String
-
-bg=cyan</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>700</x>
-      <y>335</y>
-      <w>36</w>
-      <h>20</h>
-    </coordinates>
-    <panel_attributes>Notification
---
-+notificationID: String
-+text: String
---
-+getNotificationText(): String
-
-bg=cyan</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>738</x>
-      <y>335</y>
-      <w>36</w>
-      <h>20</h>
-    </coordinates>
-    <panel_attributes>User
---
-+userID: String
-+googleName: String
-+googleID: String
---
-+getID(User userID): String
-+getGoogleName(): String
-+getGoogleID(): String
-
-bg=cyan
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>662</x>
-      <y>357</y>
-      <w>36</w>
-      <h>20</h>
-    </coordinates>
-    <panel_attributes>Member
---
-+memberID: String
-+userID: String
-+magnetColor: String
---
-+getID(Member memberID): String
-+getUserID(User userID): String
-+getFlatshareID(Flatshare flatshareID): String
-+getMagnetColor(): String
-
-bg=cyan</panel_attributes>
-    <additional_attributes/>
-  </element>
+  <zoom_level>3</zoom_level>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>660</x>
-      <y>272</y>
-      <w>116</w>
-      <h>107</h>
-    </coordinates>
-    <panel_attributes>edu.kit.pse.fridget.client.datamodel
---
-bg=gray</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLPackage</id>
-    <coordinates>
-      <x>266</x>
-      <y>269</y>
-      <w>189</w>
-      <h>105</h>
+      <x>0</x>
+      <y>0</y>
+      <w>567</w>
+      <h>315</h>
     </coordinates>
     <panel_attributes>kit.edu.pse.fridget.client.Activity
 --
@@ -262,10 +17,10 @@ bg=gray</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>270</x>
-      <y>276</y>
-      <w>33</w>
-      <h>7</h>
+      <x>12</x>
+      <y>21</y>
+      <w>99</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>AppCompatActivity
 --
@@ -279,10 +34,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>307</x>
-      <y>276</y>
-      <w>33</w>
-      <h>9</h>
+      <x>123</x>
+      <y>21</y>
+      <w>99</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 _View.OnClickListener_
@@ -297,10 +52,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>346</x>
-      <y>276</y>
-      <w>34</w>
-      <h>11</h>
+      <x>240</x>
+      <y>21</y>
+      <w>102</w>
+      <h>33</h>
     </coordinates>
     <panel_attributes>&lt;&lt;abstract class&gt;&gt;
 ResultReceiver
@@ -316,10 +71,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>383</x>
-      <y>285</y>
-      <w>34</w>
-      <h>9</h>
+      <x>351</x>
+      <y>48</y>
+      <w>102</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 Receiver
@@ -334,10 +89,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>346</x>
-      <y>295</y>
-      <w>34</w>
-      <h>8</h>
+      <x>240</x>
+      <y>78</y>
+      <w>102</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>ServiceResultReceiver
 --
@@ -351,10 +106,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>307</x>
-      <y>287</y>
-      <w>33</w>
-      <h>9</h>
+      <x>123</x>
+      <y>54</y>
+      <w>99</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 _SwipeRefreshLayout.OnRefreshListener_
@@ -369,10 +124,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>362</x>
-      <y>286</y>
-      <w>3</w>
-      <h>11</h>
+      <x>288</x>
+      <y>51</y>
+      <w>9</w>
+      <h>33</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
@@ -380,10 +135,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>379</x>
-      <y>293</y>
-      <w>25</w>
-      <h>9</h>
+      <x>339</x>
+      <y>72</y>
+      <w>75</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 </panel_attributes>
@@ -392,10 +147,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>270</x>
-      <y>308</y>
-      <w>33</w>
-      <h>12</h>
+      <x>12</x>
+      <y>117</y>
+      <w>99</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>*LoginActivity*
 &lt;&lt;extends AppCompatActivity&lt;&lt;
@@ -412,10 +167,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>305</x>
-      <y>308</y>
-      <w>33</w>
-      <h>12</h>
+      <x>117</x>
+      <y>117</y>
+      <w>99</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>*StartActivity*
 &lt;&lt;extends AppCompatActivity&lt;&lt;
@@ -432,10 +187,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>341</x>
-      <y>308</y>
-      <w>33</w>
-      <h>13</h>
+      <x>225</x>
+      <y>117</y>
+      <w>99</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>*FullTextCoolNoteActivity*
 &lt;&lt;extends AppCompatActivity&lt;&lt;
@@ -453,10 +208,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>378</x>
-      <y>308</y>
-      <w>33</w>
-      <h>12</h>
+      <x>336</x>
+      <y>117</y>
+      <w>99</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>*CreateTextCoolNoteActivity*
 &lt;&lt;extends AppCompatActivity&lt;&lt;
@@ -473,10 +228,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>415</x>
-      <y>308</y>
-      <w>33</w>
-      <h>12</h>
+      <x>447</x>
+      <y>117</y>
+      <w>99</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>*EditFrozenNoteActivity*
 &lt;&lt;extends AppCompatActivity&lt;&lt;
@@ -493,10 +248,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>415</x>
-      <y>323</y>
-      <w>33</w>
-      <h>12</h>
+      <x>447</x>
+      <y>162</y>
+      <w>99</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>*LanguagetActivity*
 &lt;&lt;extends AppCompatActivity&lt;&lt;
@@ -513,10 +268,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>378</x>
-      <y>323</y>
-      <w>33</w>
-      <h>12</h>
+      <x>336</x>
+      <y>162</y>
+      <w>99</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>*CreateImageCoolNoteActivity*
 &lt;&lt;extends AppCompatActivity&lt;&lt;
@@ -533,10 +288,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>341</x>
-      <y>323</y>
-      <w>33</w>
-      <h>13</h>
+      <x>225</x>
+      <y>162</y>
+      <w>99</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>*FullFrozenNoteActivity*
 &lt;&lt;extends AppCompatActivity&lt;&lt;
@@ -554,10 +309,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>305</x>
-      <y>323</y>
-      <w>33</w>
-      <h>12</h>
+      <x>117</x>
+      <y>162</y>
+      <w>99</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>*GetAccessCodeActivity*
 &lt;&lt;extends AppCompatActivity&lt;&lt;
@@ -574,10 +329,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>270</x>
-      <y>324</y>
-      <w>33</w>
-      <h>12</h>
+      <x>12</x>
+      <y>165</y>
+      <w>99</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>*CreateFlatShareActivity*
 &lt;&lt;extends AppCompatActivity&lt;&lt;
@@ -594,10 +349,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>270</x>
-      <y>339</y>
-      <w>33</w>
-      <h>12</h>
+      <x>12</x>
+      <y>210</y>
+      <w>99</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>*EnterAccessCodeActivity*
 &lt;&lt;extends AppCompatActivity&lt;&lt;
@@ -614,10 +369,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>305</x>
-      <y>338</y>
-      <w>33</w>
-      <h>13</h>
+      <x>117</x>
+      <y>207</y>
+      <w>99</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>*HomeActivity*
 &lt;&lt;extends AppCompatActivity&lt;&lt;
@@ -635,10 +390,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>341</x>
-      <y>339</y>
-      <w>33</w>
-      <h>13</h>
+      <x>225</x>
+      <y>210</y>
+      <w>99</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>*FullImageCoolNoteActivity*
 &lt;&lt;extends AppCompatActivity&lt;&lt;
@@ -656,10 +411,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>378</x>
-      <y>339</y>
-      <w>33</w>
-      <h>13</h>
+      <x>336</x>
+      <y>210</y>
+      <w>99</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>*CreateCommentActivity*
 &lt;&lt;extends AppCompatActivity&lt;&lt;
@@ -676,10 +431,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>415</x>
-      <y>339</y>
-      <w>33</w>
-      <h>13</h>
+      <x>447</x>
+      <y>210</y>
+      <w>99</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>*MemberListActivity*
 &lt;&lt;extends AppCompatActivity&lt;&lt;
@@ -697,10 +452,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>472</x>
-      <y>477</y>
-      <w>48</w>
-      <h>27</h>
+      <x>618</x>
+      <y>441</y>
+      <w>144</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 UserService
@@ -719,10 +474,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>527</x>
-      <y>477</y>
-      <w>48</w>
-      <h>27</h>
+      <x>783</x>
+      <y>441</y>
+      <w>144</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 CommentService
@@ -743,10 +498,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>583</x>
-      <y>477</y>
-      <w>66</w>
-      <h>27</h>
+      <x>951</x>
+      <y>441</y>
+      <w>198</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 MembershipService
@@ -771,10 +526,10 @@ Call&lt;Membership&gt; deleteMember(@Path("fid") String flatshareId, @Path("uid"
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>583</x>
-      <y>509</y>
-      <w>67</w>
-      <h>27</h>
+      <x>951</x>
+      <y>537</y>
+      <w>201</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 ReadConfirmationService
@@ -796,10 +551,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>527</x>
-      <y>511</y>
-      <w>48</w>
-      <h>27</h>
+      <x>783</x>
+      <y>543</y>
+      <w>144</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 DeviceService
@@ -815,10 +570,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>472</x>
-      <y>506</y>
-      <w>48</w>
-      <h>27</h>
+      <x>618</x>
+      <y>528</y>
+      <w>144</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 FlatShareService
@@ -837,10 +592,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>472</x>
-      <y>536</y>
-      <w>48</w>
-      <h>27</h>
+      <x>618</x>
+      <y>618</y>
+      <w>144</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
  CoolNoteService 
@@ -863,10 +618,10 @@ Call&lt;CoolNote&gt; deleteCoolNote(@Path("id") String coolNoteId) </panel_attri
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>527</x>
-      <y>543</y>
-      <w>48</w>
-      <h>27</h>
+      <x>783</x>
+      <y>639</y>
+      <w>144</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 AccessCodeService
@@ -880,10 +635,10 @@ bg=cyan
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>583</x>
-      <y>543</y>
-      <w>67</w>
-      <h>27</h>
+      <x>951</x>
+      <y>639</y>
+      <w>201</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 FrozenNoteService
@@ -903,10 +658,10 @@ Call&lt;FrozenNote&gt; updateFrozenNote(@Path("id") String frozenNoteId, @Body F
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>472</x>
-      <y>567</y>
-      <w>48</w>
-      <h>27</h>
+      <x>618</x>
+      <y>711</y>
+      <w>144</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 ImageNoteService 
@@ -929,10 +684,10 @@ Call&lt;ImageNote&gt; deleteImageNote(@Path("id") String ImageNoteId)</panel_att
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>466</x>
-      <y>469</y>
-      <w>192</w>
-      <h>134</h>
+      <x>600</x>
+      <y>417</y>
+      <w>576</w>
+      <h>402</h>
     </coordinates>
     <panel_attributes>edu.kit.pse.fridget.client.service
 
@@ -942,10 +697,10 @@ bg=gray</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>565</x>
-      <y>346</y>
-      <w>43</w>
-      <h>13</h>
+      <x>897</x>
+      <y>231</y>
+      <w>129</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>TutorialViewModel
 &lt;&lt;extends ViewModel&gt;&gt;
@@ -961,10 +716,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>520</x>
-      <y>346</y>
-      <w>43</w>
-      <h>13</h>
+      <x>762</x>
+      <y>231</y>
+      <w>129</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>LanguageViewModel
 &lt;&lt;extends ViewModel&gt;&gt;
@@ -979,10 +734,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>520</x>
-      <y>331</y>
-      <w>43</w>
-      <h>13</h>
+      <x>762</x>
+      <y>186</y>
+      <w>129</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>HomeViewModel
 &lt;&lt;extends ViewModel&gt;&gt;
@@ -1000,10 +755,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>565</x>
-      <y>330</y>
-      <w>43</w>
-      <h>13</h>
+      <x>897</x>
+      <y>183</y>
+      <w>129</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>MemberListViewModel
 &lt;&lt;extends ViewModel&gt;&gt;
@@ -1017,10 +772,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>565</x>
-      <y>316</y>
-      <w>43</w>
-      <h>11</h>
+      <x>897</x>
+      <y>141</y>
+      <w>129</w>
+      <h>33</h>
     </coordinates>
     <panel_attributes>CreateCoolNoteViewModel
 &lt;&lt;extends ViewModel&gt;&gt;
@@ -1035,10 +790,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>520</x>
-      <y>316</y>
-      <w>43</w>
-      <h>13</h>
+      <x>762</x>
+      <y>141</y>
+      <w>129</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>GetAccessCodeViewModel
 &lt;&lt;extends ViewModel&gt;&gt;
@@ -1053,10 +808,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>520</x>
-      <y>301</y>
-      <w>43</w>
-      <h>13</h>
+      <x>762</x>
+      <y>96</y>
+      <w>129</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>StartViewModel
 &lt;&lt;extends ViewModel&gt;&gt;
@@ -1073,10 +828,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>565</x>
-      <y>300</y>
-      <w>43</w>
-      <h>13</h>
+      <x>897</x>
+      <y>93</y>
+      <w>129</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>FullFrozenNoteViewModel
 &lt;&lt;extends ViewModel&gt;&gt;
@@ -1093,10 +848,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>565</x>
-      <y>286</y>
-      <w>43</w>
-      <h>11</h>
+      <x>897</x>
+      <y>51</y>
+      <w>129</w>
+      <h>33</h>
     </coordinates>
     <panel_attributes>FullTextCoolNoteViewModel
 &lt;&lt;extends ViewModel&gt;&gt;
@@ -1113,10 +868,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>517</x>
-      <y>286</y>
-      <w>46</w>
-      <h>13</h>
+      <x>753</x>
+      <y>51</y>
+      <w>138</w>
+      <h>39</h>
     </coordinates>
     <panel_attributes>LoginViewModel
 &lt;&lt;extends ViewModel&gt;&gt;
@@ -1132,10 +887,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>554</x>
-      <y>274</y>
-      <w>21</w>
-      <h>9</h>
+      <x>864</x>
+      <y>15</y>
+      <w>63</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>ViewModel
 --
@@ -1149,10 +904,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>515</x>
-      <y>270</y>
-      <w>99</w>
-      <h>108</h>
+      <x>747</x>
+      <y>3</y>
+      <w>297</w>
+      <h>324</h>
     </coordinates>
     <panel_attributes>package edu.kit.pse.fridget.client.ViewModel
 
@@ -1162,21 +917,21 @@ bg=gray</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>554</x>
-      <y>377</y>
-      <w>4</w>
-      <h>87</h>
+      <x>864</x>
+      <y>324</y>
+      <w>12</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>20.0;850.0;10.0;10.0</additional_attributes>
+    <additional_attributes>20.0;340.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>454</x>
-      <y>322</y>
-      <w>63</w>
-      <h>3</h>
+      <x>564</x>
+      <y>159</y>
+      <w>189</w>
+      <h>9</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>610.0;10.0;10.0;10.0</additional_attributes>
@@ -1184,10 +939,10 @@ bg=gray</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>613</x>
-      <y>302</y>
-      <w>49</w>
-      <h>3</h>
+      <x>1041</x>
+      <y>99</y>
+      <w>147</w>
+      <h>9</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>470.0;10.0;10.0;10.0</additional_attributes>
@@ -1195,104 +950,259 @@ bg=gray</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>613</x>
-      <y>344</y>
-      <w>49</w>
-      <h>3</h>
+      <x>1041</x>
+      <y>225</y>
+      <w>147</w>
+      <h>9</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;470.0;10.0</additional_attributes>
   </element>
   <element>
-    <id>UMLFrame</id>
+    <id>UMLClass</id>
     <coordinates>
-      <x>648</x>
-      <y>255</y>
-      <w>149</w>
-      <h>141</h>
+      <x>1419</x>
+      <y>186</y>
+      <w>108</w>
+      <h>60</h>
     </coordinates>
-    <panel_attributes/>
+    <panel_attributes>User
+--
+-userId: String
+-googleName: String
+-googleUserId: String
+--
++getId(): String
++getGoogleName(): String
++getGoogleUserId(): String
+
+bg=cyan
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLState</id>
+    <id>UMLClass</id>
     <coordinates>
-      <x>455</x>
-      <y>443</y>
-      <w>59</w>
-      <h>21</h>
+      <x>1191</x>
+      <y>15</y>
+      <w>108</w>
+      <h>60</h>
     </coordinates>
-    <panel_attributes>fontsize=80
-Service</panel_attributes>
+    <panel_attributes>Accesscode
+--
+-id: String
+-flatshareId: String
+-content: String
+--
++getFlatshareId(): String
++getContent(): String
+
+bg=cyan
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLState</id>
+    <id>UMLClass</id>
     <coordinates>
-      <x>251</x>
-      <y>233</y>
-      <w>49</w>
-      <h>21</h>
+      <x>1305</x>
+      <y>186</y>
+      <w>108</w>
+      <h>60</h>
     </coordinates>
-    <panel_attributes>fontsize=80
-View</panel_attributes>
+    <panel_attributes>Notification
+--
+-id: String
+-text: String
+--
++getNotificationText(): String
+
+bg=cyan</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLState</id>
+    <id>UMLClass</id>
     <coordinates>
-      <x>490</x>
-      <y>235</y>
-      <w>59</w>
-      <h>21</h>
+      <x>1191</x>
+      <y>81</y>
+      <w>108</w>
+      <h>99</h>
     </coordinates>
-    <panel_attributes>fontsize=80
-ViewModel</panel_attributes>
+    <panel_attributes>FrozenNote
+--
+-id: String
+-title: String
+-content: String
+-flatshareId: String
+-position: int
+--
++getId(): String
++getTitle(): String
++getContent(): String
++getFlatshareId(): String
++getPosition(): int
+
+bg=cyan</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLFrame</id>
+    <id>UMLClass</id>
     <coordinates>
-      <x>490</x>
-      <y>254</y>
-      <w>149</w>
-      <h>141</h>
+      <x>1191</x>
+      <y>252</y>
+      <w>108</w>
+      <h>60</h>
     </coordinates>
-    <panel_attributes/>
+    <panel_attributes>Member
+--
+-id: String
+-userId: String
+-flateshareId: String
+-magnetColor: String
+--
++getID(): String
++getUserID(): String
++getFlatshareID(): String
++getMagnetColor(): String
+
+bg=cyan</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLFrame</id>
+    <id>UMLClass</id>
     <coordinates>
-      <x>253</x>
-      <y>254</y>
-      <w>221</w>
-      <h>134</h>
+      <x>1419</x>
+      <y>15</y>
+      <w>108</w>
+      <h>60</h>
     </coordinates>
-    <panel_attributes/>
+    <panel_attributes>Flatshare
+--
+-id: String
+-name: String
+--
++getID(): String
++getName(): String
+
+bg=cyan</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLState</id>
+    <id>UMLClass</id>
     <coordinates>
-      <x>649</x>
-      <y>235</y>
-      <w>59</w>
-      <h>21</h>
+      <x>1419</x>
+      <y>81</y>
+      <w>108</w>
+      <h>99</h>
     </coordinates>
-    <panel_attributes>fontsize=80
-Service</panel_attributes>
+    <panel_attributes>CoolNote
+--
+-id: String
+-title: String
+-content: String
+-flatshareId: String
+-cretorUserId: String
+-position: int
+-importance: int
+-createAt: String
+--
++getID(): String
++getTitle(): String
++getCreatorUserID(): String
++getContent(): String
++getFlatshareID(): String
++getTaggedUsers(): List&lt;User&gt;
++getImportance(): int
++getPosition(): int
++getCreateAt(): String
+
+bg=cyan</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLFrame</id>
+    <id>UMLClass</id>
     <coordinates>
-      <x>455</x>
-      <y>463</y>
-      <w>222</w>
-      <h>149</h>
+      <x>1305</x>
+      <y>15</y>
+      <w>108</w>
+      <h>60</h>
     </coordinates>
-    <panel_attributes/>
+    <panel_attributes>Comment
+--
+-id: String
+-content: String
+-coolNoteId: String
+-userId: String
+--
++getId(): String
++getCoolNoteId(): String
++getUserId(): String
++getContent(): String
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1305</x>
+      <y>81</y>
+      <w>108</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>ImageNote
+--
+-imageNoteId: String
+-description: String
+-image: byte[]
+-flatshareId: String
+-cretorUserId: String
+-position: int
+-createAt: String
+--
++getId(): String
++getFlatshareId(): String
++getDescription(): String
++getCreatorUserID(): String
++getImage(): byte[]
++getTaggedUsers(): List&lt;User&gt; 
++getPosition(): int
++getCreateAt(): String
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1191</x>
+      <y>186</y>
+      <w>108</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>ReadConfirmation
+--
+-readConfirmationId: String
+-coolNoteId: String
+-userId: String
+--
++getId(): String
++getCoolNoteId(): String
++getUserId(): String
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>1185</x>
+      <y>3</y>
+      <w>348</w>
+      <h>315</h>
+    </coordinates>
+    <panel_attributes>edu.kit.pse.fridget.client.datamodel
+--
+bg=gray</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
