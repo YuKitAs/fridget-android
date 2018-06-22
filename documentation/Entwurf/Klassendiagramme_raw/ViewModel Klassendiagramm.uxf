@@ -21,9 +21,9 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>91</x>
+      <x>112</x>
       <y>133</y>
-      <w>322</w>
+      <w>301</w>
       <h>91</h>
     </coordinates>
     <panel_attributes>LoginViewModel
@@ -31,7 +31,7 @@ bg=cyan</panel_attributes>
 --
 
 --
-+ void checkGoogleLoginData(String userName, String password)
++ checkGoogleLoginData(String userName, String password)
 
 
 bg=cyan</panel_attributes>
@@ -50,8 +50,8 @@ bg=cyan</panel_attributes>
 --
 
 --
-+ void registerFlatshare(String flatshareName)
-+ void enterAccessCode(String accessCode)
++ registerFlatshare(String flatshareName)
++ enterAccessCode(String accessCode)
 
 
 bg=cyan</panel_attributes>
@@ -70,7 +70,7 @@ bg=cyan</panel_attributes>
 --
 
 --
-+ String generateAccessCode()
++ generateAccessCode():String
 
 bg=cyan</panel_attributes>
     <additional_attributes/>
@@ -88,9 +88,9 @@ bg=cyan</panel_attributes>
 --
 
 --
-+  LiveData &lt;List&lt;FrozenNote&gt;&gt; getFrozenNotes()
-+  LiveData &lt;List&lt;CoolNote&gt;&gt; getCoolNotes()
-+  void leaveFlateshare()
++ getFrozenNotes(): LiveData &lt;List&lt;FrozenNote&gt;&gt; 
++ getCoolNotes(): LiveData &lt;List&lt;CoolNote&gt;&gt; 
++ leaveFlateshare()
 
 
 bg=cyan</panel_attributes>
@@ -109,8 +109,8 @@ bg=cyan</panel_attributes>
 --
 
 --
-+ void getCoolNote()
-+ void deleteNote()
++ getCoolNote()
++ deleteNote()
 
 
 bg=cyan</panel_attributes>
@@ -129,8 +129,8 @@ bg=cyan</panel_attributes>
 --
 
 --
-+ void getFrozenNote()
-+ void editFrozenNote()
++ getFrozenNote()
++ editFrozenNote()
 
 
 bg=cyan</panel_attributes>
@@ -149,7 +149,7 @@ bg=cyan</panel_attributes>
 --
 
 --
-+  void createNote()
++ createNote()
 
 bg=cyan</panel_attributes>
     <additional_attributes/>
@@ -167,7 +167,7 @@ bg=cyan</panel_attributes>
 --
 
 --
-+ LiveData &lt;List&lt;User&gt;&gt; getContent()
++ getContent():LiveData &lt;List&lt;User&gt;&gt; 
 bg=cyan</panel_attributes>
     <additional_attributes/>
   </element>
@@ -184,7 +184,7 @@ bg=cyan</panel_attributes>
 --
 
 --
-+ void setLanguages()
++ setLanguages()
 
 bg=cyan</panel_attributes>
     <additional_attributes/>
@@ -202,7 +202,7 @@ bg=cyan</panel_attributes>
 --
 
 --
-+ String getTutorial()
++ getTutorial(): String
 
 
 bg=cyan</panel_attributes>
