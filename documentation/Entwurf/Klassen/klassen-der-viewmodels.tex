@@ -31,7 +31,7 @@
  			\begin{itemize}
         		\item{public void registerFlatshare(String flatshareName)}
         	
-        		\textit{Diese Methode lässt eine neue WG mit dem übergebenen Namen erstellen. Dabei erstellt er ein Objekt des Models User und übergibt diesen dem FlatShareService. Wenn in der Datenbank ein neues Flatshare angelegt wurde, erfragt diese Methode die Flatshare-ID und speichert auf einem Local Repository die FlateShare-ID sowie den User-ID.}
+        		\textit{Diese Methode lässt eine neue WG mit dem übergebenen Namen erstellen. Dabei erstellt sie ein Objekt des Models User und übergibt diesen dem FlatShareService. Wenn in der Datenbank eine neue Flatshare angelegt wurde, erfragt diese Methode die Flatshare-ID und speichert auf einem Local Repository die FlateShare-ID sowie die User-ID.}
         	
         		\textbf{Parameter} \\
 				flatshareName: Name der WG
@@ -39,7 +39,7 @@
 
         		\item{public void enterAccessCode(String accessCode)}
         	
-        		\textit{Diese Methode lässt den AccessCode überprüfen und stellt die passenden Daten zu der WG bereit. Sobald die FlateShare-ID bekannt ist, wird sie mit dem User-ID auf einem Local Repository gespeichert.}
+        		\textit{Diese Methode lässt den AccessCode überprüfen und stellt die passenden Daten zu der WG bereit. Sobald die FlateShare-ID bekannt ist, wird sie mit der User-ID auf einem Local Repository gespeichert.}
         	
         		\textbf{Parameter} \\
 				accessCode: Zugangscode
@@ -53,7 +53,7 @@
  			\begin{itemize}
         		\item{public String generateAccessCode()}
         	
-        		\textit{Diese Methode lässt einen zufälligen einzigartigen AccessCode generieren und gibt diesen zurück.}
+        		\textit{Diese Methode lässt einen zufälligen, einzigartigen AccessCode generieren und gibt diesen zurück.}
         	
         		\textbf{Rückgabewert} \\
 				Der generierte Zugangscode wird zurückgegeben.
@@ -82,19 +82,19 @@
 				
 				\item{public void leaveFlateshare()}
         	
-        		\textit{Diese Methode sorgt dafür, dass alles, was der, der die WG verlässt, erstellt hat, gelöscht wird und er wird aus der Mitgliederliste gelöscht.}
+        		\textit{Diese Methode sorgt dafür, dass alles, was derjenige, der die WG verlässt, erstellt hat, gelöscht wird. Außerdem wird derjenige aus der Mitgliederliste gelöscht.}
         		
        		 \end{itemize}
              
              
            		\subsubsection{\texttt{public class FullTextCoolNoteViewModel extends ViewModel}}
-        \textit{Diese Klasse ist das ViewModel zur FullTextCoolNoteActivity und FullImageCoolNoteActivity. Diese Klasse managt alle Daten, die für die Großansicht der Cool Note benötigt wird.}\\
+        \textit{Diese Klasse ist das ViewModel zur FullTextCoolNoteActivity und FullImageCoolNoteActivity. Diese Klasse verwaltet alle Daten, die für die Großansicht der Cool Note benötigt wird.}\\
         \\
 		\textbf{Methoden} \\
  			\begin{itemize}
         		\item{public void getCoolNote()}
         	
-        		\textit{Diese Methode holt alle Daten der CoolNote und speichert sie in einzelne Attribute, die mit den getter-Methoden geholt werden können.}
+        		\textit{Diese Methode holt alle Daten der CoolNote und speichert sie in einzelne Attribute, die mit den get-Methoden geholt werden können.}
         		
         		\item{public void deleteNote()}
         	
@@ -104,13 +104,13 @@
              
              
                  \subsubsection{\texttt{public class FullFrozenNoteViewModel extends ViewModel}}
-        \textit{Diese Klasse ist das ViewModel zur FullTextFrozenNoteActivity. Dieser ViewModel holt alle benötigten Daten für die Großansicht der Frozen Note.}\\
+        \textit{Diese Klasse ist das ViewModel zur FullTextFrozenNoteActivity. Dieses ViewModel holt alle benötigten Daten für die Großansicht der Frozen Note.}\\
         \\
 		\textbf{Methoden} \\
  			\begin{itemize}
         		\item{public void getFrozenNote()}
         	
-        		\textit{Diese Methode holt alle Daten der Frozen Note und speichert sie in einzelne Attribute, die mit den getter-Methoden geholt werden können.}
+        		\textit{Diese Methode holt alle Daten der Frozen Note und speichert sie in einzelne Attribute, die mit den get-Methoden geholt werden können.}
         	
         		\item{public void editFrozenNote(String title, String content)}
         	
@@ -131,12 +131,12 @@
  			\begin{itemize}
         		\item{public void createNote()}
         	
-        		\textit{Es wird ein neues Objekt CoolNote erstellt und dem passenden Service übergeben, um die CoolNote in der Datenbank hinzuzufügen. Es wird eine zufällige Position berechnet. }
+        		\textit{Es wird ein neues Objekt CoolNote erstellt und dem passenden Service übergeben, um die CoolNote in der Datenbank hinzuzufügen. Es wird eine zufällige Position berechnet.}
         	
        		 \end{itemize}
        		 
            		\subsubsection{\texttt{public class MemberListViewModel extends ViewModel}}
-        \textit{Diese Klasse ist das ViewModel zur MemberListActivity. Es holt alle Daten bezüglich der Mitglieder. d.h. Magnetfarben und Name.}\\
+        \textit{Diese Klasse ist das ViewModel zur MemberListActivity. Es holt alle Daten bezüglich der Mitglieder. d.h. Magnetfarben und Namen.}\\
         \\
 		\textbf{Methoden} \\
  			\begin{itemize}
@@ -145,7 +145,7 @@
         		\textit{Diese Methode gibt die Liste der Mitglieder zurück.}
         	
         	\textbf{Rückgabewert} \\
-				Die Liste an User wird in Form von LiveData zurückgegeben.
+				Die Liste der Mitglieder wird in Form von LiveData zurückgegeben.
 				
        		 \end{itemize}
        		 
