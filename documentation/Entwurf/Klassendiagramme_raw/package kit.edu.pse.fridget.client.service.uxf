@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>4</zoom_level>
+  <zoom_level>7</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>284</x>
-      <y>24</y>
-      <w>192</w>
-      <h>108</h>
+      <x>98</x>
+      <y>42</y>
+      <w>336</w>
+      <h>189</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 UserService
 --
 
 --
-@GET
-Call&lt;User&gt; getGoogleIdToken(String googleIdToken)
-
 @POST
 Call&lt;User&gt; sendGoogleIdToken(String googleIdToken)
 
@@ -26,10 +23,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>504</x>
-      <y>272</y>
-      <w>192</w>
-      <h>108</h>
+      <x>483</x>
+      <y>476</y>
+      <w>336</w>
+      <h>189</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 AccessCodeService
@@ -43,10 +40,10 @@ bg=cyan
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>284</x>
-      <y>272</y>
-      <w>192</w>
-      <h>108</h>
+      <x>98</x>
+      <y>476</y>
+      <w>336</w>
+      <h>189</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
  CoolNoteService 
@@ -69,10 +66,10 @@ Call&lt;CoolNote&gt; deleteCoolNote(@Path("id") String coolNoteId) </panel_attri
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>724</x>
-      <y>272</y>
-      <w>268</w>
-      <h>108</h>
+      <x>868</x>
+      <y>476</y>
+      <w>469</w>
+      <h>189</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 FrozenNoteService
@@ -92,10 +89,10 @@ Call&lt;FrozenNote&gt; updateFrozenNote(@Path("id") String frozenNoteId, @Body F
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>504</x>
-      <y>24</y>
-      <w>192</w>
-      <h>108</h>
+      <x>483</x>
+      <y>42</y>
+      <w>336</w>
+      <h>189</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 CommentService
@@ -116,10 +113,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>284</x>
-      <y>148</y>
-      <w>192</w>
-      <h>108</h>
+      <x>98</x>
+      <y>259</y>
+      <w>336</w>
+      <h>189</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 FlatShareService
@@ -138,10 +135,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>284</x>
-      <y>400</y>
-      <w>192</w>
-      <h>108</h>
+      <x>98</x>
+      <y>700</y>
+      <w>336</w>
+      <h>189</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 ImageNoteService 
@@ -164,10 +161,10 @@ Call&lt;ImageNote&gt; deleteImageNote(@Path("id") String ImageNoteId)</panel_att
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>724</x>
-      <y>28</y>
-      <w>264</w>
-      <h>108</h>
+      <x>868</x>
+      <y>49</y>
+      <w>462</w>
+      <h>189</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 MembershipService
@@ -192,10 +189,10 @@ Call&lt;Membership&gt; deleteMember(@Path("fid") String flatshareId, @Path("uid"
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>724</x>
-      <y>148</y>
-      <w>268</w>
-      <h>108</h>
+      <x>868</x>
+      <y>259</y>
+      <w>469</w>
+      <h>189</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 ReadConfirmationService
@@ -217,10 +214,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>504</x>
-      <y>148</y>
-      <w>192</w>
-      <h>108</h>
+      <x>483</x>
+      <y>259</y>
+      <w>336</w>
+      <h>189</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 DeviceService
@@ -236,10 +233,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>276</x>
+      <x>84</x>
       <y>0</y>
-      <w>768</w>
-      <h>536</h>
+      <w>1344</w>
+      <h>938</h>
     </coordinates>
     <panel_attributes>edu.kit.pse.fridget.client.service
 
