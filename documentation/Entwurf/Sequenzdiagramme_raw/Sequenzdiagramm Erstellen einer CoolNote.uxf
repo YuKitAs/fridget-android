@@ -29,7 +29,7 @@ fontsize=10
     <id>UMLGeneric</id>
     <coordinates>
       <x>0</x>
-      <y>50</y>
+      <y>0</y>
       <w>190</w>
       <h>40</h>
     </coordinates>
@@ -41,7 +41,7 @@ _CreateTextCoolNoteActivity_</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>100</x>
-      <y>80</y>
+      <y>30</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -52,7 +52,7 @@ _CreateTextCoolNoteActivity_</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>100</x>
-      <y>120</y>
+      <y>70</y>
       <w>20</w>
       <h>750</h>
     </coordinates>
@@ -63,7 +63,7 @@ _CreateTextCoolNoteActivity_</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>110</x>
-      <y>150</y>
+      <y>100</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -75,7 +75,7 @@ _CreateTextCoolNoteActivity_</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>210</x>
-      <y>140</y>
+      <y>90</y>
       <w>180</w>
       <h>40</h>
     </coordinates>
@@ -87,7 +87,7 @@ _CreateCoolNoteViewModel_</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>290</x>
-      <y>170</y>
+      <y>120</y>
       <w>30</w>
       <h>180</h>
     </coordinates>
@@ -98,7 +98,7 @@ _CreateCoolNoteViewModel_</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>290</x>
-      <y>330</y>
+      <y>280</y>
       <w>20</w>
       <h>360</h>
     </coordinates>
@@ -109,7 +109,7 @@ _CreateCoolNoteViewModel_</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>300</x>
-      <y>370</y>
+      <y>320</y>
       <w>290</w>
       <h>40</h>
     </coordinates>
@@ -121,19 +121,19 @@ createCoolNote(CoolNote coolNote)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>580</x>
-      <y>400</y>
+      <y>350</y>
       <w>220</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-createCoolNote()</panel_attributes>
+createCoolNote(CoolNote coolNote)</panel_attributes>
     <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
       <x>490</x>
-      <y>310</y>
+      <y>260</y>
       <w>180</w>
       <h>40</h>
     </coordinates>
@@ -145,7 +145,7 @@ _CoolNoteService_</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>570</x>
-      <y>340</y>
+      <y>290</y>
       <w>30</w>
       <h>70</h>
     </coordinates>
@@ -156,7 +156,7 @@ _CoolNoteService_</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>570</x>
-      <y>390</y>
+      <y>340</y>
       <w>20</w>
       <h>260</h>
     </coordinates>
@@ -167,7 +167,7 @@ _CoolNoteService_</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>700</x>
-      <y>230</y>
+      <y>180</y>
       <w>180</w>
       <h>40</h>
     </coordinates>
@@ -179,7 +179,7 @@ _CoolNoteController_</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>900</x>
-      <y>230</y>
+      <y>180</y>
       <w>180</w>
       <h>40</h>
     </coordinates>
@@ -191,7 +191,7 @@ _CoolNoteService_</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1110</x>
-      <y>230</y>
+      <y>180</y>
       <w>180</w>
       <h>40</h>
     </coordinates>
@@ -203,7 +203,7 @@ _CoolNoteRepository_</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1330</x>
-      <y>350</y>
+      <y>300</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -214,7 +214,7 @@ _CoolNoteRepository_</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>300</x>
-      <y>320</y>
+      <y>270</y>
       <w>210</w>
       <h>40</h>
     </coordinates>
@@ -226,7 +226,7 @@ _CoolNoteRepository_</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>110</x>
-      <y>310</y>
+      <y>260</y>
       <w>200</w>
       <h>40</h>
     </coordinates>
@@ -238,7 +238,7 @@ createCoolNote()</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>780</x>
-      <y>420</y>
+      <y>370</y>
       <w>20</w>
       <h>190</h>
     </coordinates>
@@ -249,7 +249,7 @@ createCoolNote()</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>780</x>
-      <y>260</y>
+      <y>210</y>
       <w>30</w>
       <h>170</h>
     </coordinates>
@@ -260,7 +260,7 @@ createCoolNote()</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>790</x>
-      <y>430</y>
+      <y>380</y>
       <w>210</w>
       <h>40</h>
     </coordinates>
@@ -272,7 +272,7 @@ saveCoolNote()</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>980</x>
-      <y>260</y>
+      <y>210</y>
       <w>30</w>
       <h>210</h>
     </coordinates>
@@ -283,7 +283,7 @@ saveCoolNote()</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>980</x>
-      <y>450</y>
+      <y>400</y>
       <w>20</w>
       <h>140</h>
     </coordinates>
@@ -294,7 +294,7 @@ saveCoolNote()</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>990</x>
-      <y>440</y>
+      <y>390</y>
       <w>220</w>
       <h>40</h>
     </coordinates>
@@ -306,7 +306,7 @@ saveCoolNote()</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1190</x>
-      <y>260</y>
+      <y>210</y>
       <w>30</w>
       <h>220</h>
     </coordinates>
@@ -317,7 +317,7 @@ saveCoolNote()</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1190</x>
-      <y>460</y>
+      <y>410</y>
       <w>20</w>
       <h>100</h>
     </coordinates>
@@ -328,7 +328,7 @@ saveCoolNote()</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1370</x>
-      <y>480</y>
+      <y>430</y>
       <w>20</w>
       <h>70</h>
     </coordinates>
@@ -339,7 +339,7 @@ saveCoolNote()</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1200</x>
-      <y>460</y>
+      <y>410</y>
       <w>190</w>
       <h>40</h>
     </coordinates>
@@ -352,7 +352,7 @@ save()
     <id>Relation</id>
     <coordinates>
       <x>1200</x>
-      <y>530</y>
+      <y>480</y>
       <w>190</w>
       <h>40</h>
     </coordinates>
@@ -364,7 +364,7 @@ save()
     <id>Relation</id>
     <coordinates>
       <x>990</x>
-      <y>540</y>
+      <y>490</y>
       <w>220</w>
       <h>40</h>
     </coordinates>
@@ -376,7 +376,7 @@ CoolNote:Coolnote</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>790</x>
-      <y>570</y>
+      <y>520</y>
       <w>210</w>
       <h>40</h>
     </coordinates>
@@ -388,7 +388,7 @@ CoolNote: coolNote</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>580</x>
-      <y>590</y>
+      <y>540</y>
       <w>220</w>
       <h>40</h>
     </coordinates>
@@ -400,7 +400,7 @@ ResponseEntitiy&lt;CoolNote&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>110</x>
-      <y>670</y>
+      <y>620</y>
       <w>200</w>
       <h>40</h>
     </coordinates>
@@ -412,7 +412,7 @@ ResponseEntitiy&lt;CoolNote&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>300</x>
-      <y>630</y>
+      <y>580</y>
       <w>290</w>
       <h>40</h>
     </coordinates>
@@ -424,7 +424,7 @@ ResponseEntitiy&lt;CoolNote&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>100</x>
-      <y>860</y>
+      <y>810</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -435,7 +435,7 @@ ResponseEntitiy&lt;CoolNote&gt;</panel_attributes>
     <id>UMLSpecialState</id>
     <coordinates>
       <x>100</x>
-      <y>900</y>
+      <y>850</y>
       <w>20</w>
       <h>20</h>
     </coordinates>
@@ -446,7 +446,7 @@ ResponseEntitiy&lt;CoolNote&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1370</x>
-      <y>370</y>
+      <y>320</y>
       <w>30</w>
       <h>130</h>
     </coordinates>
@@ -457,7 +457,7 @@ ResponseEntitiy&lt;CoolNote&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>570</x>
-      <y>640</y>
+      <y>590</y>
       <w>30</w>
       <h>130</h>
     </coordinates>
@@ -468,7 +468,7 @@ ResponseEntitiy&lt;CoolNote&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>780</x>
-      <y>600</y>
+      <y>550</y>
       <w>30</w>
       <h>130</h>
     </coordinates>
@@ -479,7 +479,7 @@ ResponseEntitiy&lt;CoolNote&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>980</x>
-      <y>580</y>
+      <y>530</y>
       <w>30</w>
       <h>130</h>
     </coordinates>
@@ -490,7 +490,7 @@ ResponseEntitiy&lt;CoolNote&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1370</x>
-      <y>540</y>
+      <y>490</y>
       <w>30</w>
       <h>130</h>
     </coordinates>
@@ -501,7 +501,7 @@ ResponseEntitiy&lt;CoolNote&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>290</x>
-      <y>690</y>
+      <y>640</y>
       <w>30</w>
       <h>130</h>
     </coordinates>
@@ -512,7 +512,7 @@ ResponseEntitiy&lt;CoolNote&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1190</x>
-      <y>550</y>
+      <y>500</y>
       <w>30</w>
       <h>130</h>
     </coordinates>
