@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>343</x>
+      <y>231</y>
+      <w>196</w>
+      <h>147</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+FlatshareRepository
+--
+--
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>399</y>
+      <w>196</w>
+      <h>147</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+ReadConfirmationRepository
+--
+--
++findByCoolNoteId(String id)
+    : List&lt;ReadConfirmation&gt;
++deleteByCoolNoteIdAndUserId(
+    String coolNoteId,
+    String userId)
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>994</x>
+      <y>231</y>
+      <w>196</w>
+      <h>147</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+AccessCodeRepository
+--
+--
++findByContent(String content)
+    : AccessCode
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>343</x>
+      <y>399</y>
+      <w>196</w>
+      <h>147</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+TaggedUserRepository
+--
+--
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>343</x>
+      <y>567</y>
+      <w>196</w>
+      <h>147</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+DeviceRepository
+--
+--
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>777</x>
+      <y>399</y>
+      <w>196</w>
+      <h>147</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+CoolNoteRepository
+--
+--
++findByFlatshareId(String flatshareId)
+    : List&lt;CoolNote&gt;
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>784</x>
+      <y>567</y>
+      <w>196</w>
+      <h>147</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+CommentRepository
+--
+--
++findByCoolNoteId(String coolNoteId)
+    : List&lt;Comment&gt;
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>567</y>
+      <w>196</w>
+      <h>147</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+ImageNoteRepository
+--
+--
++findByFlatshareId(String flatshareId)
+    : List&lt;ImageNote&gt;
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>994</x>
+      <y>399</y>
+      <w>196</w>
+      <h>147</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+FrozenNoteRepository
+--
+--
++findByFlatshareId(String flatshareId)
+    : List&lt;FrozenNote&gt;
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>231</y>
+      <w>196</w>
+      <h>147</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+MembershipRepository
+--
+--
++findByFlatshareId(String flatshareId)
+    : List&lt;Membership&gt;
++findByFlatshareIdAndUserId(
+    String flatshareId,
+    String userId)
+    : Membership
++deleteByFlatshareIdAndUserId(
+    String flatshareId,
+    String userId)
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>777</x>
+      <y>231</y>
+      <w>196</w>
+      <h>147</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+UserRepository
+--
+--
+
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>322</x>
+      <y>196</y>
+      <w>889</w>
+      <h>546</h>
+    </coordinates>
+    <panel_attributes>edu.kit.pse.fridget.server.repositories
+--
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

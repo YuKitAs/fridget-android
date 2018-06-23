@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>552</x>
+      <y>72</y>
+      <w>300</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>UserController
+--
+--
+@PostMapping
++registerOrLogin(
+    @RequestHeader("Id-Token") String googleIdToken)
+    : ResponseEntity&lt;UserWithJwtRepresentation&gt;
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>552</x>
+      <y>300</y>
+      <w>300</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>CoolNoteController
+--
+--
+@GetMapping
++getAllCoolNotes(@RequestParam("flatshare") String flatshareId)
+    : ResponseEntity&lt;List&lt;CoolNoteWithTaggedUsersRepresentation&gt;&gt;
+@GetMapping
++getCoolNote(@PathVariable String id)
+    : ResponseEntity&lt;CoolNoteWithTaggedUsersRepresentation&gt;
+@PostMapping
++saveCoolNote(@RequestBody
+    SaveCoolNoteCommand saveCoolNoteCommand)
+    : ResponseEntity&lt;CoolNote&gt;
+@DeleteMapping
++deleteCoolNote(@PathVariable String id): ResponseEntity&lt;Void&gt;
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>198</x>
+      <y>72</y>
+      <w>300</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>FlatshareController
+--
+--
+@GetMapping
++getFlatshare(@PathVariable String id)
+    : ResponseEntity&lt;Flatshare&gt;
+@PostMapping
++saveFlatshare(@RequestBody
+    SaveFlatshareCommand saveFlatshareCommand)
+    : ResponseEntity&lt;Flatshare&gt;
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>906</x>
+      <y>300</y>
+      <w>300</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>FrozenNoteController
+--
+--
+@GetMapping
++getAllFrozenNotes(@RequestParam("flatshare") String flatshareId)
+    : ResponseEntity&lt;List&lt;FrozenNote&gt;&gt;
++getFrozenNote(@PathVariable String id)
+    : ResponseEntity&lt;FrozenNote&gt;
++updateFrozenNote(@PathVariable String id, 
+    @RequestBody FrozenNote frozenNote)
+    : ResponseEntity&lt;FrozenNote&gt;
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>198</x>
+      <y>300</y>
+      <w>300</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>AccessCodeController
+--
+--
+@PostMapping
++generateAccessCode(@RequestBody
+    GenerateAccessCodeCommand generateAccessCodeCommand)
+    : ResponseEntity&lt;AccessCode&gt;
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>906</x>
+      <y>72</y>
+      <w>300</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>MembershipController
+--
+--
+@GetMapping
++getAllUsers(@RequestParam("flatshare") String flatshareId)
+    : ResponseEntity&lt;List&lt;UserMembershipRepresentation&gt;&gt;
+@GetMapping
++getUser(@RequestParam("flatshare") String flatshareId, 
+    @RequestParam("user") String userId)
+    : ResponseEntity&lt;UserMembershipRepresentation&gt;
+@PostMapping
++saveMembership(@RequestBody 
+    SaveMembershipCommand saveMembershipCommand)
+    : ResponseEntity&lt;Membership&gt;
+@DeleteMapping
++deleteMembership(@RequestParam("flatshare") String flatshareId, 
+    @RequestParam("user") String userId)
+    : ResponseEntity&lt;Void&gt;
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>552</x>
+      <y>534</y>
+      <w>300</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>ReadConfirmationController
+--
+--
+@GetMapping
++getAllUsers(@RequestParam("cool-note") String id)
+    : ResponseEntity&lt;List&lt;User&gt;&gt;
+@PostMapping
++saveReadConfirmation(@RequestBody 
+    ReadConfirmation readConfirmation)
+    : ResponseEntity&lt;ReadConfirmation&gt;
+@DeleteMapping
++deleteReadConfirmation(@RequestParam("cool-note")
+    String coolNoteId, @RequestParam("user") String userId)
+    : ResponseEntity&lt;Void&gt;
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>198</x>
+      <y>534</y>
+      <w>300</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>DeviceController
+--
+--
+@PostMapping
++saveDevice(@RequestBody Device device)
+    : ResponseEntity&lt;Device&gt;
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>906</x>
+      <y>534</y>
+      <w>300</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>ImageNoteController
+--
+--
+@GetMapping
++getAllImageNotes(@RequestParam("flatshare") String flatshareId)
+    : ResponseEntity&lt;List&lt;ImageNote&gt;&gt;
+@GetMapping
++getImageNote(@PathVariable String id): ResponseEntity&lt;ImageNote&gt;
+@PostMapping
++saveImageNote(@RequestBody ImageNote imageNote)
+    : ResponseEntity&lt;ImageNote&gt;
+@DeleteMapping
++deleteImageNote(@PathVariable String id): ResponseEntity&lt;Void&gt;
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>198</x>
+      <y>762</y>
+      <w>300</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>CommentController
+--
+--
+@GetMapping
++getAllComments(@RequestParam("cool-note") String coolNoteId)
+    : ResponseEntity&lt;List&lt;Comment&gt;&gt;
+@PostMapping
++saveComment(@RequestBody Comment comment): ResponseEntity&lt;Comment&gt;
+@DeleteMapping
++deleteComment(@PathVariable String id): ResponseEntity&lt;Void&gt;
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>144</x>
+      <y>12</y>
+      <w>1122</w>
+      <h>978</h>
+    </coordinates>
+    <panel_attributes>edu.kit.pse.fridget.server.controllers
+--
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
