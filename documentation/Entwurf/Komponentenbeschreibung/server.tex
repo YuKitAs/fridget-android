@@ -1,31 +1,22 @@
 
 \subsubsection{MVC-Architektur}
 
-\textbf{Model} \\
-Das Model enthält Daten, die vom Controller gespeichert, geladen und geändert werden und vom View dargestellt werden. 
-
-\textbf{View}\\
-
-
-
-\textbf{Controller}\\
-Der Controller verwaltet den View und das Model. In unserem Fall implementiert der Controller eine REST-API, behandelt HTTP-Anfrage und gibt HTTP-Antwort zurück.
-
-
-\textbf{Service}\\
-Die Service-Schicht trennt die Businesslogik aus dem Controller und behandelt spezifische Transaktionsverhalten.
-
-\textbf{Repository}\\ 
+\textbf{Model}\\
+Das Model enthält Daten, die vom Controller gespeichert, geladen und geändert werden und vom View dargestellt werden. \\
+\\ \textbf{Controller}\\
+Der Controller verwaltet den View und das Model. In unserem Fall implementiert der Controller eine REST-API, behandelt HTTP-Anfrage und gibt HTTP-Antwort zurück.\\
+\\ \textbf{Service}\\
+Die Service-Schicht trennt die Businesslogik aus dem Controller und behandelt spezifische Transaktionsverhalten.\\
+\\ \textbf{Repository}\\ 
 Die Repository-Schicht ist die unterste Schicht in unserer App. Es reduziert den erforderlichen Code für die Implementierung von DAO (Data Access Object) für Persistenz. Unsere Repositories erweitern das JpaRepository, bieten CRUD-Funktionen und JPA-relevante Methoden an.
 
- \subsubsection{Framework}
+\subsubsection{Framework}
 
-\textbf{Spring Boot mit JPA und Hibernate}
-Für unsere RESTful Services verwenden wir Spring Boot mit JPA und Hibernate. 
-Spring Boot erleichtert die Entwicklung der Anwendungen per Convention over Configuration. Mit Hilfe einfacher Annotationen wird einen embedded Tomcat Webserver integriert, der REST-Services anbietet.
-Die JPA (Java Persistence API) ist eine Schnittstelle für Java-Anwendungen, die die Zuordnung und die Übertragung von Objekten zu Datenbankeinträgen vereinfacht.
+Für unsere RESTful Services verwenden wir Spring Boot mit JPA und Hibernate. \\
+Spring Boot erleichtert die Entwicklung der Anwendungen per Convention over Configuration. Mit Hilfe einfacher Annotationen wird einen embedded Tomcat Webserver integriert, der REST-Services anbietet.\\
+Die JPA (Java Persistence API) ist eine Schnittstelle für Java-Anwendungen, die die Zuordnung und die Übertragung von Objekten zu Datenbankeinträgen vereinfacht.\\
 Hibernate ist ein Persistenz- und O-R-Mapping-Framework für Java. Das ermöglicht es, POJOs in relationalen Datenbanken (MySQL in unserem Fall) zu speichern und aus entsprechenden Datensätzen wiederum Objekte zu erzeugen.
 
 \subsubsection{Datenbank}
-\textbf{MySQL}
-MySQL ist eine der am häufigsten benutzte, zuverlässige relationale Datenbank. Sie beruht auf dem relationalen Datenbankmodell und speichert Daten in verschiedenen Tabellen, die untereinander verknüpft werden. 
+
+Wir verwenden MySQL als Datenbank. MySQL ist eine der am häufigsten benutzte, zuverlässige relationale Datenbank. Sie beruht auf dem relationalen Datenbankmodell und speichert Daten in verschiedenen Tabellen, die untereinander verknüpft werden. 
