@@ -7,17 +7,17 @@
 \subsubsection{\texttt{public class Accesscode}}
 
 	\textbf{Beschreibung} \\
-	\textit{Die Klasse Accesscode stellt der Access-Code, oder Zugangscode einer WG dar.} \\
+	\textit{Die Klasse Accesscode stellt den Accesscode oder Zugangscode einer WG dar.} \\
 	
 	\textbf{Attribute}
 	\begin{itemize}
 		\item \textbf{id}: Die ID des Accesscode. \\
 		\textbf{Typ:} String
 		
-		\item \textbf{flatshareId:} Die ID der WG zu der, die Accesscode gehört. \\
+		\item \textbf{flatshareId:} Die ID der WG, zu der der Accesscode gehört. \\
 		\textbf{Typ:} String
 
-		\item \textbf{content:} Der Inhalt der Accesscode.\\
+		\item \textbf{content:} Der Inhalt des Accesscodes.\\
 		\textbf{Typ:} String
 	\end{itemize}
 
@@ -26,7 +26,7 @@
 		\item{\texttt{public String getFlatshareId()}}\\
 		\textit{Gibt die ID der WG des Accesscodes zurück.}\\
 		\item{\texttt{public String getContent()}}\\
-		\textit{Gibt den Access-Code als String zurück.}\\
+		\textit{Gibt den Accesscode als String zurück.}\\
 	\end{itemize}
 
 	
@@ -62,15 +62,15 @@
 \subsubsection{\texttt{public class Member}}
 
 	\textbf{Beschreibung} \\
-	\textit{Die Klasse Member stellt einen Mitglieder einer WG dar.} \\
+	\textit{Die Klasse Member stellt ein Mitglieder einer WG dar.} \\
 	
 	\textbf{Attribute}
 	\begin{itemize}
-		\item \textbf{id:} Die ID des Mitgliedschafts. \\
+		\item \textbf{id:} Die ID der Mitgliedschaft. \\
 		\textbf{Typ:} String
-		\item \textbf{userId:} Die ID des Benutzers, der Mitglied eine WG ist. \\
+		\item \textbf{userId:} Die ID des Benutzers, der Mitglied einer WG ist. \\
 		\textbf{Typ:} String
-		\item \textbf{flatshareId}: Die ID der WG zu der, das Mitglied gehört. \\
+		\item \textbf{flatshareId}: Die ID der WG, zu der das Mitglied gehört. \\
 		\textbf{Typ:} String
 		\item \textbf{magnetColor:} Die Magnetfarbe des Mitglieds. \\
 		\textbf{Typ:} String
@@ -85,7 +85,7 @@
 		\textit{Gibt die ID des Benutzers der App, der Mitglied einer WG ist, zurück.}\\
 		
 		\item\texttt{{public String getFlatshareId()}}\\
-		\textit{Gibt ID der Mitgliedschaft der Benutzer zur WG zurück.}\\
+		\textit{Gibt ID der WG zurück.}\\
 		
 		\item\texttt{{public String getMagnetColor()}}\\
 		\textit{Gibt die Magnetfarbe des Benutzers zurück.}\\
@@ -94,7 +94,7 @@
 \subsubsection{\texttt{public class Flatshare}}
 
 	\textbf{Beschreibung} \\
-	\textit{Die Klasse Flatshare stellt eine WG dar, die in das App registriert ist.} \\
+	\textit{Die Klasse Flatshare stellt eine WG dar, die in der App registriert ist.} \\
 	
 	\textbf{Attribute}
 	\begin{itemize}
@@ -115,7 +115,7 @@
 \subsubsection{\texttt{public class CoolNote}}
 
 	\textbf{Beschreibung} \\
-	\textit{Die Klasse CoolNote stellt die Notiz der Art “Cool Note” dar, die aus einer Überschrift und schriftlichem Inhalt besteht. Cool Notes sind erstellbare, nicht editierbare, löschbare Notizen.} \\
+	\textit{Die Klasse CoolNote stellt die Notiz der Art “Cool Note” dar, die aus einer Überschrift und Text-Inhalt besteht. Cool Notes sind erstellbare, nicht-editierbare, löschbare Notizen.} \\
 	
 	\textbf{Attribute}
 	\begin{itemize}
@@ -127,7 +127,7 @@
 		\textbf{Typ:} String
 		\item \textbf{flatshareId:} Die ID der WG, zu der die Cool Note gehört. \\
 		\textbf{Typ:} String
-		\item \textbf{creatorUserId:} Die ID der Benutzer der die Cool Note erstellt hat. \\
+		\item \textbf{creatorUserId:} Die ID des Benutzers, der die Cool Note erstellt hat. \\
 		\textbf{Typ:} String
 		\item \textbf{position:} Die Position der Cool Note. \\
 		\textbf{Typ:} int
@@ -146,7 +146,7 @@
 		\textit{Gibt die Überschrift einer Cool Note zurück.}\\
 		
 		\item\texttt{{public String getCreatorUserId()}}\\
-		\textit{Gibt die ID des Mitglieders zurück, der die Cool Note erstellt hat.}\\
+		\textit{Gibt die ID des Mitgliedes zurück, der die Cool Note erstellt hat.}\\
 		
 		\item\texttt{{public String getContent()}}\\
 		\textit{Gibt den Inhalt der Cool Note zurück.}\\
@@ -155,7 +155,7 @@
 		\textit{Gibt die ID der WG zurück, zu der diese Cool Note gehört.}\\
 		
 		\item\texttt{{public List<User> getTaggedUsers()}}\\
-		\textit{Gibt die Mitglieder zurück, die in der Cool Note getaggt sind. Wenn keine spezifiziert ist, sind alle Mitglieder der WG getaggt.}\\
+		\textit{Gibt die Mitglieder zurück, die in der Cool Note getagged sind. Wenn keine Tags spezifiziert sind, sind alle Mitglieder der WG mit @All getagged.}\\
 		
 		\item\texttt{public int getImportance()}\\
 		\textit{Gibt die Wichtigkeit der Cool Note zurück.}\\
@@ -164,13 +164,13 @@
 		\textit{Gibt die Position der Cool Note zurück.}\\
 		
 		\item\texttt{{public String getCreateAt()}}\\
-		\textit{Gibt das Erstelldatum der Image Note zurück.}\\
+		\textit{Gibt das Erstelldatum der Cool Note zurück.}\\
 	\end{itemize}
 
 \subsubsection{\texttt{public class FrozenNote}}
 
 	\textbf{Beschreibung} \\
-	\textit{Die Klasse FrozenNote stellt die Notiz der Art “Frozen Note” dar, die aus einer Überschrift und schriftlichem Inhalt besteht. Frozen Notes sind feste, editierbare, nicht löschbare Notizen.} \\
+	\textit{Die Klasse FrozenNote stellt die Notiz der Art “Frozen Note” dar, die aus einer Überschrift und Text-Inhalt besteht. Frozen Notes sind feste, editierbare, nicht-löschbare Notizen.} \\
 	
 	\textbf{Attribute}
 	\begin{itemize}
@@ -226,7 +226,7 @@
 \subsubsection{\texttt{public class Comment}}
 
 	\textbf{Beschreibung} \\
-	\textit{Die Klasse Comment stellt einen Kommentar dar, der unter der Cool Note geschrieben werden kann.} \\
+	\textit{Die Klasse Comment stellt einen Kommentar dar, der unter einer Cool Note geschrieben werden kann.} \\
 	
 	\textbf{Attribute}
 	\begin{itemize}
@@ -246,7 +246,7 @@
 		\textit{Gibt die Kommentar-ID zurück}\\
 		
 		\item\texttt{{public String getUserID()}}\\
-		\textit{Gibt die MemberID des Mitglieders zurück, der den Kommentar geschrieben hat.}\\
+		\textit{Gibt die MemberID des Mitgliedes zurück, das den Kommentar geschrieben hat.}\\
 		
 		\item\texttt{{public String getCoolNoteId()}}\\
 		\textit{Gibt die CoolNoteID zurück.}\\
@@ -258,7 +258,7 @@
 \subsubsection{\texttt{public class ImageNote}}
 
 	\textbf{Beschreibung} \\
-	\textit{Die Klasse ImageNote stellt die Notiz der Art “Cool Note” dar, die aus einer Überschrift und Bild besteht. Image Notes sind wie Cool Notes erstellbar, nicht editierbar und löschbar.} \\
+	\textit{Die Klasse ImageNote stellt die Notiz der Art “Cool Note” dar, die aus einer Beschreibung und einem Bild besteht. Image Notes sind wie Cool Notes erstellbar, nicht-editierbar und löschbar.} \\
 	
 	\textbf{Attribute}
 	\begin{itemize}
@@ -270,7 +270,7 @@
 		\textbf{Typ:} byte[]
 		\item \textbf{flatshareId:} Die ID der WG, zu der die Image Note gehört. \\
 		\textbf{Typ:} String
-		\item \textbf{creatorUserId:} Die ID der Benutzer der die Image Note erstellt hat. \\
+		\item \textbf{creatorUserId:} Die ID des Benutzers, der die Image Note erstellt hat. \\
 		\textbf{Typ:} String
 		\item \textbf{position:} Die Position der Image Note. \\
 		\textbf{Typ:} int
@@ -290,13 +290,13 @@
 		\textit{Gibt die Beschreibung einer Image Note zurück.}\\
 		
 		\item\texttt{{public String getCreatorUserId()}}\\
-		\textit{Gibt die ID des Mitglieders zurück, der die Image Note erstellt hat.}\\
+		\textit{Gibt die ID des Mitgliedes zurück, der die Image Note erstellt hat.}\\
 		
 		\item\texttt{{public byte[] getImage()}}\\
 		\textit{Gibt den Inhalt, also das Bild der Image Note zurück.}\\
 		
 		\item\texttt{{public List<User> getTaggedUsers()}}\\
-		\textit{Gibt die Mitglieder zurück, die in der Image Note getaggt sind. Wenn keine spezifiziert ist, sind alle Mitglieder der WG getaggt.}\\
+		\textit{Gibt die Mitglieder zurück, die in der Image Note getagged sind. Wenn keine Tags spezifiziert sind, sind alle Mitglieder der WG mit @All getagged.}\\
 		
 		\item\texttt{{public int getPosition()}}\\
 		\textit{Gibt die Position der Image Note zurück.}\\
@@ -308,7 +308,7 @@
 \subsubsection{\texttt{public class ReadConfirmation}}
 
 	\textbf{Beschreibung} \\
-	\textit{Die Klasse ReadConfirmation stellt die Check-Box dar, das dem Benutzer ermöglicht, für sich selbst sichtbar zu machen, ob der Benutzer eine Cool Note gelesen hat.} \\
+	\textit{Die Klasse ReadConfirmation stellt die Check-Box dar, die dem Benutzer ermöglicht, für sich selbst sichtbar zu machen, ob er eine Cool Note gelesen hat.} \\
 	
 	\textbf{Attribute}
 	\begin{itemize}
@@ -316,18 +316,18 @@
 		\textbf{Typ:} String
 		\item \textbf{coolNoteId:} Die ID der Cool Note, die als gelesen oder ungelesen markiert wird. \\
 		\textbf{Typ:} String
-		\item \textbf{userId:} Die ID der Benutzer der die Check-Box benutzt. \\
+		\item \textbf{userId:} Die ID des Benutzers, der die Check-Box benutzt. \\
 		\textbf{Typ:} String
 	\end{itemize}
 	
 	\textbf{Methoden}
 	\begin{itemize}
 		\item\texttt{{public String getId()}}\\
-		\textit{Gibt die Read-Confirmation- oder Lesebestätigung-ID zurück.}\\
+		\textit{Gibt die Read-Confirmation- oder Lesebestätigungs-ID zurück.}\\
 		
 		\item\texttt{{public String getUserId()}}\\
-		\textit{Gibt die ID des Mitglieders zurück, der die Check-Box benutzt.}\\
+		\textit{Gibt die ID des Mitgliedes zurück, der die Check-Box benutzt.}\\
 		
 		\item\texttt{{public String getCoolNoteId()}}\\
-		\textit{Gibt die CoolNoteID zurück, die als gelesen oder ungelesen markiert wird.}\\
+		\textit{Gibt die CoolNoteID der Cool Note zurück, die als gelesen oder ungelesen markiert wird.}\\
 	\end{itemize}
