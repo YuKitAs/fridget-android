@@ -6,24 +6,10 @@
 	       \caption{Klassen des Services}
 	      \end{figure}	
 	\subsubsection{\texttt{public interface UserService}}
-\textit{Dieses Interface dient dazu, es dem Nutzer zu ermöglichen, seinen bestehenden Google-Account zum Login zu verwenden. Dabei sendet der Client beim Login einen Token, welchen er vom Google-Server erhält. Dort wird der Token an den Server gesendet, dadurch erhält er die Google-Client-ID. Diese wird dauerhaft gespeichert.}\\
+\textit{Dieses Interface dient dazu, den Google-Token an den Server weiterzuleiten.}\\
 
 	\textbf{Methoden}
 		\begin{itemize}
-		\item\texttt{{@GET\\ Call<User> getGoogleIdToken(String loginData)}}
-
-		\textit{Diese Methode ruft den GoogleToken vom Goolge API Server ab}
-
-		\textbf{Parameter}
-		\begin{itemize}
-			\item\texttt{loginData}\\
-			\textit{Logindaten des Users}
-		\end{itemize}
-
-		\textbf{Rückgabewert}
-		\begin{itemize}
-			\item\textit{GoogleToken}
-		\end{itemize}
 
       \item\texttt{{@POST\\ Call<User> sendGoogleIdToken(String googleIdToken)}}
 
@@ -36,6 +22,7 @@
 		\end{itemize}
 	
 		\textbf{Rückgabewert}
+		GoogleToken
 	
 
 	 \end{itemize}
@@ -91,8 +78,7 @@
 
 		\textbf{Parameter} \\
 		 commentID - ID des zu löschenden Comments 
-
-
+		 
 
 	 \end{itemize}
 
@@ -301,7 +287,7 @@ Call<List<ImageNote>> getAllImageNotes(@Path(\grqq id\grqq) String flatshareId)}
 		\textbf{Parameter} \\
 		flatshareId - die ID der aufgerufenen Flatshare 
 		userId - die ID des aufgerufenen Users
-
+		
 
 	 \end{itemize}
 
@@ -360,6 +346,6 @@ Call<List<ImageNote>> getAllImageNotes(@Path(\grqq id\grqq) String flatshareId)}
 	 user - der zu dem Device gehörende User 
 
 		\textbf{Rückgabewert} \\
-
+		Device Daten
 
 	 \end{itemize}
