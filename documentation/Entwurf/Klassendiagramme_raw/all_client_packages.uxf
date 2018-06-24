@@ -881,7 +881,7 @@ bg=cyan</panel_attributes>
       <w>198</w>
       <h>184</h>
     </coordinates>
-    <panel_attributes>kit.edu.pse.fridget.client.ViewModel
+    <panel_attributes>kit.edu.pse.fridget.client.viewmodel
 --
 fontsize=35
 bg=gray

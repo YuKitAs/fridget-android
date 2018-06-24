@@ -230,6 +230,8 @@ bg=cyan</panel_attributes>
     </coordinates>
     <panel_attributes>edu.kit.pse.fridget.server.controllers
 --
+lw=2.5
+fontsize=35
 bg=gray</panel_attributes>
     <additional_attributes/>
   </element>

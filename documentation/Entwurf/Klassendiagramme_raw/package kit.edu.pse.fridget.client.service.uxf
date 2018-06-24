@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>7</zoom_level>
+  <zoom_level>6</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>98</x>
-      <y>42</y>
-      <w>336</w>
-      <h>189</h>
+      <x>288</x>
+      <y>102</y>
+      <w>288</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 UserService
@@ -23,10 +23,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>483</x>
-      <y>476</y>
-      <w>336</w>
-      <h>189</h>
+      <x>618</x>
+      <y>474</y>
+      <w>288</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 AccessCodeService
@@ -40,10 +40,10 @@ bg=cyan
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>98</x>
-      <y>476</y>
-      <w>336</w>
-      <h>189</h>
+      <x>288</x>
+      <y>474</y>
+      <w>288</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
  CoolNoteService 
@@ -66,10 +66,10 @@ Call&lt;CoolNote&gt; deleteCoolNote(@Path("id") String coolNoteId) </panel_attri
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>868</x>
-      <y>476</y>
-      <w>469</w>
-      <h>189</h>
+      <x>948</x>
+      <y>474</y>
+      <w>402</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 FrozenNoteService
@@ -89,10 +89,10 @@ Call&lt;FrozenNote&gt; updateFrozenNote(@Path("id") String frozenNoteId, @Body F
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>483</x>
-      <y>42</y>
-      <w>336</w>
-      <h>189</h>
+      <x>618</x>
+      <y>102</y>
+      <w>288</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 CommentService
@@ -113,10 +113,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>98</x>
-      <y>259</y>
-      <w>336</w>
-      <h>189</h>
+      <x>288</x>
+      <y>288</y>
+      <w>288</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 FlatShareService
@@ -135,10 +135,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>98</x>
-      <y>700</y>
-      <w>336</w>
-      <h>189</h>
+      <x>288</x>
+      <y>666</y>
+      <w>288</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 ImageNoteService 
@@ -161,10 +161,10 @@ Call&lt;ImageNote&gt; deleteImageNote(@Path("id") String ImageNoteId)</panel_att
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>868</x>
-      <y>49</y>
-      <w>462</w>
-      <h>189</h>
+      <x>948</x>
+      <y>108</y>
+      <w>396</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 MembershipService
@@ -189,10 +189,10 @@ Call&lt;Membership&gt; deleteMember(@Path("fid") String flatshareId, @Path("uid"
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>868</x>
-      <y>259</y>
-      <w>469</w>
-      <h>189</h>
+      <x>948</x>
+      <y>288</y>
+      <w>402</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 ReadConfirmationService
@@ -214,10 +214,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>483</x>
-      <y>259</y>
-      <w>336</w>
-      <h>189</h>
+      <x>618</x>
+      <y>288</y>
+      <w>288</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 DeviceService
@@ -233,14 +233,16 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>84</x>
-      <y>0</y>
-      <w>1344</w>
-      <h>938</h>
+      <x>276</x>
+      <y>66</y>
+      <w>1086</w>
+      <h>804</h>
     </coordinates>
     <panel_attributes>edu.kit.pse.fridget.client.service
-
-bg=light_gray</panel_attributes>
+--
+lw=2.5
+fontsize=35
+bg=gray</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

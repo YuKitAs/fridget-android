@@ -352,6 +352,8 @@ layer=2</panel_attributes>
     <panel_attributes>edu.kit.pse.fridget.server.models
 --
 bg=gray
+fontsize=35
+lw=2.5
 layer=0</panel_attributes>
     <additional_attributes/>
   </element>
