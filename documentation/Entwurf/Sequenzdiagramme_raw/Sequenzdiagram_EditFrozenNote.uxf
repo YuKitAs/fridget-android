@@ -5,7 +5,7 @@
     <id>UMLGeneric</id>
     <coordinates>
       <x>0</x>
-      <y>70</y>
+      <y>50</y>
       <w>210</w>
       <h>40</h>
     </coordinates>
@@ -17,7 +17,7 @@ _EditFrozenNoteActivity_</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>90</x>
-      <y>100</y>
+      <y>80</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -28,7 +28,7 @@ _EditFrozenNoteActivity_</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>90</x>
-      <y>140</y>
+      <y>120</y>
       <w>20</w>
       <h>660</h>
     </coordinates>
@@ -39,7 +39,7 @@ _EditFrozenNoteActivity_</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>100</x>
-      <y>140</y>
+      <y>120</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -51,7 +51,7 @@ _EditFrozenNoteActivity_</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>200</x>
-      <y>140</y>
+      <y>120</y>
       <w>180</w>
       <h>40</h>
     </coordinates>
@@ -63,7 +63,7 @@ _FullFrozenNoteViewModel_</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>280</x>
-      <y>170</y>
+      <y>150</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -74,7 +74,7 @@ _FullFrozenNoteViewModel_</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>280</x>
-      <y>240</y>
+      <y>220</y>
       <w>20</w>
       <h>530</h>
     </coordinates>
@@ -85,7 +85,7 @@ _FullFrozenNoteViewModel_</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>290</x>
-      <y>350</y>
+      <y>330</y>
       <w>350</w>
       <h>40</h>
     </coordinates>
@@ -97,7 +97,7 @@ updateFrozenNote(FrozenNote frozenNote)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>630</x>
-      <y>380</y>
+      <y>360</y>
       <w>330</w>
       <h>40</h>
     </coordinates>
@@ -109,11 +109,11 @@ updateFrozenNote(FrozenNote frozenNote)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>550</x>
-      <y>260</y>
+      <y>240</y>
       <w>160</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>_ClientService:_
+    <panel_attributes>_clientService:_
 _FrozenNoteService_</panel_attributes>
     <additional_attributes/>
   </element>
@@ -121,7 +121,7 @@ _FrozenNoteService_</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>620</x>
-      <y>290</y>
+      <y>270</y>
       <w>30</w>
       <h>100</h>
     </coordinates>
@@ -132,7 +132,7 @@ _FrozenNoteService_</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>620</x>
-      <y>370</y>
+      <y>350</y>
       <w>20</w>
       <h>340</h>
     </coordinates>
@@ -143,7 +143,7 @@ _FrozenNoteService_</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>860</x>
-      <y>240</y>
+      <y>220</y>
       <w>180</w>
       <h>40</h>
     </coordinates>
@@ -155,11 +155,11 @@ _FrozenNoteController_</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1180</x>
-      <y>240</y>
+      <y>220</y>
       <w>180</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>_ServerService:_
+    <panel_attributes>_serverService:_
 _FrozenNoteService_</panel_attributes>
     <additional_attributes/>
   </element>
@@ -167,7 +167,7 @@ _FrozenNoteService_</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1490</x>
-      <y>240</y>
+      <y>220</y>
       <w>180</w>
       <h>40</h>
     </coordinates>
@@ -178,8 +178,8 @@ _FrozenNoteRepository_</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1680</x>
-      <y>240</y>
+      <x>1760</x>
+      <y>220</y>
       <w>100</w>
       <h>40</h>
     </coordinates>
@@ -190,7 +190,7 @@ _FrozenNoteRepository_</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>290</x>
-      <y>260</y>
+      <y>240</y>
       <w>280</w>
       <h>40</h>
     </coordinates>
@@ -202,7 +202,7 @@ _FrozenNoteRepository_</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>100</x>
-      <y>220</y>
+      <y>200</y>
       <w>200</w>
       <h>40</h>
     </coordinates>
@@ -214,7 +214,7 @@ editFrozenNote()</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>940</x>
-      <y>400</y>
+      <y>380</y>
       <w>20</w>
       <h>270</h>
     </coordinates>
@@ -225,7 +225,7 @@ editFrozenNote()</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>940</x>
-      <y>270</y>
+      <y>250</y>
       <w>30</w>
       <h>150</h>
     </coordinates>
@@ -236,7 +236,7 @@ editFrozenNote()</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>950</x>
-      <y>400</y>
+      <y>380</y>
       <w>330</w>
       <h>40</h>
     </coordinates>
@@ -248,7 +248,7 @@ updateFrozenNote(FrozenNote frozenNote)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1260</x>
-      <y>270</y>
+      <y>250</y>
       <w>30</w>
       <h>170</h>
     </coordinates>
@@ -259,7 +259,7 @@ updateFrozenNote(FrozenNote frozenNote)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1260</x>
-      <y>420</y>
+      <y>400</y>
       <w>20</w>
       <h>190</h>
     </coordinates>
@@ -270,7 +270,7 @@ updateFrozenNote(FrozenNote frozenNote)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1270</x>
-      <y>430</y>
+      <y>410</y>
       <w>320</w>
       <h>40</h>
     </coordinates>
@@ -282,7 +282,7 @@ updateFrozenNote(FrozenNote frozenNote)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1570</x>
-      <y>270</y>
+      <y>250</y>
       <w>30</w>
       <h>200</h>
     </coordinates>
@@ -293,7 +293,7 @@ updateFrozenNote(FrozenNote frozenNote)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1570</x>
-      <y>450</y>
+      <y>430</y>
       <w>20</w>
       <h>100</h>
     </coordinates>
@@ -303,8 +303,8 @@ updateFrozenNote(FrozenNote frozenNote)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1720</x>
-      <y>470</y>
+      <x>1800</x>
+      <y>450</y>
       <w>20</w>
       <h>50</h>
     </coordinates>
@@ -315,56 +315,56 @@ updateFrozenNote(FrozenNote frozenNote)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1580</x>
-      <y>450</y>
-      <w>160</w>
+      <y>430</y>
+      <w>240</w>
       <h>50</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-save()
+save(FrozenNote frozenNote)
 </panel_attributes>
-    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>220.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1580</x>
-      <y>500</y>
-      <w>160</w>
+      <y>480</y>
+      <w>240</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 </panel_attributes>
-    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;220.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1270</x>
-      <y>520</y>
+      <y>510</y>
       <w>320</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-FrozenNote: frozenNote</panel_attributes>
+FrozenNote</panel_attributes>
     <additional_attributes>10.0;20.0;300.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>950</x>
-      <y>590</y>
+      <y>570</y>
       <w>330</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-FrozenNote: frozenNote</panel_attributes>
+FrozenNote</panel_attributes>
     <additional_attributes>10.0;20.0;310.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>630</x>
-      <y>650</y>
+      <y>630</y>
       <w>330</w>
       <h>40</h>
     </coordinates>
@@ -376,7 +376,7 @@ ResponseEntitiy&lt;FrozenNote&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>100</x>
-      <y>750</y>
+      <y>730</y>
       <w>200</w>
       <h>40</h>
     </coordinates>
@@ -388,7 +388,7 @@ ResponseEntitiy&lt;FrozenNote&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>290</x>
-      <y>690</y>
+      <y>670</y>
       <w>350</w>
       <h>40</h>
     </coordinates>
@@ -400,7 +400,7 @@ ResponseEntitiy&lt;FrozenNote&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>90</x>
-      <y>790</y>
+      <y>770</y>
       <w>30</w>
       <h>140</h>
     </coordinates>
@@ -411,7 +411,7 @@ ResponseEntitiy&lt;FrozenNote&gt;</panel_attributes>
     <id>UMLSpecialState</id>
     <coordinates>
       <x>90</x>
-      <y>910</y>
+      <y>890</y>
       <w>20</w>
       <h>30</h>
     </coordinates>
@@ -421,8 +421,8 @@ ResponseEntitiy&lt;FrozenNote&gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1720</x>
-      <y>270</y>
+      <x>1800</x>
+      <y>250</y>
       <w>30</w>
       <h>220</h>
     </coordinates>
