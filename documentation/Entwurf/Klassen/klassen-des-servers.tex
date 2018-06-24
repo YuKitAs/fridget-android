@@ -17,304 +17,479 @@
      \textbf{Beschreibung} \\
      \textit{Controller für Zugangscode}
      \paragraph*{Konstruktor}\mbox{} \\
-     \texttt{public AccessCodeController(AccessCodeService service)} \\
+     \texttt{public AccessCodeController(AccessCodeService service)}
      \paragraph*{Methoden}
      \begin{itemize}
      	\item{\texttt{public ResponseEntity<AccessCode> generateAccessCode(AccessCode accessCode)}}
      	
      	\textit{Generiert einen Zugangscode für eine WG.}
      	
-     	\textbf{Parameter} \\
-     	accessCode WG-ID mit leerem Zugangscode-Inhalt
-     	
-     	\textbf{Rückgabewert} \\
-     	Generierter Zugangscode als ResponseEntity
+     	\textbf{Parameter}
+     	\begin{itemize}
+     	\item\texttt{accessCode}\\
+     	\textit{WG-ID mit leerem Zugangscode-Inhalt}
+     	\end{itemize}
+     	\textbf{Rückgabewert}\\
+     	\begin{itemize}
+     	\item\textit{Generierter Zugangscode als ResponseEntity}
+     	\end{itemize}
      \end{itemize}
+ 
      \subsubsection{\texttt{Class CommentController}}
      \textbf{Beschreibung} \\
      \textit{Controller für Kommentar}
      \paragraph*{Konstruktor}\mbox{} \\
-     \texttt{public CommentController(CommentService service)} \\
+     \texttt{public CommentController(CommentService service)}
      \paragraph*{Methoden}
      \begin{itemize}
      	\item{\texttt{public ResponseEntity<List<Comment$>>$ getAllComments(String coolNoteId)}}
      	
      	\textit{Findet alle Kommentare zu einer Cool Note.}
      	
-     	\textbf{Parameter} \\
-     	coolNoteId CoolNote-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{coolNoteId}\\
+     		\textit{CoolNote-ID}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Liste von gefundenen Kommentaren als ResponseEntity        \item{\texttt{public ResponseEntity<Comment> saveComment(Comment comment)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Liste von gefundenen Kommentaren als ResponseEntity} 
+     	\end{itemize}
+     
+     	\item{\texttt{public ResponseEntity<Comment> saveComment(Comment comment)}}
      	
      	\textit{Speichert einen Kommentar.}
      	
-     	\textbf{Parameter} \\
-     	comment Kommentar zum speichern
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{comment}\\
+     		\textit{Kommentar zum Speichern}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Gespeicherter Kommentar als ResponseEntity        \item{\texttt{public ResponseEntity<Void> deleteComment(String id)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gespeicherter Kommentar als ResponseEntity}
+     	\end{itemize}        
+     
+     \item{\texttt{public ResponseEntity<Void> deleteComment(String id)}}
      	
      	\textit{Löscht einen Kommentar.}
      	
-     	\textbf{Parameter} \\
-     	id Kommentar-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{id}\\
+     		\textit{Kommentar-ID} 
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Leere ResponseEntity
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Leere ResponseEntity} 
+     	\end{itemize}
      \end{itemize}
+ 
      \subsubsection{\texttt{Class CoolNoteController}}
      \textbf{Beschreibung} \\
      \textit{Controller für Cool Note}
-     \paragraph*{Konstruktor}\mbox{} \\
-     \texttt{public CoolNoteController(CoolNoteService coolNoteService, TaggedUserService taggedUserService)} \\
+     \paragraph*{Konstruktor}\mbox{}
+     \texttt{public CoolNoteController(CoolNoteService coolNoteService, TaggedUserService taggedUserService)}
      \paragraph*{Methoden}
      \begin{itemize}
      	\item{\texttt{public ResponseEntity<List<CoolNote$>>$ getAllCoolNotes(String flatshareId)}}
      	
      	\textit{Findet alle Cool Notes mit getaggten Benutzern in einer WG.}
      	
-     	\textbf{Parameter} \\
-     	flatshareId WG-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{flatshareId}\\
+     		\textit{WG-ID}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Liste von gefundenen CoolNote mit ID von getaggten Benutzern als ResponseEntity        \item{\texttt{public ResponseEntity<CoolNote> getCoolNote(String id)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Liste von gefundenen CoolNotes mit ID von getaggten Benutzern als ResponseEntity}
+     	\end{itemize}
+     
+     \item{\texttt{public ResponseEntity<CoolNote> getCoolNote(String id)}}
      	
      	\textit{Findet eine Cool Note mit getaggten Benutzern.}
      	
-     	\textbf{Parameter} \\
-     	id CoolNote-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{id}\\
+     		\textit{CoolNote-ID}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Gefundene CoolNote mit ID von getaggten Benutzern als ResponseEntity        \item{\texttt{public ResponseEntity<CoolNote> saveCoolNote(CoolNote coolNote)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gefundene CoolNote mit ID von getaggten Benutzern als ResponseEntity} 
+     	\end{itemize}
+     	        
+     \item{\texttt{public ResponseEntity<CoolNote> saveCoolNote(CoolNote coolNote)}}
      	
      	\textit{Speichert eine Cool Note and die getaggten Benutzer.}
      	
-     	\textbf{Parameter} \\
-     	coolNote CoolNote zum speichern
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{coolNote}\\
+     		\textit{CoolNote zum speichern} 
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Gespeicherte CoolNote als ResponseEntity        \item{\texttt{public ResponseEntity<Void> deleteCoolNote(String id)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gespeicherte CoolNote als ResponseEntity}
+     	\end{itemize}
+          	        
+     \item{\texttt{public ResponseEntity<Void> deleteCoolNote(String id)}}
      	
      	\textit{Löscht eine Cool Note.}
      	
-     	\textbf{Parameter} \\
-     	id CoolNote-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{id}\\
+     		\textit{CoolNote-ID}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Leere ResponseEntity
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Leere ResponseEntity}
+     	\end{itemize}
      \end{itemize}
+ 
      \subsubsection{\texttt{Class DeviceController}}
      \textbf{Beschreibung} \\
      \textit{Controller für Gerät}
      \paragraph*{Konstruktor}\mbox{} \\
-     \texttt{public DeviceController(DeviceService service)} \\
+     \texttt{public DeviceController(DeviceService service)}
      \paragraph*{Methoden}
      \begin{itemize}
      	\item{\texttt{public ResponseEntity<Device> saveDevice(Device device)}}
      	
      	\textit{Speichert ein neues Gerät.}
      	
-     	\textbf{Parameter} \\
-     	device Gerät zum speichern
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{device}\\
+     		\textit{Gerät zum Speichern} 
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Gespeichertes Gerät als ResponseEntity
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gespeichertes Gerät als ResponseEntity} 
+     	\end{itemize}
      \end{itemize}
+ 
      \subsubsection{\texttt{Class FlatshareController}}
      \textbf{Beschreibung} \\
      \textit{Controller für WG}
      \paragraph*{Konstruktor}\mbox{} \\
-     \texttt{public FlatshareController(FlatshareService service)} \\
+     \texttt{public FlatshareController(FlatshareService service)}
      \paragraph*{Methoden}
      \begin{itemize}
      	\item{\texttt{public ResponseEntity<Flatshare> getFlatshare(String id)}}
      	
      	\textit{Findet eine WG.}
      	
-     	\textbf{Parameter} \\
-     	id WG-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{id}\\
+     		\textit{WG-ID} 
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Gefundene WG als ResponseEntity        \item{\texttt{public ResponseEntity<Flatshare> saveFlatshare(SaveFlatshareCommand saveFlatshareCommand)}}
+       	\textbf{Rückgabewert}
+       	\begin{itemize}
+       		\item\textit{Gefundene WG als ResponseEntity  } 
+       	\end{itemize}
+       
+     \item{\texttt{public ResponseEntity<Flatshare> saveFlatshare(SaveFlatshareCommand saveFlatshareCommand)}}
      	
      	\textit{Speichert eine WG.}
      	
-     	\textbf{Parameter} \\
-     	saveFlatshareCommand WG zum speichern
-     	
-     	\textbf{Rückgabewert} \\
-     	Gespeicherte WG als ResponseEntity
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{saveFlatshareCommand}\\
+     		\textit{WG zum Speichern} 
+     	\end{itemize}
+     
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gespeicherte WG als ResponseEntity} 
+     	\end{itemize}
      \end{itemize}
+ 
      \subsubsection{\texttt{Class FrozenNoteController}}
      \textbf{Beschreibung} \\
      \textit{Controller für Frozen Note}
-     \paragraph*{Konstruktor}\mbox{} \\
-     \texttt{public FrozenNoteController(FrozenNoteService service)} \\
+     \paragraph*{Konstruktor}\mbox{}\\
+     \texttt{public FrozenNoteController(FrozenNoteService service)}
      \paragraph*{Methoden}
      \begin{itemize}
      	\item{\texttt{public ResponseEntity<List<FrozenNote$>>$ getAllFrozenNotes(String flatshareId)}}
      	
      	\textit{Findet alle Frozen Notes in einer WG.}
      	
-     	\textbf{Parameter} \\
-     	flatshareId WG-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{flatshareId}\\
+     		\textit{WG-ID} 
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Liste von gefundenen FrozenNote als ResponseEntity        \item{\texttt{public ResponseEntity<FrozenNote> getFrozenNote(String id)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Liste von gefundenen FrozenNote als ResponseEntity} 
+     	\end{itemize}
+     	
+     \item{\texttt{public ResponseEntity<FrozenNote> getFrozenNote(String id)}}
      	
      	\textit{Findet eine Frozen Note.}
      	
-     	\textbf{Parameter} \\
-     	id FrozenNote-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{id}\\
+     		\textit{FrozenNote-ID} 
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Gefundene FrozenNote als ResponseEntity        \item{\texttt{public ResponseEntity<FrozenNote> updateFrozenNote(String id, FrozenNote frozenNote)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gefundene FrozenNote als ResponseEntity} 
+     	\end{itemize}
+     
+     \item{\texttt{public ResponseEntity<FrozenNote> updateFrozenNote(String id, FrozenNote frozenNote)}}
      	
      	\textit{Updatet eine Frozen Note.}
      	
-     	\textbf{Parameter} \\
-     	id FrozenNote-ID\\
-     	frozenNote FrozenNote zum updaten
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{id}\\
+     		\textit{FrozenNote-ID} 
+     		\item\texttt{frozenNote}\\
+     		\textit{FrozenNote zum Updaten} 
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Geupdatete FrozenNote als ResponseEntity
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Geupdatete FrozenNote als ResponseEntity} 
+     	\end{itemize}
      \end{itemize}
+ 
      \subsubsection{\texttt{Class ImageNoteController}}
      \textbf{Beschreibung} \\
-     \textit{Controller für Image Cool Note}
-     \paragraph*{Konstruktor}\mbox{} \\
-     \texttt{public ImageNoteController(ImageNoteService service)} \\
+     \textit{Controller für Image-Cool-Note}
+     \paragraph*{Konstruktor}\mbox{}\\
+     \texttt{public ImageNoteController(ImageNoteService service)}
      \paragraph*{Methoden}
      \begin{itemize}
      	\item{\texttt{public ResponseEntity<List<ImageNote$>>$ getAllImageNotes(String flatshareId)}}
      	
      	\textit{Findet alle Image Cool Notes in einer WG.}
      	
-     	\textbf{Parameter} \\
-     	flatshareId WG-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{flatshareId}\\
+     		\textit{WG-ID}  
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Liste von gefundenen ImageNote als ResponseEntity        \item{\texttt{public ResponseEntity<ImageNote> getImageNote(String id)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Liste von gefundenen ImageNote als ResponseEntity} 
+     	\end{itemize}
+   	
+   	\item{\texttt{public ResponseEntity<ImageNote> getImageNote(String id)}}
      	
-     	\textit{Findet eine Image Cool Note.}
+     	\textit{Findet eine Imag-Cool-Note.}
      	
-     	\textbf{Parameter} \\
-     	id ImageNote-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{id}\\
+     		\textit{ImageNote-ID}  
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Gefundene ImageNote als ResponseEntity        \item{\texttt{public ResponseEntity<ImageNote> saveImageNote(ImageNote imageNote)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gefundene ImageNote als ResponseEntity} 
+     	\end{itemize} 
+     
+     \item{\texttt{public ResponseEntity<ImageNote> saveImageNote(ImageNote imageNote)}}
      	
-     	\textit{Speichert eine Image Cool Note.}
+     	\textit{Speichert eine Image-Cool-Note.}
      	
-     	\textbf{Parameter} \\
-     	imageNote ImageNote zum speichern
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{imageNote}\\
+     		\textit{ImageNote zum Speichern}  
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Gespeicherte ImageNote als ResponseEntity        \item{\texttt{public ResponseEntity<Void> deleteImageNote(String id)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gespeicherte ImageNote als ResponseEntity} 
+     	\end{itemize}
+     
+     \item{\texttt{public ResponseEntity<Void> deleteImageNote(String id)}}
      	
-     	\textit{Löscht eine Image Cool Note.}
+     	\textit{Löscht eine Image-Cool-Note.}
      	
-     	\textbf{Parameter} \\
-     	id ImageNote-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{id}\\
+     		\textit{ImageNote-ID}  
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Leere ResponseEntity
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Leere ResponseEntity} 
+     	\end{itemize}
      \end{itemize}
+ 
      \subsubsection{\texttt{Class MembershipController}}
      \textbf{Beschreibung} \\
      \textit{Controller für Mitgliedschaft}
      \paragraph*{Konstruktor}\mbox{} \\
-     \texttt{public MembershipController(MembershipService service)} \\
+     \texttt{public MembershipController(MembershipService service)}
      \paragraph*{Methoden}
      \begin{itemize}
      	\item{\texttt{public ResponseEntity<List<UserMembershipRepresentation$>>$ getAllUsers(String flatshareId)}}
      	
      	\textit{Findet alle Mitglieder in einer WG.}
      	
-     	\textbf{Parameter} \\
-     	flatshareId WG-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{flatshareId}\\
+     		\textit{WG-ID}  
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Liste von gefundenen Benutzern mit Magenetfarben als ResponseEntity        \item{\texttt{public ResponseEntity<UserMembershipRepresentation> getUser(String flatshareId, String userId)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Liste von gefundenen Benutzern mit Magenetfarben als ResponseEntity} 
+     	\end{itemize}
+     
+     \item{\texttt{public ResponseEntity<UserMembershipRepresentation> getUser(String flatshareId, String userId)}}
      	
      	\textit{Findet ein Mitglied in einer WG.}
      	
-     	\textbf{Parameter} \\
-     	flatshareId WG-ID\\
-     	userId Benutzer-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{flatshareId}\\
+     		\textit{WG-ID}
+     		\item\texttt{userId}\\
+     		\textit{Benutzer-ID}  
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Gefundener Benutzer mit Magnetfarbe als ResponseEntity        \item{\texttt{public ResponseEntity<Membership> saveMembership(SaveMembershipCommand saveMembershipCommand)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gefundener Benutzer mit Magnetfarbe als ResponseEntity}
+     	\end{itemize}
+     	
+     	\item{\texttt{public ResponseEntity<Membership> saveMembership(SaveMembershipCommand saveMembershipCommand)}}
      	
      	\textit{Speichert einen Benutzer in einer WG.}
      	
-     	\textbf{Parameter} \\
-     	saveMembershipCommand Benutzer-ID und Zugangscode
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{saveMembershipCommand}\\
+     		\textit{Benutzer-ID und Zugangscode}  
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Gespeicherte Mitgliedschaft als ResponseEntity        \item{\texttt{public ResponseEntity<Void> deleteMembership(String flatshareId, String userId)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gespeicherte Mitgliedschaft als ResponseEntity}
+     	\end{itemize}
+     
+     \item{\texttt{public ResponseEntity<Void> deleteMembership(String flatshareId, String userId)}}
      	
      	\textit{Löscht ein Mitglied von einer WG.}
      	
-     	\textbf{Parameter} \\
-     	flatshareId WG-ID\\
-     	userId Benutzer-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{flatshareId}\\
+     		\textit{WG-ID}
+     		\item\texttt{userId}\\
+     		\textit{Benutzer-ID}  
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Leere ResponseEntity
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Leere ResponseEntity}
+     	\end{itemize}
      \end{itemize}
+ 
      \subsubsection{\texttt{Class ReadConfirmationController}}
      \textbf{Beschreibung} \\
      \textit{Controller für Lesebestätigung}
      \paragraph*{Konstruktor}\mbox{} \\
-     \texttt{public ReadConfirmationController(ReadConfirmationService service)} \\
+     \texttt{public ReadConfirmationController(ReadConfirmationService service)}
      \paragraph*{Methoden}
      \begin{itemize}
      	\item{\texttt{public ResponseEntity<List<User$>>$ getAllUsers(String id)}}
      	
      	\textit{Findet alle Leser einer Cool Note.}
      	
-     	\textbf{Parameter} \\
-     	id CoolNote-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{id}\\
+     		\textit{CoolNote-ID}  
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Liste von gefundenen Benutzern als ResponseEntity        \item{\texttt{public ResponseEntity<ReadConfirmation> saveReadConfirmation(ReadConfirmation readConfirmation)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Liste von gefundenen Benutzern als ResponseEntity}
+     	\end{itemize}
+     
+     \item{\texttt{public ResponseEntity<ReadConfirmation> saveReadConfirmation(ReadConfirmation readConfirmation)}}
      	
      	\textit{Speichert einen Benutzer als Leser einer Cool Note.}
      	
-     	\textbf{Parameter} \\
-     	readConfirmation Lesebestätigung zum speichern
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{readConfirmation}\\
+     		\textit{Lesebestätigung zum Speichern}  
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Gespeicherte Lesebestätigung als ResponseEntity        \item{\texttt{public ResponseEntity<Void> deleteReadConfirmation(String coolNoteId, String userId)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gespeicherte Lesebestätigung als ResponseEntity}
+     	\end{itemize}
+     
+     \item{\texttt{public ResponseEntity<Void> deleteReadConfirmation(String coolNoteId, String userId)}}
      	
      	\textit{Löscht einen Benutzer als Leser einer Cool Note.}
      	
-     	\textbf{Parameter} \\
-     	coolNoteId CoolNote-ID\\
-     	userId Benutzer-ID
-     	
-     	\textbf{Rückgabewert} \\
-     	Leere ResponseEntity
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{coolNoteId}\\
+     		\textit{CoolNote-ID}
+     		\item\texttt{userId}\\
+     		\textit{Benutzer-ID}  
+     	\end{itemize}
+     
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Leere ResponseEntity}
+     	\end{itemize}
      \end{itemize}
+ 
      \subsubsection{\texttt{Class UserController}}
      \textbf{Beschreibung} \\
      \textit{Controller für Benutzer}
      \paragraph*{Konstruktor}\mbox{} \\
-     \texttt{public UserController(UserService service)} \\
+     \texttt{public UserController(UserService service)}
      \paragraph*{Methoden}
      \begin{itemize}
      	\item{\texttt{public ResponseEntity<UserWithJwtRepresentation> registerOrLogin(String googleIdToken)}}
      	
      	\textit{Authentifiziert einen Benutzer durch Google-ID-Token.}
      	
-     	\textbf{Parameter} \\
-     	googleIdToken Google-ID-Token
-     	
-     	\textbf{Rückgabewert} \\
-     	Gespeicherter oder angemeldeter Benutzer mit JWT als ResponseEntity
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{googleIdToken}\\
+     		\textit{Google-ID-Token}  
+     	\end{itemize}
+     
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gespeicherter oder angemeldeter Benutzer mit JWT als ResponseEntity}
+     	\end{itemize}
      \end{itemize}
+ 
      \subsection{Package edu.kit.pse.fridget.server.models}
      \begin{figure}[H]
 	       \centering
@@ -330,34 +505,47 @@
      	
      	\textit{Getter für Zugangscode-ID}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Zugangscode-ID        \item{\texttt{public String getContent()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Zugangscode-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public String getContent()}}
      	
      	\textit{Getter für Inhalt vom Zugangscode}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Zugangscode-Inhalt        \item{\texttt{public String getFlatshareId()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Zugangscode-Inhalt}
+     	\end{itemize}
+     
+     \item{\texttt{public String getFlatshareId()}}
      	
      	\textit{Getter für WG-ID}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	WG-ID        \item{\texttt{public AccessCode buildNew(String content, String flatshareId)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{WG-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public AccessCode buildNew(String content, String flatshareId)}}
      	
      	\textit{Baut Zugangscode mit zufälliger UUID.}
      	
-     	\textbf{Parameter} \\
-     	content Inhalt vom Zugangscode\\
-     	flatshareId ID von der WG, die mit dem Zugangscode beigetreten werden kann
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{content}\\
+     		\textit{Inhalt vom Zugangscode} 
+     		\item\texttt{flatshareId}\\
+     		\textit{ID von der WG, zu der mit dem Zugangscode beigetreten werden kann} 
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Gebauter Zugangscode mit zufälliger UUID
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gebauter Zugangscode mit zufälliger UUID}
+     	\end{itemize}
      \end{itemize}
+ 
      \subsubsection{\texttt{Class Comment}}
      \textbf{Beschreibung} \\
      \textit{Model für Kommentar}
@@ -367,42 +555,58 @@
      	
      	\textit{Getter für Kommentar-ID}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Kommentar-ID        \item{\texttt{public String getUserId()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Kommentar-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public String getUserId()}}
      	
      	\textit{Getter für ID von dem Benutzer, der den Kommentar geschrieben hat}
      	
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Benutzer-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public String getCoolNoteId()}}
      	
+     	\textit{Getter für ID von der Cool Note, zu der der Kommentar gehört}
      	
-     	\textbf{Rückgabewert} \\
-     	Benutzer-ID        \item{\texttt{public String getCoolNoteId()}}
-     	
-     	\textit{Getter für ID von der Cool Note, der der Kommentar gehört zu}
-     	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	CoolNote-ID        \item{\texttt{public String getContent()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{CoolNote-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public String getContent()}}
      	
      	\textit{Getter für Inhalt vom Kommentar}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Kommentar-Inhalt        \item{\texttt{public Comment buildNew(String userId, String coolNoteId, String content)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Kommentar-Inhalt}
+     	\end{itemize}
+     
+     \item{\texttt{public Comment buildNew(String userId, String coolNoteId, String content)}}
      	
      	\textit{Baut Kommentar mit zufälliger UUID.}
      	
-     	\textbf{Parameter} \\
-     	userId ID von dem Benutzer, der den Kommentar geschrieben hat\\
-     	coolNoteId ID von der Cool Note, der der Kommentar gehört zu\\
-     	content Inhalt vom Kommentar
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{userId}\\
+     		\textit{ID von dem Benutzer, der den Kommentar geschrieben hat} 
+     		\item\texttt{coolNoteId}\\
+     		\textit{ID von der Cool Note, zu der der Kommentar gehört} 
+     		\item\texttt{content}\\
+     		\textit{Inhalt vom Kommentar}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Gebauter Kommentar mit zufälliger UUID
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gebauter Kommentar mit zufälliger UUID}
+     	\end{itemize}
      \end{itemize}
+ 
      \subsubsection{\texttt{Class CoolNote}}
      \textbf{Beschreibung} \\
      \textit{Model für Cool Note}
@@ -410,69 +614,86 @@
      \begin{itemize}
      	\item{\texttt{public String getId()}}
      	
-     	\textit{Getter für CoolNote-ID}
+     	\textit{Getter für Cool-Note-ID}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	CoolNote-ID        \item{\texttt{public String getTitle()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Cool-Note-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public String getTitle()}}
      	
      	\textit{Getter für Überschrift von der Cool Note}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	CoolNote-Überschrift        \item{\texttt{public String getContent()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Cool-Note-Überschrift}
+     	\end{itemize}
+     
+     \item{\texttt{public String getContent()}}
      	
      	\textit{Getter für Inhalt von der Cool Note}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	CoolNote-Inhalt        \item{\texttt{public String getFlatshareId()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Cool-Note-Inhalt}
+     	\end{itemize}
+     
+     \item{\texttt{public String getFlatshareId()}}
      	
      	\textit{Getter für ID von der WG, zu der diese Cool Note gehört}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	WG-ID        \item{\texttt{public String getCreatorUserId()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{WG-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public String getCreatorUserId()}}
      	
      	\textit{Getter für ID vom Benutzer, der die Cool Note erstellt hat}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Benutzer-ID        \item{\texttt{public int getPosition()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Benutzer-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public int getPosition()}}
      	
      	\textit{Getter für Position der Cool Note auf der Pinnwand}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Position der Cool Note        \item{\texttt{public int getImportance()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Position der Cool Note}
+     	\end{itemize}
+     
+     \item{\texttt{public int getImportance()}}
      	
      	\textit{Getter für Wichtigkeit der Cool Note}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Wichtigkeit der Cool Note        \item{\texttt{public Instant getCreatedAt()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Wichtigkeit der Cool Note}
+     	\end{itemize}
+     
+     \item{\texttt{public Instant getCreatedAt()}}
      	
      	\textit{Getter für Erstelldatum der Cool Note}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Erstelldatum der Cool Note        \item{\texttt{public List<String> getTaggedUserIds()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Erstelldatum der Cool Note}
+     	\end{itemize}
+     
+     \item{\texttt{public List<String> getTaggedUserIds()}}
      	
      	\textit{Getter für IDs von den in dieser Cool Note getaggten Benutzern}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Liste von IDs von den getaggten Benutzern
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Liste von IDs von den getaggten Benutzern}
+     	\end{itemize}
      \end{itemize}
+ 
      \subsubsection{\texttt{Class Device}}
      \textbf{Beschreibung} \\
      \textit{Model für Gerät}
@@ -482,34 +703,47 @@
      	
      	\textit{Getter für ID vom Gerät}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Gerät-ID        \item{\texttt{public String getUserId()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gerät-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public String getUserId()}}
      	
      	\textit{Getter für ID vom Benutzer, der die App auf dem Gerät benutzt}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Benutzer-ID        \item{\texttt{public String getInstanceIdToken()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Benutzer-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public String getInstanceIdToken()}}
      	
      	\textit{Getter für ID von der App-Instanz auf dem Gerät}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Instanz-ID        \item{\texttt{public Device buildNew(String userId, String instanceIdToken)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Instanz-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public Device buildNew(String userId, String instanceIdToken)}}
      	
      	\textit{Baut Gerät mit zufälliger UUID.}
      	
-     	\textbf{Parameter} \\
-     	userId Benutzer-ID\\
-     	instanceIdToken Instanz-ID-Token
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{userId}\\
+     		\textit{Benutzer-ID} 
+     		\item\texttt{instanceIdToken}\\
+     		\textit{Instanz-ID-Token}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Gebautes Gerät mit zufälliger UUID
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gebautes Gerät mit zufälliger UUID}
+     	\end{itemize}
      \end{itemize}
+ 
      \subsubsection{\texttt{Class Flatshare}}
      \textbf{Beschreibung} \\
      \textit{Model für WG}
@@ -519,26 +753,36 @@
      	
      	\textit{Getter für WG-ID}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	WG-ID        \item{\texttt{public String getName()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{WG-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public String getName()}}
      	
      	\textit{Getter für WG-Name}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	WG-Name        \item{\texttt{public Flatshare buildNew(String name)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{WG-Name}
+     	\end{itemize}
+     
+     \item{\texttt{public Flatshare buildNew(String name)}}
      	
      	\textit{Baut WG mit zufälliger UUID.}
      	
-     	\textbf{Parameter} \\
-     	name Name von der WG
-     	
-     	\textbf{Rückgabewert} \\
-     	Gebaute WG mit zufälliger UUID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{name}\\
+     		\textit{Name von der WG}
+     	\end{itemize}
+     
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gebaute WG mit zufälliger UUID}
+     	\end{itemize}
      \end{itemize}
+ 
      \subsubsection{\texttt{Class FrozenNote}}
      \textbf{Beschreibung} \\
      \textit{Model für Frozen Note}
@@ -546,108 +790,139 @@
      \begin{itemize}
      	\item{\texttt{public String getId()}}
      	
-     	\textit{Getter für FrozenNote-ID}
+     	\textit{Getter für Frozen-Note-ID}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	FrozenNote-ID        \item{\texttt{public String getTitle()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Frozen-Note-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public String getTitle()}}
      	
      	\textit{Getter für Überschrift von der Frozen Note}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	FronzenNote-Überschrift        \item{\texttt{public String getContent()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Frozen-Note-Überschrift}
+     	\end{itemize}
+     
+     \item{\texttt{public String getContent()}}
      	
      	\textit{Getter für Inhalt von der Frozen Note}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	FrozenNote-Inhalt        \item{\texttt{public String getFlatshareId()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Frozen-Note-Inhalt}
+     	\end{itemize}
+     
+     \item{\texttt{public String getFlatshareId()}}
      	
      	\textit{Getter für ID von der WG, zu der diese Frozen Note gehört}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	WG-ID        \item{\texttt{public int getPosition()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{WG-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public int getPosition()}}
      	
      	\textit{Getter für Position der Frozen Note auf der Pinnwand}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Position der Frozen Note
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Position der Frozen Note}
+     	\end{itemize}
      \end{itemize}
      \subsubsection{\texttt{Class ImageNote}}
      \textbf{Beschreibung} \\
-     \textit{Model für Image Cool Note}
+     \textit{Model für Image-Cool-Note}
      \paragraph*{Methoden}
      \begin{itemize}
      	\item{\texttt{public String getId()}}
      	
      	\textit{Getter für ImageNote-ID}
      	
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Image-Note-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public String getFlatshareId()}}
      	
+     	\textit{Getter für ID von der WG, zu der diese Image-Cool-Note gehört}
      	
-     	\textbf{Rückgabewert} \\
-     	ImageNote-ID        \item{\texttt{public String getFlatshareId()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{WG-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public byte[] getImage()}}
      	
-     	\textit{Getter für ID von der WG, zu der diese Image Cool Note gehört}
+     	\textit{Getter für Bild in der Image-Cool-Note}
      	
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Bild}
+     	\end{itemize}
+     
+     \item{\texttt{public String getDescription()}}
      	
+     	\textit{Getter für Beschreibung der Image-Cool-Note}
      	
-     	\textbf{Rückgabewert} \\
-     	WG-ID        \item{\texttt{public byte[] getImage()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Beschreibung der Image-Cool-Note}
+     	\end{itemize}
+     
+     \item{\texttt{public String getCreatorUserId()}}
      	
-     	\textit{Getter für Bild in der Image Cool Note}
+     	\textit{Getter für ID vom Benutzer, der die Image-Cool-Note erstellt hat}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Bild        \item{\texttt{public String getDescription()}}
-     	
-     	\textit{Getter für Beschreibung der Image Cool Note}
-     	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Beschreibung der Image Cool Note        \item{\texttt{public String getCreatorUserId()}}
-     	
-     	\textit{Getter für ID vom Benutzer, der die Image Cool Note erstellt hat}
-     	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Benutzer-ID        \item{\texttt{public int getPosition()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Benutzer-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public int getPosition()}}
      	
      	\textit{Getter für Position der Image Cool Note auf der Pinnwand}
      	
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Position der Image-Cool-Note}
+     	\end{itemize}
+     
+     \item{\texttt{public String getCreateAt()}}
      	
+     	\textit{Getter für Erstelldatum der Image-Cool-Note}
      	
-     	\textbf{Rückgabewert} \\
-     	Position der Image Cool Note        \item{\texttt{public String getCreateAt()}}
-     	
-     	\textit{Getter für Erstelldatum der Image Cool Note}
-     	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Erstelldatum der Image Cool Note        \item{\texttt{public ImageNote buildNew(String flatshareId, byte[] image, String description, String creatorUserId, int position)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Erstelldatum der Image-Cool-Note}
+     	\end{itemize}
+     
+     \item{\texttt{public ImageNote buildNew(String flatshareId, byte[] image, String description, String creatorUserId, int position)}}
      	
      	\textit{Baut Image Cool Note mit zufälliger UUID und aktuellem Datum.}
      	
-     	\textbf{Parameter} \\
-     	flatshareId ID von der WG, zu der diese Image Cool Note gehört\\
-     	image Bild in der Image Cool Note\\
-     	description Beschreibung der Image Cool Note\\
-     	creatorUserId ID vom Benutzer, der die Image Cool Note erstellt hat\\
-     	position Position der Image Cool Note auf der Pinnwand
-     	
-     	\textbf{Rückgabewert} \\
-     	Gebaute Image Cool Note mit zufälliger UUID und aktuellem Datum
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{flatshareId}\\
+     		\textit{ID von der WG, zu der diese Image-Cool-Note gehört}
+     		\item\texttt{image}\\
+     		\textit{Bild in der Image-Cool-Note}
+     		\item\texttt{description}\\
+     		\textit{Beschreibung der Image-Cool-Note}
+     		\item\texttt{creatorUserId}\\
+     		\textit{ID vom Benutzer, der die Image-Cool-Note erstellt hat}
+     		\item\texttt{position}\\
+     		\textit{Position der Image-Cool-Note auf der Pinnwand}
+     	\end{itemize}
+     
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gebaute Image-Cool-Note mit zufälliger UUID und aktuellem Datum}
+     	\end{itemize}
      \end{itemize}
      \subsubsection{\texttt{Class Membership}}
      \textbf{Beschreibung} \\
@@ -658,31 +933,37 @@
      	
      	\textit{Getter für ID von der Mitgliedschaft}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Mitgliedschaft-ID        \item{\texttt{public String getUserId()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Mitgliedschafts-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public String getUserId()}}
      	
      	\textit{Getter für ID vom Mitglied}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Benutzer-ID        \item{\texttt{public String getFlatshareId()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Benutzer-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public String getFlatshareId()}}
      	
      	\textit{Getter für WG-ID}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	WG-ID        \item{\texttt{public String getMagnetColor()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{WG-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public String getMagnetColor()}}
      	
      	\textit{Getter für Magnetfarbe, die dem Mitglied in der WG zugeteilt wird}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Magenetfarbe
+     	\textbf{Rückgabewert} 
+     	\begin{itemize}
+     		\item\textit{Magenetfarbe}
+     	\end{itemize}
      \end{itemize}
      \subsubsection{\texttt{Class ReadConfirmation}}
      \textbf{Beschreibung} \\
@@ -693,33 +974,45 @@
      	
      	\textit{Getter für Lesebestätigung-ID}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Lesebestätigung-ID        \item{\texttt{public String getUserId()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Lesebestätigungs-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public String getUserId()}}
      	
      	\textit{Getter für ID vom Benutzer, der die Cool Note gelesen hat}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Benutzer-ID        \item{\texttt{public String getCoolNoteId()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Benutzer-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public String getCoolNoteId()}}
      	
      	\textit{Getter für ID vom Cool Note, die gelesen wurde}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	CoolNote-ID        \item{\texttt{public ReadConfirmation buildNew(String userId, String coolNoteId)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Cool-Note-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public ReadConfirmation buildNew(String userId, String coolNoteId)}}
      	
      	\textit{Baut Lesebestätigung.}
      	
-     	\textbf{Parameter} \\
-     	userId ID vom Benutzer, der die Cool Note gelesen hat\\
-     	coolNoteId ID vom Cool Note, die gelesen wurde
-     	
-     	\textbf{Rückgabewert} \\
-     	Gebaute Lesebestätigung
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{userId}\\
+     		\textit{ID vom Benutzer, der die Cool Note gelesen hat}
+     		\item\texttt{coolNoteId}\\
+     		\textit{ID von der Cool Note, die gelesen wurde}
+     	\end{itemize}
+     
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gebaute Lesebestätigung}
+     	\end{itemize}
      \end{itemize}
      \subsubsection{\texttt{Class TaggedUser}}
      \textbf{Beschreibung} \\
@@ -730,33 +1023,45 @@
      	
      	\textit{Getter für ID vom getaggten Mitglied}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	ID vom getaggten Mitglied        \item{\texttt{public String getUserId()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{ID vom getaggten Mitglied}
+     	\end{itemize}
+     
+     \item{\texttt{public String getUserId()}}
      	
      	\textit{Getter für ID vom Benutzer, der getaggt wurde}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Benutzer-ID        \item{\texttt{public String getCoolNoteId()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Benutzer-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public String getCoolNoteId()}}
      	
      	\textit{Getter für ID von der Cool Note, in der der Benutzer getaggt wurde}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	CoolNote-ID        \item{\texttt{public TaggedUser buildNew(String userId, String coolNoteId)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Cool-Note-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public TaggedUser buildNew(String userId, String coolNoteId)}}
      	
      	\textit{Baut getaggtes Mitglied.}
      	
-     	\textbf{Parameter} \\
-     	userId ID vom Benutzer, der getaggt wurde\\
-     	coolNoteId ID von der Cool Note, in der der Benutzer getaggt wurde
-     	
-     	\textbf{Rückgabewert} \\
-     	Gebautes getaggtes Mitglied
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{userId}\\
+     		\textit{ID vom Benutzer, der getaggt wurde}
+     		\item\texttt{coolNoteId}\\
+     		\textit{ID von der Cool Note, in der der Benutzer getaggt wurde}
+     	\end{itemize}
+     
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gebautes getaggtes Mitglied}
+     	\end{itemize}
      \end{itemize}
      \subsubsection{\texttt{Class User}}
      \textbf{Beschreibung} \\
@@ -767,156 +1072,188 @@
      	
      	\textit{Getter für Benutzer-ID}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Benutzer-ID        \item{\texttt{public String getGoogleUserId()}}
+     	\textbf{Rückgabewert} 
+     	\begin{itemize}
+     		\item\textit{Benutzer-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public String getGoogleUserId()}}
      	
      	\textit{Getter für Google-ID vom Benutzer}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Google-ID        \item{\texttt{public String getGoogleName()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Google-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public String getGoogleName()}}
      	
      	\textit{Getter für Google-Name vom Benutzer}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Google-Name        \item{\texttt{public User buildNew(String googleUserId, String googleName)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Google-Name}
+     	\end{itemize}
+     
+     \item{\texttt{public User buildNew(String googleUserId, String googleName)}}
      	
      	\textit{Baut Benutzer mit zufälliger UUID.}
      	
-     	\textbf{Parameter} \\
-     	googleUserId Google-ID vom Benutzer\\
-     	googleName Google-Name vom Benutzer
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{googleUserId}\\
+     		\textit{Google-ID vom Benutzer}
+     		\item\texttt{googleName}\\
+     		\textit{Google-Name vom Benutzer}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Gebauter Benutzer mit zufälliger UUID
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gebauter Benutzer mit zufälliger UUID}
+     	\end{itemize}
      \end{itemize}
      \subsection{Package edu.kit.pse.fridget.server.models.commands}
      \subsubsection{\texttt{Class SaveFlatshareCommand}}
      \textbf{Beschreibung} \\
      \textit{Model für das Speichern der WG}
      \paragraph*{Konstruktor}\mbox{} \\
-     \texttt{public SaveFlatshareCommand(String userId, String flatshareName)} \\
+     \texttt{public SaveFlatshareCommand(String userId, String flatshareName)} 
      \paragraph*{Methoden}
      \begin{itemize}
      	\item{\texttt{public String getUserId()}}
      	
      	\textit{Getter für ID vom Benutzer, der die WG erstellt hat}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Benutzer-IDsss        \item{\texttt{public String getFlatshareName()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Benutzer-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public String getFlatshareName()}}
      	
      	\textit{Getter für Name von der WG}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	WG-Name        \item{\texttt{public Flatshare buildFlatshare()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{WG-Name}
+     	\end{itemize}
+     
+     \item{\texttt{public Flatshare buildFlatshare()}}
      	
      	\textit{Baut eine WG-Instanz.}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	WG
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{WG}
+     	\end{itemize}
      \end{itemize}
+ 
      \subsubsection{\texttt{Class SaveMembershipCommand}}
      \textbf{Beschreibung} \\
      \textit{Model für das Speichern der Mitgliedschaft}
      \paragraph*{Konstruktor}\mbox{} \\
-     \texttt{public SaveMembershipCommand(String accessCode, String userId)} \\
+     \texttt{public SaveMembershipCommand(String accessCode, String userId)}
      \paragraph*{Methoden}
      \begin{itemize}
      	\item{\texttt{public String getAccessCode()}}
      	
      	\textit{Getter für Zugangscode}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Zugangscode        \item{\texttt{public String getUserId()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Zugangscode}
+     	\end{itemize}
+     
+     \item{\texttt{public String getUserId()}}
      	
      	\textit{ID vom Benutzer, der der WG beitritt}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Benutzer-ID        \item{\texttt{public Membership.Builder getBuilder()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Benutzer-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public Membership.Builder getBuilder()}}
      	
      	\textit{Getter für Builder von Mitgliedschaft}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Builder von Mitgliedschaft
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Builder von Mitgliedschaft}
+     	\end{itemize}
      \end{itemize}
+ 
      \subsection{Package edu.kit.pse.fridget.server.models.representations}
      \subsubsection{\texttt{Class UserMembershipRepresentation}}
      \textbf{Beschreibung} \\
      \textit{Model für Benutzer mit Mitgliedschaft-Info}
      \paragraph*{Konstruktor}\mbox{} \\
-     \texttt{public UserMembershipRepresentation(User user, Membership membership)} \\
+     \texttt{public UserMembershipRepresentation(User user, Membership membership)}
      \paragraph*{Methoden}
      \begin{itemize}
      	\item{\texttt{public String getUserId()}}
      	
      	\textit{Getter für ID vom Benutzer}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Benutzer-ID        \item{\texttt{public String getGoogleUserId()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Benutzer-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public String getGoogleUserId()}}
      	
      	\textit{Getter für Google-ID vom Benutzer}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Google-User-ID        \item{\texttt{public String getGoogleName()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Google-User-ID}
+     	\end{itemize}
+     
+     \item{\texttt{public String getGoogleName()}}
      	
      	\textit{Getter für Google-Name von Benutzer}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Google-Name        \item{\texttt{public String getMagnetColor()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Google-Name}
+     	\end{itemize}
+     
+     \item{\texttt{public String getMagnetColor()}}
      	
      	\textit{Getter für Magnetfarbe, die dem Benutzer zugeteilt wurde}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Benutzer
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Benutzer}
+     	\end{itemize}
      \end{itemize}
+ 
      \subsubsection{\texttt{Class UserWithJwtRepresentation}}
      \textbf{Beschreibung} \\
      \textit{Model für Benutzer mit JWT (JSON Web Token)}
      \paragraph*{Konstruktor}\mbox{} \\
-     \texttt{public UserWithJwtRepresentation(User user, String jwt)} \\
+     \texttt{public UserWithJwtRepresentation(User user, String jwt)}
      \paragraph*{Methoden}
      \begin{itemize}
      	\item{\texttt{public User getUser()}}
      	
      	\textit{Getter für Benutzer}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	Benutzer        \item{\texttt{public String getJwt()}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Benutzer}
+     	\end{itemize}
+     
+     \item{\texttt{public String getJwt()}}
      	
      	\textit{Getter für JWT}
      	
-     	
-     	
-     	\textbf{Rückgabewert} \\
-     	JWT
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{JWT}
+     	\end{itemize}
      \end{itemize}
+ 
      \subsection{Package edu.kit.pse.fridget.server.repositories}
      \begin{figure}[H]
 	       \centering
@@ -932,11 +1269,16 @@
      	
      	\textit{Findet einen Zugangscode über Inhalt.}
      	
-     	\textbf{Parameter} \\
-     	content Inhalt des Zugangscodes
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{content}\\
+     		\textit{Inhalt des Zugangscodes}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Gefundener Zugangscode
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gefundener Zugangscode}
+     	\end{itemize}
      \end{itemize}
      \subsubsection{\texttt{Interface CommentRepository extends JpaRepository<Comment,String>}}
      \textbf{Beschreibung} \\
@@ -945,13 +1287,18 @@
      \begin{itemize}
      	\item{\texttt{public List<Comment> findByCoolNoteId(String coolNoteId)}}
      	
-     	\textit{Findet alle Kommentare über CoolNote-ID}
+     	\textit{Findet alle Kommentare über Cool-Note-ID}
      	
-     	\textbf{Parameter} \\
-     	coolNoteId CoolNote-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{coolNoteId}\\
+     		\textit{Cool-Note-ID}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Liste von gefundenen Kommentaren
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Liste von gefundenen Kommentaren}
+     	\end{itemize}
      \end{itemize}
      \subsubsection{\texttt{Interface CoolNoteRepository extends JpaRepository<CoolNote,String>}}
      \textbf{Beschreibung} \\
@@ -962,12 +1309,18 @@
      	
      	\textit{Findet alle Cool Notes über WG-ID}
      	
-     	\textbf{Parameter} \\
-     	flatshareId WG-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{flatshareId}\\
+     		\textit{WG-ID}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Liste von gefundenen Cool Notes
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Liste von gefundenen Cool Notes}
+     	\end{itemize}
      \end{itemize}
+ 
      \subsubsection{\texttt{Interface DeviceRepository extends JpaRepository<Device,String>}}
      \textbf{Beschreibung} \\
      \textit{Repository für Geräte}
@@ -983,12 +1336,18 @@
      	
      	\textit{Findet alle Frozen Notes über WG-ID}
      	
-     	\textbf{Parameter} \\
-     	flatshareId WG-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{flatshareId}\\
+     		\textit{WG-ID}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Liste von gefundenen Frozen Notes
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Liste von gefundenen Frozen Notes}
+     	\end{itemize}
      \end{itemize}
+ 
      \subsubsection{\texttt{Interface ImageNoteRepository extends JpaRepository<ImageNote,String>}}
      \textbf{Beschreibung} \\
      \textit{Repository für Image Cool Note}
@@ -998,12 +1357,18 @@
      	
      	\textit{Findet alle Image Cool Notes über WG-ID}
      	
-     	\textbf{Parameter} \\
-     	flatshareId WG-ID
+     	\textbf{Parameter} 
+     	\begin{itemize}
+     		\item\texttt{flatshareId}\\
+     		\textit{WG-ID}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Liste von gefundenen Image Cool Notes
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Liste von gefundenen Image Cool Notes}
+     	\end{itemize}
      \end{itemize}
+ 
      \subsubsection{\texttt{Interface MembershipRepository extends JpaRepository<Membership,String>}}
      \textbf{Beschreibung} \\
      \textit{Repository für Mitgliedschaft}
@@ -1013,29 +1378,47 @@
      	
      	\textit{Findet alle Mitgliedschaften über WG-ID}
      	
-     	\textbf{Parameter} \\
-     	flatshareId WG-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{flatshareId}\\
+     		\textit{WG-ID}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Liste von gefundenen Mitgliedschaften        \item{\texttt{public Membership findByFlatshareIdAndUserId(String flatshareId, String userId)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Liste von gefundenen Mitgliedschaften}
+     	\end{itemize}
+     
+     \item{\texttt{public Membership findByFlatshareIdAndUserId(String flatshareId, String userId)}}
      	
      	\textit{Findet eine Mitgliedschaft über WG-ID und Benutzer-ID}
      	
-     	\textbf{Parameter} \\
-     	flatshareId WG-ID\\
-     	userId Benutzer-ID
-     	
-     	\textbf{Rückgabewert} \\
-     	Gefundene Mitgliedschaft        \item{\texttt{public void deleteByFlatshareIdAndUserId(String flatshareId, String userId)}}
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{flatshareId}\\
+     		\textit{WG-ID}
+     		\item\texttt{userId}\\
+     		\textit{Benutzer-ID}
+     	\end{itemize}
+     
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gefundene Mitgliedschaft}
+     	\end{itemize}
+     
+     \item{\texttt{public void deleteByFlatshareIdAndUserId(String flatshareId, String userId)}}
      	
      	\textit{Löscht eine Mitgiedschaft über WG-ID und Benutzer-ID}
      	
-     	\textbf{Parameter} \\
-     	flatshareId WG-ID\\
-     	userId Benutzer-ID
-     	
-     	
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{flatshareId}\\
+     		\textit{WG-ID}
+     		\item\texttt{userId}\\
+     		\textit{Benutzer-ID}
+     	\end{itemize}
      \end{itemize}
+     
      \subsubsection{\texttt{Interface ReadConfirmationRepository extends JpaRepository<ReadConfirmation,String>}}
      \textbf{Beschreibung} \\
      \textit{Repository für Lesebestätigung}
@@ -1045,20 +1428,30 @@
      	
      	\textit{Findet alle Lesebestätigungen über CoolNote-ID}
      	
-     	\textbf{Parameter} \\
-     	id CoolNote-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{id}\\
+     		\textit{Cool-Note-ID}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Liste von gefundenen Lesebestätigungen        \item{\texttt{public void deleteByCoolNoteIdAndUserId(String coolNoteId, String userId)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Liste von gefundenen Lesebestätigungen}
+     	\end{itemize}
+     
+     \item{\texttt{public void deleteByCoolNoteIdAndUserId(String coolNoteId, String userId)}}
      	
-     	\textit{Löscht eine Lesebestätigung über CoolNote-ID und Benutzer-ID}
+     	\textit{Löscht eine Lesebestätigung über Cool-Note-ID und Benutzer-ID}
      	
-     	\textbf{Parameter} \\
-     	coolNoteId CoolNote-ID\\
-     	userId Benutzer-ID
-     	
-     	
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{coolNoteId}\\
+     		\textit{Cool-Note-ID}
+     		\item\texttt{userId}\\
+     		\textit{Benutzer-ID}
+     	\end{itemize}
      \end{itemize}
+     
      \subsubsection{\texttt{Interface TaggedUserRepository extends JpaRepository<TaggedUser,String>}}
      \textbf{Beschreibung} \\
      \textit{Repository für getaggte Mitglieder}
@@ -1080,17 +1473,22 @@
      	
      	\textit{Generiert einen zufälligen und eindeutigen Zugangscode für eine WG.}
      	
-     	\textbf{Parameter} \\
-     	flatshareId WG-ID
-     	
-     	\textbf{Rückgabewert} \\
-     	Generierter Zugangscode
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{flatshareId}\\
+     		\textit{WG-ID}
+     	\end{itemize}
+     
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Generierter Zugangscode}
+     	\end{itemize}
      \end{itemize}
      \subsubsection{\texttt{Class AccessCodeServiceImpl implements AccessCodeService}}
      \textbf{Beschreibung} \\
      \textit{Service für Zugangscode}
      \paragraph*{Konstruktor}\mbox{} \\
-     \texttt{public AccessCodeServiceImpl(AccessCodeRepository repository)} \\
+     \texttt{public AccessCodeServiceImpl(AccessCodeRepository repository)}
      \subsubsection{\texttt{Class AuthenticationService}}
      \textbf{Beschreibung} \\
      \textit{Service für Authentifizierung}
@@ -1100,12 +1498,18 @@
      	
      	\textit{Prüft den Google-ID-Token.}
      	
-     	\textbf{Parameter} \\
-     	idTokenString Google-ID-Token
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{idTokenString}\\
+     		\textit{Google-ID-Token}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Payload von Google-ID-Token
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Payload von Google-ID-Token}
+     	\end{itemize}
      \end{itemize}
+ 
      \subsubsection{\texttt{Interface CommentService}}
      \textbf{Beschreibung} \\
      \textit{Interface von Service für Kommentar}
@@ -1115,32 +1519,47 @@
      	
      	\textit{Findet alle Kommentare.}
      	
-     	\textbf{Parameter} \\
-     	coolNoteId CoolNote-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{coolNoteId}\\
+     		\textit{Cool-Note-ID}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Liste von gefundenen Kommentaren        \item{\texttt{public Comment saveComment(Comment comment)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Liste von gefundenen Kommentaren}
+     	\end{itemize}
+     
+     \item{\texttt{public Comment saveComment(Comment comment)}}
      	
      	\textit{Speichert einen Kommentar.}
      	
-     	\textbf{Parameter} \\
-     	comment Kommentar zum speichern
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{comment}\\
+     		\textit{Kommentar zum Speichern}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Gespeicherter Kommentar        \item{\texttt{public void deleteComment(String id)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gespeicherter Kommentar}
+     	\end{itemize}
+     
+     \item{\texttt{public void deleteComment(String id)}}
      	
      	\textit{Löscht einen Kommentar.}
      	
-     	\textbf{Parameter} \\
-     	id Kommentar-ID
-     	
-     	
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{id}\\
+     		\textit{Kommentar-ID}
+     	\end{itemize}
      \end{itemize}
      \subsubsection{\texttt{Class CommentServiceImpl implements CommentService}}
      \textbf{Beschreibung} \\
      \textit{Service für Kommentar}
      \paragraph*{Konstruktor}\mbox{} \\
-     \texttt{public CommentServiceImpl(CommentRepository repository)} \\
+     \texttt{public CommentServiceImpl(CommentRepository repository)}
      \subsubsection{\texttt{Interface CoolNoteService}}
      \textbf{Beschreibung} \\
      \textit{Interface von Service für Cool Note}
@@ -1150,35 +1569,58 @@
      	
      	\textit{Findet alle Cool Notes mit getaggten Benutzern in einer WG.}
      	
-     	\textbf{Parameter} \\
-     	flatshareId WG-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{flatshareId}\\
+     		\textit{WG-ID}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Liste von gefundenen CoolNote mit getaggten Benutzern        \item{\texttt{public CoolNote getCoolNote(String id)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Liste von gefundenen Cool Notes mit getaggten Benutzern}
+     	\end{itemize}
+     
+     \item{\texttt{public CoolNote getCoolNote(String id)}}
      	
      	\textit{Findet eine Cool Note mit getaggten Benutzern.}
      	
-     	\textbf{Parameter} \\
-     	id CoolNote-ID
-     	
-     	\textbf{Rückgabewert} \\
-     	Gefundene CoolNote mit getaggten Benutzern        \item{\texttt{public CoolNote saveCoolNote(CoolNote coolNote)}}
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{id}\\
+     		\textit{Cool-Note-ID}
+     	\end{itemize}
+     
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gefundene Cool Note mit getaggten Benutzern}
+     	\end{itemize}
+     
+     \item{\texttt{public CoolNote saveCoolNote(CoolNote coolNote)}}
      	
      	\textit{Speichert eine Cool Note.}
      	
-     	\textbf{Parameter} \\
-     	coolNote CoolNote zum speichern
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{coolNote}\\
+     		\textit{Cool Note zum Speichern}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Gespeicherte CoolNote        \item{\texttt{public void deleteCoolNote(String id)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gespeicherte Cool Note}
+     	\end{itemize}
+     
+     \item{\texttt{public void deleteCoolNote(String id)}}
      	
      	\textit{Löscht eine Cool Note.}
      	
-     	\textbf{Parameter} \\
-     	id CoolNote-ID
-     	
-     	
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{id}\\
+     		\textit{Cool-Note-ID}
+     	\end{itemize}
      \end{itemize}
+     
      \subsubsection{\texttt{Class CoolNoteServiceImpl implements CoolNoteService}}
      \textbf{Beschreibung} \\
      \textit{Service für Cool Note}
@@ -1193,17 +1635,23 @@
      	
      	\textit{Speichert ein neues Gerät.}
      	
-     	\textbf{Parameter} \\
-     	device Gerät zum speichern
-     	
-     	\textbf{Rückgabewert} \\
-     	Gespeichertes Gerät
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{device}\\
+     		\textit{Gerät zum Speichern}
+     	\end{itemize}
+     
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gespeichertes Gerät}
+     	\end{itemize}
      \end{itemize}
+ 
      \subsubsection{\texttt{Class DeviceServiceImpl implements DeviceService}}
      \textbf{Beschreibung} \\
      \textit{Service für Gerät}
      \paragraph*{Konstruktor}\mbox{} \\
-     \texttt{public DeviceServiceImpl(DeviceRepository repository)} \\
+     \texttt{public DeviceServiceImpl(DeviceRepository repository)}
      \subsubsection{\texttt{Interface FlatshareService}}
      \textbf{Beschreibung} \\
      \textit{Interface von Service für WG}
@@ -1213,26 +1661,40 @@
      	
      	\textit{Findet eine WG.}
      	
-     	\textbf{Parameter} \\
-     	id WG-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{id}\\
+     		\textit{WG-ID}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Gefundene WG        \item{\texttt{public Flatshare saveFlatshare(Flatshare flatshare, String userId)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gefundene WG}
+     	\end{itemize}
+     
+     \item{\texttt{public Flatshare saveFlatshare(Flatshare flatshare, String userId)}}
      	
      	\textit{Speichert eine WG mit einem Namen.}
      	
-     	\textbf{Parameter} \\
-     	flatshare WG zum speichern\\
-     	userId Benutzer-ID
-     	
-     	\textbf{Rückgabewert} \\
-     	Gespeicherte WG
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{flatshare}\\
+     		\textit{WG zum Speichern}
+     		\item\texttt{userId}\\
+     		\textit{Benutzer-ID}
+     	\end{itemize}
+     
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gespeicherte WG}
+     	\end{itemize}
      \end{itemize}
+ 
      \subsubsection{\texttt{Class FlatshareServiceImpl implements FlatshareService}}
      \textbf{Beschreibung} \\
      \textit{Service für WG}
      \paragraph*{Konstruktor}\mbox{} \\
-     \texttt{public FlatshareServiceImpl(FlatshareRepository flatshareRepository, MembershipService membershipService, FrozenNoteService frozenNoteService)} \\
+     \texttt{public FlatshareServiceImpl(FlatshareRepository flatshareRepository, MembershipService membershipService, FrozenNoteService frozenNoteService)}
      \subsubsection{\texttt{Interface FrozenNoteService}}
      \textbf{Beschreibung} \\
      \textit{Interface von Service für Frozen Note}
@@ -1242,42 +1704,69 @@
      	
      	\textit{Findet alle Frozen Notes in einer WG.}
      	
-     	\textbf{Parameter} \\
-     	flatshareId WG-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{flatshareId}\\
+     		\textit{WG-ID}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Liste von gefundenen FrozenNote        \item{\texttt{public FrozenNote getFrozenNote(String id)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Liste von gefundenen Frozen Notes}
+     	\end{itemize}
+     
+     \item{\texttt{public FrozenNote getFrozenNote(String id)}}
      	
      	\textit{Findet eine Frozen Note.}
      	
-     	\textbf{Parameter} \\
-     	id FrozenNote-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{id}\\
+     		\textit{Frozen-Note-ID}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Gefundene FrozenNote        \item{\texttt{public FrozenNote updateFrozenNote(String id, FrozenNote frozenNote)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gefundene Frozen Note}
+     	\end{itemize}
+     
+     \item{\texttt{public FrozenNote updateFrozenNote(String id, FrozenNote frozenNote)}}
      	
      	\textit{Updatet eine Frozen Note.}
      	
-     	\textbf{Parameter} \\
-     	id FrozenNote-ID\\
-     	frozenNote FrozenNote zum updaten
-     	
-     	\textbf{Rückgabewert} \\
-     	Geupdatete FrozenNote        \item{\texttt{public FrozenNote saveFrozenNote(FrozenNote frozenNote)}}
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{id}\\
+     		\textit{Frozen-Note-ID}
+     		\item\texttt{frozenNote}\\
+     		\textit{Frozen Note zum Updaten}
+     	\end{itemize}
+     
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Geupdatete Frozen Note}
+     	\end{itemize}
+     
+     \item{\texttt{public FrozenNote saveFrozenNote(FrozenNote frozenNote)}}
      	
      	\textit{Speichert eine Frozen Note.}
      	
-     	\textbf{Parameter} \\
-     	frozenNote FrozenNote zum speichern
-     	
-     	\textbf{Rückgabewert} \\
-     	Gespeicherte FrozenNote
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{frozenNote}\\
+     		\textit{Frozen Note zum Speichern}
+     	\end{itemize}
+     
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gespeicherte Frozen Note}
+     	\end{itemize}
      \end{itemize}
      \subsubsection{\texttt{Class FrozenNoteServiceImpl implements FrozenNoteService}}
      \textbf{Beschreibung} \\
      \textit{Service für Frozen Note}
      \paragraph*{Konstruktor}\mbox{} \\
-     \texttt{public FrozenNoteServiceImpl(FrozenNoteRepository repository)} \\
+     \texttt{public FrozenNoteServiceImpl(FrozenNoteRepository repository)}
      \subsubsection{\texttt{Interface ImageNoteService}}
      \textbf{Beschreibung} \\
      \textit{Interface von Service für Image Cool Note}
@@ -1287,40 +1776,63 @@
      	
      	\textit{Findet alle Image Cool Notes.}
      	
-     	\textbf{Parameter} \\
-     	flatshareId WG-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{flatshareId}\\
+     		\textit{WG-ID}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Liste von gefundenen ImageNotes        \item{\texttt{public ImageNote getImageNote(String id)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Liste von gefundenen Image Notes}
+     	\end{itemize}
+     
+     \item{\texttt{public ImageNote getImageNote(String id)}}
      	
      	\textit{Findet eine Image Cool Note.}
      	
-     	\textbf{Parameter} \\
-     	id ImageNote-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{id}\\
+     		\textit{Image-Note-ID}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Gefundene ImageNote        \item{\texttt{public ImageNote saveImageNote(ImageNote imageNote)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gefundene Image Note}
+     	\end{itemize}
+     
+     \item{\texttt{public ImageNote saveImageNote(ImageNote imageNote)}}
      	
      	\textit{Speichert eine Image Cool Note.}
      	
-     	\textbf{Parameter} \\
-     	imageNote ImageNote zum speichern
-     	
-     	\textbf{Rückgabewert} \\
-     	Gespeicherte ImageNote        \item{\texttt{public void deleteImageNote(String id)}}
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{imageNote}\\
+   			\textit{Image Note zum Speichern}
+   		\end{itemize}
+   	
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gespeicherte Image Note}
+     	\end{itemize}
+     
+     \item{\texttt{public void deleteImageNote(String id)}}
      	
      	\textit{Löscht eine Image Cool Note.}
      	
-     	\textbf{Parameter} \\
-     	id ImageNote-ID
-     	
-     	
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{id}\\
+     		\textit{Image-Note-ID}
+     	\end{itemize}
      \end{itemize}
+ 
      \subsubsection{\texttt{Class ImageNoteServiceImpl implements ImageNoteService}}
      \textbf{Beschreibung} \\
      \textit{Service für Image Cool Note}
      \paragraph*{Konstruktor}\mbox{} \\
-     \texttt{public ImageNoteServiceImpl(ImageNoteRepository repository)} \\
+     \texttt{public ImageNoteServiceImpl(ImageNoteRepository repository)}
      \subsubsection{\texttt{Interface MembershipService}}
      \textbf{Beschreibung} \\
      \textit{Interface von Service für Mitgliedschaft}
@@ -1330,52 +1842,86 @@
      	
      	\textit{Findet alle Mitglieder in einer WG.}
      	
-     	\textbf{Parameter} \\
-     	flatshareId WG-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{flatshareId}\\
+     		\textit{WG-ID}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Liste von gefundenen UserMembershipRepresentation        \item{\texttt{public UserMembershipRepresentation getUser(String flatshareId, String userId)}}
+     	\textbf{Rückgabewert} 
+     	\begin{itemize}
+     		\item\textit{Liste von gefundenen UserMembershipRepresentation}
+     	\end{itemize}
+     
+     \item{\texttt{public UserMembershipRepresentation getUser(String flatshareId, String userId)}}
      	
      	\textit{Findet ein Mitglied in einer WG.}
      	
-     	\textbf{Parameter} \\
-     	flatshareId WG-ID\\
-     	userId Benutzer-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{flatshareId}\\
+     		\textit{WG-ID}
+     		\item\texttt{userId}\\
+     		\textit{Benutzer-ID}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Gefundener UserMembershipRepresentation        \item{\texttt{public Membership saveMembership(String accessCode, String userId, Membership.Builder membershipBuilder)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gefundene UserMembershipRepresentation}
+     	\end{itemize}
+     
+     \item{\texttt{public Membership saveMembership(String accessCode, String userId, Membership.Builder membershipBuilder)}}
      	
      	\textit{Speichert einen Benutzer mit gültigem Zugangscode in einer WG.}
      	
-     	\textbf{Parameter} \\
-     	accessCode Zugangscode\\
-     	userId Benutzer-ID\\
-     	membershipBuilder membershipBuilder
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{accessCode}\\
+     		\textit{Zugangscode}
+     		\item\texttt{userId}\\
+     		\textit{Benutzer-ID}
+     		\item\texttt{membershipBuilder}\\
+     		\textit{membershipBuilder}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Gespeicherte Mitgliedschaft        \item{\texttt{public Membership saveMembership(Membership membership)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gespeicherte Mitgliedschaft}
+     	\end{itemize}
+     
+     \item{\texttt{public Membership saveMembership(Membership membership)}}
      	
      	\textit{Speichert eine Mitgliedschaft.}
      	
-     	\textbf{Parameter} \\
-     	membership Mitgliedschaft zum speichern
-     	
-     	\textbf{Rückgabewert} \\
-     	Gespeicherte Mitgliedschaft        \item{\texttt{public void deleteMembership(String flatshareId, String userId)}}
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{membership}\\
+     		\textit{Mitgliedschaft zum Speichern}
+     	\end{itemize}
+     
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gespeicherte Mitgliedschaft}
+     	\end{itemize}
+     
+     \item{\texttt{public void deleteMembership(String flatshareId, String userId)}}
      	
      	\textit{Löscht ein Mitglied von einer WG.}
      	
-     	\textbf{Parameter} \\
-     	flatshareId WG-ID\\
-     	userId Benutzer-ID
-     	
-     	
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{flatshareId}\\
+     		\textit{WG-ID}
+     		\item\texttt{userId}\\
+     		\textit{Benutzer-ID}
+     	\end{itemize}
      \end{itemize}
+     
      \subsubsection{\texttt{Class MembershipServiceImpl implements MembershipService}}
      \textbf{Beschreibung} \\
      \textit{Service für Mitgliedschaft}
      \paragraph*{Konstruktor}\mbox{} \\
-     \texttt{public MembershipServiceImpl(MembershipRepository membershipRepository, UserRepository userRepository, AccessCodeRepository accessCodeRepository)} \\
+     \texttt{public MembershipServiceImpl(MembershipRepository membershipRepository, UserRepository userRepository, AccessCodeRepository accessCodeRepository)}
      \subsubsection{\texttt{Interface ReadConfirmationService}}
      \textbf{Beschreibung} \\
      \textit{Interface von Service für Lesebestätigung}
@@ -1385,33 +1931,50 @@
      	
      	\textit{Findet alle Leser einer Cool Note.}
      	
-     	\textbf{Parameter} \\
-     	coolNoteId CoolNote-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{coolNoteId}\\
+     		\textit{Cool-Note-ID}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Liste von gefundenen Benutzern        \item{\texttt{public ReadConfirmation saveReadConfirmation(ReadConfirmation readConfirmation)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Liste von gefundenen Benutzern}
+     	\end{itemize}
+     
+     \item{\texttt{public ReadConfirmation saveReadConfirmation(ReadConfirmation readConfirmation)}}
      	
      	\textit{Speichert einen Benutzer als Leser einer Cool Note.}
      	
-     	\textbf{Parameter} \\
-     	readConfirmation Lesebestätigung zum speichern
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{readConfirmation}\\
+     		\textit{Lesebestätigung zum Speichern}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Gespeicherte Lesebestätigung        \item{\texttt{public void deleteReadConfirmation(String coolNoteId, String userId)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gespeicherte Lesebestätigung}
+     	\end{itemize}
+     
+     \item{\texttt{public void deleteReadConfirmation(String coolNoteId, String userId)}}
      	
      	\textit{Löscht einen Benutzer als Leser einer Cool Note.}
      	
-     	\textbf{Parameter} \\
-     	coolNoteId CoolNote-ID\\
-     	userId Benutzer-ID
-     	
-     	
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{coolNoteId}\\
+     		\textit{Cool-Note-ID}
+     		\item\texttt{userId}\\
+     		\textit{Benutzer-ID}
+     	\end{itemize}
      \end{itemize}
+ 
      \subsubsection{\texttt{Class ReadConfirmationServiceImpl implements ReadConfirmationService}}
      \textbf{Beschreibung} \\
      \textit{Service für Lesebestätigung}
      \paragraph*{Konstruktor}\mbox{} \\
-     \texttt{public ReadConfirmationServiceImpl(ReadConfirmationRepository readConfirmationRepository, UserRepository userRepository)} \\
+     \texttt{public ReadConfirmationServiceImpl(ReadConfirmationRepository readConfirmationRepository, UserRepository userRepository)}
      \subsubsection{\texttt{Interface TaggedUserService}}
      \textbf{Beschreibung} \\
      \textit{Interface von Service für getaggte Mitglieder}
@@ -1421,26 +1984,40 @@
      	
      	\textit{Findet alle getaggte Mitglieder.}
      	
-     	\textbf{Parameter} \\
-     	coolNoteId CoolNote-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{coolNoteId}\\
+     		\textit{Cool-Note-ID}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Liste von gefundenen getaggten Mitgliedern        \item{\texttt{public TaggedUser saveTaggedUser(String userId, String coolNoteId)}}
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Liste von gefundenen getaggten Mitgliedern }
+     	\end{itemize}
+     
+     \item{\texttt{public TaggedUser saveTaggedUser(String userId, String coolNoteId)}}
      	
      	\textit{Speichert ein getaggtes Mitglied.}
      	
-     	\textbf{Parameter} \\
-     	userId Benutzer-ID\\
-     	coolNoteId CoolNote-ID
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{userId}\\
+     		\textit{Benutzer-ID}
+     		\item\texttt{coolNoteId}\\
+     		\textit{Cool-Note-ID}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Gespeichertes getaggtes Mitglied
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gespeichertes getaggtes Mitglied}
+     	\end{itemize}
      \end{itemize}
+ 
      \subsubsection{\texttt{Class TaggedUserServiceImpl implements TaggedUserService}}
      \textbf{Beschreibung} \\
      \textit{Service für getaggte Mitglieder}
      \paragraph*{Konstruktor}\mbox{} \\
-     \texttt{public TaggedUserServiceImpl(TaggedUserRepository repository)} \\
+     \texttt{public TaggedUserServiceImpl(TaggedUserRepository repository)}
      \subsubsection{\texttt{Interface UserService}}
      \textbf{Beschreibung} \\
      \textit{Interface von Service für Benutzer}
@@ -1450,16 +2027,22 @@
      	
      	\textit{Authentifiziert einen Benutzer durch Google-ID-Token.}
      	
-     	\textbf{Parameter} \\
-     	googleIdToken Google-ID-Token
+     	\textbf{Parameter}
+     	\begin{itemize}
+     		\item\texttt{googleIdToken}\\
+     		\textit{Google-ID-Token}
+     	\end{itemize}
      	
-     	\textbf{Rückgabewert} \\
-     	Gespeicherter oder angemeldeter Benutzer mit JWT
+     	\textbf{Rückgabewert}
+     	\begin{itemize}
+     		\item\textit{Gespeicherter oder angemeldeter Benutzer mit JWT}
+     	\end{itemize}
      \end{itemize}
+ 
      \subsubsection{\texttt{Class UserServiceImpl implements UserService}}
      \textbf{Beschreibung} \\
      \textit{Service für Benutzer}
      \paragraph*{Konstruktor}\mbox{} \\
-     \texttt{public UserServiceImpl(UserRepository repository)} \\
+     \texttt{public UserServiceImpl(UserRepository repository)}
 
 %\end{document}
