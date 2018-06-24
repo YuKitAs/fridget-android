@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>6</zoom_level>
+  <zoom_level>5</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>552</x>
-      <y>72</y>
-      <w>300</w>
-      <h>180</h>
+      <x>570</x>
+      <y>110</y>
+      <w>250</w>
+      <h>150</h>
     </coordinates>
     <panel_attributes>UserController
 --
@@ -22,23 +22,22 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>552</x>
+      <x>570</x>
       <y>300</y>
-      <w>300</w>
-      <h>180</h>
+      <w>250</w>
+      <h>150</h>
     </coordinates>
     <panel_attributes>CoolNoteController
 --
 --
 @GetMapping
 +getAllCoolNotes(@RequestParam("flatshare") String flatshareId)
-    : ResponseEntity&lt;List&lt;CoolNoteWithTaggedUsersRepresentation&gt;&gt;
+    : ResponseEntity&lt;List&lt;CoolNote&gt;&gt;
 @GetMapping
 +getCoolNote(@PathVariable String id)
-    : ResponseEntity&lt;CoolNoteWithTaggedUsersRepresentation&gt;
+    : ResponseEntity&lt;CoolNote&gt;
 @PostMapping
-+saveCoolNote(@RequestBody
-    SaveCoolNoteCommand saveCoolNoteCommand)
++saveCoolNote(@RequestBody CoolNote coolNote)
     : ResponseEntity&lt;CoolNote&gt;
 @DeleteMapping
 +deleteCoolNote(@PathVariable String id): ResponseEntity&lt;Void&gt;
@@ -48,10 +47,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>198</x>
-      <y>72</y>
-      <w>300</w>
-      <h>180</h>
+      <x>275</x>
+      <y>110</y>
+      <w>250</w>
+      <h>150</h>
     </coordinates>
     <panel_attributes>FlatshareController
 --
@@ -69,10 +68,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>906</x>
+      <x>865</x>
       <y>300</y>
-      <w>300</w>
-      <h>180</h>
+      <w>250</w>
+      <h>150</h>
     </coordinates>
     <panel_attributes>FrozenNoteController
 --
@@ -91,17 +90,16 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>198</x>
+      <x>275</x>
       <y>300</y>
-      <w>300</w>
-      <h>180</h>
+      <w>250</w>
+      <h>150</h>
     </coordinates>
     <panel_attributes>AccessCodeController
 --
 --
 @PostMapping
-+generateAccessCode(@RequestBody
-    GenerateAccessCodeCommand generateAccessCodeCommand)
++generateAccessCode(@RequestBody AccessCode accessCode)
     : ResponseEntity&lt;AccessCode&gt;
 bg=cyan</panel_attributes>
     <additional_attributes/>
@@ -109,10 +107,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>906</x>
-      <y>72</y>
-      <w>300</w>
-      <h>180</h>
+      <x>865</x>
+      <y>110</y>
+      <w>250</w>
+      <h>150</h>
     </coordinates>
     <panel_attributes>MembershipController
 --
@@ -138,10 +136,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>552</x>
-      <y>534</y>
-      <w>300</w>
-      <h>180</h>
+      <x>570</x>
+      <y>495</y>
+      <w>250</w>
+      <h>150</h>
     </coordinates>
     <panel_attributes>ReadConfirmationController
 --
@@ -163,10 +161,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>198</x>
-      <y>534</y>
-      <w>300</w>
-      <h>180</h>
+      <x>275</x>
+      <y>495</y>
+      <w>250</w>
+      <h>150</h>
     </coordinates>
     <panel_attributes>DeviceController
 --
@@ -180,10 +178,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>906</x>
-      <y>534</y>
-      <w>300</w>
-      <h>180</h>
+      <x>865</x>
+      <y>495</y>
+      <w>250</w>
+      <h>150</h>
     </coordinates>
     <panel_attributes>ImageNoteController
 --
@@ -204,10 +202,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>198</x>
-      <y>762</y>
-      <w>300</w>
-      <h>180</h>
+      <x>275</x>
+      <y>685</y>
+      <w>250</w>
+      <h>150</h>
     </coordinates>
     <panel_attributes>CommentController
 --
@@ -225,10 +223,10 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>144</x>
-      <y>12</y>
-      <w>1122</w>
-      <h>978</h>
+      <x>230</x>
+      <y>60</y>
+      <w>935</w>
+      <h>815</h>
     </coordinates>
     <panel_attributes>edu.kit.pse.fridget.server.controllers
 --
