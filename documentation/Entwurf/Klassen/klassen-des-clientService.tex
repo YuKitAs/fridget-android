@@ -62,7 +62,7 @@
 \\
 	\textbf{Methoden} 
 		\begin{itemize}
-		\item\texttt{{@GET(``comments?cool-note=\{cid\}``)\\ Call<List<Comment>> getAllComments(@Path(\grqq cid\grqq)String coolNoteId)}}
+		\item\texttt{{@GET(``comments?cool-note=\{cid\}``)\\ Call<List<Comment>{}> getAllComments(@Path(\grqq cid\grqq)String coolNoteId)}}
 
 		\textit{Diese Methode ruft alle Kommentare einer Cool Note ab}
 
@@ -115,7 +115,7 @@
 \\
 	\textbf{Methoden} 
 		\begin{itemize}
-		\item\texttt{{@GET(``/cool-notes?flatshare={id}``)\\ Call<List<CoolNote>> getAllCoolNotes(@Path(\grqq id\grqq) String flatshareID)}}
+		\item\texttt{{@GET(``/cool-notes?flatshare={id}``)\\ Call<List<CoolNote$>>$ getAllCoolNotes(@Path(\grqq id\grqq) String flatshareID)}}
 
 		\textit{Diese Methode ruft alle Cool Notes einer Flatshare ab}
 
@@ -224,7 +224,7 @@ Call<Flatshare> createFlatshare(@Body Flatshare flatshare, String userId)
 	\textbf{Methoden} 
 		\begin{itemize}
 		\item\texttt{{@GET(``/frozen-notes?flatshare={id}``)\\
-Call<List<FrozenNote>> getAllFrozenNote(@Path(\grqq id\grqq) String flatShareId)}}
+Call<List<FrozenNote>{}> getAllFrozenNote(@Path(\grqq id\grqq) String flatShareId)}}
 
 		\textit{Diese Methode ruft die Frozen Notes vom Server ab}
 
@@ -282,7 +282,7 @@ Call<List<FrozenNote>> getAllFrozenNote(@Path(\grqq id\grqq) String flatShareId)
 	\textbf{Methoden} 
 		\begin{itemize}
 		\item\texttt{{@GET(``/image-notes?flatshare={id}``)\\
-Call<List<ImageNote>> getAllImageNotes(@Path(\grqq id\grqq) String flatshareId)}}
+Call<List<ImageNote>{}> getAllImageNotes(@Path(\grqq id\grqq) String flatshareId)}}
 
 		\textit{Diese Methode ruft die Image-Cool-Notes vom Server ab}
 
@@ -348,7 +348,7 @@ Call<List<ImageNote>> getAllImageNotes(@Path(\grqq id\grqq) String flatshareId)}
 \\
 	\textbf{Methoden} 
 		\begin{itemize}
-		\item\texttt{{@GET(``/memberships/users?flatshare={id}``) \\ Call<List<Membership>> getMemberList(@Path("id") String flatshareID)}}
+		\item\texttt{{@GET(``/memberships/users?flatshare={id}``) \\ Call<List<Membership>{}> getMemberList(@Path("id") String flatshareID)}}
 
 		\textit{Diese Methode ruft die Mitglieder einer Flatshare ab}
 
@@ -412,7 +412,7 @@ Call<List<ImageNote>> getAllImageNotes(@Path(\grqq id\grqq) String flatshareId)}
 	\textbf{Methoden} 
 
     \begin{itemize}
-		\item\texttt{{@GET(``/read-confirmations/users?cool-note={id}``) \\ Call<List<User>> getReadStatus(@Path(\grqq id\grqq) String coolNoteId)}}
+		\item\texttt{{@GET(``/read-confirmations/users?cool-note={id}``) \\ Call<List<User>{}> getReadStatus(@Path(\grqq id\grqq) String coolNoteId)}}
 
 		\textit{Diese Methode ruft den Gelesen-Status vom Server ab}
 
