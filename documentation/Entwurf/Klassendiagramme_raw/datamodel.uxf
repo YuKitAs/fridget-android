@@ -51,7 +51,7 @@ bg=cyan
     <id>UMLClass</id>
     <coordinates>
       <x>287</x>
-      <y>154</y>
+      <y>161</y>
       <w>252</w>
       <h>140</h>
     </coordinates>
@@ -138,7 +138,7 @@ bg=cyan</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>819</x>
-      <y>154</y>
+      <y>161</y>
       <w>252</w>
       <h>140</h>
     </coordinates>
@@ -190,7 +190,7 @@ bg=cyan</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>553</x>
-      <y>154</y>
+      <y>161</y>
       <w>252</w>
       <h>140</h>
     </coordinates>
@@ -270,6 +270,8 @@ bg=cyan</panel_attributes>
     </coordinates>
     <panel_attributes>edu.kit.pse.fridget.client.datamodel
 --
+fontsize=35
+lw=2.5
 bg=gray</panel_attributes>
     <additional_attributes/>
   </element>
