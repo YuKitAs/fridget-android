@@ -13,7 +13,6 @@
         		\item{\texttt{public boolean checkGoogleLoginData(String userName, String password)}}
         	
         		\textit{Diese Methode überprüft ob die eingegebenen Google-Daten richtig sind}
-        	\end{itemize}
         	
         		\textbf{Parameter}
         		\begin{itemize}
@@ -27,6 +26,8 @@
 				\begin{itemize} 
 					\item\textit{gibt an, ob die eingebenen Werte richtig oder falsch sind}
 				\end{itemize}
+			
+			\end{itemize}
    
    
        \subsubsection{\texttt{StartViewModel extends ViewModel}}
@@ -37,8 +38,6 @@
         		\item{\texttt{public void registerFlatshare(String flatshareName)}}
         	
         		\textit{Diese Methode lässt eine neue WG mit dem übergebenen Namen erstellen. Dabei erstellt sie ein Objekt des Models User und übergibt diesen dem FlatShareService. Wenn in der Datenbank eine neue Flatshare angelegt wurde, erfragt diese Methode die Flatshare-ID und speichert auf einem Local Repository die FlateShare-ID sowie die User-ID.}
-        		
-        	\end{itemize}
         
         \textbf{Parameter}
         		\begin{itemize}
@@ -46,18 +45,17 @@
         			\textit{Name der WG}
         		\end{itemize}
         	
-        \textbf{Methoden}
-        	\begin{itemize}
         		\item{\texttt{public void enterAccessCode(String accessCode)}}
         	
         		\textit{Diese Methode lässt den AccessCode überprüfen und stellt die passenden Daten zu der WG bereit. Sobald die FlateShare-ID bekannt ist, wird sie mit der User-ID auf einem Local Repository gespeichert.}
-        	\end{itemize}
         	
         		\textbf{Parameter}
         		\begin{itemize}
         			\item\texttt{accessCode}\\
         			\textit{Zugangscode}
         		\end{itemize}
+        	
+        \end{itemize}
    
    
    
@@ -70,12 +68,13 @@
         	
         		\textit{Diese Methode lässt einen zufälligen, einzigartigen AccessCode generieren und gibt diesen zurück.}
         	
-        	\end{itemize}
-        	
         \textbf{Rückgabewert}
         	\begin{itemize}
         		\item\textit{Der generierte Zugangscode wird zurückgegeben.}
         	\end{itemize}
+        
+        
+  	  \end{itemize}
        		 
              
              
@@ -87,29 +86,21 @@
         		\item{\texttt{public LiveData <List<FrozenNote>> getFrozenNotes()}}
         	
         		\textit{Diese Methode übergibt die Daten aller Frozen Notes auf der Pinnwand.}
-        		
-        	\end{itemize}
         
         		\textbf{Rückgabewert}
         		\begin{itemize}
         			\item\textit{Die Liste an Frozen Notes wird in Form von LiveData zurückgegeben.}
         		\end{itemize}
         	
-        	\textbf{Methoden}
-        	\begin{itemize}
         		\item{\texttt{public LiveData <List<CoolNote>> getCoolNotes()}}
 
         		\textit{Diese Methode holt sich die Daten aller Cool Notes auf der Pinnwand sowie deren Anordnung.}
         		
-        	\end{itemize}
-        
         	\textbf{Rückgabewert}
         	\begin{itemize}
         		\item\textit{Die Liste an Cool Notes wird in Form von LiveData zurückgegeben.}
 			\end{itemize}	
-		
-		\textbf{Methoden}
-		\begin{itemize}
+	
 			\item{\texttt{public void leaveFlateshare()}}
 			
 			\textit{Diese Methode sorgt dafür, dass alles, was derjenige, der die WG verlässt, erstellt hat, gelöscht wird. Außerdem wird derjenige aus der Mitgliederliste gelöscht.}
@@ -125,11 +116,8 @@
         		\item\texttt{public void getCoolNote()}}
         	
         		\textit{Diese Methode holt alle Daten der CoolNote und speichert sie in einzelne Attribute, die mit den get-Methoden geholt werden können.}
-        	\end{itemize}
         
-        
-        	\begin{itemize}		
-        		\item\texttt{{public void deleteNote()}}
+               	\item\texttt{{public void deleteNote()}}
         	
         		\textit{Diese Methode veranlasst das Löschen der Note in der Datenbank.}
 
@@ -145,14 +133,10 @@
         	
         		\textit{Diese Methode holt alle Daten der Frozen Note und speichert sie in einzelne Attribute, die mit den get-Methoden geholt werden können.}
         		
-        	\end{itemize}
-        	
-        	\begin{itemize}
         		\item\texttt{{public void editFrozenNote(String title, String content)}}
         	
         		\textit{Diese Methode speichert die neuen Daten.}
         		
-        	\end{itemize}
         	
         	\textbf{Parameter}
         	\begin{itemize}
@@ -161,6 +145,8 @@
 				\item\texttt{content}\\
 				\textit{Inhalt}
 			\end{itemize}
+		
+		\end{itemize}
        		 
            		\subsubsection{\texttt{public class CreateCoolNoteViewModel extends ViewModel}}
         \textit{CreateCoolNoteViewModel ist das ViewModel zur CreateTextCoolNoteActivity und CreateImageCoolNoteActivity. Es wird benötigt, um die neu erstellten Cool Notes zu speichern.}\\
@@ -181,11 +167,12 @@
         		\item\texttt{{public LiveData <List<User>> getContent()}}
         	
         		\textit{Diese Methode gibt die Liste der Mitglieder zurück.}
-        	\end{itemize}
-        	
+        		
         	\textbf{Rückgabewert}
         	\begin{itemize}
-				\textit{Die Liste der Mitglieder wird in Form von LiveData zurückgegeben.}
+				\item\textit{Die Liste der Mitglieder wird in Form von LiveData zurückgegeben.}
+       		\end{itemize}
+       	
        		\end{itemize}
        		 
        		   \subsubsection{\texttt{public class LanguageViewModel extends ViewModel}}
