@@ -8,26 +8,34 @@
 	\subsubsection{\texttt{public interface UserService}}
 \textit{Dieses Interface dient dazu, es dem Nutzer zu ermöglichen, seinen bestehenden Google-Account zum Login zu verwenden. Dabei sendet der Client beim Login einen Token, welchen er vom Google-Server erhält. Dort wird der Token an den Server gesendet, dadurch erhält er die Google-Client-ID. Diese wird dauerhaft gespeichert.}\\
 
-	\textbf{Methoden} \\
+	\textbf{Methoden}
 		\begin{itemize}
-		\item{@GET\\ Call<User> getGoogleIdToken(String loginData)}
+		\item\texttt{{@GET\\ Call<User> getGoogleIdToken(String loginData)}}
 
 		\textit{Diese Methode ruft den GoogleToken vom Goolge API Server ab}
 
-		\textbf{Parameter} \\
-	loginData - Logindaten des Users
+		\textbf{Parameter}
+		\begin{itemize}
+			\item\texttt{loginData}\\
+			\textit{Logindaten des Users}
+		\end{itemize}
 
-		\textbf{Rückgabewert} \\
-	GoogleToken
+		\textbf{Rückgabewert}
+		\begin{itemize}
+			\item\textit{GoogleToken}
+		\end{itemize}
 
-      \item{@POST\\ Call<User> sendGoogleIdToken(String googleIdToken)}
+      \item\texttt{{@POST\\ Call<User> sendGoogleIdToken(String googleIdToken)}}
 
 		\textit{Diese Methode sendet den GoogleIdToken an den Server}
 
-		\textbf{Parameter} \\
-		googleIdToken - zu sendender GoogleToken
-
-		\textbf{Rückgabewert} \\
+		\textbf{Parameter}
+		\begin{itemize}
+			\item\texttt{googleIdToken}
+			\textit{zu sendender GoogleToken}
+		\end{itemize}
+	
+		\textbf{Rückgabewert}
 	
 
 	 \end{itemize}
