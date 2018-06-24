@@ -9,8 +9,10 @@
       <w>812</w>
       <h>672</h>
     </coordinates>
-    <panel_attributes>kit.edu.pse.fridget.client.Activity
+    <panel_attributes>edu.kit.pse.fridget.client.activity
 --
+lw=2.5
+fontsize=35
 bg=gray</panel_attributes>
     <additional_attributes/>
   </element>
