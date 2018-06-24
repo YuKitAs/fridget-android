@@ -189,7 +189,7 @@
     \begin{itemize}
     	\item{\texttt{public ResponseEntity<List<ImageNote$>>$ getAllImageNotes(String flatshareId)}}
     	
-    	\textit{Findet alle Image Cool Notes in einer WG.}
+    	\textit{Findet alle Image-Cool-Notes in einer WG.}
     	
     	\textbf{Parameter} \\
     	flatshareId WG-ID
@@ -197,7 +197,7 @@
     	\textbf{Rückgabewert} \\
     	Liste von gefundenen ImageNote als ResponseEntity        \item{\texttt{public ResponseEntity<ImageNote> getImageNote(String id)}}
     	
-    	\textit{Findet eine Image Cool Note.}
+    	\textit{Findet eine Image-Cool-Note.}
     	
     	\textbf{Parameter} \\
     	id ImageNote-ID
@@ -205,15 +205,15 @@
     	\textbf{Rückgabewert} \\
     	Gefundene ImageNote als ResponseEntity        \item{\texttt{public ResponseEntity<ImageNote> saveImageNote(ImageNote imageNote)}}
     	
-    	\textit{Speichert eine Image Cool Note.}
+    	\textit{Speichert eine Image-Cool-Note.}
     	
     	\textbf{Parameter} \\
-    	imageNote ImageNote zum speichern
+    	imageNote ImageNote zum Speichern
     	
     	\textbf{Rückgabewert} \\
     	Gespeicherte ImageNote als ResponseEntity        \item{\texttt{public ResponseEntity<Void> deleteImageNote(String id)}}
     	
-    	\textit{Löscht eine Image Cool Note.}
+    	\textit{Löscht eine Image-Cool-Note.}
     	
     	\textbf{Parameter} \\
     	id ImageNote-ID
@@ -346,7 +346,7 @@
     	
     	\textbf{Parameter} \\
     	content Inhalt vom Zugangscode\\
-    	flatshareId ID von der WG, die mit dem Zugangscode beigetreten werden kann
+    	flatshareId ID von der WG, der mit dem Zugangscode beigetreten werden kann
     	
     	\textbf{Rückgabewert} \\
     	Gebauter Zugangscode mit zufälliger UUID
@@ -372,7 +372,7 @@
     	\textbf{Rückgabewert} \\
     	Benutzer-ID        \item{\texttt{public String getCoolNoteId()}}
     	
-    	\textit{Getter für ID von der Cool Note, der der Kommentar gehört zu}
+    	\textit{Getter für ID von der Cool Note, zu der der Kommentar gehört}
     	
     	
     	
@@ -390,7 +390,7 @@
     	
     	\textbf{Parameter} \\
     	userId ID von dem Benutzer, der den Kommentar geschrieben hat\\
-    	coolNoteId ID von der Cool Note, der der Kommentar gehört zu\\
+    	coolNoteId ID von der Cool Note, zu der der Kommentar gehört\\
     	content Inhalt vom Kommentar
     	
     	\textbf{Rückgabewert} \\
