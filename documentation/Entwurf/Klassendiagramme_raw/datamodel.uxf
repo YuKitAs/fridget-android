@@ -28,8 +28,8 @@ fontsize=10
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>616</x>
-      <y>490</y>
+      <x>819</x>
+      <y>553</y>
       <w>252</w>
       <h>140</h>
     </coordinates>
@@ -50,8 +50,8 @@ bg=cyan
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>84</x>
-      <y>91</y>
+      <x>287</x>
+      <y>154</y>
       <w>252</w>
       <h>140</h>
     </coordinates>
@@ -71,8 +71,8 @@ bg=cyan
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>350</x>
-      <y>490</y>
+      <x>553</x>
+      <y>553</y>
       <w>252</w>
       <h>140</h>
     </coordinates>
@@ -89,8 +89,8 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>84</x>
-      <y>245</y>
+      <x>287</x>
+      <y>308</y>
       <w>252</w>
       <h>231</h>
     </coordinates>
@@ -114,8 +114,8 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>84</x>
-      <y>644</y>
+      <x>287</x>
+      <y>707</y>
       <w>252</w>
       <h>140</h>
     </coordinates>
@@ -137,8 +137,8 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>616</x>
-      <y>91</y>
+      <x>819</x>
+      <y>154</y>
       <w>252</w>
       <h>140</h>
     </coordinates>
@@ -156,8 +156,8 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>616</x>
-      <y>245</y>
+      <x>819</x>
+      <y>308</y>
       <w>252</w>
       <h>231</h>
     </coordinates>
@@ -171,13 +171,14 @@ bg=cyan</panel_attributes>
 -position: int
 -importance: int
 -createAt: String
+-taggedUserIds: List&lt;String&gt;
 --
 +getId(): String
 +getTitle(): String
 +getCreatorUserId(): String
 +getContent(): String
 +getFlatshareId(): String
-+getTaggedUsers(): List&lt;User&gt;
++getTaggedUserIds(): List&lt;String&gt;
 +getImportance(): int
 +getPosition(): int
 +getCreateAt(): String
@@ -188,8 +189,8 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>350</x>
-      <y>91</y>
+      <x>553</x>
+      <y>154</y>
       <w>252</w>
       <h>140</h>
     </coordinates>
@@ -211,8 +212,8 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>350</x>
-      <y>245</y>
+      <x>553</x>
+      <y>308</y>
       <w>252</w>
       <h>231</h>
     </coordinates>
@@ -241,8 +242,8 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>84</x>
-      <y>490</y>
+      <x>287</x>
+      <y>553</y>
       <w>252</w>
       <h>140</h>
     </coordinates>
@@ -262,8 +263,8 @@ bg=cyan</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>70</x>
-      <y>63</y>
+      <x>273</x>
+      <y>126</y>
       <w>812</w>
       <h>735</h>
     </coordinates>

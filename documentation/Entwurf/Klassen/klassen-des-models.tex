@@ -135,6 +135,8 @@
 		\textbf{Typ:} int
 		\item \textbf{createAt:} Das Erstelldatum der Cool Note.\\
 		\textbf{Typ:} String
+		\item \textbf{taggedUserIds}: Die IDs der Mitglieder, die in der Cool Note getaggt wurden.\\
+		\textbf{Typ:} List<String>
 	\end{itemize}
 
 	\textbf{Methoden}
@@ -154,8 +156,8 @@
 		\item\texttt{{public String getFlatshareId()}}\\
 		\textit{Gibt die ID der WG zurück, zu der diese Cool Note gehört.}\\
 		
-		\item\texttt{{public List<User> getTaggedUsers()}}\\
-		\textit{Gibt die Mitglieder zurück, die in der Cool Note getagged sind. Wenn keine Tags spezifiziert sind, sind alle Mitglieder der WG mit @All getagged.}\\
+		\item\texttt{{public List<String> getTaggedUserIds()}}\\
+		\textit{Gibt die IDs der Mitglieder zurück, die in der Cool Note getagged sind. Wenn keine Tags spezifiziert sind, sind alle Mitglieder der WG mit @All getagged.}\\
 		
 		\item\texttt{public int getImportance()}\\
 		\textit{Gibt die Wichtigkeit der Cool Note zurück.}\\
