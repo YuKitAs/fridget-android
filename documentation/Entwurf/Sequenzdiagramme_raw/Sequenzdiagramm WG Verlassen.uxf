@@ -100,7 +100,7 @@ leaveFlatShare()</panel_attributes>
       <w>144</w>
       <h>36</h>
     </coordinates>
-    <panel_attributes>_ClientService:_
+    <panel_attributes>_clientService:_
 _MembershipService_</panel_attributes>
     <additional_attributes/>
   </element>
@@ -183,7 +183,7 @@ deleteMembership()</panel_attributes>
       <w>135</w>
       <h>36</h>
     </coordinates>
-    <panel_attributes>_ServerService:_
+    <panel_attributes>_serverService:_
 _MembershipService_</panel_attributes>
     <additional_attributes/>
   </element>
