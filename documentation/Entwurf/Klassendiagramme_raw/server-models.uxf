@@ -291,7 +291,7 @@ layer=2</panel_attributes>
     </coordinates>
     <panel_attributes>SaveFlatshareCommand
 --
--id: String
+-userId: String
 -flatshareName: String
 --
 +getUserId(): String
