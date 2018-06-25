@@ -1790,7 +1790,7 @@ layer=0</panel_attributes>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;&gt;&gt;&gt;
 m1=1
-m2=1..*</panel_attributes>
+m2=1..15</panel_attributes>
     <additional_attributes>10.0;10.0;110.0;10.0</additional_attributes>
   </element>
   <element>
