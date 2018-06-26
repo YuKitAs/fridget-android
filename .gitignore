@@ -7,6 +7,7 @@ build
 /captures
 .externalNativeBuild
 documentation/remove-temp-files.sh
+application.properties
 
 # Latex temp files
 *.toc
