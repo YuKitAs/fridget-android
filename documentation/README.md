@@ -1,4 +1,4 @@
-# Fridget Documentation
+# Documentation
 
 1. Pflichtenheft
 2. Entwurf
