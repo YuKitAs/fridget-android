@@ -1,4 +1,4 @@
-package edu.kit.pse.fridget.client.Service;
+package edu.kit.pse.fridget.client.service;
 
 import java.util.List;
 
