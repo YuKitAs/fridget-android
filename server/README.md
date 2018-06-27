@@ -13,3 +13,7 @@ The server-side of Fridget built with [Spring Boot](https://spring.io/projects/s
   ```console
   $ ./gradlew bootRun
   ```
+
+**TODO**
+
+See cards in [Project](https://github.com/YuKitAs/fridget-android/projects/3)
