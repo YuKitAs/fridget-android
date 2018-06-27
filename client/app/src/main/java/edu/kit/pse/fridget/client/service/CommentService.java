@@ -3,6 +3,7 @@ package edu.kit.pse.fridget.client.service;
 
 import java.util.List;
 
+import edu.kit.pse.fridget.client.datamodel.Comment;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;

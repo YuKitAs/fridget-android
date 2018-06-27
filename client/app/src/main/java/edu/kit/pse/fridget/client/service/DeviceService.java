@@ -1,5 +1,6 @@
 package edu.kit.pse.fridget.client.service;
 
+import edu.kit.pse.fridget.client.datamodel.User;
 import retrofit2.http.Body;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;

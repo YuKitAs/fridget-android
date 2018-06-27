@@ -1,5 +1,6 @@
 package edu.kit.pse.fridget.client.service;
 
+import edu.kit.pse.fridget.client.datamodel.AccessCode;
 import retrofit2.Call;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
