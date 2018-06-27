@@ -1,4 +1,4 @@
-package com.example.alina.client;
+package edu.kit.pse.fridget.client;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

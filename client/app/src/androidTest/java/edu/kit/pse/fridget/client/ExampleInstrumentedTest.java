@@ -1,4 +1,4 @@
-package com.example.alina.client;
+package edu.kit.pse.fridget.client;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.alina.client", appContext.getPackageName());
+        assertEquals("edu.kit.pse.fridget.client", appContext.getPackageName());
     }
 }

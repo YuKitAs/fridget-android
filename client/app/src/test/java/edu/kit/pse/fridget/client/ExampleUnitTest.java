@@ -1,4 +1,4 @@
-package com.example.alina.client;
+package edu.kit.pse.fridget.client;
 
 import org.junit.Test;
 
