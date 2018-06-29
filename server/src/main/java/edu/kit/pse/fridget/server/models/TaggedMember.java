@@ -4,28 +4,25 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.UUID;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tagged_users")
+@Table(name = "tagged_members")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class TaggedUser {
+public class TaggedMember {
     @Id
-    @Column(name = "id", columnDefinition = "CHAR(36)")
     private String id;
-
-    private String userId;
+    private String membershipId;
     private String coolNoteId;
 
-    public TaggedUser() {
+    public TaggedMember() {
     }
 
-    private TaggedUser(String id, String userId, String coolNoteId) {
+    private TaggedMember(String id, String membershipId, String coolNoteId) {
         this.id = id;
-        this.userId = userId;
+        this.membershipId = membershipId;
         this.coolNoteId = coolNoteId;
     }
 
@@ -33,15 +30,15 @@ public class TaggedUser {
         return id;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getMembershipId() {
+        return membershipId;
     }
 
     public String getCoolNoteId() {
         return coolNoteId;
     }
 
-    public static TaggedUser buildNew(String userId, String coolNoteId) {
-        return new TaggedUser(UUID.randomUUID().toString(), userId, coolNoteId);
+    public static TaggedMember buildNew(String membershipId, String coolNoteId) {
+        return new TaggedMember(UUID.randomUUID().toString(), membershipId, coolNoteId);
     }
 }

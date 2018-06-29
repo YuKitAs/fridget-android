@@ -6,8 +6,8 @@
 build
 /captures
 .externalNativeBuild
-documentation/remove-temp-files.sh
 application.properties
+data.sql
 
 # Latex temp files
 *.toc
@@ -26,3 +26,6 @@ application.properties
 *.pyg
 *.dvi
 *.pdf
+
+# Scripts
+remove-temp-files.sh

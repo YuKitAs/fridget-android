@@ -14,9 +14,7 @@ import javax.persistence.Table;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class User {
     @Id
-    @Column(name = "id", columnDefinition = "CHAR(36)")
     private String id;
-
     private String googleUserId;
     private String googleName;
 

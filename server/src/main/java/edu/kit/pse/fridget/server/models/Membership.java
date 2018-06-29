@@ -8,6 +8,7 @@ import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,9 +16,7 @@ import javax.persistence.Table;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Membership {
     @Id
-    @Column(name = "id", columnDefinition = "CHAR(36)")
     private String id;
-
     private String userId;
     private String flatshareId;
     private String magnetColor;

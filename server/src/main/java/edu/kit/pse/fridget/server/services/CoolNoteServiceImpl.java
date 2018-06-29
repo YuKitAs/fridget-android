@@ -7,33 +7,34 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import edu.kit.pse.fridget.server.models.CoolNote;
-import edu.kit.pse.fridget.server.models.TaggedUser;
+import edu.kit.pse.fridget.server.models.TaggedMember;
 import edu.kit.pse.fridget.server.repositories.CoolNoteRepository;
-import edu.kit.pse.fridget.server.repositories.TaggedUserRepository;
+import edu.kit.pse.fridget.server.repositories.TaggedMemberRepository;
 
 @Service
 public class CoolNoteServiceImpl implements CoolNoteService {
     private final CoolNoteRepository coolNoteRepository;
-    private final TaggedUserRepository taggedUserRepository;
+    private final TaggedMemberRepository taggedMemberRepository;
 
     @Autowired
-    public CoolNoteServiceImpl(CoolNoteRepository coolNoteRepository, TaggedUserRepository taggedUserRepository) {
+    public CoolNoteServiceImpl(CoolNoteRepository coolNoteRepository, TaggedMemberRepository taggedMemberRepository) {
         this.coolNoteRepository = coolNoteRepository;
-        this.taggedUserRepository = taggedUserRepository;
+        this.taggedMemberRepository = taggedMemberRepository;
     }
 
     @Override
     public List<CoolNote> getAllCoolNotes(String flatshareId) {
-        return coolNoteRepository.findByFlatshareId(flatshareId).stream().map(coolNote -> {
-            List<TaggedUser> taggedUsers = taggedUserRepository.findByCoolNoteId(coolNote.getId());
-            return CoolNote.buildForFetching(coolNote, taggedUsers.stream().map(TaggedUser::getId).collect(Collectors.toList()));
-        }).collect(Collectors.toList());
+        /*return coolNoteRepository.findByFlatshareId(flatshareId).stream().map(coolNote -> {
+            List<TaggedMember> taggedUsers = taggedMemberRepository.findByCoolNoteId(coolNote.getId());
+            return CoolNote.buildForFetching(coolNote, taggedUsers.stream().map(TaggedMember::getId).collect(Collectors.toList()));
+        }).collect(Collectors.toList());*/
+        return coolNoteRepository.findByFlatshareId(flatshareId);
     }
 
     @Override
     public CoolNote getCoolNote(String id) {
         return CoolNote.buildForFetching(coolNoteRepository.getOne(id),
-                taggedUserRepository.findByCoolNoteId(id).stream().map(TaggedUser::getId).collect(Collectors.toList()));
+                taggedMemberRepository.findByCoolNoteId(id).stream().map(TaggedMember::getId).collect(Collectors.toList()));
     }
 
     @Override

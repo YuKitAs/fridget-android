@@ -30,7 +30,7 @@ public class ImageNoteServiceImpl implements ImageNoteService {
     @Override
     public ImageNote saveImageNote(ImageNote imageNote) {
         return repository.save(ImageNote.buildNew(imageNote.getFlatshareId(), imageNote.getImage(), imageNote.getDescription(),
-                imageNote.getCreatorUserId(), imageNote.getPosition()));
+                imageNote.getCreatorMembershipId(), imageNote.getPosition()));
     }
 
     @Override

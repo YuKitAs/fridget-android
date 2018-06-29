@@ -16,10 +16,6 @@ public class UserMembershipRepresentation {
         return user.getId();
     }
 
-    public String getGoogleUserId() {
-        return user.getGoogleUserId();
-    }
-
     public String getGoogleName() {
         return user.getGoogleName();
     }

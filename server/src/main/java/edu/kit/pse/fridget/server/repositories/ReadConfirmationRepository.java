@@ -9,5 +9,5 @@ import edu.kit.pse.fridget.server.models.ReadConfirmation;
 public interface ReadConfirmationRepository extends JpaRepository<ReadConfirmation, String> {
     List<ReadConfirmation> findByCoolNoteId(String id);
 
-    void deleteByCoolNoteIdAndUserId(String coolNoteId, String userId);
+    void deleteByCoolNoteIdAndMembershipId(String coolNoteId, String membershipId);
 }

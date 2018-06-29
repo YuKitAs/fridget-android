@@ -31,14 +31,14 @@ public class MembershipController {
     }
 
     @GetMapping("/users")
-    public ResponseEntity<List<UserMembershipRepresentation>> getAllUsers(@RequestParam("flatshare") String flatshareId) {
-        return new ResponseEntity<>(service.getAllUsers(flatshareId), HttpStatus.OK);
+    public ResponseEntity<List<UserMembershipRepresentation>> getAllMembers(@RequestParam("flatshare") String flatshareId) {
+        return new ResponseEntity<>(service.getAllMembers(flatshareId), HttpStatus.OK);
     }
 
     @GetMapping
-    public ResponseEntity<UserMembershipRepresentation> getUser(@RequestParam("flatshare") String flatshareId,
+    public ResponseEntity<UserMembershipRepresentation> getMember(@RequestParam("flatshare") String flatshareId,
             @RequestParam("user") String userId) {
-        return new ResponseEntity<>(service.getUser(flatshareId, userId), HttpStatus.OK);
+        return new ResponseEntity<>(service.getMember(flatshareId, userId), HttpStatus.OK);
     }
 
     @PostMapping

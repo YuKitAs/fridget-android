@@ -15,9 +15,7 @@ import edu.kit.pse.fridget.server.repositories.UserRepository;
 @Service
 public class MembershipServiceImpl implements MembershipService {
     private final MembershipRepository membershipRepository;
-
     private final UserRepository userRepository;
-
     private final AccessCodeRepository accessCodeRepository;
 
     @Autowired
@@ -29,7 +27,7 @@ public class MembershipServiceImpl implements MembershipService {
     }
 
     @Override
-    public List<UserMembershipRepresentation> getAllUsers(String flatshareId) {
+    public List<UserMembershipRepresentation> getAllMembers(String flatshareId) {
         return membershipRepository.findByFlatshareId(flatshareId)
                 .stream()
                 .map(membership -> new UserMembershipRepresentation(userRepository.getOne(membership.getUserId()), membership))
@@ -37,7 +35,7 @@ public class MembershipServiceImpl implements MembershipService {
     }
 
     @Override
-    public UserMembershipRepresentation getUser(String flatshareId, String userId) {
+    public UserMembershipRepresentation getMember(String flatshareId, String userId) {
         return new UserMembershipRepresentation(userRepository.getOne(userId),
                 membershipRepository.findByFlatshareIdAndUserId(flatshareId, userId));
     }

@@ -15,6 +15,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import edu.kit.pse.fridget.server.models.Membership;
 import edu.kit.pse.fridget.server.models.ReadConfirmation;
 import edu.kit.pse.fridget.server.models.User;
 import edu.kit.pse.fridget.server.services.ReadConfirmationService;
@@ -30,8 +31,8 @@ public class ReadConfirmationController {
     }
 
     @GetMapping("/users")
-    public ResponseEntity<List<User>> getAllUsers(@RequestParam("cool-note") String id) {
-        return new ResponseEntity<>(service.getAllUsers(id), HttpStatus.OK);
+    public ResponseEntity<List<Membership>> getAllMemberships(@RequestParam("cool-note") String id) {
+        return new ResponseEntity<>(service.getAllMemberships(id), HttpStatus.OK);
     }
 
     @PostMapping
@@ -41,8 +42,9 @@ public class ReadConfirmationController {
 
     @DeleteMapping
     @Transactional
-    public ResponseEntity<Void> deleteReadConfirmation(@RequestParam("cool-note") String coolNoteId, @RequestParam("user") String userId) {
-        service.deleteReadConfirmation(coolNoteId, userId);
+    public ResponseEntity<Void> deleteReadConfirmation(@RequestParam("cool-note") String coolNoteId,
+            @RequestParam("membership") String membershipId) {
+        service.deleteReadConfirmation(coolNoteId, membershipId);
 
         return new ResponseEntity<>(HttpStatus.OK);
     }

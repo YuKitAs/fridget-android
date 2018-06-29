@@ -7,7 +7,6 @@ import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -20,33 +19,30 @@ import edu.kit.pse.fridget.server.services.ClockProvider;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class CoolNote {
     @Id
-    @Column(name = "id", columnDefinition = "CHAR(36)")
     private String id;
     private String title;
     private String content;
-    private String flatshareId;
-    private String creatorUserId;
+    private String creatorMembershipId;
     private int position;
     private int importance;
     private Instant createdAt;
     @JsonInclude
     @Transient
-    private List<String> taggedUserIds;
+    private List<String> taggedMembershipIds;
 
     public CoolNote() {
     }
 
-    private CoolNote(String id, String title, String content, String flatshareId, String creatorUserId, int position, int importance,
-            Instant createdAt, List<String> taggedUserIds) {
+    private CoolNote(String id, String title, String content, String creatorMembershipId, int position, int importance, Instant createdAt,
+            List<String> taggedMembershipIds) {
         this.id = id;
         this.title = title;
         this.content = content;
-        this.flatshareId = flatshareId;
-        this.creatorUserId = creatorUserId;
+        this.creatorMembershipId = creatorMembershipId;
         this.position = position;
         this.importance = importance;
         this.createdAt = createdAt;
-        this.taggedUserIds = taggedUserIds;
+        this.taggedMembershipIds = taggedMembershipIds;
     }
 
     public String getId() {
@@ -61,12 +57,8 @@ public class CoolNote {
         return content;
     }
 
-    public String getFlatshareId() {
-        return flatshareId;
-    }
-
-    public String getCreatorUserId() {
-        return creatorUserId;
+    public String getCreatorMembershipId() {
+        return creatorMembershipId;
     }
 
     public int getPosition() {
@@ -81,18 +73,17 @@ public class CoolNote {
         return createdAt;
     }
 
-    public List<String> getTaggedUserIds() {
-        return taggedUserIds;
+    public List<String> getTaggedMembershipIds() {
+        return taggedMembershipIds;
     }
 
     public static CoolNote buildForCreation(CoolNote coolNote) {
-        return new CoolNote(UUID.randomUUID().toString(), coolNote.getTitle(), coolNote.getContent(), coolNote.getFlatshareId(),
-                coolNote.getCreatorUserId(), coolNote.getPosition(), coolNote.getImportance(), ClockProvider.getCurrentTime(),
-                coolNote.getTaggedUserIds());
+        return new CoolNote(UUID.randomUUID().toString(), coolNote.getTitle(), coolNote.getContent(), coolNote.getCreatorMembershipId(),
+                coolNote.getPosition(), coolNote.getImportance(), ClockProvider.getCurrentTime(), coolNote.getTaggedMembershipIds());
     }
 
-    public static CoolNote buildForFetching(CoolNote coolNote, List<String> taggedUserIds) {
-        return new CoolNote(coolNote.getId(), coolNote.getTitle(), coolNote.getContent(), coolNote.getFlatshareId(),
-                coolNote.getCreatorUserId(), coolNote.getPosition(), coolNote.getImportance(), coolNote.getCreatedAt(), taggedUserIds);
+    public static CoolNote buildForFetching(CoolNote coolNote, List<String> taggedMembershipIds) {
+        return new CoolNote(coolNote.getId(), coolNote.getTitle(), coolNote.getContent(), coolNote.getCreatorMembershipId(),
+                coolNote.getPosition(), coolNote.getImportance(), coolNote.getCreatedAt(), taggedMembershipIds);
     }
 }

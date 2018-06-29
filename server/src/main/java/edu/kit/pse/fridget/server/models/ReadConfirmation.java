@@ -14,18 +14,16 @@ import javax.persistence.Table;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class ReadConfirmation {
     @Id
-    @Column(name = "id", columnDefinition = "CHAR(36)")
     private String id;
-
-    private String userId;
+    private String membershipId;
     private String coolNoteId;
 
     public ReadConfirmation() {
     }
 
-    private ReadConfirmation(String id, String userId, String coolNoteId) {
+    private ReadConfirmation(String id, String membershipId, String coolNoteId) {
         this.id = id;
-        this.userId = userId;
+        this.membershipId = membershipId;
         this.coolNoteId = coolNoteId;
     }
 
@@ -33,15 +31,15 @@ public class ReadConfirmation {
         return id;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getMembershipId() {
+        return membershipId;
     }
 
     public String getCoolNoteId() {
         return coolNoteId;
     }
 
-    public static ReadConfirmation buildNew(String userId, String coolNoteId) {
-        return new ReadConfirmation(UUID.randomUUID().toString(), userId, coolNoteId);
+    public static ReadConfirmation buildNew(String membershipId, String coolNoteId) {
+        return new ReadConfirmation(UUID.randomUUID().toString(), membershipId, coolNoteId);
     }
 }

@@ -24,7 +24,7 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public Comment saveComment(Comment comment) {
-        return repository.save(Comment.buildNew(comment.getUserId(), comment.getCoolNoteId(), comment.getContent()));
+        return repository.save(Comment.buildNew(comment.getMembershipId(), comment.getCoolNoteId(), comment.getContent()));
     }
 
     @Override

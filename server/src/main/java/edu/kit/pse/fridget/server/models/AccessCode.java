@@ -15,12 +15,8 @@ import javax.validation.constraints.NotBlank;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class AccessCode {
     @Id
-    @Column(name = "id", columnDefinition = "CHAR(36)")
     private String id;
-
     private String content;
-
-    @NotBlank
     private String flatshareId;
 
     public AccessCode() {

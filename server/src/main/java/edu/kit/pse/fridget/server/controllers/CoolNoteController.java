@@ -18,18 +18,18 @@ import javax.transaction.Transactional;
 
 import edu.kit.pse.fridget.server.models.CoolNote;
 import edu.kit.pse.fridget.server.services.CoolNoteService;
-import edu.kit.pse.fridget.server.services.TaggedUserService;
+import edu.kit.pse.fridget.server.services.TaggedMemberService;
 
 @RestController
 @RequestMapping("/cool-notes")
 public class CoolNoteController {
     private final CoolNoteService coolNoteService;
-    private final TaggedUserService taggedUserService;
+    private final TaggedMemberService taggedMemberService;
 
     @Autowired
-    public CoolNoteController(CoolNoteService coolNoteService, TaggedUserService taggedUserService) {
+    public CoolNoteController(CoolNoteService coolNoteService, TaggedMemberService taggedMemberService) {
         this.coolNoteService = coolNoteService;
-        this.taggedUserService = taggedUserService;
+        this.taggedMemberService = taggedMemberService;
     }
 
     @GetMapping
@@ -45,10 +45,13 @@ public class CoolNoteController {
     @PostMapping
     public ResponseEntity<CoolNote> saveCoolNote(@RequestBody CoolNote coolNote) {
         CoolNote newCoolNote = CoolNote.buildForCreation(coolNote);
-        coolNote.getTaggedUserIds().forEach(userId -> taggedUserService.saveTaggedUser(userId, newCoolNote.getId()));
+        if (!coolNote.getTaggedMembershipIds().isEmpty()) {
+            coolNote.getTaggedMembershipIds()
+                    .forEach(membershipId -> taggedMemberService.saveTaggedMember(membershipId, newCoolNote.getId()));
+        }
         coolNoteService.saveCoolNote(newCoolNote);
 
-        return new ResponseEntity<>(CoolNote.buildForFetching(newCoolNote, coolNote.getTaggedUserIds()), HttpStatus.CREATED);
+        return new ResponseEntity<>(CoolNote.buildForFetching(newCoolNote, coolNote.getTaggedMembershipIds()), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")

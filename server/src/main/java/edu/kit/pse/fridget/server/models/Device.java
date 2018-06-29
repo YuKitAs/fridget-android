@@ -10,13 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "devices")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Device {
     @Id
-    @Column(name = "id", columnDefinition = "CHAR(36)")
     private String id;
-
     private String userId;
     private String instanceIdToken;
 

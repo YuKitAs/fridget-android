@@ -15,10 +15,7 @@ import javax.validation.constraints.NotBlank;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Flatshare {
     @Id
-    @Column(name = "id", columnDefinition = "CHAR(36)")
     private String id;
-
-    @NotBlank
     private String name;
 
     public Flatshare() {

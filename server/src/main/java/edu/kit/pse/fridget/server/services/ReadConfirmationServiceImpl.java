@@ -6,38 +6,38 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import edu.kit.pse.fridget.server.models.Membership;
 import edu.kit.pse.fridget.server.models.ReadConfirmation;
-import edu.kit.pse.fridget.server.models.User;
+import edu.kit.pse.fridget.server.repositories.MembershipRepository;
 import edu.kit.pse.fridget.server.repositories.ReadConfirmationRepository;
-import edu.kit.pse.fridget.server.repositories.UserRepository;
 
 @Service
 public class ReadConfirmationServiceImpl implements ReadConfirmationService {
     private final ReadConfirmationRepository readConfirmationRepository;
-
-    private final UserRepository userRepository;
+    private final MembershipRepository membershipRepository;
 
     @Autowired
-    public ReadConfirmationServiceImpl(ReadConfirmationRepository readConfirmationRepository, UserRepository userRepository) {
+    public ReadConfirmationServiceImpl(ReadConfirmationRepository readConfirmationRepository, MembershipRepository membershipRepository) {
         this.readConfirmationRepository = readConfirmationRepository;
-        this.userRepository = userRepository;
+        this.membershipRepository = membershipRepository;
     }
 
     @Override
-    public List<User> getAllUsers(String coolNoteId) {
+    public List<Membership> getAllMemberships(String coolNoteId) {
         return readConfirmationRepository.findByCoolNoteId(coolNoteId)
                 .stream()
-                .map(readConfirmation -> userRepository.getOne(readConfirmation.getUserId()))
+                .map(readConfirmation -> membershipRepository.getOne(readConfirmation.getMembershipId()))
                 .collect(Collectors.toList());
     }
 
     @Override
     public ReadConfirmation saveReadConfirmation(ReadConfirmation readConfirmation) {
-        return readConfirmationRepository.save(ReadConfirmation.buildNew(readConfirmation.getUserId(), readConfirmation.getCoolNoteId()));
+        return readConfirmationRepository.save(
+                ReadConfirmation.buildNew(readConfirmation.getMembershipId(), readConfirmation.getCoolNoteId()));
     }
 
     @Override
-    public void deleteReadConfirmation(String coolNoteId, String userId) {
-        readConfirmationRepository.deleteByCoolNoteIdAndUserId(coolNoteId, userId);
+    public void deleteReadConfirmation(String coolNoteId, String membershipId) {
+        readConfirmationRepository.deleteByCoolNoteIdAndMembershipId(coolNoteId, membershipId);
     }
 }

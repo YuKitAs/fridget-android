@@ -12,9 +12,7 @@ import javax.persistence.Table;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class FrozenNote {
     @Id
-    @Column(name = "id", columnDefinition = "CHAR(36)")
     private String id;
-
     private String flatshareId;
     private String title;
     private String content;
