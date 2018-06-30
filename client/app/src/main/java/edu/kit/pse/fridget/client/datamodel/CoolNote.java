@@ -43,4 +43,58 @@ public class CoolNote {
      */
     private int position;
 
+    /**
+     * Getter for the id
+     *
+     * @return id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * Getter for the title
+     *
+     * @return title
+     */
+    public String getTitle() {
+        return title;
+    }
+
+    /**
+     * Getter for the content
+     *
+     * @return content
+     */
+    public String getContent() {
+        return content;
+    }
+
+    /**
+     * Getter for the flatShareId
+     *
+     * @return flatShareId
+     */
+    public String getFlatShareId() {
+        return flatShareId;
+    }
+
+    /**
+     * Getter for the creatorUserId
+     *
+     * @return creatorUserId
+     */
+    public String getCreatorUserId() {
+        return creatorUserId;
+    }
+
+    /**
+     * Getter for the createdAt
+     *
+     * @return createdAt
+     */
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
 }
