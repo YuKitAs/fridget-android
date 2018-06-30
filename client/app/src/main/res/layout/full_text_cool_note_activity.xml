@@ -50,7 +50,7 @@
                 android:fontFamily="@font/commonsregular"
                 android:text="Created on: "
                 android:textColor="#000000"
-                android:textSize="16sp"
+                android:textSize="15sp"
                 android:textStyle="italic" />
 
             <ImageView
@@ -67,15 +67,23 @@
                 android:layout_height="wrap_content"
                 android:layout_alignStart="@+id/textView"
                 android:layout_below="@+id/textView"
-                android:text="@{coolNote.createdAt}" />
+                android:fontFamily="@font/commonsregular"
+                android:text="@{coolNote.createdAt}"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="italic" />
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
                 android:layout_alignStart="@+id/textView"
-                android:layout_below="@+id/textView2"
-                android:text="@{coolNote.title}" />
+                android:layout_marginTop="161dp"
+                android:fontFamily="@font/commonsregular"
+                android:text="Title"
+                android:textColor="#000000"
+                android:textSize="25sp" />
 
         </RelativeLayout>
 
