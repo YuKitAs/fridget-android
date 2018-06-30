@@ -20,8 +20,8 @@ public interface CoolNoteService {
 
     //Diese Methode ruft alle CoolNotes ab
     @Headers("Authorization:{JWT}")
-    @GET("/cool-notes?flatshare={id}")
-    Call<List<CoolNote>> getAllCoolNotes(@Path("id") String flatshareId);
+    @GET("/cool-notes?flatShare={id}")
+    Call<List<CoolNote>> getAllCoolNotes(@Path("id") String flatShareId);
 
     //Diese Methode ruft den Inhalt/Großansicht einer CoolNote ab
     @Headers("Authorization:{JWT}")

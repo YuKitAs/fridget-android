@@ -16,7 +16,7 @@ public interface DeviceService {
      */
 
 
-    //Diese Methode fügt ein Device zu einer Flatshare hinzu
+    //Diese Methode fügt ein Device zu einer FlatShare hinzu
     @Headers({"Content-Type: application/json",
             "Authorization:{JWT}"})
     @POST("/devices")
