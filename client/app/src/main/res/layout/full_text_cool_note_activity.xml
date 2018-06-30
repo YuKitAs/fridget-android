@@ -81,7 +81,7 @@
                 android:layout_alignStart="@+id/textView"
                 android:layout_marginTop="161dp"
                 android:fontFamily="@font/commonsregular"
-                android:text="Title"
+                android:text="@{coolNote.title}"
                 android:textColor="#000000"
                 android:textSize="25sp" />
 
