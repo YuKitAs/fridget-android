@@ -1,12 +1,16 @@
 package edu.kit.pse.fridget.server.models.commands;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import edu.kit.pse.fridget.server.models.Flatshare;
 
 public class SaveFlatshareCommand {
     private final String userId;
     private final String flatshareName;
 
-    public SaveFlatshareCommand(String userId, String flatshareName) {
+    @JsonCreator
+    public SaveFlatshareCommand(@JsonProperty("userId") String userId, @JsonProperty("flatshareName") String flatshareName) {
         this.userId = userId;
         this.flatshareName = flatshareName;
     }
