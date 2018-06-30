@@ -63,11 +63,19 @@
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="93dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignStart="@+id/textView"
                 android:layout_below="@+id/textView"
                 android:text="@{coolNote.createdAt}" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/textView"
+                android:layout_below="@+id/textView2"
+                android:text="@{coolNote.title}" />
 
         </RelativeLayout>
 
