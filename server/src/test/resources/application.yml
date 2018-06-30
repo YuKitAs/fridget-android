@@ -1,0 +1,12 @@
+spring:
+  profiles: test
+  jpa:
+    database: mysql
+    hibernate:
+      ddl-auto: none
+  datasource:
+    url: jdbc:mysql://localhost:3306/fridget_test
+    username: testuser
+    password: n0password
+server:
+    port: 9000
