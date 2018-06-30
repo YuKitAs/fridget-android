@@ -42,7 +42,7 @@
                 android:background="@drawable/back_button" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/createdOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="23dp"
@@ -54,7 +54,7 @@
                 android:textStyle="italic" />
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/creationDate"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_alignParentStart="true"
@@ -65,8 +65,8 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/textView"
-                android:layout_below="@+id/textView"
+                android:layout_alignStart="@+id/createdOn"
+                android:layout_below="@+id/createdOn"
                 android:fontFamily="@font/commonsregular"
                 android:text="@{coolNote.createdAt}"
                 android:textColor="#000000"
@@ -74,11 +74,11 @@
                 android:textStyle="italic" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_alignStart="@+id/textView"
+                android:layout_alignStart="@+id/createdOn"
                 android:layout_marginTop="161dp"
                 android:fontFamily="@font/commonsregular"
                 android:text="@{coolNote.title}"
@@ -86,11 +86,11 @@
                 android:textSize="25sp" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/content"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_alignStart="@+id/textView"
+                android:layout_alignStart="@+id/createdOn"
                 android:layout_marginTop="207dp"
                 android:fontFamily="@font/commonsregular"
                 android:text="@{coolNote.content}"
