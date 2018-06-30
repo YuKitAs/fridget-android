@@ -28,4 +28,40 @@ public class Member {
      */
     private String magnetColor;
 
+    /**
+     * Getter for the id
+     *
+     * @return id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * Getter for the userId
+     *
+     * @return userId
+     */
+    public String getUserId() {
+        return userId;
+    }
+
+    /**
+     * Getter for the flatShareId
+     *
+     * @return flatShareId
+     */
+    public String getFlatShareId() {
+        return flatShareId;
+    }
+
+    /**
+     * Getter for the magnetColor
+     *
+     * @return magnetColor
+     */
+    public String getMagnetColor() {
+        return magnetColor;
+    }
+
 }
