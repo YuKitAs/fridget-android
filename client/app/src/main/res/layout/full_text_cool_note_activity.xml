@@ -1,57 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="5dp"
-    android:background="#cdfeed">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="coolNote"
+            type="edu.kit.pse.fridget.client.datamodel.CoolNote"
+            />
+    </data>
 
     <RelativeLayout
-        android:id="@+id/rootRL"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:background="@drawable/note_big"
-        android:orientation="vertical">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:padding="5dp"
+        android:background="#cdfeed">
 
-        <ImageButton
-            android:id="@+id/menu_button"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_alignParentTop="true"
-            android:background="@drawable/menu_button" />
+        <RelativeLayout
+            android:id="@+id/rootRL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@drawable/note_big"
+            android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/back_button"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:background="@drawable/back_button" />
+            <ImageButton
+                android:id="@+id/menu_button"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/menu_button" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="23dp"
-            android:layout_marginTop="84dp"
-            android:fontFamily="@font/commonsregular"
-            android:text="Created on: "
-            android:textColor="#000000"
-            android:textSize="16sp"
-            android:textStyle="italic" />
+            <ImageButton
+                android:id="@+id/back_button"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/back_button" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="124dp"
-            app:srcCompat="@drawable/magnet"/>
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="84dp"
+                android:fontFamily="@font/commonsregular"
+                android:text="Created on: "
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="italic" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="124dp"
+                app:srcCompat="@drawable/magnet" />
+
+        </RelativeLayout>
 
     </RelativeLayout>
 
-</android.support.constraint.ConstraintLayout>
+</layout>
