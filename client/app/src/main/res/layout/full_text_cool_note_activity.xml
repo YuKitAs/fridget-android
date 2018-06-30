@@ -41,61 +41,69 @@
                 android:layout_alignParentTop="true"
                 android:background="@drawable/back_button" />
 
-            <TextView
-                android:id="@+id/createdOn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="23dp"
-                android:layout_marginTop="84dp"
-                android:fontFamily="@font/commonsregular"
-                android:text="Created on: "
-                android:textColor="#000000"
-                android:textSize="15sp"
-                android:textStyle="italic" />
-
             <ImageView
-                android:id="@+id/creationDate"
+                android:id="@+id/magnet"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="124dp"
                 app:srcCompat="@drawable/magnet" />
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/createdOn"
-                android:layout_below="@+id/createdOn"
-                android:fontFamily="@font/commonsregular"
-                android:text="@{coolNote.createdAt}"
-                android:textColor="#000000"
-                android:textSize="15sp"
-                android:textStyle="italic" />
+            <RelativeLayout
+                android:layout_width="324dp"
+                android:layout_height="387dp"
+                android:layout_below="@+id/magnet"
+                android:layout_centerHorizontal="true">
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignStart="@+id/createdOn"
-                android:layout_marginTop="161dp"
-                android:fontFamily="@font/commonsregular"
-                android:text="@{coolNote.title}"
-                android:textColor="#000000"
-                android:textSize="25sp" />
+                <TextView
+                    android:id="@+id/createdOn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:fontFamily="@font/commonsregular"
+                    android:text="Created on: "
+                    android:textColor="#000000"
+                    android:textSize="15sp"
+                    android:textStyle="italic" />
 
-            <TextView
-                android:id="@+id/content"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignStart="@+id/createdOn"
-                android:layout_marginTop="207dp"
-                android:fontFamily="@font/commonsregular"
-                android:text="@{coolNote.content}"
-                android:textColor="#000000"
-                android:textSize="15sp"/>
+                <TextView
+                    android:id="@+id/creationDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/createdOn"
+                    android:layout_below="@+id/createdOn"
+                    android:fontFamily="@font/commonsregular"
+                    android:text="@{coolNote.createdAt}"
+                    android:textColor="#000000"
+                    android:textSize="15sp"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="89dp"
+                    android:fontFamily="@font/commonsregular"
+                    android:text="@{coolNote.title}"
+                    android:textColor="#000000"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="133dp"
+                    android:fontFamily="@font/commonsregular"
+                    android:text="@{coolNote.content}"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+            </RelativeLayout>
 
         </RelativeLayout>
 
