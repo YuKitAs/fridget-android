@@ -3,6 +3,7 @@ package edu.kit.pse.fridget.client.service;
 import java.util.List;
 
 import edu.kit.pse.fridget.client.datamodel.CoolNote;
+import edu.kit.pse.fridget.client.datamodel.ReadConfirmation;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
@@ -27,7 +28,7 @@ public interface ReadConfirmationService {
     @Headers({"Content-Type: application/json",
             "Authorization:{JWT}"})
     @POST("/read-confirmations")
-    Call<CoolNote> createReadStatus(@Body Readstatus readstatus);
+    Call<CoolNote> createReadStatus(@Body ReadConfirmation readstatus);
 
 
     //Diese Methode demarkiert die Checkbox
