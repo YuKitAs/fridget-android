@@ -1,4 +1,4 @@
 package edu.kit.pse.fridget.client.datamodel;
 
-public class FlatShare {
+public class Flatshare {
 }

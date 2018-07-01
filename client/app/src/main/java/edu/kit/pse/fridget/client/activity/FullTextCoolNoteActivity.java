@@ -12,7 +12,7 @@ import edu.kit.pse.fridget.client.databinding.FullTextCoolNoteActivityBinding;
 
 public class FullTextCoolNoteActivity extends AppCompatActivity {
 
-    private static final String TAG        = FullTextCoolNoteActivity.class.getSimpleName();
+    private static final String TAG = FullTextCoolNoteActivity.class.getSimpleName();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

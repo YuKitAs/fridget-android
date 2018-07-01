@@ -20,8 +20,8 @@ public interface ImageNoteService {
       //Diese Methode ruft die ImageCoolNotes vom server ab
 
     @Headers("Authorization:{JWT}")
-    @GET("/image-notes?flatShare={id}")
-    Call<List<ImageNote>> getAllImageNotes(@Path("id") String flatShareId) ;
+    @GET("/image-notes?flatshare={id}")
+    Call<List<ImageNote>> getAllImageNotes(@Path("id") String flatshareId) ;
 
     //Diese Methode ruft eine Image-Cool-Note ab
     @Headers("Authorization:{JWT}")

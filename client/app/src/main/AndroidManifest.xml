@@ -12,7 +12,7 @@
 
         <activity android:name=".activity.AccessCodeActivity"/>
         <activity android:name=".activity.CreateCommentActivity"/>
-        <activity android:name=".activity.CreateFlatShareActivity"/>
+        <activity android:name=".activity.CreateFlatshareActivity"/>
         <activity android:name=".activity.CreateTextCoolNoteActivity"/>
         <activity android:name=".activity.EditFrozenNoteActivity"/>
         <activity android:name=".activity.EnterAccessCodeActivity"/>

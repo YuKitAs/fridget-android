@@ -19,7 +19,7 @@ public interface FrozenNoteService {
 
     //Diese Methoderuft die FrozenNotes vom Server ab
     @Headers("Authorization:{JWT}")
-    @GET("/frozen-notes?flatShare={id}")
+    @GET("/frozen-notes?flatshare={id}")
     Call<List<FrozenNote>> getAllFrozenNote(@Path("id") String flatshareId);
 
     //Diese Methode ruft die Großansicht einer FrozenNote ab, bzw den Inhalt

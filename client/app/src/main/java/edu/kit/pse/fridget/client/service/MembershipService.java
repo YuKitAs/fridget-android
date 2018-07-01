@@ -21,13 +21,13 @@ public interface MembershipService {
 
     //Ruft die Mitglieder einer Flatshare ab
     @Headers("Authorization:{JWT}")
-    @GET("/memberships/users?flatShare={id}")
-    Call<List<Member>> getMemberList(@Path("flatShareID") String flatShareID);
+    @GET("/memberships/users?flatshare={id}")
+    Call<List<Member>> getMemberList(@Path("flatshareID") String flatshareID);
 
     //Ruft einen Benutzer und seine Magnetfarbe ab
     @Headers("Authorization:{JWT}")
-    @GET("memberships?flatShare={fid}&user ={uid}")
-    Call<Member> getUser(@Path("fid") String flatShareId,
+    @GET("memberships?flatshare={fid}&user ={uid}")
+    Call<Member> getUser(@Path("fid") String flatshareId,
                              @Path("uid") String userid);
 
     //Fügt einen neues Member in bestehende flatshare hinzu
@@ -38,8 +38,8 @@ public interface MembershipService {
 
     //Löscht ein member aus einer flatshare
     @Headers("Authorization:{JWT}")
-    @DELETE("/memberships?flatShare={fid}&user={uid}")
-    Call<Member> deleteMember(@Path("fid") String flatShareId,
+    @DELETE("/memberships?flatshare={fid}&user={uid}")
+    Call<Member> deleteMember(@Path("fid") String flatshareId,
                                   @Path("uid") String userId);
 
 
