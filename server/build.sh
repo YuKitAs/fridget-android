@@ -1,1 +1,2 @@
-spring_profiles_active=development ./gradlew clean bootRun
+# On Unix
+SPRING_PROFILES_ACTIVE=development ./gradlew clean bootRun
