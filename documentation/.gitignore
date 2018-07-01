@@ -1,14 +1,3 @@
-**/.idea/*
-*.iml
-.gradle
-/local.properties
-.DS_Store
-build
-/captures
-.externalNativeBuild
-application.properties
-data.sql
-
 # Latex temp files
 *.toc
 *.aux
