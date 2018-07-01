@@ -6,7 +6,7 @@ The server-side of Fridget built with [Spring Boot](https://spring.io/projects/s
 
 * Make sure MySQL (>= 5.5) is installed and running.
 * Specify spring configurations for development environment in `src/main/resources/application.yml`.
-* Run the following Bash script to execute Gradle `bootRun` task with spring profile `development`:
+* Run the following Bash script to execute Gradle `bootRun` task with Spring profile `development`:
   ```console
   $ ./build.sh
   ```
