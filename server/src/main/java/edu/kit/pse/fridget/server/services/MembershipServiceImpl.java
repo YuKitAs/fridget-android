@@ -17,13 +17,15 @@ public class MembershipServiceImpl implements MembershipService {
     private final MembershipRepository membershipRepository;
     private final UserRepository userRepository;
     private final AccessCodeRepository accessCodeRepository;
+    private final MagnetColorService magnetColorService;
 
     @Autowired
     public MembershipServiceImpl(MembershipRepository membershipRepository, UserRepository userRepository,
-            AccessCodeRepository accessCodeRepository) {
+            AccessCodeRepository accessCodeRepository, MagnetColorService magnetColorService) {
         this.membershipRepository = membershipRepository;
         this.userRepository = userRepository;
         this.accessCodeRepository = accessCodeRepository;
+        this.magnetColorService = magnetColorService;
     }
 
     @Override
@@ -42,10 +44,12 @@ public class MembershipServiceImpl implements MembershipService {
 
     @Override
     public Membership saveMembership(String accessCode, String userId, Membership.Builder membershipBuilder) {
+        String flatshareId = accessCodeRepository.findByContent(accessCode).getFlatshareId();
+
         return saveMembership(membershipBuilder.setRandomId()
                 .setUserId(userId)
-                .setFlatshareId(accessCodeRepository.findByContent(accessCode).getFlatshareId())
-                .setRandomMagnetColor()
+                .setFlatshareId(flatshareId)
+                .setMagnetColor(magnetColorService.getRandomColor(flatshareId))
                 .build());
     }
 

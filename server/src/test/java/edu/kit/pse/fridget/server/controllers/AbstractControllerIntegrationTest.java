@@ -28,7 +28,9 @@ public abstract class AbstractControllerIntegrationTest {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    protected TestRestTemplate getTestRestTemplate() {
+    final String UUID_PATTERN = "[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}";
+
+    TestRestTemplate getTestRestTemplate() {
         return testRestTemplate;
     }
 
@@ -36,7 +38,7 @@ public abstract class AbstractControllerIntegrationTest {
         return jdbcTemplate;
     }
 
-    protected <T> T getFixture(String filePath, Class<T> objectClass) throws Exception {
+    <T> T getFixture(String filePath, Class<T> objectClass) throws Exception {
         return new ObjectMapper().readValue(new File("src/test/resources/fixtures/" + filePath), objectClass);
     }
 }

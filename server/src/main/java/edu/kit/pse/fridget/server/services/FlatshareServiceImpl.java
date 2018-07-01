@@ -14,17 +14,17 @@ import edu.kit.pse.fridget.server.repositories.FlatshareRepository;
 @Service
 public class FlatshareServiceImpl implements FlatshareService {
     private final FlatshareRepository flatshareRepository;
-
     private final MembershipService membershipService;
-
     private final FrozenNoteService frozenNoteService;
+    private final MagnetColorService magnetColorService;
 
     @Autowired
     public FlatshareServiceImpl(FlatshareRepository flatshareRepository, MembershipService membershipService,
-            FrozenNoteService frozenNoteService) {
+            FrozenNoteService frozenNoteService, MagnetColorService magnetColorService) {
         this.flatshareRepository = flatshareRepository;
         this.membershipService = membershipService;
         this.frozenNoteService = frozenNoteService;
+        this.magnetColorService = magnetColorService;
     }
 
     @Override
@@ -37,7 +37,7 @@ public class FlatshareServiceImpl implements FlatshareService {
         Flatshare createdFlatshare = flatshareRepository.save(flatshare);
 
         membershipService.saveMembership(new Membership.Builder().setRandomId()
-                .setRandomMagnetColor()
+                .setMagnetColor(magnetColorService.getRandomColor())
                 .setFlatshareId(createdFlatshare.getId())
                 .setUserId(userId)
                 .build());

@@ -5,10 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Objects;
 import java.util.UUID;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -68,8 +66,8 @@ public class Membership {
             return this;
         }
 
-        public Builder setRandomMagnetColor() {
-            this.magnetColor = "000000";
+        public Builder setMagnetColor(String color) {
+            this.magnetColor = color;
             return this;
         }
 
