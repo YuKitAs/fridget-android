@@ -4,8 +4,6 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.databinding.FullTextCoolNoteActivityBinding;
 

@@ -6,31 +6,18 @@
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
-        android:layout_width="223dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="217dp" />
+        android:layout_marginBottom="175dp"
+        />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="166dp"
-        android:layout_height="224dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/note_login" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/imageView"
-        android:layout_alignRight="@+id/imageView"
-        android:layout_centerVertical="true"
-        android:text="@string/LoginText"
-       android:textSize="30dp"
-        android:gravity="center"
-       />
+        android:layout_width="303dp"
+        android:layout_height="77dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/fridget_logotext" />
 
 
 </RelativeLayout>
