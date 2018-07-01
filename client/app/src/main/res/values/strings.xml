@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">client</string>
+    <string name="app_name">Fridget</string>
+    <string name="LoginText">Login with your Google Account</string>
+
 </resources>
