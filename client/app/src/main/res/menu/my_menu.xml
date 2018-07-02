@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/memlist"
+        android:icon="@drawable/member"
+        android:title="Member List" />
+    <item
+        android:id="@+id/create_access"
+        android:icon="@drawable/create_access"
+        android:title="Create Access Code" />
+    <item
+        android:id="@+id/leave"
+        android:icon="@drawable/leave"
+        android:title="Leave Flatshare" />
+</menu>
