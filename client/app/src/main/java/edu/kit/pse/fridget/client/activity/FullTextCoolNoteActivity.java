@@ -1,11 +1,13 @@
 package edu.kit.pse.fridget.client.activity;
 
 import android.databinding.DataBindingUtil;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.ImageView;
 
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.databinding.FullTextCoolNoteActivityBinding;
@@ -19,6 +21,11 @@ public class FullTextCoolNoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "Calling onCreate");
         FullTextCoolNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.full_text_cool_note_activity);
+
+        ImageView imageView = (ImageView) findViewById(R.id.magnet);
+        GradientDrawable background = (GradientDrawable) imageView.getBackground();
+        background.setColor(Color.parseColor("#000000"));
+
     }
 
     @Override
