@@ -3,15 +3,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-        <variable
-            name="coolNote"
-            type="edu.kit.pse.fridget.client.datamodel.CoolNote"
-            />
 
         <variable
-            name="frozenNote"
-            type="edu.kit.pse.fridget.client.datamodel.FrozenNote"
+            name="homVM"
+            type="edu.kit.pse.fridget.client.viewmodel.HomeViewModel"
             />
+
 
     </data>
 
