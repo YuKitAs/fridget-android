@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.databinding.FullTextCoolNoteActivityBinding;
+import edu.kit.pse.fridget.client.databinding.LoginActivityBinding;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -13,6 +14,6 @@ public class LoginActivity extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        FullTextCoolNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.login);
+        LoginActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.login_activity);
     }
 }
