@@ -24,7 +24,7 @@ public class FullTextCoolNoteActivity extends AppCompatActivity {
 
         ImageView imageView = (ImageView) findViewById(R.id.magnet);
         GradientDrawable background = (GradientDrawable) imageView.getBackground();
-        background.setColor(Color.parseColor("#000000"));
+        background.setColor(Color.parseColor("#ff00ab"));
 
     }
 
