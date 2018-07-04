@@ -51,7 +51,7 @@
 
             <RelativeLayout
                 android:layout_width="311dp"
-                android:layout_height="358dp"
+                android:layout_height="401dp"
                 android:layout_centerInParent="true">
 
                 <TextView
@@ -60,6 +60,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
+                    android:layout_marginTop="29dp"
                     android:fontFamily="@font/commonsregular"
                     android:text="Created on: "
                     android:textColor="#000000"
@@ -108,10 +109,17 @@
                     android:layout_alignParentStart="true"
                     android:layout_below="@+id/content"
                     android:fontFamily="@font/commonsregular"
+                    android:padding="2dp"
                     android:text="Read By:"
                     android:textColor="#000000"
-                    android:textSize="12sp"
-                    android:padding="2dp"/>
+                    android:textSize="12sp" />
+
+                <ListView
+                    android:id="@+id/member_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="151dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/readBy" />
 
             </RelativeLayout>
 
