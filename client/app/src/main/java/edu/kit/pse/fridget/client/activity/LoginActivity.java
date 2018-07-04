@@ -13,6 +13,6 @@ public class LoginActivity extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        FullTextCoolNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.login);
+        FullTextCoolNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.login_activity);
     }
 }
