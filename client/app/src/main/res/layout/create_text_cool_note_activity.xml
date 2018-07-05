@@ -16,6 +16,23 @@
             android:layout_gravity="center"
             android:background="@drawable/fridge_face"
             android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/menu_button"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/menu_button" />
+
+            <ImageButton
+                android:id="@+id/back_button"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/back_button" />
+            
+
         </RelativeLayout>
 
     </RelativeLayout>
