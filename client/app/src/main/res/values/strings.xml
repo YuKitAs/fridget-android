@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Fridget</string>
-    <string name="LoginText">Login with your Google Account</string>
-
+    <string name="loginText">Login with your Google Account</string>
+    <string name="registerFlatshare">Register your flatshare</string>
+    <string name="enterAccessCode">Enter access code</string>
+    <string name="nameflatshare">Enter the name of your flatshare</string>
+    <string name="create">Create!</string>
 </resources>
