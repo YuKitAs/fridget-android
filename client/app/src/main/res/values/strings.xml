@@ -5,4 +5,5 @@
     <string name="enterAccessCode">Enter access code</string>
     <string name="nameflatshare">Enter the name of your flatshare</string>
     <string name="create">Create!</string>
+    <string name="gotoFridge">Let\'s go to our fridge!</string>
 </resources>
