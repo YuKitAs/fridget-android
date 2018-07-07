@@ -28,10 +28,10 @@
                 android:layout_marginTop="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.6"
+                app:layout_constraintHorizontal_bias="0.275"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.951">
+                app:layout_constraintVertical_bias="0.878">
 
                 <TextView
                     android:id="@+id/title"
@@ -69,7 +69,7 @@
 
                 <TextView
                     android:id="@+id/content"
-                    android:layout_width="110dp"
+                    android:layout_width="124dp"
                     android:layout_height="wrap_content"
                     android:layout_alignStart="@+id/title"
                     android:layout_below="@+id/title"
@@ -97,7 +97,7 @@
                 <View
                     android:id="@+id/contentBox3"
                     android:layout_width="278dp"
-                    android:layout_height="160dp"
+                    android:layout_height="166dp"
                     android:layout_alignStart="@+id/title"
                     android:layout_below="@+id/content"
                     android:background="@drawable/box"
@@ -105,8 +105,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.228"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/content"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintTop_toBottomOf="@+id/content" />
 
 
                 <View
@@ -164,7 +163,7 @@
                     android:layout_width="60dp"
                     android:layout_height="40dp"
                     android:layout_alignBottom="@+id/contentBox"
-                    android:layout_toEndOf="@+id/content"
+                    android:layout_alignStart="@+id/button6"
                     android:fontFamily="@font/commonsregular"
                     android:text="I"
                     android:textSize="15sp"
@@ -181,8 +180,7 @@
                     android:layout_width="60dp"
                     android:layout_height="40dp"
                     android:layout_alignBottom="@+id/contentBox"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="60dp"
+                    android:layout_toEndOf="@+id/button6"
                     android:fontFamily="@font/commonsregular"
                     android:text="U"
                     android:textSize="15sp"
@@ -193,6 +191,16 @@
                     app:layout_constraintStart_toEndOf="@+id/button"
                     app:layout_constraintTop_toTopOf="@+id/button"
                     app:layout_constraintVertical_bias="0.437" />
+
+                <Button
+                    android:id="@+id/button6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/commonsregular"
+                    android:text="Post it!"
+                    android:textSize="15sp" />
 
             </RelativeLayout>
 
