@@ -95,20 +95,6 @@
                     app:layout_constraintVertical_bias="0.0" />
 
                 <View
-                    android:id="@+id/contentBox3"
-                    android:layout_width="278dp"
-                    android:layout_height="166dp"
-                    android:layout_alignStart="@+id/title"
-                    android:layout_below="@+id/content"
-                    android:background="@drawable/box"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.228"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/content" />
-
-
-                <View
                     android:id="@+id/contentBox2"
                     android:layout_width="278dp"
                     android:layout_height="44dp"
@@ -122,8 +108,21 @@
                     app:layout_constraintTop_toTopOf="@+id/contentBox3"
                     app:layout_constraintVertical_bias="0.0" />
 
+                <View
+                    android:id="@+id/contentBox3"
+                    android:layout_width="278dp"
+                    android:layout_height="166dp"
+                    android:layout_alignStart="@+id/title"
+                    android:layout_below="@+id/content"
+                    android:background="@drawable/box"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.228"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/content" />
+
                 <EditText
-                    android:id="@+id/editText"
+                    android:id="@+id/enterContent"
                     android:layout_width="277dp"
                     android:layout_height="20dp"
                     android:layout_alignStart="@+id/title"
@@ -185,7 +184,7 @@
                     android:text="U"
                     android:textSize="15sp"
                     android:textStyle=""
-                    app:layout_constraintBottom_toTopOf="@+id/editText"
+                    app:layout_constraintBottom_toTopOf="@+id/enterContent"
                     app:layout_constraintEnd_toEndOf="@+id/contentBox3"
                     app:layout_constraintHorizontal_bias="0.829"
                     app:layout_constraintStart_toEndOf="@+id/italicButton"
