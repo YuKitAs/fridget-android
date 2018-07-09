@@ -477,7 +477,8 @@
             android:layout_height="55dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:background="@drawable/plus_button" />
+            android:background="@drawable/plus_button"
+            android:onClick="createCoolNoteView"/>
 
     </RelativeLayout>
 
