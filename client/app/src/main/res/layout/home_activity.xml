@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <data>
+        <variable
+            name="homeVM"
+            type="edu.kit.pse.fridget.client.viewmodel.HomeViewModel" />
+
+        <import type="android.view.View"/>
+    </data>
 
     <RelativeLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#cdfeed"
@@ -35,11 +42,13 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/note_home"
+                android:text="@{homeVM.t1}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/coolNote2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.435" />
+                app:layout_constraintVertical_bias="0.435"
+                android:visibility="@{homeVM.isEmptyCN(1) ? View.GONE : View.VISIBLE}" />
 
             <Button
                 android:id="@+id/coolNote2"
@@ -52,11 +61,13 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/note_home"
+                android:text="@{homeVM.t1}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.435" />
+                app:layout_constraintVertical_bias="0.435"
+                android:visibility="@{homeVM.isEmptyCN(2) ? View.GONE : View.VISIBLE}" />
 
             <Button
                 android:id="@+id/coolNote3"
@@ -69,11 +80,13 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/note_home"
+                android:text="@{homeVM.t1}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/coolNote2"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.435" />
+                app:layout_constraintVertical_bias="0.435"
+                android:visibility="@{homeVM.isEmptyCN(3) ? View.GONE : View.VISIBLE}" />
 
             <Button
                 android:id="@+id/coolNote4"
@@ -86,11 +99,13 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/note_home"
+                android:text="@{homeVM.t1}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/coolNote5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.683" />
+                app:layout_constraintVertical_bias="0.683"
+                android:visibility="@{homeVM.isEmptyCN(4) ? View.GONE : View.VISIBLE}" />
 
             <Button
                 android:id="@+id/coolNote5"
@@ -103,11 +118,13 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/note_home"
+                android:text="@{homeVM.t1}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.683" />
+                app:layout_constraintVertical_bias="0.683"
+                android:visibility="@{homeVM.isEmptyCN(5) ? View.GONE : View.VISIBLE}" />
 
             <Button
                 android:id="@+id/coolNote6"
@@ -120,11 +137,13 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/note_home"
+                android:text="@{homeVM.t1}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/coolNote5"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.683" />
+                app:layout_constraintVertical_bias="0.683"
+                android:visibility="@{homeVM.isEmptyCN(6) ? View.GONE : View.VISIBLE}" />
 
             <Button
                 android:id="@+id/coolNote7"
@@ -137,11 +156,13 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/note_home"
+                android:text="@{homeVM.t1}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/coolNote8"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintVertical_bias="1.0"
+                android:visibility="@{homeVM.isEmptyCN(7) ? View.GONE : View.VISIBLE}" />
 
             <Button
                 android:id="@+id/coolNote8"
@@ -154,11 +175,13 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/note_home"
+                android:text="@{homeVM.t1}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintVertical_bias="1.0"
+                android:visibility="@{homeVM.isEmptyCN(8) ? View.GONE : View.VISIBLE}" />
 
             <Button
                 android:id="@+id/coolNote9"
@@ -171,11 +194,13 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/note_home"
+                android:text= "@{homeVM.t1}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/coolNote8"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintVertical_bias="1.0"
+                android:visibility="@{homeVM.isEmptyCN(9) ? View.GONE : View.VISIBLE}" />
 
             <Button
                 android:id="@+id/cNmagnet1"
@@ -187,12 +212,14 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:background="@drawable/magnet"
+                android:backgroundTint= "#4B088A"
                 app:layout_constraintBottom_toBottomOf="@+id/coolNote1"
                 app:layout_constraintEnd_toEndOf="@+id/coolNote1"
                 app:layout_constraintStart_toStartOf="@+id/coolNote1"
                 app:layout_constraintTop_toTopOf="@+id/coolNote1"
-
-                app:layout_constraintVertical_bias="0.363" />
+                app:layout_constraintVertical_bias="0.363"
+                android:visibility="@{homeVM.isEmptyCN(1) ? View.GONE : View.VISIBLE}"
+                />
 
             <Button
                 android:id="@+id/cNmagnet2"
@@ -208,7 +235,8 @@
                 app:layout_constraintEnd_toEndOf="@+id/coolNote2"
                 app:layout_constraintStart_toStartOf="@+id/coolNote2"
                 app:layout_constraintTop_toTopOf="@+id/coolNote2"
-                app:layout_constraintVertical_bias="0.363" />
+                app:layout_constraintVertical_bias="0.363"
+                android:visibility="@{homeVM.isEmptyCN(2) ? View.GONE : View.VISIBLE}" />
 
             <Button
                 android:id="@+id/cNmagnet3"
@@ -224,7 +252,8 @@
                 app:layout_constraintEnd_toEndOf="@+id/coolNote3"
                 app:layout_constraintStart_toStartOf="@+id/coolNote3"
                 app:layout_constraintTop_toTopOf="@+id/coolNote3"
-                app:layout_constraintVertical_bias="0.363" />
+                app:layout_constraintVertical_bias="0.363"
+                android:visibility="@{homeVM.isEmptyCN(3) ? View.GONE : View.VISIBLE}" />
 
             <Button
                 android:id="@+id/cNmagnet4"
@@ -240,7 +269,8 @@
                 app:layout_constraintEnd_toEndOf="@+id/coolNote4"
                 app:layout_constraintStart_toStartOf="@+id/coolNote4"
                 app:layout_constraintTop_toTopOf="@+id/coolNote4"
-                app:layout_constraintVertical_bias="0.363" />
+                app:layout_constraintVertical_bias="0.363"
+                android:visibility="@{homeVM.isEmptyCN(4) ? View.GONE : View.VISIBLE}" />
 
             <Button
                 android:id="@+id/cNmagnet5"
@@ -256,7 +286,8 @@
                 app:layout_constraintEnd_toEndOf="@+id/coolNote5"
                 app:layout_constraintStart_toStartOf="@+id/coolNote5"
                 app:layout_constraintTop_toTopOf="@+id/coolNote5"
-                app:layout_constraintVertical_bias="0.363" />
+                app:layout_constraintVertical_bias="0.363"
+                android:visibility="@{homeVM.isEmptyCN(5) ? View.GONE : View.VISIBLE}" />
 
             <Button
                 android:id="@+id/cNmagnet6"
@@ -272,7 +303,8 @@
                 app:layout_constraintEnd_toEndOf="@+id/coolNote6"
                 app:layout_constraintStart_toStartOf="@+id/coolNote6"
                 app:layout_constraintTop_toTopOf="@+id/coolNote6"
-                app:layout_constraintVertical_bias="0.363" />
+                app:layout_constraintVertical_bias="0.363"
+                android:visibility="@{homeVM.isEmptyCN(6) ? View.GONE : View.VISIBLE}" />
 
             <Button
                 android:id="@+id/cNmagnet7"
@@ -288,7 +320,8 @@
                 app:layout_constraintEnd_toEndOf="@+id/coolNote7"
                 app:layout_constraintStart_toStartOf="@+id/coolNote7"
                 app:layout_constraintTop_toTopOf="@+id/coolNote7"
-                app:layout_constraintVertical_bias="0.363" />
+                app:layout_constraintVertical_bias="0.363"
+                android:visibility="@{homeVM.isEmptyCN(7) ? View.GONE : View.VISIBLE}" />
 
             <Button
                 android:id="@+id/cNmagnet8"
@@ -304,7 +337,8 @@
                 app:layout_constraintEnd_toEndOf="@+id/coolNote8"
                 app:layout_constraintStart_toStartOf="@+id/coolNote8"
                 app:layout_constraintTop_toTopOf="@+id/coolNote8"
-                app:layout_constraintVertical_bias="0.363" />
+                app:layout_constraintVertical_bias="0.363"
+                android:visibility="@{homeVM.isEmptyCN(8) ? View.GONE : View.VISIBLE}" />
 
             <Button
                 android:id="@+id/cNmagnet9"
@@ -320,7 +354,9 @@
                 app:layout_constraintEnd_toEndOf="@+id/coolNote9"
                 app:layout_constraintStart_toStartOf="@+id/coolNote9"
                 app:layout_constraintTop_toTopOf="@+id/coolNote9"
-                app:layout_constraintVertical_bias="0.363" />
+                app:layout_constraintVertical_bias="0.363"
+                android:visibility="@{homeVM.isEmptyCN(9) ? View.GONE : View.VISIBLE}" />
+
 
             <Button
                 android:id="@+id/frozenNote1"
