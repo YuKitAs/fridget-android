@@ -1,11 +1,16 @@
 package edu.kit.pse.fridget.client.activity;
 
+import android.arch.lifecycle.ViewModelProvider;
 import android.databinding.DataBindingUtil;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.databinding.HomeActivityBinding;
+
+import edu.kit.pse.fridget.client.viewmodel.HomeViewModel;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -14,6 +19,9 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         HomeActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.home_activity);
+
+        HomeViewModel homeVM = new HomeViewModel();
+        binding.setHomeVM(homeVM);
 
     }
 }
