@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
 
-      xmlns:android="http://schemas.android.com/apk/res/android">
+        <variable
+            name="start"
+            type="edu.kit.pse.fridget.client.viewmodel.EnterAccessCodeViewModel"
+            />
+    </data>
 
     <RelativeLayout
         android:layout_width="match_parent"

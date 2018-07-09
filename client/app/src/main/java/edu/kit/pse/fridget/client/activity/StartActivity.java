@@ -1,10 +1,12 @@
 package edu.kit.pse.fridget.client.activity;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 
 import edu.kit.pse.fridget.client.R;
@@ -15,7 +17,17 @@ public class StartActivity extends AppCompatActivity {
 
     private static final String TAG = StartActivity.class.getSimpleName();
   
+    public void onClickRegisterFlatshare(View v){
+        Intent intent = new Intent(this, CreateFlatshareActivity.class);
+        startActivity(intent);
 
+    }
+
+    public void onClickEnterAccessCode(View v){
+        Intent intent = new Intent(this, EnterAccessCodeActivity.class);
+        startActivity(intent);
+
+    }
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -63,7 +63,8 @@
                 app:layout_constraintHorizontal_bias="0.506"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.709">
+                app:layout_constraintVertical_bias="0.709"
+                android:onClick="onClickRegisterFlatshare">
 
 
             </Button>
@@ -83,7 +84,8 @@
                 app:layout_constraintHorizontal_bias="0.461"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.879">
+                app:layout_constraintVertical_bias="0.879"
+                android:onClick="onClickEnterAccessCode">
 
 
             </Button>
