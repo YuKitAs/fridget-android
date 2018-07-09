@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <data>
-
-        <variable
-            name="homVM"
-            type="edu.kit.pse.fridget.client.viewmodel.HomeViewModel"
-            />
-
-
-    </data>
 
     <RelativeLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -390,6 +382,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:background="@drawable/magnet"
+                android:backgroundTint="#000000"
                 app:layout_constraintBottom_toBottomOf="@+id/frozenNote1"
                 app:layout_constraintEnd_toEndOf="@+id/frozenNote1"
                 app:layout_constraintHorizontal_bias="0.538"
@@ -407,6 +400,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:background="@drawable/magnet"
+                android:backgroundTint="#000000"
                 app:layout_constraintBottom_toBottomOf="@+id/frozenNote2"
                 app:layout_constraintEnd_toEndOf="@+id/frozenNote2"
                 app:layout_constraintHorizontal_bias="0.538"
@@ -424,6 +418,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:background="@drawable/magnet"
+                android:backgroundTint="#000000"
                 app:layout_constraintBottom_toBottomOf="@+id/frozenNote3"
                 app:layout_constraintEnd_toEndOf="@+id/frozenNote3"
                 app:layout_constraintHorizontal_bias="0.538"
