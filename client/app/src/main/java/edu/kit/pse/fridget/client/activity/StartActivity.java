@@ -14,7 +14,7 @@ public class StartActivity extends AppCompatActivity {
 
 
     private static final String TAG = StartActivity.class.getSimpleName();
-    Button btn;
+  
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
