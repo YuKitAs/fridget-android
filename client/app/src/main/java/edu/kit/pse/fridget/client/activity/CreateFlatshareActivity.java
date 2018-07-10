@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import edu.kit.pse.fridget.client.R;
-import edu.kit.pse.fridget.client.databinding.*;
 import edu.kit.pse.fridget.client.databinding.CreateFlatshareActivityBinding;
 import edu.kit.pse.fridget.client.viewmodel.CreateFlatshareViewModel;
 
@@ -22,6 +21,7 @@ public class CreateFlatshareActivity extends AppCompatActivity {
         CreateFlatshareActivityBinding binding = DataBindingUtil.setContentView(this,R.layout.create_flatshare_activity);
         CreateFlatshareViewModel createFlatshare = new CreateFlatshareViewModel();
         binding.setCreateFlatshare(createFlatshare);
+
 
     }
 

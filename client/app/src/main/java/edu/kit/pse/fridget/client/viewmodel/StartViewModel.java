@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.view.View;
 
 import edu.kit.pse.fridget.client.activity.CreateFlatshareActivity;
-import edu.kit.pse.fridget.client.activity.CreateTextCoolNoteActivity;
+
 import edu.kit.pse.fridget.client.activity.EnterAccessCodeActivity;
 
 import static android.support.v4.content.ContextCompat.startActivity;

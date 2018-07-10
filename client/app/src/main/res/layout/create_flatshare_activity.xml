@@ -2,10 +2,14 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 <data>
 
-
+    <variable
+        name="flatshare"
+        type="edu.kit.pse.fridget.client.datamodel.Flatshare"
+        />
     <variable
         name="createFlatshare"
         type="edu.kit.pse.fridget.client.viewmodel.CreateFlatshareViewModel"
+
         />
     <import type="android.view.View"/>
 </data>
@@ -90,8 +94,10 @@
                     android:textColor="@android:color/black"
                     android:textSize="20sp"
                     android:visibility="visible"
-                    android:maxLength="5"/>
+                    android:maxLength="20"
+                    android:text="@={flatshare.name}"/>
             </android.support.design.widget.TextInputLayout>
+
 
 
         </android.support.constraint.ConstraintLayout>
