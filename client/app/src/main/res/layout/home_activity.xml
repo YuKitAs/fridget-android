@@ -41,16 +41,16 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:visibility="@{homeVM.isEmptyCN(1) ? View.INVISIBLE : View.VISIBLE}"
                 android:background="@drawable/note_home"
-                android:text="@{homeVM.getCNTitle(0)}"
+                android:text="@{homeVM.getCNTitle(1)}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/coolNote2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.435"
                 android:tag="1"
-                android:onClick="openFullCoolNote"
-                android:visibility="@{homeVM.isEmptyCN(1) ? View.GONE : View.VISIBLE}" />
+                android:onClick="@{(v)-> homeVM.openFullCoolNote(v)}" />
 
             <Button
                 android:id="@+id/coolNote2"
@@ -62,14 +62,16 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:visibility="@{homeVM.isEmptyCN(2) ? View.INVISIBLE : View.VISIBLE}"
                 android:background="@drawable/note_home"
-                android:text="@{homeVM.t1}"
+                android:text="@{homeVM.getCNTitle(2)}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.435"
-                android:visibility="@{homeVM.isEmptyCN(2) ? View.GONE : View.VISIBLE}" />
+                android:tag="2"
+                android:onClick="@{(v)-> homeVM.openFullCoolNote(v)}"/>
 
             <Button
                 android:id="@+id/coolNote3"
@@ -81,14 +83,16 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:visibility="@{homeVM.isEmptyCN(3) ? View.INVISIBLE : View.VISIBLE}"
                 android:background="@drawable/note_home"
-                android:text="@{homeVM.t1}"
+                android:text="@{homeVM.getCNTitle(3)}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/coolNote2"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.435"
-                android:visibility="@{homeVM.isEmptyCN(3) ? View.GONE : View.VISIBLE}" />
+                android:tag="3"
+                android:onClick="@{(v)-> homeVM.openFullCoolNote(v)}" />
 
             <Button
                 android:id="@+id/coolNote4"
@@ -100,14 +104,16 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:visibility="@{homeVM.isEmptyCN(4) ? View.INVISIBLE : View.VISIBLE}"
                 android:background="@drawable/note_home"
-                android:text="@{homeVM.t1}"
+                android:text="@{homeVM.getCNTitle(4)}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/coolNote5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.683"
-                android:visibility="@{homeVM.isEmptyCN(4) ? View.GONE : View.VISIBLE}" />
+                android:tag="4"
+                android:onClick="@{(v)-> homeVM.openFullCoolNote(v)}"/>
 
             <Button
                 android:id="@+id/coolNote5"
@@ -119,14 +125,16 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:visibility="@{homeVM.isEmptyCN(5) ? View.INVISIBLE : View.VISIBLE}"
                 android:background="@drawable/note_home"
-                android:text="@{homeVM.t1}"
+                android:text="@{homeVM.getCNTitle(5)}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.683"
-                android:visibility="@{homeVM.isEmptyCN(5) ? View.GONE : View.VISIBLE}" />
+                android:tag="5"
+                android:onClick="@{(v)-> homeVM.openFullCoolNote(v)}" />
 
             <Button
                 android:id="@+id/coolNote6"
@@ -138,14 +146,16 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:visibility="@{homeVM.isEmptyCN(6) ? View.INVISIBLE : View.VISIBLE}"
                 android:background="@drawable/note_home"
-                android:text="@{homeVM.t1}"
+                android:text="@{homeVM.getCNTitle(6)}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/coolNote5"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.683"
-                android:visibility="@{homeVM.isEmptyCN(6) ? View.GONE : View.VISIBLE}" />
+                android:tag="6"
+                android:onClick="@{(v)-> homeVM.openFullCoolNote(v)}"/>
 
             <Button
                 android:id="@+id/coolNote7"
@@ -157,14 +167,16 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:visibility="@{homeVM.isEmptyCN(7) ? View.INVISIBLE : View.VISIBLE}"
                 android:background="@drawable/note_home"
-                android:text="@{homeVM.t1}"
+                android:text="@{homeVM.getCNTitle(7)}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/coolNote8"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0"
-                android:visibility="@{homeVM.isEmptyCN(7) ? View.GONE : View.VISIBLE}" />
+                android:tag="7"
+                android:onClick="@{(v)-> homeVM.openFullCoolNote(v)}" />
 
             <Button
                 android:id="@+id/coolNote8"
@@ -176,14 +188,16 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:visibility="@{homeVM.isEmptyCN(8) ? View.INVISIBLE : View.VISIBLE}"
                 android:background="@drawable/note_home"
-                android:text="@{homeVM.t1}"
+                android:text="@{homeVM.getCNTitle(8)}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0"
-                android:visibility="@{homeVM.isEmptyCN(8) ? View.GONE : View.VISIBLE}" />
+                android:tag="8"
+                android:onClick="@{(v)-> homeVM.openFullCoolNote(v)}" />
 
             <Button
                 android:id="@+id/coolNote9"
@@ -195,16 +209,19 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:visibility="@{homeVM.isEmptyCN(9) ? View.INVISIBLE : View.VISIBLE}"
                 android:background="@drawable/note_home"
-                android:text= "@{homeVM.t1}"
+                android:text= "@{homeVM.getCNTitle(9)}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/coolNote8"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0"
-                android:visibility="@{homeVM.isEmptyCN(9) ? View.GONE : View.VISIBLE}" />
+                android:tag="9"
+                android:onClick="@{(v)-> homeVM.openFullCoolNote(v)}"/>
 
             <Button
+
                 android:id="@+id/cNmagnet1"
                 android:layout_width="18dp"
                 android:layout_height="18dp"
@@ -213,15 +230,14 @@
                 android:layout_marginBottom="80dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
+                android:visibility="@{homeVM.isEmptyCN(1) ? View.INVISIBLE : View.VISIBLE}"
                 android:background="@drawable/magnet"
-                android:backgroundTint= "#4B088A"
+                android:backgroundTint= "@{homeVM.getMagnetColor(1)}"
                 app:layout_constraintBottom_toBottomOf="@+id/coolNote1"
                 app:layout_constraintEnd_toEndOf="@+id/coolNote1"
                 app:layout_constraintStart_toStartOf="@+id/coolNote1"
                 app:layout_constraintTop_toTopOf="@+id/coolNote1"
-                app:layout_constraintVertical_bias="0.363"
-                android:visibility="@{homeVM.isEmptyCN(1) ? View.GONE : View.VISIBLE}"
-                />
+                app:layout_constraintVertical_bias="0.363"/>
 
             <Button
                 android:id="@+id/cNmagnet2"
@@ -232,13 +248,14 @@
                 android:layout_marginBottom="80dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
+                android:visibility="@{homeVM.isEmptyCN(2) ? View.INVISIBLE : View.VISIBLE}"
                 android:background="@drawable/magnet"
+                android:backgroundTint= "@{homeVM.getMagnetColor(2)}"
                 app:layout_constraintBottom_toBottomOf="@+id/coolNote2"
                 app:layout_constraintEnd_toEndOf="@+id/coolNote2"
                 app:layout_constraintStart_toStartOf="@+id/coolNote2"
                 app:layout_constraintTop_toTopOf="@+id/coolNote2"
-                app:layout_constraintVertical_bias="0.363"
-                android:visibility="@{homeVM.isEmptyCN(2) ? View.GONE : View.VISIBLE}" />
+                app:layout_constraintVertical_bias="0.363"/>
 
             <Button
                 android:id="@+id/cNmagnet3"
@@ -249,13 +266,14 @@
                 android:layout_marginBottom="80dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
+                android:visibility="@{homeVM.isEmptyCN(3) ? View.INVISIBLE : View.VISIBLE}"
                 android:background="@drawable/magnet"
+                android:backgroundTint= "@{homeVM.getMagnetColor(3)}"
                 app:layout_constraintBottom_toBottomOf="@+id/coolNote3"
                 app:layout_constraintEnd_toEndOf="@+id/coolNote3"
                 app:layout_constraintStart_toStartOf="@+id/coolNote3"
                 app:layout_constraintTop_toTopOf="@+id/coolNote3"
-                app:layout_constraintVertical_bias="0.363"
-                android:visibility="@{homeVM.isEmptyCN(3) ? View.GONE : View.VISIBLE}" />
+                app:layout_constraintVertical_bias="0.363" />
 
             <Button
                 android:id="@+id/cNmagnet4"
@@ -266,13 +284,14 @@
                 android:layout_marginBottom="80dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
+                android:visibility="@{homeVM.isEmptyCN(4) ? View.INVISIBLE : View.VISIBLE}"
                 android:background="@drawable/magnet"
+                android:backgroundTint= "@{homeVM.getMagnetColor(4)}"
                 app:layout_constraintBottom_toBottomOf="@+id/coolNote4"
                 app:layout_constraintEnd_toEndOf="@+id/coolNote4"
                 app:layout_constraintStart_toStartOf="@+id/coolNote4"
                 app:layout_constraintTop_toTopOf="@+id/coolNote4"
-                app:layout_constraintVertical_bias="0.363"
-                android:visibility="@{homeVM.isEmptyCN(4) ? View.GONE : View.VISIBLE}" />
+                app:layout_constraintVertical_bias="0.363" />
 
             <Button
                 android:id="@+id/cNmagnet5"
@@ -283,13 +302,14 @@
                 android:layout_marginBottom="80dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
+                android:visibility="@{homeVM.isEmptyCN(5) ? View.INVISIBLE : View.VISIBLE}"
                 android:background="@drawable/magnet"
+                android:backgroundTint= "@{homeVM.getMagnetColor(5)}"
                 app:layout_constraintBottom_toBottomOf="@+id/coolNote5"
                 app:layout_constraintEnd_toEndOf="@+id/coolNote5"
                 app:layout_constraintStart_toStartOf="@+id/coolNote5"
                 app:layout_constraintTop_toTopOf="@+id/coolNote5"
-                app:layout_constraintVertical_bias="0.363"
-                android:visibility="@{homeVM.isEmptyCN(5) ? View.GONE : View.VISIBLE}" />
+                app:layout_constraintVertical_bias="0.363" />
 
             <Button
                 android:id="@+id/cNmagnet6"
@@ -300,13 +320,14 @@
                 android:layout_marginBottom="80dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
+                android:visibility="@{homeVM.isEmptyCN(6) ? View.INVISIBLE : View.VISIBLE}"
                 android:background="@drawable/magnet"
+                android:backgroundTint= "@{homeVM.getMagnetColor(6)}"
                 app:layout_constraintBottom_toBottomOf="@+id/coolNote6"
                 app:layout_constraintEnd_toEndOf="@+id/coolNote6"
                 app:layout_constraintStart_toStartOf="@+id/coolNote6"
                 app:layout_constraintTop_toTopOf="@+id/coolNote6"
-                app:layout_constraintVertical_bias="0.363"
-                android:visibility="@{homeVM.isEmptyCN(6) ? View.GONE : View.VISIBLE}" />
+                app:layout_constraintVertical_bias="0.363" />
 
             <Button
                 android:id="@+id/cNmagnet7"
@@ -317,13 +338,14 @@
                 android:layout_marginBottom="80dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
+                android:visibility="@{homeVM.isEmptyCN(7) ? View.INVISIBLE : View.VISIBLE}"
                 android:background="@drawable/magnet"
+                android:backgroundTint= "@{homeVM.getMagnetColor(7)}"
                 app:layout_constraintBottom_toBottomOf="@+id/coolNote7"
                 app:layout_constraintEnd_toEndOf="@+id/coolNote7"
                 app:layout_constraintStart_toStartOf="@+id/coolNote7"
                 app:layout_constraintTop_toTopOf="@+id/coolNote7"
-                app:layout_constraintVertical_bias="0.363"
-                android:visibility="@{homeVM.isEmptyCN(7) ? View.GONE : View.VISIBLE}" />
+                app:layout_constraintVertical_bias="0.363"/>
 
             <Button
                 android:id="@+id/cNmagnet8"
@@ -334,13 +356,14 @@
                 android:layout_marginBottom="80dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
+                android:visibility="@{homeVM.isEmptyCN(8) ? View.INVISIBLE : View.VISIBLE}"
                 android:background="@drawable/magnet"
+                android:backgroundTint= "@{homeVM.getMagnetColor(8)}"
                 app:layout_constraintBottom_toBottomOf="@+id/coolNote8"
                 app:layout_constraintEnd_toEndOf="@+id/coolNote8"
                 app:layout_constraintStart_toStartOf="@+id/coolNote8"
                 app:layout_constraintTop_toTopOf="@+id/coolNote8"
-                app:layout_constraintVertical_bias="0.363"
-                android:visibility="@{homeVM.isEmptyCN(8) ? View.GONE : View.VISIBLE}" />
+                app:layout_constraintVertical_bias="0.363" />
 
             <Button
                 android:id="@+id/cNmagnet9"
@@ -351,13 +374,14 @@
                 android:layout_marginBottom="80dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
+                android:visibility="@{homeVM.isEmptyCN(9) ? View.INVISIBLE : View.VISIBLE}"
                 android:background="@drawable/magnet"
+                android:backgroundTint= "@{homeVM.getMagnetColor(9)}"
                 app:layout_constraintBottom_toBottomOf="@+id/coolNote9"
                 app:layout_constraintEnd_toEndOf="@+id/coolNote9"
                 app:layout_constraintStart_toStartOf="@+id/coolNote9"
                 app:layout_constraintTop_toTopOf="@+id/coolNote9"
-                app:layout_constraintVertical_bias="0.363"
-                android:visibility="@{homeVM.isEmptyCN(9) ? View.GONE : View.VISIBLE}" />
+                app:layout_constraintVertical_bias="0.363" />
 
 
             <Button
@@ -371,6 +395,7 @@
                 android:layout_marginStart="22dp"
                 android:layout_marginTop="36dp"
                 android:background="@drawable/note_home"
+                android:text="@{homeVM.getFNTitle(1)}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/frozenNote2"
                 app:layout_constraintHorizontal_bias="0.454"
@@ -389,6 +414,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="36dp"
                 android:background="@drawable/note_home"
+                android:text="@{homeVM.getFNTitle(2)}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -406,6 +432,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="36dp"
                 android:background="@drawable/note_home"
+                android:text="@{homeVM.getFNTitle(3)}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/frozenNote2"
