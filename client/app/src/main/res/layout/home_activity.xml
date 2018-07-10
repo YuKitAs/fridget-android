@@ -42,12 +42,14 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/note_home"
-                android:text="@{homeVM.t1}"
+                android:text="@{homeVM.getCNTitle(0)}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/coolNote2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.435"
+                android:tag="1"
+                android:onClick="openFullCoolNote"
                 android:visibility="@{homeVM.isEmptyCN(1) ? View.GONE : View.VISIBLE}" />
 
             <Button
@@ -478,7 +480,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:background="@drawable/plus_button"
-            android:onClick="createCoolNoteView"/>
+            android:onClick="@{(v)-> homeVM.onPlusButtonClicked(v)}"/>
 
     </RelativeLayout>
 
