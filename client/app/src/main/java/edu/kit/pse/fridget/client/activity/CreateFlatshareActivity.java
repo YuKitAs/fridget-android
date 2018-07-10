@@ -23,7 +23,6 @@ public class CreateFlatshareActivity extends AppCompatActivity {
         CreateFlatshareViewModel createFlatshare = new CreateFlatshareViewModel();
         binding.setCreateFlatshare(createFlatshare);
 
-
     }
 
 
