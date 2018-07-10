@@ -8,6 +8,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 
 import edu.kit.pse.fridget.client.R;
@@ -27,9 +28,17 @@ public class HomeActivity extends AppCompatActivity {
         binding.setHomeVM(homeVM);
 
     }
-
+/*
     public void createCoolNoteView(View v){
         startActivity(new Intent(HomeActivity.this, CreateTextCoolNoteActivity.class));
+
+    } */
+
+    // Problem: woher weiß FullTextCoolNoteActivity welche coolNote er öffnen soll..
+   public void openFullCoolNote(View v) {
+        int cNNumber = Integer.parseInt(v.getTag().toString());
+        startActivity(new Intent(HomeActivity.this, FullTextCoolNoteActivity.class));
+
 
     }
 }
