@@ -30,6 +30,16 @@ public class FrozenNote {
      *
      * @return id
      */
+
+    public FrozenNote(String id, String title, String content, String flatShareId, int position){
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.flatShareId = flatShareId;
+        this.position = position;
+    }
+
+
     public String getId() {
         return id;
     }
