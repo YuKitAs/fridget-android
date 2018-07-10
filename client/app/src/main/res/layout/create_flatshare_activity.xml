@@ -7,7 +7,7 @@
         name="createFlatshare"
         type="edu.kit.pse.fridget.client.viewmodel.CreateFlatshareViewModel"
         />
-
+    <import type="android.view.View"/>
 </data>
 
 
@@ -47,7 +47,7 @@
 
 
             <Button
-                android:id="@+id/button7"
+                android:id="@+id/create"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -61,7 +61,8 @@
                 app:layout_constraintHorizontal_bias="0.486"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.821">
+                app:layout_constraintVertical_bias="0.821"
+                android:onClick="@{(v)-> createFlatshare.onClickCreate(v)}">
 
 
             </Button>
