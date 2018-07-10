@@ -16,6 +16,16 @@ public class CoolNote {
     private String createdAt;
     private int position;
 
+    public CoolNote(String id, String title, String content, String flatShareId, String creatorUserId, String createdAt, int position){
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this. flatShareId = flatShareId;
+        this.creatorUserId = creatorUserId;
+        this.createdAt = createdAt;
+        this.position = position;
+    }
+
     public String getId() {
         return id;
     }
@@ -38,6 +48,10 @@ public class CoolNote {
 
     public String getCreatedAt() {
         return createdAt;
+    }
+
+    public int getPosition() {
+        return this.position;
     }
 
     // brauchen wir? hab es erstmal zum testen gelassen...

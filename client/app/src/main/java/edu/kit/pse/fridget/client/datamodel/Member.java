@@ -13,6 +13,13 @@ public class Member {
     private String flatShareId;
     private String magnetColor;
 
+    public Member(String id, String userId, String flatShareId, String magnetColor) {
+        this.id = id;
+        this.userId = userId;
+        this.flatShareId = flatShareId;
+        this.magnetColor = magnetColor;
+    }
+
     public String getId() {
         return id;
     }
