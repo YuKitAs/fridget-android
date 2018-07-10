@@ -11,28 +11,21 @@ import android.widget.Button;
 
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.databinding.StartActivityBinding;
+import edu.kit.pse.fridget.client.viewmodel.StartViewModel;
 
 public class StartActivity extends AppCompatActivity {
 
 
     private static final String TAG = StartActivity.class.getSimpleName();
   
-    public void onClickRegisterFlatshare(View v){
-        Intent intent = new Intent(this, CreateFlatshareActivity.class);
-        startActivity(intent);
 
-    }
-
-    public void onClickEnterAccessCode(View v){
-        Intent intent = new Intent(this, EnterAccessCodeActivity.class);
-        startActivity(intent);
-
-    }
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "Calling onCreate");
         StartActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.start_activity);
+        StartViewModel start = new StartViewModel();
+        binding.setStart(start);
     }
 
 

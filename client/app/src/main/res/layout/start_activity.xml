@@ -7,6 +7,7 @@
             name="start"
             type="edu.kit.pse.fridget.client.viewmodel.StartViewModel"
             />
+        <import type="android.view.View"/>
     </data>
 
     <RelativeLayout
@@ -64,7 +65,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.709"
-                android:onClick="onClickRegisterFlatshare">
+                android:onClick="@{(v)-> start.onClickRegisterFlatshare(v)}">
 
 
             </Button>
@@ -85,7 +86,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.879"
-                android:onClick="onClickEnterAccessCode">
+                android:onClick="@{(v)-> start.onClickEnterAccessCode(v)}">
 
 
             </Button>
