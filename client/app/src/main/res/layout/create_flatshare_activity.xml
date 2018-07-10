@@ -2,10 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 <data>
 
-<variable
-    name="flatsharename"
-    type="edu.kit.pse.fridget.client.datamodel.Flatshare"
-    />
+
+    <variable
+        name="createFlatshare"
+        type="edu.kit.pse.fridget.client.viewmodel.CreateFlatshareViewModel"
+        />
+
 </data>
 
 
