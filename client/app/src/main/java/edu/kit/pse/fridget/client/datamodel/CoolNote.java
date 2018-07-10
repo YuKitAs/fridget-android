@@ -40,4 +40,8 @@ public class CoolNote {
         return createdAt;
     }
 
+    // brauchen wir? hab es erstmal zum testen gelassen...
+    public void setTitle(String title){
+        this.title = title;
+    }
 }
