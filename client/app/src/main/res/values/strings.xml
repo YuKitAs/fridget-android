@@ -6,4 +6,6 @@
     <string name="nameflatshare">Enter the name of your flatshare</string>
     <string name="create">Create!</string>
     <string name="gotoFridge">Let\'s go to our fridge!</string>
+    <string name="title_activity_menu_drawer">Test</string>
+    <string name="action_settings">test</string>
 </resources>

@@ -6,9 +6,9 @@
         android:icon="@drawable/member"
         android:title="Member List" />
     <item
-        android:id="@+id/create_access"
+        android:id="@+id/add_member"
         android:icon="@drawable/create_access"
-        android:title="Create Access Code" />
+        android:title="Add Member" />
     <item
         android:id="@+id/leave"
         android:icon="@drawable/leave"

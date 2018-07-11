@@ -14,7 +14,7 @@
         <activity android:name=".activity.CreateCommentActivity"/>
         <activity android:name=".activity.CreateFlatshareActivity"/>
         <activity android:name=".activity.CreateTextCoolNoteActivity"/>
-        <activity android:name=".activity.EditFrozenNoteActivity"/>
+        <activity android:name=".activity.EditTextFrozenNoteActivity"/>
         <activity android:name=".activity.EnterAccessCodeActivity"/>
 
         <activity android:name="edu.kit.pse.fridget.client.activity.LoginActivity">
@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.FullFrozenCoolNoteActivity"/>
+        <activity android:name=".activity.FullTextFrozenNoteActivity"/>
         <activity android:name=".activity.FullImageCoolNoteActivity"/>
         <activity android:name=".activity.GetAccessCodeActivity"/>
         <activity android:name=".activity.HomeActivity"/>
