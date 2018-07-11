@@ -2,11 +2,10 @@ package edu.kit.pse.fridget.client.service;
 
 import java.util.List;
 
-import edu.kit.pse.fridget.client.datamodel.CoolNote;
+import edu.kit.pse.fridget.client.datamodel.Member;
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Headers;
-import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface TaggedMemberService {
 
@@ -15,9 +14,8 @@ public interface TaggedMemberService {
      */
 
     //Diese Methode ruft eine Liste der getaggten Members ab
-    @Headers("Authorization:{JWT}")
-    @GET("/tagged-members/users?cool-note={cid}")
-    Call<List<CoolNote>> getTaggedUsers(@Path("cid") String coolNoteId);
+    @GET("/tagged-members/users")
+    Call<List<Member>> getTaggedUsers(@Query("cool-note") String coolNoteId);
 }
 
 

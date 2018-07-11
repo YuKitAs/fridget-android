@@ -10,13 +10,13 @@ public class Member {
 
     private String id;
     private String userId;
-    private String flatShareId;
+    private String flatshareId;
     private String magnetColor;
 
-    public Member(String id, String userId, String flatShareId, String magnetColor) {
+    public Member(String id, String userId, String flatshareId, String magnetColor) {
         this.id = id;
         this.userId = userId;
-        this.flatShareId = flatShareId;
+        this.flatshareId = flatshareId;
         this.magnetColor = magnetColor;
     }
 
@@ -28,8 +28,8 @@ public class Member {
         return userId;
     }
 
-    public String getFlatShareId() {
-        return flatShareId;
+    public String getFlatshareId() {
+        return flatshareId;
     }
 
     public String getMagnetColor() {

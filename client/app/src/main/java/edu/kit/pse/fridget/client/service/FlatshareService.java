@@ -1,6 +1,7 @@
 package edu.kit.pse.fridget.client.service;
 
 import edu.kit.pse.fridget.client.datamodel.Flatshare;
+import edu.kit.pse.fridget.client.datamodel.command.CreateFlatshareCommand;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -11,18 +12,15 @@ import retrofit2.http.Path;
 public interface FlatshareService {
     /**
      * Diese Klasse verwaltet die Synchronisation der FlatShare mit dem
-     Server
+     * Server
      */
 
     //Erstellt neue FlatShare auf dem Server
-    @Headers({"Content-Type: application/json",
-            "Authorization:{JWT}"})
-    @POST ("/flatshares")
-    Call<Flatshare> createFlatShare(@Body Flatshare flatshare, String userId);
+    @Headers("Content-Type: application/json")
+    @POST("/flatshares")
+    Call<Flatshare> createFlatshare(@Body CreateFlatshareCommand createFlatshareCommand);
 
     //ruft FlatShare Daten vom Server ab
-    @Headers("Authorization:{JWT}")
     @GET("/flatshares/{id}")
-    Call<Flatshare> getFlatShare(@Path("id") String flatShareId);
-
+    Call<Flatshare> getFlatshare(@Path("id") String flatshareId);
 }

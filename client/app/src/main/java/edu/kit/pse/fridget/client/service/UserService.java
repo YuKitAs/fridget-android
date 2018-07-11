@@ -14,11 +14,7 @@ public interface UserService {
      */
 
 
-
     //Diese Methode sendet den GoogleIdToken an den Server
     @POST("/users")
     Call<User> sendGoogleIdToken(String googleIdToken);
-
-
-
 }

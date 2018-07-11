@@ -10,6 +10,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface CoolNoteService {
 
@@ -19,30 +20,19 @@ public interface CoolNoteService {
 
 
     //Diese Methode ruft alle CoolNotes ab
-    @Headers("Authorization:{JWT}")
-    @GET("/cool-notes?flatshare={id}")
-    Call<List<CoolNote>> getAllCoolNotes(@Path("id") String flatshareId);
+    @GET("/cool-notes")
+    Call<List<CoolNote>> getAllCoolNotes(@Query("flatshare") String flatshareId);
 
     //Diese Methode ruft den Inhalt/Großansicht einer CoolNote ab
-    @Headers("Authorization:{JWT}")
     @GET("/cool-notes/{id}")
     Call<CoolNote> getCoolNote(@Path("id") String coolNoteId);
 
     //Diese Methode sendet eine CoolNote an den Server bzw. speichert eine CoolNote
-    @Headers({"Content-Type: application/json",
-            "Authorization:{JWT}"})
+    @Headers("Content-Type: application/json")
     @POST("/cool-notes")
     Call<CoolNote> createCoolNote(@Body CoolNote coolNote);
 
     //Diese Methode löscht eine CoolNote
-    @Headers("Authorization:{JWT}")
-    @DELETE("/Cool-notes/{id}")
-    Call<CoolNote> deleteCoolNote(@Path("id") String coolNoteId);
-
-
-
-
-
-
-
+    @DELETE("/cool-notes/{id}")
+    Call<Void> deleteCoolNote(@Path("id") String coolNoteId);
 }

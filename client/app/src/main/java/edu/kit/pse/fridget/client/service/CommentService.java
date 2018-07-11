@@ -11,6 +11,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface CommentService {
     /**
@@ -18,24 +19,16 @@ public interface CommentService {
      */
 
 
-
     //Diese Methode ruft die Kommentare eier CoolNote ab
-    @Headers("Authorization:{JWT}")
-    @GET("comments?cool-note={cid}")
-    Call<List<Comment>> getAllComments(@Path("cid") String coolNoteId);
-
+    @GET("comments")
+    Call<List<Comment>> getAllComments(@Query("cool-note") String coolNoteId);
 
     //Diese Methode speichert ein Comment
-    @Headers("Authorization:{JWT}")
+    @Headers("Content-Type: application/json")
     @POST("/comments")
     Call<Comment> createComment(@Body Comment comment);
 
     //Diese Methode löscht ein Comment
-    @Headers("Authorization:{JWT}")
     @DELETE("/comments/{id}")
-    Call<Comment> deleteComment(@Path("id") String commentID);
-
-
-
-
+    Call<Void> deleteComment(@Path("id") String commentId);
 }
