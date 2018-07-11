@@ -17,7 +17,12 @@
         <activity android:name=".activity.EditFrozenNoteActivity"/>
         <activity android:name=".activity.EnterAccessCodeActivity"/>
 
-        <activity android:name="edu.kit.pse.fridget.client.activity.LoginActivity"/>
+        <activity android:name="edu.kit.pse.fridget.client.activity.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <activity android:name=".activity.FullFrozenCoolNoteActivity"/>
         <activity android:name=".activity.FullImageCoolNoteActivity"/>
@@ -27,12 +32,8 @@
         <activity android:name=".activity.LanguageActivity"/>
         <activity android:name=".activity.FullTextCoolNoteActivity"/>
         <activity android:name=".activity.MemberListActivity"/>
-        <activity android:name=".activity.StartActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".activity.StartActivity" />
+
 
     </application>
 

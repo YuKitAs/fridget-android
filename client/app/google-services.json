@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "734475006869",
+    "firebase_url": "https://fridget-e7bd4.firebaseio.com",
+    "project_id": "fridget-e7bd4",
+    "storage_bucket": "fridget-e7bd4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:734475006869:android:54a48054adafe136",
+        "android_client_info": {
+          "package_name": "edu.kit.pse.fridget.client"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "734475006869-v9qfcfifp83n2of9osk8chlquuvcls69.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.kit.pse.fridget.client",
+            "certificate_hash": "48fde0ba112ffc831096e4b632e53c7694933d7f"
+          }
+        },
+        {
+          "client_id": "734475006869-ag1tv7qa0d0klumtprvcp65pqhsbc2e5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD630NJhs76nFHd9nFLmeq80abTI_HUuAY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "734475006869-ag1tv7qa0d0klumtprvcp65pqhsbc2e5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

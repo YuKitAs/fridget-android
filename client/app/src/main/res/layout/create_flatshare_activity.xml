@@ -94,8 +94,9 @@
                     android:textColor="@android:color/black"
                     android:textSize="20sp"
                     android:visibility="visible"
-                    android:maxLength="20"
-                    android:text="@={flatshare.name}"/>
+                    android:maxLength="20"/>
+                    //android:text="@={flatshare.name}"
+
             </android.support.design.widget.TextInputLayout>
 
 
