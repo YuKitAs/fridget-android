@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
+        <variable
+            name="fullNoteVM"
+            type="edu.kit.pse.fridget.client.viewmodel.FullCoolNoteViewModel"/>
         <variable
             name="coolNote"
             type="edu.kit.pse.fridget.client.datamodel.CoolNote"
@@ -12,7 +16,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:padding="5dp"
         android:background="#cdfeed">
 
@@ -39,7 +42,16 @@
                 android:layout_height="55dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
-                android:background="@drawable/back_button" />
+                android:background="@drawable/back_button"
+                android:onClick="@{fullNoteVM.goBack}"/>
+
+            <ImageButton
+                android:id="@+id/minus_button"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/minus_button"/>
 
             <ImageView
                 android:id="@+id/magnet"
@@ -47,7 +59,8 @@
                 android:layout_height="80dp"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="124dp"
-                android:background="@drawable/magnet" />
+                android:background="@drawable/magnet"
+                android:backgroundTint="@{fullNoteVM.getMagnetColor}"/>
 
             <RelativeLayout
                 android:layout_width="311dp"
@@ -74,10 +87,11 @@
                     android:layout_alignStart="@+id/createdOn"
                     android:layout_below="@+id/createdOn"
                     android:fontFamily="@font/commonsregular"
-                    android:text="@{coolNote.createdAt}"
                     android:textColor="#000000"
                     android:textSize="15sp"
-                    android:textStyle="italic" />
+                    android:textStyle="italic"
+                    android:padding="2dp"
+                    android:text="@{coolNote.createdAt}"/>
 
                 <TextView
                     android:id="@+id/title"
@@ -87,9 +101,10 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="89dp"
                     android:fontFamily="@font/commonsregular"
-                    android:text="@{coolNote.title}"
                     android:textColor="#000000"
-                    android:textSize="25sp" />
+                    android:textSize="25sp"
+                    android:text="@{coolNote.getTitle}"
+                    android:maxLength="20"/>
 
                 <TextView
                     android:id="@+id/content"
@@ -98,9 +113,10 @@
                     android:layout_alignParentStart="true"
                     android:layout_below="@+id/title"
                     android:fontFamily="@font/commonsregular"
-                    android:text="@{coolNote.content}"
                     android:textColor="#000000"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:text="@{coolNote.content}"
+                    android:maxLength="300"/>
 
                 <TextView
                     android:id="@+id/readBy"
