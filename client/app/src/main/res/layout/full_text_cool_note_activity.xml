@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="fullNoteVM"
-            type="edu.kit.pse.fridget.client.viewmodel.FullCoolNoteViewModel"/>
+            type="edu.kit.pse.fridget.client.viewmodel.FullCoolNoteViewModel" />
+
         <variable
             name="coolNote"
-            type="edu.kit.pse.fridget.client.datamodel.CoolNote"
-            />
+            type="edu.kit.pse.fridget.client.datamodel.CoolNote" />
     </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="5dp"
-        android:background="#cdfeed">
+        android:background="#cdfeed"
+        android:padding="5dp">
 
         <RelativeLayout
             android:id="@+id/rootRL"
@@ -29,126 +31,152 @@
             android:background="@drawable/note_big"
             android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/menu_button"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:layout_alignParentTop="true"
-                android:background="@drawable/menu_button" />
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <ImageButton
-                android:id="@+id/back_button"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentTop="true"
-                android:background="@drawable/back_button"
-                android:onClick="@{fullNoteVM.goBack}"/>
-
-            <ImageButton
-                android:id="@+id/minus_button"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentEnd="true"
-                android:background="@drawable/minus_button"/>
-
-            <ImageView
-                android:id="@+id/magnet"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="124dp"
-                android:background="@drawable/magnet"
-                android:backgroundTint="@{fullNoteVM.getMagnetColor}"/>
-
-            <RelativeLayout
-                android:layout_width="311dp"
-                android:layout_height="401dp"
-                android:layout_centerInParent="true">
-
-                <TextView
-                    android:id="@+id/createdOn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
+                <ImageButton
+                    android:id="@+id/menu_button"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
                     android:layout_alignParentTop="true"
-                    android:layout_marginTop="29dp"
-                    android:fontFamily="@font/commonsregular"
-                    android:text="Created on: "
-                    android:textColor="#000000"
-                    android:textSize="15sp"
-                    android:textStyle="italic" />
+                    android:background="@drawable/menu_button"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/creationDate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignStart="@+id/createdOn"
-                    android:layout_below="@+id/createdOn"
-                    android:fontFamily="@font/commonsregular"
-                    android:textColor="#000000"
-                    android:textSize="15sp"
-                    android:textStyle="italic"
-                    android:padding="2dp"
-                    android:text="@{coolNote.createdAt}"/>
-
-                <TextView
-                    android:id="@+id/title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
+                <ImageButton
+                    android:id="@+id/back_button"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_alignParentEnd="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginTop="89dp"
-                    android:fontFamily="@font/commonsregular"
-                    android:textColor="#000000"
-                    android:textSize="25sp"
-                    android:text="@{coolNote.getTitle}"
-                    android:maxLength="20"/>
+                    android:background="@drawable/back_button"
+                    android:onClick="@{fullNoteVM::goBack}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/content"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ImageButton
+                    android:id="@+id/minus_button"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/minus_button"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <ImageView
+                    android:id="@+id/magnet"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:layout_alignParentStart="true"
-                    android:layout_below="@+id/title"
-                    android:fontFamily="@font/commonsregular"
-                    android:textColor="#000000"
-                    android:textSize="15sp"
-                    android:text="@{coolNote.content}"
-                    android:maxLength="300"/>
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/magnet"
+                    android:backgroundTint="@{fullNoteVM.getMagnetColor}"
+                    app:layout_constraintEnd_toStartOf="@+id/back_button"
+                    app:layout_constraintStart_toEndOf="@+id/menu_button"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/readBy"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_below="@+id/content"
-                    android:fontFamily="@font/commonsregular"
-                    android:padding="2dp"
-                    android:text="Read By:"
-                    android:textColor="#000000"
-                    android:textSize="12sp" />
+                <RelativeLayout
+                    android:id="@+id/relativeLayout"
+                    android:layout_width="313dp"
+                    android:layout_height="432dp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <ListView
-                    android:id="@+id/member_list"
-                    android:layout_width="wrap_content"
-                    android:layout_height="151dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_below="@+id/readBy" />
+                    <TextView
+                        android:id="@+id/createdOn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="29dp"
+                        android:fontFamily="@font/commonsregular"
+                        android:text="Created on: "
+                        android:textColor="#000000"
+                        android:textSize="15sp"
+                        android:textStyle="italic" />
 
-                <CheckBox
-                    android:id="@+id/checkBox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_below="@+id/member_list"
-                    android:fontFamily="@font/commonsregular"
-                    android:text="I have seen this"
-                    android:textSize="12sp"
-                    android:buttonTint="#00cdc3"/>
+                    <TextView
+                        android:id="@+id/creationDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/createdOn"
+                        android:layout_below="@+id/createdOn"
+                        android:fontFamily="@font/commonsregular"
+                        android:padding="2dp"
+                        android:text="@{coolNote.createdAt}"
+                        android:textColor="#000000"
+                        android:textSize="15sp"
+                        android:textStyle="italic" />
 
-            </RelativeLayout>
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="89dp"
+                        android:fontFamily="@font/commonsregular"
+                        android:maxLength="20"
+                        android:text="@{coolNote.getTitle}"
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/title"
+                        android:fontFamily="@font/commonsregular"
+                        android:maxLength="300"
+                        android:text="@{coolNote.content}"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/readBy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/content"
+                        android:fontFamily="@font/commonsregular"
+                        android:padding="2dp"
+                        android:text="Read By:"
+                        android:textColor="#000000"
+                        android:textSize="12sp" />
+
+                    <ListView
+                        android:id="@+id/member_list"
+                        android:layout_width="wrap_content"
+                        android:layout_height="151dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/readBy" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/member_list"
+                        android:buttonTint="#00cdc3"
+                        android:fontFamily="@font/commonsregular"
+                        android:text="I have seen this"
+                        android:textSize="12sp" />
+
+                </RelativeLayout>
+
+            </android.support.constraint.ConstraintLayout>
 
         </RelativeLayout>
 
