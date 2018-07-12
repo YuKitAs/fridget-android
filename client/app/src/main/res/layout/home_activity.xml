@@ -401,7 +401,9 @@
                 app:layout_constraintHorizontal_bias="0.454"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.014" />
+                app:layout_constraintVertical_bias="0.014"
+                android:tag="1"
+                android:onClick="@{(v)-> homeVM.openFullFrozenNote(v)}"/>
 
             <Button
                 android:id="@+id/frozenNote2"
@@ -419,7 +421,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.014" />
+                app:layout_constraintVertical_bias="0.014"
+                android:tag="2"
+                android:onClick="@{(v)-> homeVM.openFullFrozenNote(v)}"/>
 
             <Button
                 android:id="@+id/frozenNote3"
@@ -437,7 +441,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/frozenNote2"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.014" />
+                app:layout_constraintVertical_bias="0.014"
+                android:tag="3"
+                android:onClick="@{(v)-> homeVM.openFullFrozenNote(v)}"/>
 
             <Button
                 android:id="@+id/fNmagnet1"
@@ -498,7 +504,8 @@
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:layout_alignParentTop="true"
-            android:background="@drawable/menu_button" />
+            android:background="@drawable/menu_button"
+            android:onClick="@{(v)-> homeVM.onMenuButtonClicked(v)}"/>
 
         <ImageButton
             android:id="@+id/plus_button"
