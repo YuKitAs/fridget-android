@@ -40,8 +40,12 @@ public class HomeViewModel extends ViewModel {
      * Konstruktor
      */
     public HomeViewModel(){
+        this.fakeCN();
+        this.fakeFN();
+        this.fakeMembers();
         updateLists();
     }
+
 
     /**
      *  alle Listen werden aus dem Server neugeholt
@@ -97,74 +101,33 @@ public class HomeViewModel extends ViewModel {
     }
 
     /**
-     * get Methode für die Liste der FrozenNotes, alles was hier steht ist momentan nur zum testen da,
+     * get Methode für die Liste der FrozenNotes
      * hier verbinden mit dem Server
      * @return
      */
     public FrozenNote[] getfNList(){
-        FrozenNote fN1 = new FrozenNote("0","Notfallkontakte", "brr brr", "0", 0);
-        FrozenNote fN2 = new FrozenNote("1","Einkaufsliste", "brr brr", "0", 1);
-        FrozenNote fN3 = new FrozenNote("2","nomnom", "brr brr", "0", 2);
-
-        this.fNList[0] = fN1;
-        this.fNList[1] = fN2;
-        this.fNList[2] = fN3;
 
         return fNList;
     }
 
 
     /**
-     * get Methode für die Liste der CoolNotes, alles was hier steht ist momentan nur zum testen da,
+     * get Methode für die Liste der CoolNotes
      * hier verbinden mit dem Server
      * @return
      */
     public CoolNote[] getcNList(){
 
-        CoolNote cN1 = new CoolNote("1","Boo","testtest",
-                "0","0","10072018",1);
-        CoolNote cN2 = new CoolNote("2","lalala","testtest",
-                "0","1","10072018",2);
-        CoolNote cN3 = new CoolNote("3","lelele","testtest",
-                "0","1","10072018",2);
-        CoolNote cN4 = new CoolNote("4","lululu","testtest",
-                "0","2","10072018",2);
-        CoolNote cN5 = new CoolNote("5","lololol","testtest",
-                "0","0","10072018",2);
-        CoolNote cN6 = new CoolNote("6","nya","testtestn",
-                "0","2","10072018",2);
-        CoolNote cN7 = new CoolNote("7","meow","testtest",
-                "0","2","10072018",2);
-        CoolNote cN8 = new CoolNote("8","yaay","testtest",
-                "0","0","10072018",2);
-        CoolNote cN9 = new CoolNote("9","brr","testtest",
-                "0","0","10072018",2);
-
-        this.cNList[0] = cN1;
-        this.cNList[1] = cN2;
-        this.cNList[2] = cN3;
-        this.cNList[3] = cN4;
-        this.cNList[4] = cN5;
-        this.cNList[5] = cN6;
-        this.cNList[6] = cN7;
-        this.cNList[7] = cN8;
-        this.cNList[8] = cN9;
 
         return cNList;
     }
 
     /**
-     * get Methode für die Liste der Mitglieder, alles was hier steht ist momentan nur zum testen da,
+     * get Methode für die Liste der Mitglieder
      * hier verbinden mit dem Server
      * @return
      */
     public Member[] getMemberList(){
-        Member m1 = new Member("0","0","0","#4B088A");
-        Member m2 = new Member("1","1","0","#ff00ab");
-        Member m3 = new Member("2","2","0","#2f9624");
-        this.memberList[0] = m1;
-        this.memberList[1] = m2;
-        this.memberList[2] = m3;
 
         return memberList;
     }
@@ -300,5 +263,70 @@ public class HomeViewModel extends ViewModel {
         int randomIndex = generator.nextInt(emptyPositions.length);
         return emptyPositions[randomIndex];
     }
+
+    /**
+     * wird gelöscht
+     */
+    private void fakeCN() {
+
+        CoolNote cN1 = new CoolNote("1","Boo","testtest",
+                "0","0","10072018",1);
+        CoolNote cN2 = new CoolNote("2","lalala","testtest",
+                "0","1","10072018",2);
+        CoolNote cN3 = new CoolNote("3","lelele","testtest",
+                "0","1","10072018",2);
+        CoolNote cN4 = new CoolNote("4","lululu","testtest",
+                "0","2","10072018",2);
+        CoolNote cN5 = new CoolNote("5","lololol","testtest",
+                "0","0","10072018",2);
+        CoolNote cN6 = new CoolNote("6","nya","testtestn",
+                "0","2","10072018",2);
+        CoolNote cN7 = new CoolNote("7","meow","testtest",
+                "0","2","10072018",2);
+        CoolNote cN8 = new CoolNote("8","yaay","testtest",
+                "0","0","10072018",2);
+        CoolNote cN9 = new CoolNote("9","brr","testtest",
+                "0","0","10072018",2);
+
+        this.cNList[0] = cN1;
+        this.cNList[1] = cN2;
+        this.cNList[2] = null;
+        this.cNList[3] = cN4;
+        this.cNList[4] = cN5;
+        this.cNList[5] = cN6;
+        this.cNList[6] = cN7;
+        this.cNList[7] = cN8;
+        this.cNList[8] = null;
+
+    }
+
+
+    /**
+     * wird gelöscht
+     */
+    private void fakeFN() {
+        FrozenNote fN1 = new FrozenNote("0","Notfallkontakte", "brr brr", "0", 0);
+        FrozenNote fN2 = new FrozenNote("1","Einkaufsliste", "brr brr", "0", 1);
+        FrozenNote fN3 = new FrozenNote("2","nomnom", "brr brr", "0", 2);
+
+        this.fNList[0] = fN1;
+        this.fNList[1] = fN2;
+        this.fNList[2] = fN3;
+
+    }
+
+    /**
+     * wird gelöscht
+     */
+    private void fakeMembers() {
+        Member m1 = new Member("0","0","0","#4B088A");
+        Member m2 = new Member("1","1","0","#ff00ab");
+        Member m3 = new Member("2","2","0","#2f9624");
+        this.memberList[0] = m1;
+        this.memberList[1] = m2;
+        this.memberList[2] = m3;
+
+    }
+
 }
 
