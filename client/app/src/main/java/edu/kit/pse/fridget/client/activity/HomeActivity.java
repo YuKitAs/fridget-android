@@ -2,6 +2,8 @@ package edu.kit.pse.fridget.client.activity;
 
 import android.arch.lifecycle.LifecycleOwner;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 
 import android.os.Bundle;
@@ -13,11 +15,38 @@ import android.util.Log;
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.databinding.HomeActivityBinding;
 
+import edu.kit.pse.fridget.client.datamodel.CoolNote;
+import edu.kit.pse.fridget.client.datamodel.FrozenNote;
+import edu.kit.pse.fridget.client.datamodel.Member;
 import edu.kit.pse.fridget.client.viewmodel.HomeViewModel;
 
 public class HomeActivity extends AppCompatActivity implements LifecycleOwner {
 
     private static final String TAG = HomeActivity.class.getSimpleName();
+    private HomeViewModel homeVM = new HomeViewModel();
+
+    /*
+    private  final Observer<CoolNote[]> cnListObserver = new Observer<CoolNote[]>() {
+        @Override
+        public void onChanged(@Nullable CoolNote[] coolNotes) {
+            homeVM.updateLists();
+        }
+    };
+
+    private  final Observer<FrozenNote[]> fnListObserver = new Observer<FrozenNote[]>() {
+        @Override
+        public void onChanged(@Nullable FrozenNote[] frozenNotes) {
+            homeVM.updateLists();
+        }
+    };
+
+    private  final Observer<Member[]> memberListObserver = new Observer<Member[]>() {
+        @Override
+        public void onChanged(@Nullable Member[] member) {
+            homeVM.updateLists();
+        }
+    };
+*/
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,9 +55,15 @@ public class HomeActivity extends AppCompatActivity implements LifecycleOwner {
 
         HomeActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.home_activity);
 
-        HomeViewModel homeVM = new HomeViewModel();
-//        HomeViewModel homeVM = ViewModelProviders.of(this).get(HomeViewModel.class);
+        homeVM = ViewModelProviders.of(this).get(HomeViewModel.class);
         binding.setHomeVM(homeVM);
+
+        /*
+        homeVM.liveDataCNList.observe(this,cnListObserver);
+        homeVM.liveDataFNList.observe(this,fnListObserver);
+        homeVM.liveDataMemberList.observe(this,memberListObserver); */
+
+
 
     }
 
