@@ -49,12 +49,12 @@ public class CreateFlatshareViewModel extends ViewModel {
         call.enqueue(new Callback<Flatshare>() {
             @Override
             public void onResponse(Call<Flatshare> call, Response<Flatshare> response) {
-                Log.i("sendPost", String.format("Post %s created.", new Gson().toJson(response.body())));
+                Log.i("createFlatshare", String.format("Created Flatshare.", new Gson().toJson(response.body())));
             }
 
             @Override
             public void onFailure(Call<Flatshare> call, Throwable t) {
-                Log.e("sendPost", "Creating post failed.");
+                Log.e("createFlatshare", "Creating flatshare failed.");
                 t.printStackTrace();
             }
         });
