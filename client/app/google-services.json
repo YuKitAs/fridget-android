@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "734475006869-5dbolgncf0a0p8ntbrfased1ap4btc26.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.kit.pse.fridget.client",
+            "certificate_hash": "6af9039ccfde3b062237f5cefab0262049d2a3b1"
+          }
+        },
+        {
           "client_id": "734475006869-ag1tv7qa0d0klumtprvcp65pqhsbc2e5.apps.googleusercontent.com",
           "client_type": 3
         }
