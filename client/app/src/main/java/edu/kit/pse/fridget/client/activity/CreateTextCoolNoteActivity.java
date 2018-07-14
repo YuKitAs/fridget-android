@@ -16,6 +16,7 @@ import android.widget.EditText;
 
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.databinding.CreateTextCoolNoteActivityBinding;
+import edu.kit.pse.fridget.client.datamodel.CoolNote;
 import edu.kit.pse.fridget.client.viewmodel.CreateCoolNoteViewModel;
 
 public class CreateTextCoolNoteActivity extends AppCompatActivity {
@@ -35,9 +36,16 @@ public class CreateTextCoolNoteActivity extends AppCompatActivity {
         final Button boldButton = binding.boldButton;
         final Button italicButton = binding.italicButton;
         final Button underlineButton = binding.underlineButton;
+        final String tempCreatorMembershipId = "3879a0a8-546d-41cb-b26e-eb1324d0e72c";
+
+
+        int position = getIntent().getIntExtra("position", 0);
 
         binding.setCoolNoteVM(createCoolNoteViewModel);
-        createCoolNoteViewModel.createCoolNote(title.getText().toString(), content.getText().toString());
+
+        CoolNote coolNote = new CoolNote(null, title.getText().toString(), content.getText().toString(), tempCreatorMembershipId, createCoolNoteViewModel.getCurrentDate(), position, null, null);
+
+        createCoolNoteViewModel.createCoolNote(coolNote);
 
         boldButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,12 +59,14 @@ public class CreateTextCoolNoteActivity extends AppCompatActivity {
                     s.setSpan(new StyleSpan(android.graphics.Typeface.BOLD), selectionStart, selectionEnd, 0);
                     content.setText(s);
                     content.setSelection(selectionStart, selectionEnd);
+                    coolNote.setContent(s.toString());
                     i++;
                 }
                 if (i == 1){
                     s.setSpan(new StyleSpan(Typeface.NORMAL), selectionStart, selectionEnd, 0);
                     content.setText(s);
                     content.setSelection(selectionStart, selectionEnd);
+                    coolNote.setContent(s.toString());
                     i = 0;
                 }
             }
@@ -74,12 +84,14 @@ public class CreateTextCoolNoteActivity extends AppCompatActivity {
                     s.setSpan(new StyleSpan(Typeface.ITALIC), selectionStart, selectionEnd, 0);
                     content.setText(s);
                     content.setSelection(selectionStart, selectionEnd);
+                    coolNote.setContent(s.toString());
                     i++;
                 }
                 if (i == 1){
                     s.setSpan(new StyleSpan(Typeface.NORMAL), selectionStart, selectionEnd, 0);
                     content.setText(s);
                     content.setSelection(selectionStart, selectionEnd);
+                    coolNote.setContent(s.toString());
                     i = 0;
                 }
             }
@@ -99,12 +111,14 @@ public class CreateTextCoolNoteActivity extends AppCompatActivity {
                     s.setSpan(new UnderlineSpan(), startSelection, endSelection, 0);
                     content.setText(s);
                     content.setSelection(startSelection, endSelection);
+                    coolNote.setContent(s.toString());
                     i++;
                 }
                 if (i == 1){
                     s.setSpan(new UnderlineSpan(), startSelection, endSelection, 0);
                     content.setText(s);
                     content.setSelection(startSelection, endSelection);
+                    coolNote.setContent(s.toString());
                     i = 0;
                 }
             }
