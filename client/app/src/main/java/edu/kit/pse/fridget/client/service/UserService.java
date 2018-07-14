@@ -1,7 +1,10 @@
 package edu.kit.pse.fridget.client.service;
 
 import edu.kit.pse.fridget.client.datamodel.User;
+import edu.kit.pse.fridget.client.datamodel.representation.UserWithJwtRepresentation;
 import retrofit2.Call;
+import retrofit2.http.Body;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 public interface UserService {
@@ -13,8 +16,7 @@ public interface UserService {
      * Google Client Id. Diese wird dauerhaft gespeichert.
      */
 
-
-    //Diese Methode sendet den GoogleIdToken an den Server
+    @Headers("Content-Type: application/json")
     @POST("/users")
-    Call<User> sendGoogleIdToken(String googleIdToken);
+    Call<UserWithJwtRepresentation> sendUser(@Body User user);
 }

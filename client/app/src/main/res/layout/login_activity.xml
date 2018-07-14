@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout   xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
     <data>
 
         <variable
-            name="login"
-            type="edu.kit.pse.fridget.client.viewmodel.LoginViewModel"
-            />
-        <import type="android.view.View"/>
+            name="loginVM"
+            type="edu.kit.pse.fridget.client.viewmodel.LoginViewModel" />
     </data>
-    <RelativeLayout
+
+    <RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/loginId"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:padding="5dp"
-        android:background="#cdfeed">
+        android:background="#cdfeed"
+        android:padding="5dp">
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/rootRL"
@@ -28,44 +27,37 @@
 
             <com.google.android.gms.common.SignInButton
                 android:id="@+id/sign_in_button"
-                android:layout_width="300dp"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/commonsregular"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.773"
-                android:fontFamily="@font/commonsregular"/>
-            android:onClick="@{(v)-> login.onClickSignIn(v)}"
+                app:layout_constraintVertical_bias="0.773" />
+
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="303dp"
                 android:layout_height="77dp"
                 android:layout_centerInParent="true"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
                 android:src="@drawable/fridget_logotext"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.446" />
-
         </android.support.constraint.ConstraintLayout>
-
-
-
     </RelativeLayout>
-
-
-
 </layout>
 
