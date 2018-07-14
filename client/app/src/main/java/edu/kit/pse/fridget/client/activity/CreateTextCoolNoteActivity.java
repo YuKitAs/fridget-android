@@ -45,8 +45,6 @@ public class CreateTextCoolNoteActivity extends AppCompatActivity {
 
         CoolNote coolNote = new CoolNote(null, title.getText().toString(), content.getText().toString(), tempCreatorMembershipId, createCoolNoteViewModel.getCurrentDate(), position, null, null);
 
-        createCoolNoteViewModel.createCoolNote(coolNote);
-
         boldButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -123,6 +121,8 @@ public class CreateTextCoolNoteActivity extends AppCompatActivity {
                 }
             }
         });
+
+        createCoolNoteViewModel.createCoolNote(coolNote);
 
     }
 
