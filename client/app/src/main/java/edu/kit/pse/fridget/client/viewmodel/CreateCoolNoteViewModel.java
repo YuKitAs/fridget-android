@@ -39,7 +39,8 @@ public class CreateCoolNoteViewModel extends ViewModel {
 
 
     //Erstellen der Cool Note, Viewwechsel zur FullCoolNoteActivity
-    public void postCoolNote(View v, CoolNote coolNote) {
+    public void postCoolNote(View v) {
+        CoolNote coolNote = (CoolNote) v.getTag();
         final Context context = v.getContext();
         Intent i = new Intent(context, FullTextCoolNoteActivity.class);
 

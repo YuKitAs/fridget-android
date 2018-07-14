@@ -212,6 +212,7 @@
                     android:fontFamily="@font/commonsregular"
                     android:text="Post it!"
                     android:onClick="@{coolNoteVM::postCoolNote}"
+                    android:tag="@{coolNote}"
                     android:textSize="15sp" />
 
             </RelativeLayout>
