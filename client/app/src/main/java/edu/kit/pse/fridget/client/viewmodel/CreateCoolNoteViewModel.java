@@ -37,8 +37,12 @@ public class CreateCoolNoteViewModel extends ViewModel {
         return strDate;
     }
 
-    //No data sent to server yet
-    public void createCoolNote(CoolNote coolNote){
+
+    //Erstellen der Cool Note, Viewwechsel zur FullCoolNoteActivity
+    public void postCoolNote(View v, CoolNote coolNote) {
+        final Context context = v.getContext();
+        Intent i = new Intent(context, FullTextCoolNoteActivity.class);
+
         CoolNoteService coolNoteService = RetrofitClientInstance.getRetrofitInstance().create(CoolNoteService.class);
         Call<CoolNote> coolNoteCall = coolNoteService.createCoolNote(coolNote);
         coolNoteCall.enqueue(new Callback<CoolNote>() {
@@ -56,12 +60,6 @@ public class CreateCoolNoteViewModel extends ViewModel {
             }
         });
 
-    }
-
-    //Viewwechsel zur FullCoolNoteActivity
-    public void postCoolNote(View v) {
-        final Context context = v.getContext();
-        Intent i = new Intent(context, FullTextCoolNoteActivity.class);
 
         //push notification
         NotificationManager notificationManager;

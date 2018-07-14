@@ -8,6 +8,9 @@
         <variable
             name="coolNoteVM"
             type="edu.kit.pse.fridget.client.viewmodel.CreateCoolNoteViewModel"/>
+        <variable
+            name="coolNote"
+            type="edu.kit.pse.fridget.client.datamodel.CoolNote"/>
     </data>
 
     <RelativeLayout

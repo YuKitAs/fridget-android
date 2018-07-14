@@ -20,8 +20,8 @@ public class FullCoolNoteViewModel extends ViewModel {
 
     //eigentlich vom server
     public CoolNote getCoolNote(){
-        CoolNote tempCN = new CoolNote("a6373664-7b90-11e8-adc0-fa7ae01bbeb", "Hello World!", "Hello!","a6373664-7b90-11e8-adc0-fa7ae01bbebc",
-                "3879a0a8-546d-41cb-b26e-eb1324d0e72c", "01.01.2018", 4);
+        CoolNote tempCN = new CoolNote("a6373664-7b90-11e8-adc0-fa7ae01bbeb", "Hello World!", "Hello!",
+                "3879a0a8-546d-41cb-b26e-eb1324d0e72c", "01.01.2018", 4, null, null);
         return tempCN;
     }
 
