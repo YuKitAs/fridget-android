@@ -54,7 +54,7 @@ public class CreateFlatshareViewModel extends ViewModel {
 
             @Override
             public void onFailure(Call<Flatshare> call, Throwable t) {
-                Log.e("createFlatshare", "Ceating flatshare failed.");
+                Log.e("createFlatshare", "Creating flatshare failed.");
                 t.printStackTrace();
             }
         });
