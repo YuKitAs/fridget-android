@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
-<data>
+    <data>
 
-    <variable
-        name="flatshare"
-        type="edu.kit.pse.fridget.client.datamodel.Flatshare"
-        />
-    <variable
-        name="createFlatshare"
-        type="edu.kit.pse.fridget.client.viewmodel.CreateFlatshareViewModel"
+        <variable
+            name="flatshare"
+            type="edu.kit.pse.fridget.client.datamodel.Flatshare"
+            />
+        <variable
+            name="createFlatshare"
+            type="edu.kit.pse.fridget.client.viewmodel.CreateFlatshareViewModel"
 
-        />
-    <import type="android.view.View"/>
-</data>
+            />
+        <import type="android.view.View"/>
+    </data>
 
 
     <RelativeLayout
@@ -36,10 +36,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="24dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_above="@+id/flatsharename_input"
+                android:layout_centerHorizontal="true"
                 android:fontFamily="@font/commonsregular"
                 android:text="@string/nameflatshare"
                 android:textColor="@android:color/black"
@@ -47,16 +45,17 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.389" />
 
 
             <Button
                 android:id="@+id/create"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
                 android:layout_marginBottom="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
                 android:fontFamily="@font/commonsregular"
                 android:text="@string/create"
                 android:textSize="18sp"
@@ -65,45 +64,39 @@
                 app:layout_constraintHorizontal_bias="0.486"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.821"
-                android:onClick="@{(v)-> createFlatshare.onClickCreate(v)}">
+                app:layout_constraintVertical_bias="0.821">
+                //android:onClick="@{(v)-> createFlatshare.onClickCreate(v)}">
 
 
             </Button>
 
-            <android.support.design.widget.TextInputLayout
+            <EditText
                 android:id="@+id/flatsharename_input"
                 android:layout_width="278dp"
                 android:layout_height="86dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="149dp"
+                android:baselineAligned="false"
+                android:inputType="text"
+                android:maxLength="20"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:visibility="visible"
+                app:errorEnabled="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.682"
-                app:errorEnabled="true" >
+                app:layout_constraintVertical_bias="1.0" />
+            //android:text="@={flatshare.name}"
 
-                <android.support.design.widget.TextInputEditText
-                    android:layout_width="266dp"
-                    android:layout_height="60dp"
-                    android:baselineAligned="false"
-                    android:inputType="text"
-                    android:textColor="@android:color/black"
-                    android:textSize="20sp"
-                    android:visibility="visible"
-                    android:maxLength="20"/>
-                    //android:text="@={flatshare.name}"
-
-            </android.support.design.widget.TextInputLayout>
 
 
 
         </android.support.constraint.ConstraintLayout>
 
+
     </RelativeLayout>
 
 </layout>
-
