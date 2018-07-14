@@ -1,5 +1,7 @@
 package edu.kit.pse.fridget.client.datamodel;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Cool Note data model for a Text-Cool-Note (TCN)
  *
@@ -8,22 +10,39 @@ package edu.kit.pse.fridget.client.datamodel;
  */
 public class CoolNote {
 
+    @SerializedName("id")
     private String id;
+
+    @SerializedName("title")
     private String title;
+
+    @SerializedName("content")
     private String content;
-    private String flatShareId;
-    private String creatorUserId;
+
+    @SerializedName("creatorMembershipId")
+    private String creatorMembershipId;
+
+    @SerializedName("createdAt")
     private String createdAt;
+
+    @SerializedName("position")
     private int position;
 
-    public CoolNote(String id, String title, String content, String flatShareId, String creatorUserId, String createdAt, int position){
+    @SerializedName("importance")
+    private String importance;
+
+    @SerializedName("taggedMembershipIds")
+    private String taggedMembershipIds;
+
+    public CoolNote(String id, String title, String content, String creatorUserId, String createdAt, int position, String importance, String taggedMembershipIds){
         this.id = id;
         this.title = title;
         this.content = content;
-        this. flatShareId = flatShareId;
-        this.creatorUserId = creatorUserId;
+        this.creatorMembershipId = creatorUserId;
         this.createdAt = createdAt;
         this.position = position;
+        this.importance = importance;
+        this.taggedMembershipIds = taggedMembershipIds;
     }
 
     public String getId() {
@@ -38,12 +57,8 @@ public class CoolNote {
         return content;
     }
 
-    public String getFlatShareId() {
-        return flatShareId;
-    }
-
     public String getCreatorUserId() {
-        return creatorUserId;
+        return creatorMembershipId;
     }
 
     public String getCreatedAt() {
@@ -58,4 +73,9 @@ public class CoolNote {
     public void setTitle(String title){
         this.title = title;
     }
+
+    public void setContent(String content){
+        this.content = content;
+    }
+
 }

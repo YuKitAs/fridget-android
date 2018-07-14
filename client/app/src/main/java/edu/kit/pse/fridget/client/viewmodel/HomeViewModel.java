@@ -270,23 +270,23 @@ public class HomeViewModel extends ViewModel {
     private void fakeCN() {
 
         CoolNote cN1 = new CoolNote("1","Boo","testtest",
-                "0","0","10072018",1);
+                "0","10072018",1, null, null);
         CoolNote cN2 = new CoolNote("2","lalala","testtest",
-                "0","1","10072018",2);
+                "0","10072018",2, null, null);
         CoolNote cN3 = new CoolNote("3","lelele","testtest",
-                "0","1","10072018",2);
+                "0","10072018",2, null, null);
         CoolNote cN4 = new CoolNote("4","lululu","testtest",
-                "0","2","10072018",2);
+                "0","10072018",2, null, null);
         CoolNote cN5 = new CoolNote("5","lololol","testtest",
-                "0","0","10072018",2);
+                "0","10072018",2, null, null);
         CoolNote cN6 = new CoolNote("6","nya","testtestn",
-                "0","2","10072018",2);
+                "0","10072018",2, null, null);
         CoolNote cN7 = new CoolNote("7","meow","testtest",
-                "0","2","10072018",2);
+                "0","10072018",2, null, null);
         CoolNote cN8 = new CoolNote("8","yaay","testtest",
-                "0","0","10072018",2);
+                "0","10072018",2, null, null);
         CoolNote cN9 = new CoolNote("9","brr","testtest",
-                "0","0","10072018",2);
+                "0","10072018",2, null, null);
 
         this.cNList[0] = cN1;
         this.cNList[1] = cN2;
