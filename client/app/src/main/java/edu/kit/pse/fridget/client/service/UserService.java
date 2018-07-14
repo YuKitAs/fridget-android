@@ -1,10 +1,9 @@
 package edu.kit.pse.fridget.client.service;
 
-import edu.kit.pse.fridget.client.datamodel.User;
 import edu.kit.pse.fridget.client.datamodel.representation.UserWithJwtRepresentation;
 import retrofit2.Call;
-import retrofit2.http.Body;
-import retrofit2.http.Headers;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
 public interface UserService {
@@ -14,7 +13,7 @@ public interface UserService {
      * zu verwenden.
      */
 
-    @Headers("Content-Type: application/json")
-    @POST("/users")
-    Call<UserWithJwtRepresentation> sendUser(@Body User user);
+    @FormUrlEncoded
+    @POST("/users/sign-in")
+    Call<UserWithJwtRepresentation> sendIdToken(@Field("idToken") String idToken);
 }

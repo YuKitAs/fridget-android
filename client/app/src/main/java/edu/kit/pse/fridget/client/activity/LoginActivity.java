@@ -2,6 +2,7 @@ package edu.kit.pse.fridget.client.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -21,7 +22,6 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.gson.Gson;
 
 import edu.kit.pse.fridget.client.R;
-import edu.kit.pse.fridget.client.datamodel.User;
 import edu.kit.pse.fridget.client.datamodel.representation.UserWithJwtRepresentation;
 import edu.kit.pse.fridget.client.service.RetrofitClientInstance;
 import edu.kit.pse.fridget.client.service.UserService;
@@ -61,8 +61,7 @@ public class LoginActivity extends AppCompatActivity implements
     public void onStart() {
         super.onStart();
 
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
+        updateUI(mAuth.getCurrentUser());
     }
 
     @Override
@@ -93,7 +92,7 @@ public class LoginActivity extends AppCompatActivity implements
                     if (task.isSuccessful()) {
                         // Sign in success, update UI with the signed-in user's information
                         Log.d(TAG, "signInWithCredential:success");
-                        updateUI(mAuth.getCurrentUser());
+                        sendIdToken(acct.getIdToken());
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w(TAG, "signInWithCredential:failure", task.getException());
@@ -101,13 +100,6 @@ public class LoginActivity extends AppCompatActivity implements
                         updateUI(null);
                     }
                 });
-    }
-
-    private void updateUI(FirebaseUser user) {
-        if (user != null) {
-            sendUser(user.getUid(), user.getDisplayName());
-            startActivity(new Intent(LoginActivity.this, StartActivity.class));
-        }
     }
 
     @Override
@@ -122,20 +114,27 @@ public class LoginActivity extends AppCompatActivity implements
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
-    private void sendUser(String googleUserId, String googleName) {
-        RetrofitClientInstance.getRetrofitInstance().create(UserService.class).sendUser(new User(null, googleUserId, googleName)).enqueue(new Callback<UserWithJwtRepresentation>() {
+    private void sendIdToken(String googleIdToken) {
+        RetrofitClientInstance.getRetrofitInstance().create(UserService.class).sendIdToken(googleIdToken).enqueue(new Callback<UserWithJwtRepresentation>() {
             @Override
-            public void onResponse(Call<UserWithJwtRepresentation> call, Response<UserWithJwtRepresentation> response) {
+            public void onResponse(@NonNull Call<UserWithJwtRepresentation> call, @NonNull Response<UserWithJwtRepresentation> response) {
                 UserWithJwtRepresentation body = response.body();
                 if (body != null) {
-                    Log.i(TAG, String.format("Generated JWT %s for user (id=%s).", new Gson().toJson(body.getJwt()), body.getUser().getId()));
+                    Log.i(TAG, String.format("Generated JWT %s for user %s.", new Gson().toJson(body.getJwt()), new Gson().toJson(body.getUser())));
+                    updateUI(mAuth.getCurrentUser());
                 }
             }
 
             @Override
-            public void onFailure(Call<UserWithJwtRepresentation> call, Throwable t) {
+            public void onFailure(@NonNull Call<UserWithJwtRepresentation> call, @NonNull Throwable t) {
                 t.printStackTrace();
             }
         });
+    }
+
+    private void updateUI(FirebaseUser user) {
+        if (user != null) {
+            startActivity(new Intent(LoginActivity.this, StartActivity.class));
+        }
     }
 }
