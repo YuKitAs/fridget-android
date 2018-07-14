@@ -23,12 +23,11 @@ import com.google.gson.Gson;
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.datamodel.User;
 import edu.kit.pse.fridget.client.datamodel.representation.UserWithJwtRepresentation;
-import edu.kit.pse.fridget.client.service.ServiceGenerator;
+import edu.kit.pse.fridget.client.service.RetrofitClientInstance;
 import edu.kit.pse.fridget.client.service.UserService;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
 
 public class LoginActivity extends AppCompatActivity implements
         View.OnClickListener {
@@ -106,7 +105,6 @@ public class LoginActivity extends AppCompatActivity implements
 
     private void updateUI(FirebaseUser user) {
         if (user != null) {
-            Log.i("user", String.format("googleUserId: %s, googleName: %s", user.getUid(), user.getDisplayName()));
             sendUser(user.getUid(), user.getDisplayName());
             startActivity(new Intent(LoginActivity.this, StartActivity.class));
         }
@@ -125,7 +123,7 @@ public class LoginActivity extends AppCompatActivity implements
     }
 
     private void sendUser(String googleUserId, String googleName) {
-        ServiceGenerator.getRetrofitInstance().create(UserService.class).sendUser(new User(null, googleUserId, googleName)).enqueue(new Callback<UserWithJwtRepresentation>() {
+        RetrofitClientInstance.getRetrofitInstance().create(UserService.class).sendUser(new User(null, googleUserId, googleName)).enqueue(new Callback<UserWithJwtRepresentation>() {
             @Override
             public void onResponse(Call<UserWithJwtRepresentation> call, Response<UserWithJwtRepresentation> response) {
                 UserWithJwtRepresentation body = response.body();
