@@ -9,10 +9,6 @@
         <variable
             name="fullNoteVM"
             type="edu.kit.pse.fridget.client.viewmodel.FullCoolNoteViewModel" />
-
-        <variable
-            name="coolNote"
-            type="edu.kit.pse.fridget.client.datamodel.CoolNote" />
     </data>
 
     <RelativeLayout
@@ -101,10 +97,10 @@
                         android:layout_alignParentTop="true"
                         android:layout_marginTop="29dp"
                         android:fontFamily="@font/commonsregular"
-                        android:text="Created on: "
+                        android:text="@string/createdOn"
                         android:textColor="#000000"
                         android:textSize="15sp"
-                        android:textStyle="italic" />
+                        android:textStyle="italic"/>
 
                     <TextView
                         android:id="@+id/creationDate"
@@ -113,6 +109,7 @@
                         android:layout_alignStart="@+id/createdOn"
                         android:layout_below="@+id/createdOn"
                         android:fontFamily="@font/commonsregular"
+                        android:text="@{fullNoteVM.createdAt}"
                         android:textColor="#000000"
                         android:textSize="15sp"
                         android:textStyle="italic" />
@@ -126,7 +123,7 @@
                         android:layout_marginTop="89dp"
                         android:fontFamily="@font/commonsregular"
                         android:maxLength="20"
-                        android:text="@{coolNote.getTitle}"
+                        android:text="@{fullNoteVM.title}"
                         android:textColor="#000000"
                         android:textSize="25sp" />
 
@@ -138,7 +135,7 @@
                         android:layout_below="@+id/title"
                         android:fontFamily="@font/commonsregular"
                         android:maxLength="300"
-                        android:text="@{coolNote.content}"
+                        android:text="@{fullNoteVM.content}"
                         android:textColor="#000000"
                         android:textSize="15sp" />
 
@@ -149,7 +146,7 @@
                         android:layout_below="@+id/checkBox"
                         android:fontFamily="@font/commonsregular"
                         android:padding="2dp"
-                        android:text="Read By:"
+                        android:text="@string/readBy"
                         android:textColor="#000000"
                         android:textSize="12sp" />
 
@@ -167,7 +164,7 @@
                         android:layout_below="@+id/content"
                         android:buttonTint="#00cdc3"
                         android:fontFamily="@font/commonsregular"
-                        android:text="I have seen this"
+                        android:text="@string/checkbox"
                         android:textSize="12sp" />
 
                 </RelativeLayout>
