@@ -39,8 +39,9 @@ public class CreateFlatshareActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 CreateFlatshareCommand createFlatshareCommand = new CreateFlatshareCommand(flatsharename.getText().toString(), user);
-                createFlatshareViewModel.sendNetworkRequest(createFlatshareCommand);
-
+                createFlatshareViewModel.createFlatshare(createFlatshareCommand);
+                //zum Test
+                createFlatshareViewModel.getFlatshare("004408d7-e5b0-45fd-b918-6438394fb4f3");
             }
 
         }) ;

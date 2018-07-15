@@ -26,7 +26,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CreateFlatshareViewModel extends ViewModel {
 
-    public void sendNetworkRequest(CreateFlatshareCommand createFlatshareCommand) {
+        //Methode zum senden von dem Namen der Flatshare an den Server
+    public void createFlatshare(CreateFlatshareCommand createFlatshareCommand) {
         //create Retrofit instance
         RetrofitClientInstance.getRetrofitInstance().create(FlatshareService.class).createFlatshare(createFlatshareCommand).enqueue(new Callback<Flatshare>(){
             @Override
@@ -42,4 +43,23 @@ public class CreateFlatshareViewModel extends ViewModel {
 
         });
     }
+
+    //Methode um Flatshare Daten vom Server zu holen
+    public void getFlatshare(String flatshareId) {
+        //create Retrofit instance
+        RetrofitClientInstance.getRetrofitInstance().create(FlatshareService.class).getFlatshare(flatshareId).enqueue(new Callback<Flatshare>(){
+            @Override
+            public void onResponse(Call<Flatshare> call, Response<Flatshare> response) {
+                Log.i("getFlatshare", String.format("Get flatsharename successful", new Gson().toJson(response.body())));
+            }
+
+            @Override
+            public void onFailure(Call<Flatshare> call, Throwable t) {
+                Log.e("getFlatshare", "Get flatsharename failed.");
+                t.printStackTrace();
+            }
+
+        });
+    }
+
 }
