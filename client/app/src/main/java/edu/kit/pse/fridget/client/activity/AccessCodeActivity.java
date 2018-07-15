@@ -11,6 +11,7 @@ import android.widget.EditText;
 
 import edu.kit.pse.fridget.client.R;
 
+import edu.kit.pse.fridget.client.databinding.EnterAccessCodeActivityBinding;
 import edu.kit.pse.fridget.client.datamodel.command.EnterFlatshareCommand;
 import edu.kit.pse.fridget.client.viewmodel.EnterAccessCodeViewModel;
 
@@ -22,30 +23,43 @@ public class AccessCodeActivity extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "Calling onCreate");
-        setContentView(R.layout.enter_access_code_activity);
 
-        final EditText accesscode = (EditText) findViewById(R.id.accesscode_input);
-        final String user = "blubblub";
-        final EnterAccessCodeViewModel enterAccessCode = new EnterAccessCodeViewModel();
-        Button gotoFridgeButton = findViewById(R.id.gotofridge);
-
-        gotoFridgeButton.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-
-                EnterFlatshareCommand enterFlatshareCommand =new EnterFlatshareCommand(accesscode.getText().toString(),user);
-                enterAccessCode.createMembership(enterFlatshareCommand,v);
+    }
 
 
-                }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i(TAG, "Calling onStart");
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i(TAG, "Calling onResume");
+    }
 
-        });
+    @Override
+    protected void onPause() {
+        Log.i(TAG, "Calling onPause");
+        super.onPause();
+    }
 
+    @Override
+    protected void onStop() {
+        Log.i(TAG, "Calling onStop");
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.i(TAG, "Calling onDestroy");
+        super.onDestroy();
+    }
 
 }
 
 
 
 
-}
+
