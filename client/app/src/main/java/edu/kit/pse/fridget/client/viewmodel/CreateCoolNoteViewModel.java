@@ -77,7 +77,7 @@ public class CreateCoolNoteViewModel extends ViewModel {
                     Log.i("Created Cool Note", String.format("Cool Note %s created.", new Gson().toJson(body)));
                 }
 
-                finalCoolNote = body;
+                //finalCoolNote = body;
                 context.startActivity(intent);
             }
 
