@@ -113,7 +113,6 @@
                         android:layout_alignStart="@+id/createdOn"
                         android:layout_below="@+id/createdOn"
                         android:fontFamily="@font/commonsregular"
-                        android:text="@{coolNote.createdAt}"
                         android:textColor="#000000"
                         android:textSize="15sp"
                         android:textStyle="italic" />
