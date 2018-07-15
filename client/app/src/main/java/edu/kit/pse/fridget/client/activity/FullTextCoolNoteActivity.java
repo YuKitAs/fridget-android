@@ -6,11 +6,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.TextView;
 
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.databinding.FullTextCoolNoteActivityBinding;
-import edu.kit.pse.fridget.client.datamodel.CoolNote;
 import edu.kit.pse.fridget.client.viewmodel.CreateCoolNoteViewModel;
 import edu.kit.pse.fridget.client.viewmodel.FullCoolNoteViewModel;
 
@@ -27,14 +25,14 @@ public class FullTextCoolNoteActivity extends AppCompatActivity {
         binding.setFullNoteVM(fullCoolNoteViewModel);
         final CreateCoolNoteViewModel createCoolNoteViewModel = ViewModelProviders.of(this).get(CreateCoolNoteViewModel.class);
 
-        CoolNote coolNote = createCoolNoteViewModel.getFinalCoolNote();
+        /*CoolNote coolNote = createCoolNoteViewModel.getFinalCoolNote();
 
         TextView createdAtTV = binding.creationDate;
         TextView titleTV = binding.title;
         TextView contentTV = binding.content;
         createdAtTV.setText(coolNote.getCreatedAt());
         titleTV.setText(coolNote.getTitle());
-        contentTV.setText(coolNote.getContent());
+        contentTV.setText(coolNote.getContent());*/
 
     }
 
