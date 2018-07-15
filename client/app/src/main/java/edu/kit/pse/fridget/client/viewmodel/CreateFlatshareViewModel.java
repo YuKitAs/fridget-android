@@ -36,7 +36,6 @@ public class CreateFlatshareViewModel extends ViewModel {
 
     }
 
-
         //Methode zum senden von dem Namen der Flatshare an den Server
     public void createFlatshare(CreateFlatshareCommand createFlatshareCommand, View v) {
 
