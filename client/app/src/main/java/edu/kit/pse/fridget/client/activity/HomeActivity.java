@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 
 import edu.kit.pse.fridget.client.R;
@@ -25,28 +27,7 @@ public class HomeActivity extends AppCompatActivity implements LifecycleOwner {
     private static final String TAG = HomeActivity.class.getSimpleName();
     private HomeViewModel homeVM = new HomeViewModel();
 
-    /*
-    private  final Observer<CoolNote[]> cnListObserver = new Observer<CoolNote[]>() {
-        @Override
-        public void onChanged(@Nullable CoolNote[] coolNotes) {
-            homeVM.updateLists();
-        }
-    };
 
-    private  final Observer<FrozenNote[]> fnListObserver = new Observer<FrozenNote[]>() {
-        @Override
-        public void onChanged(@Nullable FrozenNote[] frozenNotes) {
-            homeVM.updateLists();
-        }
-    };
-
-    private  final Observer<Member[]> memberListObserver = new Observer<Member[]>() {
-        @Override
-        public void onChanged(@Nullable Member[] member) {
-            homeVM.updateLists();
-        }
-    };
-*/
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -58,12 +39,26 @@ public class HomeActivity extends AppCompatActivity implements LifecycleOwner {
         homeVM = ViewModelProviders.of(this).get(HomeViewModel.class);
         binding.setHomeVM(homeVM);
 
-        /*
-        homeVM.liveDataCNList.observe(this,cnListObserver);
-        homeVM.liveDataFNList.observe(this,fnListObserver);
-        homeVM.liveDataMemberList.observe(this,memberListObserver); */
+        binding.setLifecycleOwner(this);
+
+        /*// stupide Art und Weise um alles zu refreshen...
+        ((Button) findViewById(R.id.coolNote1)).setText(homeVM.getCNTitle(1));
+        ((Button) findViewById(R.id.cNmagnet1)).setBackgroundColor(homeVM.getMagnetColor(1)); // anders... mit Color statelist und so...
+        ((Button) findViewById(R.id.coolNote1)).setVisibility(homeVM.isEmptyCN2(1)); // klappt nicht wirklich... nur text verschwindet
+        ((Button) findViewById(R.id.cNmagnet1)).setVisibility(homeVM.isEmptyCN2(1));
 
 
+        Observer<CoolNote[]> cnListObserver = new Observer<CoolNote[]>() {
+            @Override
+            public void onChanged(@Nullable CoolNote[] coolNotes) {
+                Button cn1 = (Button) findViewById(R.id.coolNote1);
+                cn1.setVisibility(homeVM.isEmptyCN2(1));
+                cn1.setText(homeVM.getCNTitle(1));
+            }
+        };
+
+        homeVM.getLiveDataCNList().observe(this,cnListObserver);
+*/
 
     }
 
