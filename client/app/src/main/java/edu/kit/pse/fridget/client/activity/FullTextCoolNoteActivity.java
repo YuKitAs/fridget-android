@@ -27,7 +27,7 @@ public class FullTextCoolNoteActivity extends AppCompatActivity {
         binding.setFullNoteVM(fullCoolNoteViewModel);
         final CreateCoolNoteViewModel createCoolNoteViewModel = ViewModelProviders.of(this).get(CreateCoolNoteViewModel.class);
 
-        CoolNote coolNote = createCoolNoteViewModel.getCoolNote();
+        CoolNote coolNote = createCoolNoteViewModel.getFinalCoolNote();
 
         TextView createdAtTV = binding.creationDate;
         TextView titleTV = binding.title;

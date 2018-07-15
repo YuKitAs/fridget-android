@@ -26,9 +26,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CreateCoolNoteViewModel extends ViewModel {
+    public String id;
     private final MutableLiveData<String> title = new MutableLiveData<>();
     private final MutableLiveData<String> content = new MutableLiveData<>();
-    private CoolNote coolNote;
+    private CoolNote finalCoolNote;
 
     public MutableLiveData<String> getTitle() {
         return title;
@@ -38,13 +39,7 @@ public class CreateCoolNoteViewModel extends ViewModel {
         return content;
     }
 
-    public void setCoolNote(CoolNote coolNote) {
-        this.coolNote = coolNote;
-    }
-
-    public CoolNote getCoolNote() {
-        return coolNote;
-    }
+    public CoolNote getFinalCoolNote() { return finalCoolNote; }
 
     public void bold(View v) {
         String content = this.content.getValue();
@@ -82,7 +77,7 @@ public class CreateCoolNoteViewModel extends ViewModel {
                     Log.i("Created Cool Note", String.format("Cool Note %s created.", new Gson().toJson(body)));
                 }
 
-                setCoolNote(body);
+                finalCoolNote = body;
                 context.startActivity(intent);
             }
 
