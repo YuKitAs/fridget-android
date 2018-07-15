@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.view.View;
 
+import java.util.LinkedList;
 import java.util.Random;
 
 import edu.kit.pse.fridget.client.activity.CreateTextCoolNoteActivity;
@@ -23,7 +24,7 @@ import edu.kit.pse.fridget.client.datamodel.Member;
 public class HomeViewModel extends ViewModel {
 
 
-    public MutableLiveData<CoolNote[]> liveDataCNList = new MutableLiveData<CoolNote[]>();
+    private MutableLiveData<CoolNote[]> liveDataCNList = new MutableLiveData<CoolNote[]>();
     public MutableLiveData<FrozenNote[]> liveDataFNList = new MutableLiveData<FrozenNote[]>();
     public MutableLiveData<Member[]> liveDataMemberList = new MutableLiveData<Member[]>();
 
@@ -33,7 +34,6 @@ public class HomeViewModel extends ViewModel {
     private FrozenNote[] fNList = new FrozenNote[3];
 
     private Member[] memberList = new Member[15];
-
 
 
     /**
@@ -46,20 +46,18 @@ public class HomeViewModel extends ViewModel {
         updateLists();
     }
 
-
     /**
      *  alle Listen werden aus dem Server neugeholt
      */
     public void updateLists() {
-        this.getcNList();
-        this.getfNList();
-        this.getMemberList();
-        this.liveDataCNList.setValue(this.cNList);
-        this.liveDataFNList.setValue(this.fNList);
-        this.liveDataMemberList.setValue(this.memberList);
+
+        this.liveDataCNList.setValue(this.getcNList());
+        this.liveDataFNList.setValue(this.getfNList());
+        this.liveDataMemberList.setValue(this.getMemberList());
+
     }
 
-    /**
+    /** muss überarbeitet werden
      * überprüft, ob eine CoolNote an der übergebenen Position existiert
      * @param position
      * @return
@@ -70,9 +68,10 @@ public class HomeViewModel extends ViewModel {
             return true;
         }else {
             return false;
-        }    }
+        }
+    }
 
-    /**
+    /** muss überarbeitet werden
      * gibt die Überschrift der CoolNote an der übergebenen Position wieder
      * @param position
      * @return
@@ -118,7 +117,6 @@ public class HomeViewModel extends ViewModel {
      */
     public CoolNote[] getcNList(){
 
-
         return cNList;
     }
 
@@ -138,20 +136,12 @@ public class HomeViewModel extends ViewModel {
      * @param view
      */
     public void onPlusButtonClicked(View view){
-        int[] emptyPositions = this.getListOfEmptySpaceForCoolNote();
+        LinkedList<Integer> emptyPositions = this.getListOfEmptySpaceForCoolNote();
         if (emptyPositions == null) {
             // Fehlermeldung... Man kann keine weiteren CoolNotes mehr einfügen
 
 
         } else {
-          /* // testen
-            int position = this.getRandomEmptyPosition(emptyPositions);
-            CoolNote cN4 = new CoolNote("4","dsfgdfg","testtest, sdfgsdfg",
-                    "0","2","10072018",2);
-            this.cNList[position]=cN4;
-
-            updateLists(); */
-
             int position = this.getRandomEmptyPosition(emptyPositions);
             Context context = view.getContext();
             Intent intent = new Intent(context, CreateTextCoolNoteActivity.class);
@@ -168,6 +158,23 @@ public class HomeViewModel extends ViewModel {
         context.startActivity(intent);
         this.updateLists();
     }
+
+    public void onRefreshButtonClicked(View view){
+        // testen
+       /* LinkedList<Integer> emptyPositions = this.getListOfEmptySpaceForCoolNote();
+        int position = this.getRandomEmptyPosition(emptyPositions);
+        CoolNote cN4 = new CoolNote("4","dsfgdfg","testtest, sdfgsdfg",
+                "0","2","10072018",2);
+        this.cNList[position]=cN4;
+        updateLists(); */
+
+        CoolNote cN4 = new CoolNote("4","dsfgdfg","testtest, sdfgsdfg",
+                "0","2","10072018",2);
+        this.cNList[0]=null;
+        updateLists();
+
+    }
+
 
     /**
      * Methode führt Activitywechsel durch, wenn auf die CoolNotes gedrückt wird
@@ -219,7 +226,7 @@ public class HomeViewModel extends ViewModel {
      */
     private Member getMemberbyCoolNotePosition(int index) {
         CoolNote tempcN = this.cNList[index];
-        String userId = tempcN.getCreatorMembershipId();
+        String userId = tempcN.getCreatorUserId();
         Member member = null;
 
         for (Member tempMember : this.memberList){
@@ -235,13 +242,13 @@ public class HomeViewModel extends ViewModel {
      * Diese Methode sucht alle leeren Indizes in der Liste von CoolNotes
      * @return IntArray von allen Indizes, die leer sind
      */
-    private int[] getListOfEmptySpaceForCoolNote(){
-        int[] arr = new int[9];
+    private LinkedList<Integer> getListOfEmptySpaceForCoolNote(){
+        LinkedList<Integer> arr = new  LinkedList<Integer>();
         int i = 0;
         for(int j = 0; j < 9; j++) {
             CoolNote cn = this.cNList[j];
             if ( cn == null){
-                arr[i]=j;
+                arr.add(j);
                 i++;
             }
         }
@@ -255,13 +262,16 @@ public class HomeViewModel extends ViewModel {
     /**
      * berechnet eine zufällige leere Position
      * @param arr Liste von allen Indizes, die in der CoolNote Liste leer sind
-     * @return eine zufällige Position
+     * @return eine zufällige leere Position
      */
-    private int getRandomEmptyPosition(int[] arr){
-        int[] emptyPositions = arr;
+    private int getRandomEmptyPosition( LinkedList<Integer> arr){
+        LinkedList<Integer> emptyPositions = arr;
         Random generator = new Random();
-        int randomIndex = generator.nextInt(emptyPositions.length);
-        return emptyPositions[randomIndex];
+        int randomIndex = 0;
+        while(randomIndex == 0) {
+            randomIndex= generator.nextInt(emptyPositions.size());
+        }
+        return emptyPositions.get(randomIndex);
     }
 
     /**
@@ -270,23 +280,23 @@ public class HomeViewModel extends ViewModel {
     private void fakeCN() {
 
         CoolNote cN1 = new CoolNote("1","Boo","testtest",
-                "0",0,0, null, null);
+                "0","0","10072018",1);
         CoolNote cN2 = new CoolNote("2","lalala","testtest",
-                "0",1,0, null, null);
+                "0","1","10072018",2);
         CoolNote cN3 = new CoolNote("3","lelele","testtest",
-                "0",2,0, null, null);
+                "0","1","10072018",2);
         CoolNote cN4 = new CoolNote("4","lululu","testtest",
-                "0",3,0, null, null);
+                "0","2","10072018",2);
         CoolNote cN5 = new CoolNote("5","lololol","testtest",
-                "0",4,0, null, null);
+                "0","0","10072018",2);
         CoolNote cN6 = new CoolNote("6","nya","testtestn",
-                "0",5,0, null, null);
+                "0","2","10072018",2);
         CoolNote cN7 = new CoolNote("7","meow","testtest",
-                "0",6,0, null, null);
+                "0","2","10072018",2);
         CoolNote cN8 = new CoolNote("8","yaay","testtest",
-                "0",7,0, null, null);
+                "0","0","10072018",2);
         CoolNote cN9 = new CoolNote("9","brr","testtest",
-                "0",8,0, null, null);
+                "0","0","10072018",2);
 
         this.cNList[0] = cN1;
         this.cNList[1] = cN2;
@@ -328,5 +338,19 @@ public class HomeViewModel extends ViewModel {
 
     }
 
+
+    /**
+     * für  " stupide Art und Weise um alles zu refreshen"
+     * @param i
+     * @return
+     */
+    public int isEmptyCN2(int i) {
+        CoolNote temp = this.liveDataCNList.getValue()[i-1];
+        if(temp == null){
+            return 1;
+        }else {
+            return 0;
+        }
+    }
 }
 
