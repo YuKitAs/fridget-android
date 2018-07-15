@@ -25,7 +25,7 @@ public class AccessCodeActivity extends AppCompatActivity {
         setContentView(R.layout.enter_access_code_activity);
 
         final EditText accesscode = (EditText) findViewById(R.id.accesscode_input);
-        final String user = "blabla";
+        final String user = "blubblub";
         final EnterAccessCodeViewModel enterAccessCode = new EnterAccessCodeViewModel();
         Button gotoFridgeButton = (Button) findViewById(R.id.gotofridge);
 
