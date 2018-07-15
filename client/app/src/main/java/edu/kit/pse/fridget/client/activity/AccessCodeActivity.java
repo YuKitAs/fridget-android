@@ -27,10 +27,10 @@ public class AccessCodeActivity extends AppCompatActivity {
         final EditText accesscode = (EditText) findViewById(R.id.accesscode_input);
         final String user = "blubblub";
         final EnterAccessCodeViewModel enterAccessCode = new EnterAccessCodeViewModel();
-        Button gotoFridgeButton = (Button) findViewById(R.id.gotofridge);
+        Button gotoFridgeButton = findViewById(R.id.gotofridge);
 
         gotoFridgeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
+
             public void onClick(View v) {
 
                 EnterFlatshareCommand enterFlatshareCommand =new EnterFlatshareCommand(accesscode.getText().toString(),user);
