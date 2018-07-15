@@ -1,22 +1,16 @@
 package edu.kit.pse.fridget.client.viewmodel;
 
-import android.app.NotificationManager;
-import android.app.PendingIntent;
+import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.content.Context;
 import android.content.Intent;
-import android.media.RingtoneManager;
-import android.net.Uri;
-import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.view.View;
 
 import com.google.gson.Gson;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.util.ArrayList;
 
-import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.activity.FullTextCoolNoteActivity;
 import edu.kit.pse.fridget.client.activity.HomeActivity;
 import edu.kit.pse.fridget.client.datamodel.CoolNote;
@@ -27,32 +21,33 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CreateCoolNoteViewModel extends ViewModel {
+    private final MutableLiveData<String> title = new MutableLiveData<>();
+    private final MutableLiveData<String> content = new MutableLiveData<>();
 
-    int i = 0;
-
-    public String getCurrentDate() {
-        Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat mdformat = new SimpleDateFormat("yyyy / MM / dd ");
-        String strDate = mdformat.format(calendar.getTime());
-        return strDate;
+    public MutableLiveData<String> getTitle() {
+        return title;
     }
 
+    public MutableLiveData<String> getContent() {
+        return content;
+    }
 
     //Erstellen der Cool Note, Viewwechsel zur FullCoolNoteActivity
     public void postCoolNote(View v) {
-        CoolNote coolNote = (CoolNote) v.getTag();
-        final Context context = v.getContext();
-        Intent i = new Intent(context, FullTextCoolNoteActivity.class);
+        CoolNote coolNote = new CoolNote(null, title.getValue(), content.getValue(), "5cd8d207-39d7-4de1-aa84-64e59804ab70", 0, 0, null, new ArrayList<>());
 
-        CoolNoteService coolNoteService = RetrofitClientInstance.getRetrofitInstance().create(CoolNoteService.class);
-        Call<CoolNote> coolNoteCall = coolNoteService.createCoolNote(coolNote);
-        coolNoteCall.enqueue(new Callback<CoolNote>() {
+        final Context context = v.getContext();
+        Intent intent = new Intent(context, FullTextCoolNoteActivity.class);
+
+        RetrofitClientInstance.getRetrofitInstance().create(CoolNoteService.class).createCoolNote(coolNote).enqueue(new Callback<CoolNote>() {
             @Override
             public void onResponse(Call<CoolNote> call, Response<CoolNote> response) {
                 CoolNote body = response.body();
                 if (body != null) {
-                    Log.i("Created Cool Note", String.format("Post %s created.", new Gson().toJson(body)));
+                    Log.i("Created Cool Note", String.format("Cool Note %s created.", new Gson().toJson(body)));
                 }
+
+                context.startActivity(intent);
             }
 
             @Override
@@ -63,7 +58,7 @@ public class CreateCoolNoteViewModel extends ViewModel {
 
 
         //push notification
-        NotificationManager notificationManager;
+/*        NotificationManager notificationManager;
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(context)
@@ -74,9 +69,7 @@ public class CreateCoolNoteViewModel extends ViewModel {
                 .setSound(defaultSoundUri)
                 .setContentIntent(pendingIntent);
         notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(0, notificationBuilder.build());
-
-        context.startActivity(i);
+        notificationManager.notify(0, notificationBuilder.build());*/
     }
 
     //Viewwechsel zur HomeActivity

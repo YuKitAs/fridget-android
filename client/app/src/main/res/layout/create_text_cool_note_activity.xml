@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="coolNoteVM"
-            type="edu.kit.pse.fridget.client.viewmodel.CreateCoolNoteViewModel"/>
-        <variable
-            name="coolNote"
-            type="edu.kit.pse.fridget.client.datamodel.CoolNote"/>
+            type="edu.kit.pse.fridget.client.viewmodel.CreateCoolNoteViewModel" />
     </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="5dp"
-        android:background="#cdfeed">
+        android:background="#cdfeed"
+        android:padding="5dp">
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/rootRL"
@@ -68,9 +64,10 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/commonsregular"
+                    android:maxLength="20"
+                    android:text="@={coolNoteVM.title}"
                     android:textColor="#000000"
                     android:textSize="15sp"
-                    android:maxLength="20"
                     app:layout_constraintBottom_toTopOf="@+id/content"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
@@ -140,10 +137,11 @@
                     android:layout_below="@+id/contentBox"
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/commonsregular"
+                    android:maxLength="300"
                     android:padding="2dp"
+                    android:text="@={coolNoteVM.content}"
                     android:textColor="#000000"
                     android:textSize="13sp"
-                    android:maxLength="300"
                     app:layout_constraintBottom_toBottomOf="@+id/contentBox2"
                     app:layout_constraintEnd_toEndOf="@+id/contentBox3"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -210,9 +208,8 @@
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:fontFamily="@font/commonsregular"
-                    android:text="Post it!"
                     android:onClick="@{coolNoteVM::postCoolNote}"
-                    android:tag="@{coolNote}"
+                    android:text="Post it!"
                     android:textSize="15sp" />
 
             </RelativeLayout>
@@ -238,12 +235,12 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
             android:background="@drawable/back_button"
+            android:onClick="@{coolNoteVM::goBack}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
-            android:onClick="@{coolNoteVM::goBack}"/>
+            app:layout_constraintVertical_bias="1.0" />
 
-        </RelativeLayout>
+    </RelativeLayout>
 
 </layout>

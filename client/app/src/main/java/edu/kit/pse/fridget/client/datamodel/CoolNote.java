@@ -2,7 +2,6 @@ package edu.kit.pse.fridget.client.datamodel;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.time.Instant;
 import java.util.List;
 
 /**
@@ -12,7 +11,6 @@ import java.util.List;
  * @version 1.0
  */
 public class CoolNote {
-
     @SerializedName("id")
     private String id;
 
@@ -26,7 +24,7 @@ public class CoolNote {
     private String creatorMembershipId;
 
     @SerializedName("createdAt")
-    private Instant createdAt;
+    private String createdAt;
 
     @SerializedName("position")
     private int position;
@@ -37,8 +35,8 @@ public class CoolNote {
     @SerializedName("taggedMembershipIds")
     private List<String> taggedMembershipIds;
 
-    public CoolNote(String id, String title, String content, String creatorMembershipId, int position, int importance, Instant createdAt,
-                     List<String> taggedMembershipIds) {
+    public CoolNote(String id, String title, String content, String creatorMembershipId, int position, int importance, String createdAt,
+                    List<String> taggedMembershipIds) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -73,21 +71,11 @@ public class CoolNote {
         return importance;
     }
 
-    public Instant getCreatedAt() {
+    public String getCreatedAt() {
         return createdAt;
     }
 
     public List<String> getTaggedMembershipIds() {
         return taggedMembershipIds;
     }
-
-    // brauchen wir? hab es erstmal zum testen gelassen...
-    public void setTitle(String title){
-        this.title = title;
-    }
-
-    public void setContent(String content){
-        this.content = content;
-    }
-
 }
