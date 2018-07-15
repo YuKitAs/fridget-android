@@ -8,4 +8,14 @@
     <string name="gotoFridge">Let\'s go to our fridge!</string>
     <string name="title_activity_menu_drawer">Test</string>
     <string name="action_settings">test</string>
+
+    <string name="title">Title: </string>
+    <string name="content">Content: </string>
+    <string name="B"><b>B</b></string>
+    <string name="I"><i>I</i></string>
+    <string name="U"><u>U</u></string>
+    <string name="postIt">Post it!</string>
+    <string name="createdOn"><i>Created on: </i></string>
+    <string name="checkbox">I have seen this</string>
+    <string name="readBy">Read by: </string>
 </resources>

@@ -5,9 +5,10 @@ import android.arch.lifecycle.ViewModel;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.StyleSpan;
+import android.text.style.UnderlineSpan;
 import android.util.Log;
 import android.view.View;
 
@@ -47,10 +48,22 @@ public class CreateCoolNoteViewModel extends ViewModel {
 
     public void bold(View v) {
         String content = this.content.getValue();
-        //String bold = "<b>" + content + "</b>";
-        SpannableString str = new SpannableString(content);
+        SpannableStringBuilder str = new SpannableStringBuilder(content);
         str.setSpan(new StyleSpan(Typeface.BOLD), 0, content.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        this.content.setValue(str.toString());
+    }
 
+    public void italic(View v) {
+        String content = this.content.getValue();
+        SpannableStringBuilder str = new SpannableStringBuilder(content);
+        str.setSpan(new StyleSpan(Typeface.ITALIC), 0, content.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        this.content.setValue(str.toString());
+    }
+
+    public void underline(View v) {
+        String content = this.content.getValue();
+        SpannableStringBuilder str = new SpannableStringBuilder(content);
+        str.setSpan(new UnderlineSpan(), 0, content.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         this.content.setValue(str.toString());
     }
 
