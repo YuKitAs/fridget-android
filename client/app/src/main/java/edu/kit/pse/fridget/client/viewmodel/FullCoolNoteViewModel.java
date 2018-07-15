@@ -4,26 +4,66 @@ import android.arch.lifecycle.ViewModel;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.View;
+
+import com.google.gson.Gson;
+
+import java.util.List;
 
 import edu.kit.pse.fridget.client.activity.HomeActivity;
 import edu.kit.pse.fridget.client.datamodel.CoolNote;
+import edu.kit.pse.fridget.client.service.CoolNoteService;
+import edu.kit.pse.fridget.client.service.RetrofitClientInstance;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class FullCoolNoteViewModel extends ViewModel {
 
-    String tempMagnetColor = "#00FF00";
-    String title = getCoolNote().getTitle();
+    public String id;
+    public String title;
+    public String content;
+    public String creatorMembershipId;
+    public int position;
+    public int importance;
+    public String createdAt;
+    public List<String> taggedMembershipIds;
+    public CoolNote coolNote;
+
+
+    private String tempMagnetColor = "#00FF00";
 
     public int getMagnetColor() {
         return Color.parseColor(tempMagnetColor);
     }
 
+    public void setCoolNote(CoolNote coolNote) {
+        this.coolNote = coolNote;
+    }
 
-    //eigentlich vom server
-    public CoolNote getCoolNote(){
-        CoolNote tempCN = new CoolNote("a6373664-7b90-11e8-adc0-fa7ae01bbeb", "Hello World!", "Hello!",
-                "3879a0a8-546d-41cb-b26e-eb1324d0e72c", 4, 0, null, null);
-        return tempCN;
+
+    public void getCoolNote(String coolNoteId) {
+        CoolNote coolNote;
+        RetrofitClientInstance.getRetrofitInstance().create(CoolNoteService.class).getCoolNote(coolNoteId).enqueue(new Callback<CoolNote>() {
+            @Override
+            public void onResponse(Call<CoolNote> call, Response<CoolNote> response) {
+                CoolNote body = response.body();
+                if (body != null) {
+                    Log.i("Fetched Cool Note", String.format("Cool Note %s fetched.", new Gson().toJson(body)));
+                }
+
+                title = body.getTitle();
+                content = body.getContent();
+                createdAt = body.getCreatedAt();
+
+            }
+
+            @Override
+            public void onFailure(Call<CoolNote> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
     }
 
     public void deleteCoolNote(String userId, String flatshareId) {
