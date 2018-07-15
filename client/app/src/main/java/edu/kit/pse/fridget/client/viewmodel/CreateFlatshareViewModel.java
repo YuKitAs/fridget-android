@@ -49,7 +49,7 @@ public class CreateFlatshareViewModel extends ViewModel {
         call.enqueue(new Callback<Flatshare>() {
             @Override
             public void onResponse(Call<Flatshare> call, Response<Flatshare> response) {
-                Log.i("createFlatshare", String.format("Created Flatshare.", new Gson().toJson(response.body())));
+                Log.i("createFlatshare", String.format("Created Flatshare %s.", new Gson().toJson(response.body())));
             }
 
             @Override
