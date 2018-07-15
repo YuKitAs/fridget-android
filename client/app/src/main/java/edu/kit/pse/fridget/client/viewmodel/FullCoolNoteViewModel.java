@@ -42,9 +42,7 @@ public class FullCoolNoteViewModel extends ViewModel {
         this.coolNote = coolNote;
     }
 
-
     public void getCoolNote(String coolNoteId) {
-        CoolNote coolNote;
         RetrofitClientInstance.getRetrofitInstance().create(CoolNoteService.class).getCoolNote(coolNoteId).enqueue(new Callback<CoolNote>() {
             @Override
             public void onResponse(Call<CoolNote> call, Response<CoolNote> response) {
@@ -56,6 +54,7 @@ public class FullCoolNoteViewModel extends ViewModel {
                 title = body.getTitle();
                 content = body.getContent();
                 createdAt = body.getCreatedAt();
+                id = body.getId();
 
             }
 
@@ -66,8 +65,19 @@ public class FullCoolNoteViewModel extends ViewModel {
         });
     }
 
-    public void deleteCoolNote(String userId, String flatshareId) {
+    public void deleteCoolNote(String userId, String flatshareId, String coolNoteId) {
+        coolNoteId = this.id;
+        RetrofitClientInstance.getRetrofitInstance().create(CoolNoteService.class).deleteCoolNote(coolNoteId).enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                Log.i("Deleted Cool Note", String.format("Cool Note %s deleted.", new Gson().toJson(null)));
+            }
 
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+
+            }
+        });
     }
 
     public void goBack(View v) {
