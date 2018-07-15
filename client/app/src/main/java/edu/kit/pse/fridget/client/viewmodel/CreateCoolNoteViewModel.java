@@ -4,6 +4,10 @@ import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.StyleSpan;
 import android.util.Log;
 import android.view.View;
 
@@ -23,6 +27,7 @@ import retrofit2.Response;
 public class CreateCoolNoteViewModel extends ViewModel {
     private final MutableLiveData<String> title = new MutableLiveData<>();
     private final MutableLiveData<String> content = new MutableLiveData<>();
+    private CoolNote coolNote;
 
     public MutableLiveData<String> getTitle() {
         return title;
@@ -30,6 +35,23 @@ public class CreateCoolNoteViewModel extends ViewModel {
 
     public MutableLiveData<String> getContent() {
         return content;
+    }
+
+    public void setCoolNote(CoolNote coolNote) {
+        this.coolNote = coolNote;
+    }
+
+    public CoolNote getCoolNote() {
+        return coolNote;
+    }
+
+    public void bold(View v) {
+        String content = this.content.getValue();
+        //String bold = "<b>" + content + "</b>";
+        SpannableString str = new SpannableString(content);
+        str.setSpan(new StyleSpan(Typeface.BOLD), 0, content.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        this.content.setValue(str.toString());
     }
 
     //Erstellen der Cool Note, Viewwechsel zur FullCoolNoteActivity
@@ -47,6 +69,7 @@ public class CreateCoolNoteViewModel extends ViewModel {
                     Log.i("Created Cool Note", String.format("Cool Note %s created.", new Gson().toJson(body)));
                 }
 
+                setCoolNote(body);
                 context.startActivity(intent);
             }
 

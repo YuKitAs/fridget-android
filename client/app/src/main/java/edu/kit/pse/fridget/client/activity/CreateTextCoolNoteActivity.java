@@ -24,6 +24,7 @@ public class CreateTextCoolNoteActivity extends AppCompatActivity {
         final CreateCoolNoteViewModel createCoolNoteViewModel = ViewModelProviders.of(this).get(CreateCoolNoteViewModel.class);
         binding.setCoolNoteVM(createCoolNoteViewModel);
 
+
 /*        final EditText title = binding.enterTitle;
         final EditText content = binding.enterContent;
         final Button boldButton = binding.boldButton;
