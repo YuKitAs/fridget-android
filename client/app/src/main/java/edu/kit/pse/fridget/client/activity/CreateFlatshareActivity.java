@@ -43,7 +43,6 @@ public class CreateFlatshareActivity extends AppCompatActivity {
 
             }
 
-
         }) ;
 
     }
