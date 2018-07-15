@@ -219,7 +219,7 @@ public class HomeViewModel extends ViewModel {
      */
     private Member getMemberbyCoolNotePosition(int index) {
         CoolNote tempcN = this.cNList[index];
-        String userId = tempcN.getCreatorUserId();
+        String userId = tempcN.getCreatorMembershipId();
         Member member = null;
 
         for (Member tempMember : this.memberList){
@@ -270,23 +270,23 @@ public class HomeViewModel extends ViewModel {
     private void fakeCN() {
 
         CoolNote cN1 = new CoolNote("1","Boo","testtest",
-                "0","10072018",1, null, null);
+                "0",0,0, null, null);
         CoolNote cN2 = new CoolNote("2","lalala","testtest",
-                "0","10072018",2, null, null);
+                "0",1,0, null, null);
         CoolNote cN3 = new CoolNote("3","lelele","testtest",
-                "0","10072018",2, null, null);
+                "0",2,0, null, null);
         CoolNote cN4 = new CoolNote("4","lululu","testtest",
-                "0","10072018",2, null, null);
+                "0",3,0, null, null);
         CoolNote cN5 = new CoolNote("5","lololol","testtest",
-                "0","10072018",2, null, null);
+                "0",4,0, null, null);
         CoolNote cN6 = new CoolNote("6","nya","testtestn",
-                "0","10072018",2, null, null);
+                "0",5,0, null, null);
         CoolNote cN7 = new CoolNote("7","meow","testtest",
-                "0","10072018",2, null, null);
+                "0",6,0, null, null);
         CoolNote cN8 = new CoolNote("8","yaay","testtest",
-                "0","10072018",2, null, null);
+                "0",7,0, null, null);
         CoolNote cN9 = new CoolNote("9","brr","testtest",
-                "0","10072018",2, null, null);
+                "0",8,0, null, null);
 
         this.cNList[0] = cN1;
         this.cNList[1] = cN2;

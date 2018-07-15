@@ -43,7 +43,7 @@ public class CreateTextCoolNoteActivity extends AppCompatActivity {
 
         binding.setCoolNoteVM(createCoolNoteViewModel);
 
-        CoolNote coolNote = new CoolNote(null, title.getText().toString(), content.getText().toString(), tempCreatorMembershipId, createCoolNoteViewModel.getCurrentDate(), position, null, null);
+        CoolNote coolNote = new CoolNote(null, title.getText().toString(), content.getText().toString(), tempCreatorMembershipId, position, 0, null, null);
         binding.setCoolNote(coolNote);
 
         boldButton.setOnClickListener(new View.OnClickListener() {

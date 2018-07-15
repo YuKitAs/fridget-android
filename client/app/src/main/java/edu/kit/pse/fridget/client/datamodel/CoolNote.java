@@ -2,6 +2,9 @@ package edu.kit.pse.fridget.client.datamodel;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.time.Instant;
+import java.util.List;
+
 /**
  * Cool Note data model for a Text-Cool-Note (TCN)
  *
@@ -23,25 +26,26 @@ public class CoolNote {
     private String creatorMembershipId;
 
     @SerializedName("createdAt")
-    private String createdAt;
+    private Instant createdAt;
 
     @SerializedName("position")
     private int position;
 
     @SerializedName("importance")
-    private String importance;
+    private int importance;
 
     @SerializedName("taggedMembershipIds")
-    private String taggedMembershipIds;
+    private List<String> taggedMembershipIds;
 
-    public CoolNote(String id, String title, String content, String creatorUserId, String createdAt, int position, String importance, String taggedMembershipIds){
+    public CoolNote(String id, String title, String content, String creatorMembershipId, int position, int importance, Instant createdAt,
+                     List<String> taggedMembershipIds) {
         this.id = id;
         this.title = title;
         this.content = content;
-        this.creatorMembershipId = creatorUserId;
-        this.createdAt = createdAt;
+        this.creatorMembershipId = creatorMembershipId;
         this.position = position;
         this.importance = importance;
+        this.createdAt = createdAt;
         this.taggedMembershipIds = taggedMembershipIds;
     }
 
@@ -57,16 +61,24 @@ public class CoolNote {
         return content;
     }
 
-    public String getCreatorUserId() {
+    public String getCreatorMembershipId() {
         return creatorMembershipId;
     }
 
-    public String getCreatedAt() {
+    public int getPosition() {
+        return position;
+    }
+
+    public int getImportance() {
+        return importance;
+    }
+
+    public Instant getCreatedAt() {
         return createdAt;
     }
 
-    public int getPosition() {
-        return this.position;
+    public List<String> getTaggedMembershipIds() {
+        return taggedMembershipIds;
     }
 
     // brauchen wir? hab es erstmal zum testen gelassen...
