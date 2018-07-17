@@ -1,6 +1,7 @@
 package edu.kit.pse.fridget.client.activity;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,6 +12,7 @@ import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.databinding.FullTextCoolNoteActivityBinding;
 import edu.kit.pse.fridget.client.viewmodel.CreateCoolNoteViewModel;
 import edu.kit.pse.fridget.client.viewmodel.FullCoolNoteViewModel;
+import edu.kit.pse.fridget.client.viewmodel.HomeViewModel;
 
 public class FullTextCoolNoteActivity extends AppCompatActivity {
 
@@ -21,18 +23,16 @@ public class FullTextCoolNoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "Calling onCreate");
         FullTextCoolNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.full_text_cool_note_activity);
+
+        //viewmodels
         final FullCoolNoteViewModel fullCoolNoteViewModel = ViewModelProviders.of(this).get(FullCoolNoteViewModel.class);
         binding.setFullNoteVM(fullCoolNoteViewModel);
         final CreateCoolNoteViewModel createCoolNoteViewModel = ViewModelProviders.of(this).get(CreateCoolNoteViewModel.class);
+        final HomeViewModel homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
 
-        /*CoolNote coolNote = createCoolNoteViewModel.getFinalCoolNote();
-
-        TextView createdAtTV = binding.creationDate;
-        TextView titleTV = binding.title;
-        TextView contentTV = binding.content;
-        createdAtTV.setText(coolNote.getCreatedAt());
-        titleTV.setText(coolNote.getTitle());
-        contentTV.setText(coolNote.getContent());*/
+        Intent i = getIntent();
+        String coolNoteId = i.getStringExtra("coolNoteId");
+        fullCoolNoteViewModel.getCoolNote(coolNoteId);
 
     }
 

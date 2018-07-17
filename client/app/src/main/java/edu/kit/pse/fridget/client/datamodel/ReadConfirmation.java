@@ -1,19 +1,24 @@
 package edu.kit.pse.fridget.client.datamodel;
 
+import com.google.gson.annotations.SerializedName;
+
 public class ReadConfirmation {
 
-    private String readConfirmationId;
+    @SerializedName("id")
+    private String id;
 
+    @SerializedName("coolNoteId")
     private String coolNoteId;
 
-    private String userId;
+    @SerializedName("membershipId")
+    private String membershipId;
 
     public String getId(){
-        return readConfirmationId;
+        return id;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getMembershipId() {
+        return membershipId;
     }
 
     public String getCoolNoteId() {

@@ -109,7 +109,7 @@
                         android:layout_alignStart="@+id/createdOn"
                         android:layout_below="@+id/createdOn"
                         android:fontFamily="@font/commonsregular"
-                        android:text="@{fullNoteVM.createdAt}"
+                        android:text="@{fullNoteVM.getCoolNote.createdAt}"
                         android:textColor="#000000"
                         android:textSize="15sp"
                         android:textStyle="italic" />
@@ -123,7 +123,7 @@
                         android:layout_marginTop="89dp"
                         android:fontFamily="@font/commonsregular"
                         android:maxLength="20"
-                        android:text="@{fullNoteVM.title}"
+                        android:text="@{fullNoteVM.getCoolNote.title}"
                         android:textColor="#000000"
                         android:textSize="25sp" />
 
@@ -135,7 +135,7 @@
                         android:layout_below="@+id/title"
                         android:fontFamily="@font/commonsregular"
                         android:maxLength="300"
-                        android:text="@{fullNoteVM.content}"
+                        android:text="@{fullNoteVM.getCoolNote.content}"
                         android:textColor="#000000"
                         android:textSize="15sp" />
 
