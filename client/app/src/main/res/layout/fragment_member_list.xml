@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.MemberListFragment">
 
     <data>
-        <variable
-            name="frozenNote"
-            type="edu.kit.pse.fridget.client.datamodel.FrozenNote"
-            />
+
     </data>
 
     <RelativeLayout
@@ -70,6 +70,6 @@
 
         </RelativeLayout>
 
-        </RelativeLayout>
+    </RelativeLayout>
 
-</layout>
+</FrameLayout>

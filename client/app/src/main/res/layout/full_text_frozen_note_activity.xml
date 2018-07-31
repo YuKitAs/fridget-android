@@ -7,6 +7,9 @@
             name="frozenNote"
             type="edu.kit.pse.fridget.client.datamodel.FrozenNote"
             />
+        <variable
+            name="fullFrozenNoteVM"
+            type="edu.kit.pse.fridget.client.viewmodel.FullFrozenNoteViewModel" />
     </data>
 
     <RelativeLayout

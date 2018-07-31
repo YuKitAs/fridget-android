@@ -28,7 +28,7 @@
         <activity android:name=".activity.FullImageCoolNoteActivity"/>
         <activity android:name=".activity.GetAccessCodeActivity"/>
         <activity android:name=".activity.HomeActivity"/>
-
+        <activity android:name=".activity.MenuDrawerActivity"/>
         <activity android:name=".activity.LanguageActivity"/>
         <activity android:name=".activity.FullTextCoolNoteActivity"/>
         <activity android:name=".activity.MemberListActivity"/>

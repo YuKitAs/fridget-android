@@ -1,5 +1,6 @@
 package edu.kit.pse.fridget.client.activity;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,8 +10,15 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v4.view.GravityCompat;
 import android.widget.ImageButton;
 import edu.kit.pse.fridget.client.R;
+import edu.kit.pse.fridget.client.datamodel.FrozenNote;
 import edu.kit.pse.fridget.client.databinding.FullTextFrozenNoteActivityBinding;
+import edu.kit.pse.fridget.client.viewmodel.FullFrozenNoteViewModel;
+
 import android.view.View;
+import android.widget.TextView;
+import android.widget.EditText;
+import android.text.Html;
+import android.text.SpannableString;
 
 
 public class FullTextFrozenNoteActivity extends AppCompatActivity {
@@ -20,6 +28,8 @@ public class FullTextFrozenNoteActivity extends AppCompatActivity {
 
     final ImageButton btnOpenDrawer = (ImageButton) findViewById(R.id.home);
 
+    FrozenNote frozenNote;
+
 
 
     @Override
@@ -27,6 +37,17 @@ public class FullTextFrozenNoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "Calling onCreate");
         FullTextFrozenNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.full_text_frozen_note_activity);
+
+        final FullFrozenNoteViewModel fullFrozenNoteViewModel = ViewModelProviders.of(this).get(FullFrozenNoteViewModel.class);
+        binding.setFullFrozenNoteVM(fullFrozenNoteViewModel);
+
+        TextView titleTV = binding.title;
+        TextView contentTV = binding.content;
+        frozenNote = fullFrozenNoteViewModel.getFrozenNote();
+        titleTV.setText(frozenNote.getTitle());
+        contentTV.setText(frozenNote.getContent());
+        binding.setFrozenNote(frozenNote);
+
         btnOpenDrawer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

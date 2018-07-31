@@ -13,7 +13,7 @@ import java.util.Random;
 import edu.kit.pse.fridget.client.activity.CreateTextCoolNoteActivity;
 import edu.kit.pse.fridget.client.activity.FullTextCoolNoteActivity;
 import edu.kit.pse.fridget.client.activity.FullTextFrozenNoteActivity;
-import edu.kit.pse.fridget.client.activity.MenuMainActivity;
+import edu.kit.pse.fridget.client.activity.MenuDrawerActivity;
 import edu.kit.pse.fridget.client.datamodel.CoolNote;
 import edu.kit.pse.fridget.client.datamodel.FrozenNote;
 import edu.kit.pse.fridget.client.datamodel.Member;
@@ -174,7 +174,7 @@ public class HomeViewModel extends ViewModel {
 
     public void onMenuButtonClicked(View view) {
         Context context = view.getContext();
-        Intent intent = new Intent(context, MenuMainActivity.class);
+        Intent intent = new Intent(context, MenuDrawerActivity.class);
         context.startActivity(intent);
         this.updateLists();
     }
