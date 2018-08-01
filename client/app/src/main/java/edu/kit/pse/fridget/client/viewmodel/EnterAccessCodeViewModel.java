@@ -3,6 +3,8 @@ package edu.kit.pse.fridget.client.viewmodel;
 import android.arch.lifecycle.ViewModel;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -25,27 +27,34 @@ import retrofit2.Response;
 
 public class EnterAccessCodeViewModel extends ViewModel {
 
-    public void changeView(View v) {
-        Context context = v.getContext();
-        Intent intent = new Intent(context, HomeActivity.class);
-        context.startActivity(intent);
-    }
+
 
     public void makeToast (View v, String message) {
         Toast.makeText(v.getContext(), message, Toast.LENGTH_LONG).show();
     }
 
 
-    public void createMembership(EnterFlatshareCommand enterFlatshareCommand, View v) {
+    public void createMembership(EnterFlatshareCommand enterFlatshareCommand, View v,Context context) {
 
         //create Retrofit instance
         RetrofitClientInstance.getRetrofitInstance().create(MembershipService.class).createMembership(enterFlatshareCommand).enqueue(new Callback<Member>() {
             @Override
             public void onResponse(Call<Member> call, Response<Member> response) {
                 Member body =response.body();
+                //Daten des Resonse speichern
+                SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
+                SharedPreferences.Editor editor = sharedPref.edit();
                 if (body != null) {
                     Log.i("createMember", String.format("Created Member %s.", new Gson().toJson(response.body())));
-                    changeView(v);
+                    String flatshareid =body.getFlatshareId();
+                    String ownMemberId =body.getId();
+                    String ownmagnetColor =body.getMagnetColor();
+
+                    editor.putString("flatshareId", flatshareid);
+                    editor.putString("ownMemberId", ownMemberId);
+                    editor.putString("ownMagnetColor", ownmagnetColor);
+                    editor.commit();
+
                 }
                 else makeToast(v, "AccessCode not valid!");
             }

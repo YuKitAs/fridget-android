@@ -89,6 +89,7 @@ public class LoginActivity extends AppCompatActivity implements
         }
     }
 
+
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
 
@@ -125,8 +126,8 @@ public class LoginActivity extends AppCompatActivity implements
             @Override
             public void onResponse(@NonNull Call<UserWithJwtRepresentation> call, @NonNull Response<UserWithJwtRepresentation> response) {
                 //Daten des Response speichern
-                SharedPreferences sharedUser = PreferenceManager.getDefaultSharedPreferences(context);
-               SharedPreferences.Editor editor = sharedUser.edit();
+                //SharedPreferences sharedUser = PreferenceManager.getDefaultSharedPreferences(context);
+               //SharedPreferences.Editor editor = sharedUser.edit();
 
                 UserWithJwtRepresentation body = response.body();
                 if (body != null) {
@@ -136,7 +137,7 @@ public class LoginActivity extends AppCompatActivity implements
                     //String userId= user.getId();
                     //editor.putString("UserIDnumber", userId);
                    // editor.commit();
-                }
+                }  else  Log.i(TAG, "Post an Server failed");
             }
 
             @Override

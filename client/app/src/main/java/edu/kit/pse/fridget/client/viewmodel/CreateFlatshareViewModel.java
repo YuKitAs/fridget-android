@@ -52,8 +52,8 @@ public class CreateFlatshareViewModel extends ViewModel {
                          Log.i("createFlatshare", String.format("Created Flatshare %s.", new Gson().toJson(response.body())));
                          String flatshareid =body.getId();
                          String flatshareName =body.getName();
-                         editor.putString("IDnumber", flatshareid);
-                         editor.putString("Name", flatshareName);
+                         editor.putString("flatshareId", flatshareid);
+                         editor.putString("flatshareName", flatshareName);
                          editor.commit();
                          changeView(v);
                 }

@@ -1,6 +1,8 @@
 package edu.kit.pse.fridget.client.activity;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -17,8 +19,8 @@ import edu.kit.pse.fridget.client.viewmodel.CreateFlatshareViewModel;
 
 public class CreateFlatshareActivity extends AppCompatActivity {
 
-
-        private static final String TAG = CreateFlatshareActivity.class.getSimpleName();
+    public static final String DEFAULT="N/A";
+    private static final String TAG = CreateFlatshareActivity.class.getSimpleName();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,7 +35,7 @@ public class CreateFlatshareActivity extends AppCompatActivity {
         final String user = "blabla";
         final CreateFlatshareViewModel createFlatshareViewModel = new CreateFlatshareViewModel();
         Button createFlatshareButton = (Button) findViewById(R.id.create);
-    Context context =this;
+        Context context =this;
         createFlatshareButton.setOnClickListener(new View.OnClickListener() {
         //Create Button Click: Wenn erfolgreiche Übertragunf des Namens der Flatshare, dann findet Viewwechsel zu HomeVM statt, ansonstenToast:Failed
             public void onClick(View v) {
@@ -49,9 +51,26 @@ public class CreateFlatshareActivity extends AppCompatActivity {
         }) ;
 
     }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //Daten flatshareiD von shared preferences wird abgefragt
+        SharedPreferences sharedPreferences =getSharedPreferences("edu.kit.pse.fridget.client_preferences",MODE_PRIVATE);
+        String flatshareId =sharedPreferences.getString("flatshareId", DEFAULT);
+        updateUI(flatshareId);
 
 
+        Log.i(TAG, "Calling onStart");
     }
+
+
+    private void updateUI(String flatshareId) {
+        if (flatshareId !=DEFAULT) {
+            startActivity(new Intent(CreateFlatshareActivity.this, HomeActivity.class));
+        }
+    }
+
+}
 
 
 
