@@ -1,5 +1,6 @@
 package edu.kit.pse.fridget.client.activity;
 
+import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -32,13 +33,13 @@ public class CreateFlatshareActivity extends AppCompatActivity {
         final String user = "blabla";
         final CreateFlatshareViewModel createFlatshareViewModel = new CreateFlatshareViewModel();
         Button createFlatshareButton = (Button) findViewById(R.id.create);
-
+    Context context =this;
         createFlatshareButton.setOnClickListener(new View.OnClickListener() {
         //Create Button Click: Wenn erfolgreiche Übertragunf des Namens der Flatshare, dann findet Viewwechsel zu HomeVM statt, ansonstenToast:Failed
             public void onClick(View v) {
 
                 CreateFlatshareCommand createFlatshareCommand = new CreateFlatshareCommand(flatsharename.getText().toString(), user );
-                createFlatshareViewModel.createFlatshare(createFlatshareCommand, v);
+                createFlatshareViewModel.createFlatshare(createFlatshareCommand, v,context);
 
                 //zum Test
                 createFlatshareViewModel.getFlatshare("004408d7-e5b0-45fd-b918-6438394fb4f3");

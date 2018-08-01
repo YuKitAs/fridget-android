@@ -1,7 +1,10 @@
 package edu.kit.pse.fridget.client.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -22,6 +25,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.gson.Gson;
 
 import edu.kit.pse.fridget.client.R;
+import edu.kit.pse.fridget.client.datamodel.User;
 import edu.kit.pse.fridget.client.datamodel.representation.UserWithJwtRepresentation;
 import edu.kit.pse.fridget.client.service.RetrofitClientInstance;
 import edu.kit.pse.fridget.client.service.UserService;
@@ -31,16 +35,18 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity implements
         View.OnClickListener {
+
     private static final int RC_SIGN_IN = 1;
     private static final String TAG = LoginActivity.class.getSimpleName();
     private GoogleSignInClient mGoogleSignInClient;
     private FirebaseAuth mAuth;
-
+    private Context context = this;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "Calling onCreate");
         setContentView(R.layout.login_activity);
+
 
         // Button listener
         findViewById(R.id.sign_in_button).setOnClickListener(this);
@@ -118,10 +124,18 @@ public class LoginActivity extends AppCompatActivity implements
         RetrofitClientInstance.getRetrofitInstance().create(UserService.class).sendIdToken(googleIdToken).enqueue(new Callback<UserWithJwtRepresentation>() {
             @Override
             public void onResponse(@NonNull Call<UserWithJwtRepresentation> call, @NonNull Response<UserWithJwtRepresentation> response) {
+                //Daten des Response speichern
+                SharedPreferences sharedUser = PreferenceManager.getDefaultSharedPreferences(context);
+               SharedPreferences.Editor editor = sharedUser.edit();
+
                 UserWithJwtRepresentation body = response.body();
                 if (body != null) {
                     Log.i(TAG, String.format("Generated JWT %s for user %s.", new Gson().toJson(body.getJwt()), new Gson().toJson(body.getUser())));
-                    updateUI(mAuth.getCurrentUser());
+                     updateUI(mAuth.getCurrentUser());
+                    //User user =body.getUser();
+                    //String userId= user.getId();
+                    //editor.putString("UserIDnumber", userId);
+                   // editor.commit();
                 }
             }
 
