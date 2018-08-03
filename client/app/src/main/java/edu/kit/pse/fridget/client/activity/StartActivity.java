@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.databinding.StartActivityBinding;
+import edu.kit.pse.fridget.client.viewmodel.EnterAccessCodeViewModel;
 import edu.kit.pse.fridget.client.viewmodel.StartViewModel;
 
 public class StartActivity extends AppCompatActivity {
@@ -24,6 +25,7 @@ public class StartActivity extends AppCompatActivity {
 
     private static final String TAG = StartActivity.class.getSimpleName();
     public static final String DEFAULT="N/A";
+    Context context =this;
 
 
 
@@ -39,10 +41,12 @@ public class StartActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
+
         super.onStart();
         //Daten flatshareiD von shared preferences wird abgefragt
         SharedPreferences sharedPreferences =getSharedPreferences("edu.kit.pse.fridget.client_preferences",MODE_PRIVATE);
         String flatshareId =sharedPreferences.getString("flatshareId", DEFAULT);
+
        updateUI(flatshareId);
 
 
@@ -65,6 +69,7 @@ public class StartActivity extends AppCompatActivity {
     protected void onStop() {
         Log.i(TAG, "Calling onStop");
         super.onStop();
+
     }
 
     @Override

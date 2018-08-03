@@ -27,13 +27,16 @@ public class EnterAccessCodeActivity extends AppCompatActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
 
-
         super.onCreate(savedInstanceState);
         Log.i(TAG, "Calling onCreate");
         setContentView(R.layout.enter_access_code_activity);
 
+        //OwnUserId  von shared Preferences abgerufen
+        SharedPreferences sharedPreferences =getSharedPreferences("edu.kit.pse.fridget.client_preferences",MODE_PRIVATE);
+        String ownUserIDnumber =sharedPreferences.getString("OwnUserIDnumber", DEFAULT);
+
+
         final EditText accesscode = (EditText) findViewById(R.id.accesscode_input);
-        final String user = "blubblub";
         final EnterAccessCodeViewModel enterAccessCode = new EnterAccessCodeViewModel();
         Button gotoFridgeButton = findViewById(R.id.gotofridge);
 
@@ -41,7 +44,7 @@ public class EnterAccessCodeActivity extends AppCompatActivity {
 
             public void onClick(View v) {
 
-                EnterFlatshareCommand enterFlatshareCommand =new EnterFlatshareCommand(accesscode.getText().toString(),user);
+                EnterFlatshareCommand enterFlatshareCommand =new EnterFlatshareCommand(accesscode.getText().toString(),ownUserIDnumber);
                 enterAccessCode.createMembership(enterFlatshareCommand,v,context);
 
 

@@ -26,7 +26,10 @@ import retrofit2.Response;
 
 
 public class EnterAccessCodeViewModel extends ViewModel {
-
+    public void changeView(View v) {
+        Context context = v.getContext();
+        Intent intent = new Intent(context, HomeActivity.class);
+        context.startActivity(intent);}
 
 
     public void makeToast (View v, String message) {
@@ -41,7 +44,7 @@ public class EnterAccessCodeViewModel extends ViewModel {
             @Override
             public void onResponse(Call<Member> call, Response<Member> response) {
                 Member body =response.body();
-                //Daten des Resonse speichern
+                //Daten des Response speichern
                 SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
                 SharedPreferences.Editor editor = sharedPref.edit();
                 if (body != null) {
@@ -54,7 +57,7 @@ public class EnterAccessCodeViewModel extends ViewModel {
                     editor.putString("ownMemberId", ownMemberId);
                     editor.putString("ownMagnetColor", ownmagnetColor);
                     editor.commit();
-
+                    changeView(v);
                 }
                 else makeToast(v, "AccessCode not valid!");
             }
@@ -62,13 +65,55 @@ public class EnterAccessCodeViewModel extends ViewModel {
             @Override
             public void onFailure(Call<Member> call, Throwable t) {
                 Log.e("createMember", "Creating member failed.");
-                makeToast(v,"Creating member not possible");
+                makeToast(v,"Database Connection failed");
 
             }
         });
 
 
+
     }
+
+
+        //Ruft die  eigene Magnetfarbe und eigene MemberID vom Server ab
+    public void getMembership(String flatshareId,String ownUserId,Context context) {
+
+        //create Retrofit instance
+        RetrofitClientInstance.getRetrofitInstance().create(MembershipService.class).getMember(flatshareId,ownUserId).enqueue(new Callback<Member>() {
+            @Override
+            public void onResponse(Call<Member> call, Response<Member> response) {
+                Member body =response.body();
+                //Daten des Response speichern
+                SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                if (body != null) {
+                    Log.i("getMember", String.format("Created Member %s.", new Gson().toJson(response.body())));
+                    String ownMemberId =body.getId();
+                    String ownmagnetColor =body.getMagnetColor();
+
+                    editor.putString("ownMemberId", ownMemberId);
+                    editor.putString("ownMagnetColor", ownmagnetColor);
+
+                    editor.commit();
+
+                } Log.e("getMember", "Get Member failed!");
+
+            }
+
+            @Override
+            public void onFailure(Call<Member> call, Throwable t) {
+                Log.e("getMember", "Connection to Database failed!");
+
+
+            }
+        });
+
+
+
+    }
+
+
+
 
 
 

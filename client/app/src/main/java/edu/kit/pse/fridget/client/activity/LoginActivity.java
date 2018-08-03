@@ -71,6 +71,12 @@ public class LoginActivity extends AppCompatActivity implements
     }
 
     @Override
+    public void onResume(){
+        super.onResume();
+        updateUI(mAuth.getCurrentUser());
+    }
+
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -126,23 +132,26 @@ public class LoginActivity extends AppCompatActivity implements
             @Override
             public void onResponse(@NonNull Call<UserWithJwtRepresentation> call, @NonNull Response<UserWithJwtRepresentation> response) {
                 //Daten des Response speichern
-                //SharedPreferences sharedUser = PreferenceManager.getDefaultSharedPreferences(context);
-               //SharedPreferences.Editor editor = sharedUser.edit();
+                SharedPreferences sharedUser = PreferenceManager.getDefaultSharedPreferences(context);
+               SharedPreferences.Editor editor = sharedUser.edit();
 
                 UserWithJwtRepresentation body = response.body();
                 if (body != null) {
                     Log.i(TAG, String.format("Generated JWT %s for user %s.", new Gson().toJson(body.getJwt()), new Gson().toJson(body.getUser())));
                      updateUI(mAuth.getCurrentUser());
-                    //User user =body.getUser();
-                    //String userId= user.getId();
-                    //editor.putString("UserIDnumber", userId);
-                   // editor.commit();
+                    User user =body.getUser();
+                    String ownUserId= user.getId();
+                    String ownUserName =user.getGoogleName();
+                    editor.putString("OwnUserIDnumber", ownUserId);
+                    editor.putString("OwnUserName", ownUserName);
+                    editor.commit();
                 }  else  Log.i(TAG, "Post an Server failed");
             }
 
             @Override
             public void onFailure(@NonNull Call<UserWithJwtRepresentation> call, @NonNull Throwable t) {
                 t.printStackTrace();
+                Log.i(TAG, "Connection to Database failed!!!");
             }
         });
     }
