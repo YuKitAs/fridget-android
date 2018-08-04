@@ -74,14 +74,19 @@ public class CreateFlatshareViewModel extends ViewModel {
     }
 
     //Methode um Flatshare Daten vom Server zu holen
-    public void getFlatshare(String flatshareId) {
+    public void getFlatshare(String flatshareId,Context context) {
         //create Retrofit instance
         RetrofitClientInstance.getRetrofitInstance().create(FlatshareService.class).getFlatshare(flatshareId).enqueue(new Callback<Flatshare>(){
             @Override
             public void onResponse(Call<Flatshare> call, Response<Flatshare> response) {
+                SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
+                SharedPreferences.Editor editor = sharedPref.edit();
                 Flatshare body =response.body();
                 if (body != null) {
                     Log.i("getFlatshare", String.format("Get flatsharename successful", new Gson().toJson(response.body())));
+                    String flatshareName =body.getName();
+                    editor.putString("flatshareName", flatshareName);
+                    editor.commit();
                 }
             }
 

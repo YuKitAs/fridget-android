@@ -22,7 +22,7 @@ public class CreateFlatshareActivity extends AppCompatActivity {
 
     public static final String DEFAULT="N/A";
     private static final String TAG = CreateFlatshareActivity.class.getSimpleName();
-    public Context context =this;
+    private Context context =this;
     //UserID aus sharedPreferences abrufen
 
 
@@ -76,14 +76,19 @@ public class CreateFlatshareActivity extends AppCompatActivity {
     public void onStop(){
         super.onStop();
         Log.i(TAG, "Calling onStop");
-
+        //Nach erfolgreichen erstellen einer flatshare werden die Magnetfarbe und MemberId vo Server abgerufen
         EnterAccessCodeViewModel enterAccessCodeViewModel =new EnterAccessCodeViewModel();
         SharedPreferences sharedPreferences =getSharedPreferences("edu.kit.pse.fridget.client_preferences",MODE_PRIVATE);
         String flatshareId =sharedPreferences.getString("flatshareId", DEFAULT);
         String ownUserIDnumber =sharedPreferences.getString("OwnUserIDnumber", DEFAULT);
-        enterAccessCodeViewModel.getMembership(flatshareId,ownUserIDnumber,context);
+        if(flatshareId!=DEFAULT) {
+            enterAccessCodeViewModel.getMembership(flatshareId, ownUserIDnumber, context);
+        }
     }
 
+
+
+    //Es wird geprüft ob schon eine flatshareid vorhanden ist, wenn ja wird automatisch in HomeActivity gewechselt
     private void updateUI(String flatshareId) {
         if (flatshareId !=DEFAULT) {
             startActivity(new Intent(CreateFlatshareActivity.this, HomeActivity.class));

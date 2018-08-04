@@ -16,12 +16,13 @@ import android.widget.EditText;
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.databinding.EnterAccessCodeActivityBinding;
 import edu.kit.pse.fridget.client.datamodel.command.EnterFlatshareCommand;
+import edu.kit.pse.fridget.client.viewmodel.CreateFlatshareViewModel;
 import edu.kit.pse.fridget.client.viewmodel.EnterAccessCodeViewModel;
 
 public class EnterAccessCodeActivity extends AppCompatActivity {
 
     private static final String TAG = EnterAccessCodeActivity.class.getSimpleName();
-        Context context = this;
+    private Context context = this;
     public static final String DEFAULT="N/A";
 
     @Override
@@ -70,7 +71,17 @@ public class EnterAccessCodeActivity extends AppCompatActivity {
     }
 
 
-
+    @Override
+    public void onStop(){
+        super.onStop();
+        Log.i(TAG, "Calling onStop");
+        //Nach erfolgreicher Eingabe des Accesscodes wird der Faltsharename vom Server abgerufen und gespeichert
+        CreateFlatshareViewModel createFlatshareViewModel =new CreateFlatshareViewModel();
+        SharedPreferences sharedPreferences =getSharedPreferences("edu.kit.pse.fridget.client_preferences",MODE_PRIVATE);
+        String flatshareId =sharedPreferences.getString("flatshareId", DEFAULT);
+        if(flatshareId != DEFAULT){
+        createFlatshareViewModel.getFlatshare(flatshareId,context);}
+    }
 
 
 
