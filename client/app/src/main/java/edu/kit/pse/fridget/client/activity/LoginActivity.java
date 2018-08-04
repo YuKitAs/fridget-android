@@ -138,13 +138,14 @@ public class LoginActivity extends AppCompatActivity implements
                 UserWithJwtRepresentation body = response.body();
                 if (body != null) {
                     Log.i(TAG, String.format("Generated JWT %s for user %s.", new Gson().toJson(body.getJwt()), new Gson().toJson(body.getUser())));
-                     updateUI();
+
                     User user =body.getUser();
                     String ownUserId= user.getId();
                     String ownUserName =user.getGoogleName();
                     editor.putString("OwnUserIDnumber", ownUserId);
                     editor.putString("OwnUserName", ownUserName);
                     editor.commit();
+                    updateUI();
                 }  else  Log.e(TAG, "Post an Server failed");
             }
 

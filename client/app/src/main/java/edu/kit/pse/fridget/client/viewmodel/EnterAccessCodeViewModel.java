@@ -96,7 +96,7 @@ public class EnterAccessCodeViewModel extends ViewModel {
 
                     editor.commit();
 
-                } Log.e("getMember", "Get Member failed!");
+                } else Log.e("getMember", "Get Member failed!");
 
             }
 
