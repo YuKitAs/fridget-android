@@ -20,13 +20,15 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.Gson;
 
 import edu.kit.pse.fridget.client.R;
+import edu.kit.pse.fridget.client.datamodel.Device;
 import edu.kit.pse.fridget.client.datamodel.User;
 import edu.kit.pse.fridget.client.datamodel.representation.UserWithJwtRepresentation;
+import edu.kit.pse.fridget.client.service.DeviceService;
 import edu.kit.pse.fridget.client.service.RetrofitClientInstance;
 import edu.kit.pse.fridget.client.service.UserService;
 import retrofit2.Call;
@@ -41,6 +43,7 @@ public class LoginActivity extends AppCompatActivity implements
     private GoogleSignInClient mGoogleSignInClient;
     private FirebaseAuth mAuth;
     private Context context = this;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +74,7 @@ public class LoginActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onResume(){
+    public void onResume() {
         super.onResume();
         updateUI();
     }
@@ -133,20 +136,23 @@ public class LoginActivity extends AppCompatActivity implements
             public void onResponse(@NonNull Call<UserWithJwtRepresentation> call, @NonNull Response<UserWithJwtRepresentation> response) {
                 //Daten des Response speichern
                 SharedPreferences sharedUser = PreferenceManager.getDefaultSharedPreferences(context);
-               SharedPreferences.Editor editor = sharedUser.edit();
+                SharedPreferences.Editor editor = sharedUser.edit();
 
                 UserWithJwtRepresentation body = response.body();
                 if (body != null) {
-                    Log.i(TAG, String.format("Generated JWT %s for user %s.", new Gson().toJson(body.getJwt()), new Gson().toJson(body.getUser())));
+                    User user = body.getUser();
 
-                    User user =body.getUser();
-                    String ownUserId= user.getId();
-                    String ownUserName =user.getGoogleName();
+                    Log.i(TAG, String.format("Generated JWT %s for user %s.", new Gson().toJson(body.getJwt()), new Gson().toJson(user)));
+
+                    sendDevice(user.getId());
+
+                    String ownUserId = user.getId();
+                    String ownUserName = user.getGoogleName();
                     editor.putString("OwnUserIDnumber", ownUserId);
                     editor.putString("OwnUserName", ownUserName);
                     editor.commit();
                     updateUI();
-                }  else  Log.e(TAG, "Post an Server failed");
+                } else Log.e(TAG, "Post an Server failed");
             }
 
             @Override
@@ -158,13 +164,40 @@ public class LoginActivity extends AppCompatActivity implements
     }
 
     private void updateUI() {
-        String DEFAULT ="N/A";
+        String DEFAULT = "N/A";
         String ownUserId;
         SharedPreferences sharedpref = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = sharedpref.edit();
-        ownUserId= sharedpref.getString("OwnUserIDnumber",DEFAULT);
-        if (ownUserId !=DEFAULT) {
+        ownUserId = sharedpref.getString("OwnUserIDnumber", DEFAULT);
+        if (ownUserId != DEFAULT) {
             startActivity(new Intent(LoginActivity.this, StartActivity.class));
         }
+    }
+
+    private void sendDevice(String userId) {
+        FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(task -> {
+            if (!task.isSuccessful()) {
+                Log.w(TAG, "getInstanceId failed", task.getException());
+                return;
+            }
+
+            String token = task.getResult().getToken();
+
+            RetrofitClientInstance.getRetrofitInstance().create(DeviceService.class).sendDevice(new Device(null, userId, token)).enqueue(new Callback<Device>() {
+                @Override
+                public void onResponse(@NonNull Call<Device> call, @NonNull Response<Device> response) {
+                    Device body = response.body();
+                    if (body != null) {
+                        Log.i(TAG, String.format("Saved InstanceID token for user %s: %s", body.getUserId(), body.getInstanceIdToken()));
+                    }
+                }
+
+                @Override
+                public void onFailure(@NonNull Call<Device> call, @NonNull Throwable t) {
+                    t.printStackTrace();
+                    Log.e(TAG, "Sending device failed");
+                }
+            });
+        });
     }
 }
