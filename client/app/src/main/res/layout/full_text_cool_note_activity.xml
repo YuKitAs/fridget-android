@@ -58,6 +58,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentEnd="true"
                     android:background="@drawable/minus_button"
+                    android:onClick="@{fullNoteVM::popUp}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent" />
 
@@ -70,15 +71,15 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:background="@drawable/magnet"
-                    android:backgroundTint="@{fullNoteVM.getMagnetColor}"
+                    android:backgroundTint="@{fullNoteVM.magnetColor}"
                     app:layout_constraintEnd_toStartOf="@+id/back_button"
                     app:layout_constraintStart_toEndOf="@+id/menu_button"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <RelativeLayout
                     android:id="@+id/relativeLayout"
-                    android:layout_width="313dp"
-                    android:layout_height="432dp"
+                    android:layout_width="310dp"
+                    android:layout_height="435dp"
                     android:layout_centerInParent="true"
                     android:layout_marginBottom="16dp"
                     android:layout_marginEnd="8dp"
@@ -86,8 +87,10 @@
                     android:layout_marginTop="8dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.166"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0">
 
                     <TextView
                         android:id="@+id/createdOn"
@@ -100,7 +103,7 @@
                         android:text="@string/createdOn"
                         android:textColor="#000000"
                         android:textSize="15sp"
-                        android:textStyle="italic"/>
+                        android:textStyle="italic" />
 
                     <TextView
                         android:id="@+id/creationDate"
@@ -109,7 +112,7 @@
                         android:layout_alignStart="@+id/createdOn"
                         android:layout_below="@+id/createdOn"
                         android:fontFamily="@font/commonsregular"
-                        android:text="@{fullNoteVM.getCoolNote.createdAt}"
+                        android:text="@{fullNoteVM.createdAt}"
                         android:textColor="#000000"
                         android:textSize="15sp"
                         android:textStyle="italic" />
@@ -123,7 +126,7 @@
                         android:layout_marginTop="89dp"
                         android:fontFamily="@font/commonsregular"
                         android:maxLength="20"
-                        android:text="@{fullNoteVM.getCoolNote.title}"
+                        android:text="@{fullNoteVM.title}"
                         android:textColor="#000000"
                         android:textSize="25sp" />
 
@@ -135,7 +138,7 @@
                         android:layout_below="@+id/title"
                         android:fontFamily="@font/commonsregular"
                         android:maxLength="300"
-                        android:text="@{fullNoteVM.getCoolNote.content}"
+                        android:text="@{fullNoteVM.content}"
                         android:textColor="#000000"
                         android:textSize="15sp" />
 
@@ -143,19 +146,13 @@
                         android:id="@+id/readBy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
                         android:layout_below="@+id/checkBox"
                         android:fontFamily="@font/commonsregular"
                         android:padding="2dp"
                         android:text="@string/readBy"
                         android:textColor="#000000"
                         android:textSize="12sp" />
-
-                    <ListView
-                        android:id="@+id/members"
-                        android:layout_width="wrap_content"
-                        android:layout_height="151dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_below="@+id/readBy" />
 
                     <CheckBox
                         android:id="@+id/checkBox"
@@ -166,6 +163,123 @@
                         android:fontFamily="@font/commonsregular"
                         android:text="@string/checkbox"
                         android:textSize="12sp" />
+
+                    <ImageView
+                        android:id="@+id/magnet1"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_below="@+id/readBy"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/magnet" />
+
+                    <ImageView
+                        android:id="@+id/magnet2"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignTop="@+id/magnet3"
+                        android:layout_marginEnd="-57dp"
+                        android:layout_toStartOf="@+id/magnet3"
+                        android:background="@drawable/magnet" />
+
+                    <ImageView
+                        android:id="@+id/magnet3"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignTop="@+id/magnet1"
+                        android:layout_marginStart="64dp"
+                        android:background="@drawable/magnet" />
+
+                    <ImageView
+                        android:id="@+id/magnet4"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignTop="@+id/magnet3"
+                        android:layout_toEndOf="@+id/creationDate"
+                        android:background="@drawable/magnet" />
+
+                    <ImageView
+                        android:id="@+id/magnet5"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignTop="@+id/magnet3"
+                        android:layout_marginStart="129dp"
+                        android:background="@drawable/magnet" />
+
+                    <ImageView
+                        android:id="@+id/magnet6"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignTop="@+id/magnet3"
+                        android:layout_marginEnd="124dp"
+                        android:background="@drawable/magnet" />
+
+                    <ImageView
+                        android:id="@+id/magnet7"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignTop="@+id/magnet3"
+                        android:layout_marginEnd="91dp"
+                        android:background="@drawable/magnet" />
+
+                    <ImageView
+                        android:id="@+id/magnet8"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="178dp"
+                        android:background="@drawable/magnet" />
+
+                    <ImageView
+                        android:id="@+id/magnet9"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignEnd="@+id/magnet2"
+                        android:layout_alignTop="@+id/magnet14"
+                        android:background="@drawable/magnet" />
+
+                    <ImageView
+                        android:id="@+id/magnet10"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignStart="@+id/magnet3"
+                        android:layout_alignTop="@+id/magnet8"
+                        android:background="@drawable/magnet" />
+
+                    <ImageView
+                        android:id="@+id/magnet11"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignTop="@+id/magnet8"
+                        android:layout_toEndOf="@+id/creationDate"
+                        android:background="@drawable/magnet" />
+
+                    <ImageView
+                        android:id="@+id/magnet12"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignStart="@+id/magnet5"
+                        android:layout_alignTop="@+id/magnet8"
+                        android:background="@drawable/magnet" />
+
+                    <ImageView
+                        android:id="@+id/magnet13"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignStart="@+id/magnet6"
+                        android:layout_alignTop="@+id/magnet12"
+                        android:background="@drawable/magnet" />
+
+                    <ImageView
+                        android:id="@+id/magnet14"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignStart="@+id/magnet7"
+                        android:layout_alignTop="@+id/magnet12"
+                        android:background="@drawable/magnet" />
 
                 </RelativeLayout>
 
