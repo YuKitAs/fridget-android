@@ -67,13 +67,13 @@ public class LoginActivity extends AppCompatActivity implements
     public void onStart() {
         super.onStart();
 
-        updateUI(mAuth.getCurrentUser());
+        updateUI();
     }
 
     @Override
     public void onResume(){
         super.onResume();
-        updateUI(mAuth.getCurrentUser());
+        updateUI();
     }
 
     @Override
@@ -90,7 +90,7 @@ public class LoginActivity extends AppCompatActivity implements
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e);
-                updateUI(null);
+                updateUI();
             }
         }
     }
@@ -110,7 +110,7 @@ public class LoginActivity extends AppCompatActivity implements
                         // If sign in fails, display a message to the user.
                         Log.w(TAG, "signInWithCredential:failure", task.getException());
                         Toast.makeText(LoginActivity.this, "Authentification failed", Toast.LENGTH_SHORT).show();
-                        updateUI(null);
+                        updateUI();
                     }
                 });
     }
@@ -138,26 +138,31 @@ public class LoginActivity extends AppCompatActivity implements
                 UserWithJwtRepresentation body = response.body();
                 if (body != null) {
                     Log.i(TAG, String.format("Generated JWT %s for user %s.", new Gson().toJson(body.getJwt()), new Gson().toJson(body.getUser())));
-                     updateUI(mAuth.getCurrentUser());
+                     updateUI();
                     User user =body.getUser();
                     String ownUserId= user.getId();
                     String ownUserName =user.getGoogleName();
                     editor.putString("OwnUserIDnumber", ownUserId);
                     editor.putString("OwnUserName", ownUserName);
                     editor.commit();
-                }  else  Log.i(TAG, "Post an Server failed");
+                }  else  Log.e(TAG, "Post an Server failed");
             }
 
             @Override
             public void onFailure(@NonNull Call<UserWithJwtRepresentation> call, @NonNull Throwable t) {
                 t.printStackTrace();
-                Log.i(TAG, "Connection to Database failed!!!");
+                Log.e(TAG, "Connection to Database failed!!!");
             }
         });
     }
 
-    private void updateUI(FirebaseUser user) {
-        if (user != null) {
+    private void updateUI() {
+        String DEFAULT ="N/A";
+        String ownUserId;
+        SharedPreferences sharedpref = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedpref.edit();
+        ownUserId= sharedpref.getString("OwnUserIDnumber",DEFAULT);
+        if (ownUserId !=DEFAULT) {
             startActivity(new Intent(LoginActivity.this, StartActivity.class));
         }
     }
