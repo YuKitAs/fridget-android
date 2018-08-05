@@ -13,6 +13,12 @@ public class ReadConfirmation {
     @SerializedName("membershipId")
     private String membershipId;
 
+    public ReadConfirmation(String id, String coolNoteId, String membershipId){
+        this.id = id;
+        this.coolNoteId = coolNoteId;
+        this.membershipId = membershipId;
+    }
+
     public String getId(){
         return id;
     }

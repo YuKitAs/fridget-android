@@ -215,6 +215,39 @@ public class FullCoolNoteViewModel extends ViewModel {
         });
     }
 
+    //save checkbox status
+    public void saveReadStatus(View v) {
+        ReadConfirmation readConfirmation = new ReadConfirmation(null, id, creatorMembershipId);
+        RetrofitClientInstance.getRetrofitInstance().create(ReadConfirmationService.class).createReadStatus(readConfirmation).enqueue(new Callback<ReadConfirmation>() {
+            @Override
+            public void onResponse(Call<ReadConfirmation> call, Response<ReadConfirmation> response) {
+                ReadConfirmation body = response.body();
+                Log.i("saveReadConfirmation", String.format("Read confirmation %s saved.", new Gson().toJson(body)));
+            }
+
+            @Override
+            public void onFailure(Call<ReadConfirmation> call, Throwable t) {
+                Log.e("saveReadConfirmation", "Saving read confirmation %s failed.");
+            }
+        });
+    }
+
+    //delete checkbox status
+    public void deleteReadStatus(View v) {
+        RetrofitClientInstance.getRetrofitInstance().create(ReadConfirmationService.class).deleteReadStatus(id, creatorMembershipId).enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                Void body = response.body();
+                Log.i("deleteReadConfirmation", String.format("Read confirmation %s deleted.", new Gson().toJson(body)));
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Log.e("deleteReadConfirmation", "Deleting read confirmation %s failed.");
+            }
+        });
+    }
+
     public void popUp(View v) {
         Context context = v.getContext();
 
