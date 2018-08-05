@@ -28,7 +28,7 @@ public class FullTextCoolNoteActivity extends AppCompatActivity {
 
         Intent i = getIntent();
         String coolNoteId = i.getStringExtra("coolNoteId");
-        fullCoolNoteViewModel.getCoolNote("834ed256-8c47-4fd6-9ab5-62561df796d5");
+        fullCoolNoteViewModel.getCoolNote(coolNoteId);
         //GradientDrawable drawable = (GradientDrawable) getDrawable(R.drawable.magnet);
         //drawable.setColor(Color.parseColor("#000000"));
 

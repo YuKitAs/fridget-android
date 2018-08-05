@@ -1,6 +1,7 @@
 package edu.kit.pse.fridget.client.viewmodel;
 
 import android.app.AlertDialog;
+import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -29,13 +30,13 @@ import retrofit2.Response;
 
 public class FullCoolNoteViewModel extends ViewModel {
 
-    private String title;
-    private String content;
-    private String createdAt;
+    private MutableLiveData<String> title;
+    private MutableLiveData<String> content;
+    private MutableLiveData<String> createdAt;
     private String creatorMembershipId;
     private String id;
     //zum testen
-    private int magnetColor = Color.parseColor("#000000");
+    private int magnetColor = Color.parseColor("#FF0000");
     private List<Member> memberList;
 
     private int magnetColor1;
@@ -52,6 +53,7 @@ public class FullCoolNoteViewModel extends ViewModel {
     private int magnetColor12;
     private int magnetColor13;
     private int magnetColor14;
+
     private int[] magnetColors = new int[]{
             magnetColor1,
             magnetColor2,
@@ -69,22 +71,82 @@ public class FullCoolNoteViewModel extends ViewModel {
             magnetColor14
     };
 
-    private String tempUserId = "123";
+    private String tempMemberId = "025b108a-0db7-4f92-b52b-a41f413e4b12";
+
+    public int getMagnetColor1() {
+        return magnetColor1;
+    }
+
+    public int getMagnetColor2() {
+        return magnetColor2;
+    }
+
+    public int getMagnetColor3() {
+        return magnetColor3;
+    }
+
+    public int getMagnetColor4() {
+        return magnetColor4;
+    }
+
+    public int getMagnetColor5() {
+        return magnetColor5;
+    }
+
+    public int getMagnetColor6() {
+        return magnetColor6;
+    }
+
+    public int getMagnetColor7() {
+        return magnetColor7;
+    }
+
+    public int getMagnetColor8() {
+        return magnetColor8;
+    }
+
+    public int getMagnetColor9() {
+        return magnetColor9;
+    }
+
+    public int getMagnetColor10() {
+        return magnetColor10;
+    }
+
+    public int getMagnetColor11() {
+        return magnetColor6;
+    }
+
+    public int getMagnetColor12() {
+        return magnetColor6;
+    }
+
+    public int getMagnetColor13() {
+        return magnetColor6;
+    }
+
+    public int getMagnetColor14() {
+        return magnetColor6;
+    }
 
     public int getMagnetColor() {
         return magnetColor;
     }
 
-    public String getTitle() {
+    public MutableLiveData<String> getTitle() {
         return title;
     }
 
-    public String getContent() {
+    public MutableLiveData<String> getContent() {
         return content;
     }
 
-    public String getCreatedAt() {
+    public MutableLiveData<String> getCreatedAt() {
         return createdAt;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public void getCoolNote(String coolNoteId) {
@@ -92,13 +154,16 @@ public class FullCoolNoteViewModel extends ViewModel {
             @Override
             public void onResponse(Call<CoolNote> call, Response<CoolNote> response) {
                 CoolNote body = response.body();
-                Log.i("Fetching Cool Note", String.format("Cool Note %s fetched.", new Gson().toJson(body)));
+                if(body != null) {
+                    Log.i("Fetching Cool Note", String.format("Cool Note %s fetched.", new Gson().toJson(body)));
 
-                title = body.getTitle();
-                content = body.getContent();
-                createdAt = body.getCreatedAt();
-                creatorMembershipId = body.getCreatorMembershipId();
-                id = body.getId();
+                    title.setValue(body.getTitle());
+                    content.setValue(body.getContent());
+                    createdAt.setValue(body.getCreatedAt());
+                    creatorMembershipId = body.getCreatorMembershipId();
+                    id = body.getId();
+                }
+
             }
 
             @Override
@@ -177,13 +242,13 @@ public class FullCoolNoteViewModel extends ViewModel {
         final Context context = v.getContext();
         Intent intent = new Intent(context, HomeActivity.class);
 
-        RetrofitClientInstance.getRetrofitInstance().create(CoolNoteService.class).deleteCoolNote(id).enqueue(new Callback<Void>() {
+        RetrofitClientInstance.getRetrofitInstance().create(CoolNoteService.class).deleteCoolNote("72f795d8-a746-4db7-860a-98a24704d571").enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
 
                 Void body = response.body();
                 if(body == null) {
-                    if (creatorMembershipId == tempUserId) {
+                    if (creatorMembershipId == tempMemberId) {
                         Log.i("Deleted Cool Note", String.format("Cool Note %s deleted.", new Gson().toJson(null)));
                         context.startActivity(intent);
                     }

@@ -6,9 +6,11 @@ import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -75,16 +77,19 @@ public class CreateCoolNoteViewModel extends ViewModel {
 
         final Context context = v.getContext();
         Intent intent = new Intent(context, FullTextCoolNoteActivity.class);
+        int position = intent.getIntExtra("position", 0);
 
         if (title.getValue() == null) {
             Toast.makeText(context, "Title cannot be empty!", Toast.LENGTH_LONG);
         }
         else {
-            CoolNote coolNote = new CoolNote(null, title.getValue(), content.getValue(), "025b108a-0db7-4f92-b52b-a41f413e4b12", 0, 0, null, new ArrayList<>());
+            CoolNote coolNote = new CoolNote(null, title.getValue(), content.getValue(), "025b108a-0db7-4f92-b52b-a41f413e4b12", position, 0, null, new ArrayList<>());
 
             RetrofitClientInstance.getRetrofitInstance().create(CoolNoteService.class).createCoolNote(coolNote).enqueue(new Callback<CoolNote>() {
                 @Override
                 public void onResponse(Call<CoolNote> call, Response<CoolNote> response) {
+                    SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
+                    SharedPreferences.Editor editor = sharedPref.edit();
                     CoolNote body = response.body();
                     if (body != null) {
                         Log.i("Created Cool Note", String.format("Cool Note %s created.", new Gson().toJson(body)));
