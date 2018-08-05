@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="edu.kit.pse.fridget.client" >
+    package="edu.kit.pse.fridget.client">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
@@ -8,14 +9,14 @@
         android:label="Fridget"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
 
-        <activity android:name=".activity.AccessCodeActivity"/>
-        <activity android:name=".activity.CreateCommentActivity"/>
-        <activity android:name=".activity.CreateFlatshareActivity"/>
-        <activity android:name=".activity.CreateTextCoolNoteActivity"/>
-        <activity android:name=".activity.EditTextFrozenNoteActivity"/>
-        <activity android:name=".activity.EnterAccessCodeActivity"/>
+        <activity android:name=".activity.AccessCodeActivity" />
+        <activity android:name=".activity.CreateCommentActivity" />
+        <activity android:name=".activity.CreateFlatshareActivity" />
+        <activity android:name=".activity.CreateTextCoolNoteActivity" />
+        <activity android:name=".activity.EditTextFrozenNoteActivity" />
+        <activity android:name=".activity.EnterAccessCodeActivity" />
 
         <activity android:name="edu.kit.pse.fridget.client.activity.LoginActivity">
             <intent-filter>
@@ -24,17 +25,21 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.FullTextFrozenNoteActivity"/>
-        <activity android:name=".activity.FullImageCoolNoteActivity"/>
-        <activity android:name=".activity.GetAccessCodeActivity"/>
-        <activity android:name=".activity.HomeActivity"/>
-        <activity android:name=".activity.MenuDrawerActivity"/>
-        <activity android:name=".activity.LanguageActivity"/>
-        <activity android:name=".activity.FullTextCoolNoteActivity"/>
-        <activity android:name=".activity.MemberListActivity"/>
+        <activity android:name=".activity.FullTextFrozenNoteActivity" />
+        <activity android:name=".activity.FullImageCoolNoteActivity" />
+        <activity android:name=".activity.GetAccessCodeActivity" />
+        <activity android:name=".activity.HomeActivity" />
+        <activity android:name=".activity.MenuDrawerActivity" />
+        <activity android:name=".activity.LanguageActivity" />
+        <activity android:name=".activity.FullTextCoolNoteActivity" />
+        <activity android:name=".activity.MemberListActivity" />
         <activity android:name=".activity.StartActivity" />
 
-
+        <service android:name=".service.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
