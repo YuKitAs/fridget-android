@@ -275,7 +275,7 @@ public class FullCoolNoteViewModel extends ViewModel {
         final Context context = v.getContext();
         Intent intent = new Intent(context, HomeActivity.class);
 
-        RetrofitClientInstance.getRetrofitInstance().create(CoolNoteService.class).deleteCoolNote("72f795d8-a746-4db7-860a-98a24704d571").enqueue(new Callback<Void>() {
+        RetrofitClientInstance.getRetrofitInstance().create(CoolNoteService.class).deleteCoolNote(id).enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
 
