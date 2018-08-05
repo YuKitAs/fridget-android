@@ -197,15 +197,16 @@ public class FullCoolNoteViewModel extends ViewModel {
             @Override
             public void onResponse(Call<List<ReadConfirmation>> call, Response<List<ReadConfirmation>> response) {
                 List<ReadConfirmation> body = response.body();
-                Log.i("getReadConfirmations", String.format("Read confirmations %s fetched.", new Gson().toJson(body)));
+                if(body != null) {
+                    Log.i("getReadConfirmations", String.format("Read confirmations %s fetched.", new Gson().toJson(body)));
 
-                for (int i = 0; i <= body.size(); i++) {
-                    ReadConfirmation readConfirmation = body.get(i);
-                    if(readConfirmation.getMembershipId().equals(memberList.get(i).getId())) {
-                        magnetColors[i] = Color.parseColor(memberList.get(i).getMagnetColor());
+                    for (int i = 0; i <= body.size(); i++) {
+                        ReadConfirmation readConfirmation = body.get(i);
+                        if (readConfirmation.getMembershipId().equals(memberList.get(i).getId())) {
+                            magnetColors[i] = Color.parseColor(memberList.get(i).getMagnetColor());
+                        }
                     }
                 }
-
             }
 
             @Override

@@ -6,11 +6,9 @@ import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.media.RingtoneManager;
 import android.net.Uri;
-import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -48,8 +46,8 @@ public class CreateCoolNoteViewModel extends ViewModel {
 
     public void bold(View v) {
         String content = this.content.getValue();
-        if(content.isEmpty()){
-            Toast.makeText(v.getContext(), "There is no text in the content box!", Toast.LENGTH_LONG);
+        if(content == null){
+            Toast.makeText(v.getContext(), "There is no text in the content box!", Toast.LENGTH_LONG).show();
         }
         else {
             SpannableStringBuilder str = new SpannableStringBuilder(content);
@@ -60,16 +58,26 @@ public class CreateCoolNoteViewModel extends ViewModel {
 
     public void italic(View v) {
         String content = this.content.getValue();
+        if(content == null){
+            Toast.makeText(v.getContext(), "There is no text in the content box!", Toast.LENGTH_LONG).show();
+        }
+        else {
         SpannableStringBuilder str = new SpannableStringBuilder(content);
         str.setSpan(new StyleSpan(Typeface.ITALIC), 0, content.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         this.content.setValue(str.toString());
+        }
     }
 
     public void underline(View v) {
         String content = this.content.getValue();
-        SpannableStringBuilder str = new SpannableStringBuilder(content);
-        str.setSpan(new UnderlineSpan(), 0, content.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        this.content.setValue(str.toString());
+        if(content == null){
+            Toast.makeText(v.getContext(), "There is no text in the content box!", Toast.LENGTH_LONG).show();
+        }
+        else {
+            SpannableStringBuilder str = new SpannableStringBuilder(content);
+            str.setSpan(new UnderlineSpan(), 0, content.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            this.content.setValue(str.toString());
+        }
     }
 
     //Erstellen der Cool Note, Viewwechsel zur FullCoolNoteActivity
@@ -80,7 +88,7 @@ public class CreateCoolNoteViewModel extends ViewModel {
         int position = intent.getIntExtra("position", 0);
 
         if (title.getValue() == null) {
-            Toast.makeText(context, "Title cannot be empty!", Toast.LENGTH_LONG);
+            Toast.makeText(context, "Title cannot be empty!", Toast.LENGTH_LONG).show();
         }
         else {
             CoolNote coolNote = new CoolNote(null, title.getValue(), content.getValue(), "025b108a-0db7-4f92-b52b-a41f413e4b12", position, 0, null, new ArrayList<>());
@@ -88,8 +96,8 @@ public class CreateCoolNoteViewModel extends ViewModel {
             RetrofitClientInstance.getRetrofitInstance().create(CoolNoteService.class).createCoolNote(coolNote).enqueue(new Callback<CoolNote>() {
                 @Override
                 public void onResponse(Call<CoolNote> call, Response<CoolNote> response) {
-                    SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
-                    SharedPreferences.Editor editor = sharedPref.edit();
+                    //SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
+                    //SharedPreferences.Editor editor = sharedPref.edit();
                     CoolNote body = response.body();
                     if (body != null) {
                         Log.i("Created Cool Note", String.format("Cool Note %s created.", new Gson().toJson(body)));
