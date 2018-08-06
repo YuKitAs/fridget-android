@@ -76,29 +76,14 @@ public class CreateFlatshareActivity extends AppCompatActivity {
     public void onPause(){
         super.onPause();
         Log.i(TAG,"Calling onPause");
-        //Nach erfolgreichen erstellen einer flatshare werden die Magnetfarbe und MemberId vo Server abgerufen
-        EnterAccessCodeViewModel enterAccessCodeViewModel =new EnterAccessCodeViewModel();
-        SharedPreferences sharedPreferences =getSharedPreferences("edu.kit.pse.fridget.client_preferences",MODE_PRIVATE);
-        String flatshareId =sharedPreferences.getString("flatshareId", DEFAULT);
-        String ownUserIDnumber =sharedPreferences.getString("OwnUserIDnumber", DEFAULT);
-        if(flatshareId!=DEFAULT) {
-            enterAccessCodeViewModel.getMembership(flatshareId, ownUserIDnumber, context);
-        }
+
 
     }
 
     @Override
     public void onStop(){
         super.onStop();
-        Log.i(TAG, "Calling onStop");
-        //Nach erfolgreichen erstellen einer flatshare werden die Magnetfarbe und MemberId vo Server abgerufen
-        EnterAccessCodeViewModel enterAccessCodeViewModel =new EnterAccessCodeViewModel();
-        SharedPreferences sharedPreferences =getSharedPreferences("edu.kit.pse.fridget.client_preferences",MODE_PRIVATE);
-        String flatshareId =sharedPreferences.getString("flatshareId", DEFAULT);
-        String ownUserIDnumber =sharedPreferences.getString("OwnUserIDnumber", DEFAULT);
-        if(flatshareId!=DEFAULT) {
-            enterAccessCodeViewModel.getMembership(flatshareId, ownUserIDnumber, context);
-        }
+
     }
 
 

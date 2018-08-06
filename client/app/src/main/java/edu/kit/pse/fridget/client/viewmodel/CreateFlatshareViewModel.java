@@ -23,7 +23,8 @@ import retrofit2.Response;
 
 public class CreateFlatshareViewModel extends ViewModel {
 
-
+        public String DEFAULT ="N/A";
+    EnterAccessCodeViewModel enterAccessCodeViewModel =new EnterAccessCodeViewModel();
     public void changeView(View v) {
         Context context = v.getContext();
         Intent intent = new Intent(context, HomeActivity.class);
@@ -55,6 +56,9 @@ public class CreateFlatshareViewModel extends ViewModel {
                          editor.putString("flatshareId", flatshareid);
                          editor.putString("flatshareName", flatshareName);
                          editor.commit();
+                    String flatshareId =sharedPref.getString("flatshareId", DEFAULT);
+                    String ownUserIDnumber =sharedPref.getString("OwnUserIDnumber", DEFAULT);
+                    enterAccessCodeViewModel.getMembership(flatshareId, ownUserIDnumber, context);
                          changeView(v);
                 }
                 else makeToast(v, "You are not an registred User");
@@ -75,6 +79,7 @@ public class CreateFlatshareViewModel extends ViewModel {
 
     //Methode um Flatshare Daten vom Server zu holen
     public void getFlatshare(String flatshareId,Context context) {
+
         //create Retrofit instance
         RetrofitClientInstance.getRetrofitInstance().create(FlatshareService.class).getFlatshare(flatshareId).enqueue(new Callback<Flatshare>(){
             @Override
@@ -87,6 +92,7 @@ public class CreateFlatshareViewModel extends ViewModel {
                     String flatshareName =body.getName();
                     editor.putString("flatshareName", flatshareName);
                     editor.commit();
+
                 }
             }
 
