@@ -36,7 +36,6 @@ public class HomeActivity extends AppCompatActivity implements LifecycleOwner {
     protected void onStart() {
         super.onStart();
         Log.i(TAG, "Calling onStart");
-        homeVM.updateLists();
     }
 
     @Override
@@ -62,18 +61,6 @@ public class HomeActivity extends AppCompatActivity implements LifecycleOwner {
         Log.i(TAG, "Calling onDestroy");
         super.onDestroy();
     }
-
-/*
-    public void createCoolNoteView(View v){
-        startActivity(new Intent(HomeActivity.this, CreateTextCoolNoteActivity.class));
-
-    }
-
-    // Problem: woher weiß FullTextCoolNoteActivity welche coolNote er öffnen soll..
-   public void openFullCoolNote(View v) {
-        int cNNumber = Integer.parseInt(v.getTag().toString());
-        startActivity(new Intent(HomeActivity.this, FullTextCoolNoteActivity.class));
-    } */
 
 
 }
