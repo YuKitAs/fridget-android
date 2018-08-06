@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme"
         >
 
-       
+
         <activity android:name=".activity.AccessCodeActivity" android:screenOrientation="portrait"/>
         <activity android:name=".activity.CreateCommentActivity" android:screenOrientation="portrait"/>
         <activity android:name=".activity.CreateFlatshareActivity" android:screenOrientation="portrait"/>
