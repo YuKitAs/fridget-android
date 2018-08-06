@@ -42,7 +42,7 @@ public class HomeViewModel extends ViewModel {
     public MutableLiveData<Integer[]> liveDataMagnetColorList = new MutableLiveData<Integer[]>();
 
 
-    // Die Listen sind nach der Position geordnet... Position = Index+1
+    // Die Listen sind nach der Position geordnet
     private CoolNote[] cNList = new CoolNote[9];
     private FrozenNote[] fNList = new FrozenNote[3];
     private Boolean[] visibilityList = new Boolean[9];
@@ -56,18 +56,18 @@ public class HomeViewModel extends ViewModel {
      * Konstruktor
      */
     public HomeViewModel() {
-        this.fakeCN(); // wird gelöscht
-        this.fakeFN(); // wird gelöscht
-        this.fakeMembers(); // wird gelöscht
+      //  this.fakeCN(); // wird gelöscht
+        //this.fakeFN(); // wird gelöscht
+        //this.fakeMembers(); // wird gelöscht
 
-        this.setFlatsharIDFromSP();
+        this.setFlatshareIDFromSP();
        // this.setLiveDataVisibilityList(this.cNList);
        // this.setLiveDataMagnetColorList(this.getMemberList());
         updateLists();
     }
 
-    private void setFlatsharIDFromSP() {
-        String id = null;
+    private void setFlatshareIDFromSP() {
+        String id = "1";
 
         this.flatshareId = id;
     }
@@ -95,13 +95,13 @@ public class HomeViewModel extends ViewModel {
             @Override
             public void onResponse(Call<List<FrozenNote>> call, Response<List<FrozenNote>> response) {
                 //fNList darf nie null sein, da immer FrozenNotes existieren
-                fNList = null;
+                fNList = new FrozenNote[3];
 
                 List<FrozenNote> frozenNotes = response.body();
                 if (frozenNotes != null) {
                     // Liste in ein nach der Position geordneten Array umwandeln
                     for (FrozenNote fn : frozenNotes) {
-                        fNList[fn.getPosition() - 1] = fn;
+                        fNList[fn.getPosition()] = fn;
                     }
                 } else {
                     Log.e("getfNList1", "There are no Frozen Note.");
@@ -130,13 +130,13 @@ public class HomeViewModel extends ViewModel {
         RetrofitClientInstance.getRetrofitInstance().create(CoolNoteService.class).getAllCoolNotes(flatshareId).enqueue(new Callback<List<CoolNote>>() {
             @Override
             public void onResponse(Call<List<CoolNote>> call, Response<List<CoolNote>> response) {
-                cNList = null;
+                cNList = new CoolNote[9];
                 List<CoolNote> coolNotes = response.body();
 
                 if (coolNotes != null) {
                     // Liste in ein nach der Position geordneten Array umwandeln
                     for (CoolNote cn : coolNotes) {
-                        cNList[coolNotes.get(0).getPosition() - 1] = cn;
+                        cNList[coolNotes.get(0).getPosition()] = cn;
                     }
                 } else {
                     Log.e("getcNList1", "There are no Cool Note.");
@@ -168,11 +168,11 @@ public class HomeViewModel extends ViewModel {
         RetrofitClientInstance.getRetrofitInstance().create(MembershipService.class).getMemberList(flatshareId).enqueue(new Callback<List<Member>>() {
             @Override
             public void onResponse(Call<List<Member>> call, Response<List<Member>> response) {
-                memberList = null;
+                memberList = new Member[15];
                 List<Member> members = response.body();
 
                 if (members != null) {
-                    for (int m = 0; m < 15; m++) {
+                    for (int m = 0; m < members.size(); m++) {
                         memberList[m] = members.get(m);
                     }
                 } else {
@@ -255,6 +255,7 @@ public class HomeViewModel extends ViewModel {
      * @param view
      */
     public void onPlusButtonClicked(View view) {
+        this.updateLists();
         LinkedList<Integer> emptyPositions = this.getListOfEmptySpaceForCoolNote();
         if (emptyPositions == null) {
             // Fehlermeldung... Man kann keine weiteren CoolNotes mehr einfügen
@@ -271,22 +272,14 @@ public class HomeViewModel extends ViewModel {
     }
 
     public void onMenuButtonClicked(View view) {
+        this.updateLists();
         Context context = view.getContext();
         Intent intent = new Intent(context, MenuDrawerActivity.class);
         context.startActivity(intent);
-        this.updateLists();
     }
 
     public void onRefreshButtonClicked(View view) {
-        /*//testen
-        int position = this.getRandomEmptyPosition();
-
-        CoolNote cN3 = new CoolNote("3", "piep", "testtest",
-                "2", 3, 1, null, null);
-        this.cNList[position] = cN3; */
-
         updateLists();
-
     }
 
 
@@ -345,6 +338,15 @@ public class HomeViewModel extends ViewModel {
      */
     private LinkedList<Integer> getListOfEmptySpaceForCoolNote() {
         CoolNote[] cnList = this.getcNList();
+
+        if (cnList == null) {
+            LinkedList<Integer> nullarr = new LinkedList<>();
+            for (int num = 0; num < 9; num++){
+                nullarr.add(num);
+            }
+            return nullarr;
+        }
+
         LinkedList<Integer> arr = new LinkedList<Integer>();
         int i = 0;
         for (int j = 0; j < 9; j++) {
@@ -375,9 +377,7 @@ public class HomeViewModel extends ViewModel {
         return emptyPositions.get(randomIndex);
     }
 
-    /**
-     * wird gelöscht
-     */
+    /*
     private void fakeCN() {
 
         CoolNote cN1 = new CoolNote("1", "Boo", "testtest",
@@ -412,9 +412,7 @@ public class HomeViewModel extends ViewModel {
     }
 
 
-    /**
-     * wird gelöscht
-     */
+
     private void fakeFN() {
         FrozenNote fN1 = new FrozenNote("0", "Notfallkontakte", "brr brr", "0", 0);
         FrozenNote fN2 = new FrozenNote("1", "Einkaufsliste", "brr brr", "0", 1);
@@ -426,9 +424,7 @@ public class HomeViewModel extends ViewModel {
 
     }
 
-    /**
-     * wird gelöscht
-     */
+
     private void fakeMembers() {
         Member m1 = new Member("0", "0", "0", "#4B088A");
         Member m2 = new Member("1", "1", "0", "#ff00ab");
@@ -438,6 +434,8 @@ public class HomeViewModel extends ViewModel {
         this.memberList[2] = m3;
 
     }
+
+    */
 
 
 }
