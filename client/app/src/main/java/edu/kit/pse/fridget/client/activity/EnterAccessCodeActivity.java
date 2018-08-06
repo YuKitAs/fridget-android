@@ -47,7 +47,10 @@ public class EnterAccessCodeActivity extends AppCompatActivity {
 
                 EnterFlatshareCommand enterFlatshareCommand =new EnterFlatshareCommand(accesscode.getText().toString(),ownUserIDnumber);
                 enterAccessCode.createMembership(enterFlatshareCommand,v,context);
-
+                CreateFlatshareViewModel createFlatshareViewModel =new CreateFlatshareViewModel();
+                SharedPreferences sharedPreferences =getSharedPreferences("edu.kit.pse.fridget.client_preferences",MODE_PRIVATE);
+                String flatshareId =sharedPreferences.getString("flatshareId", DEFAULT);
+                createFlatshareViewModel.getFlatshare(flatshareId,context);
 
             }
 
@@ -69,6 +72,18 @@ public class EnterAccessCodeActivity extends AppCompatActivity {
         updateUI(flatshareId);
 
     }
+    @Override
+    public void onPause(){
+        super.onPause();
+        Log.i(TAG, "Calling onPause");
+        //Nach erfolgreicher Eingabe des Accesscodes wird der Faltsharename vom Server abgerufen und gespeichert
+        CreateFlatshareViewModel createFlatshareViewModel =new CreateFlatshareViewModel();
+        SharedPreferences sharedPreferences =getSharedPreferences("edu.kit.pse.fridget.client_preferences",MODE_PRIVATE);
+        String flatshareId =sharedPreferences.getString("flatshareId", DEFAULT);
+        if(flatshareId != DEFAULT){
+            createFlatshareViewModel.getFlatshare(flatshareId,context);}
+    }
+
 
 
     @Override

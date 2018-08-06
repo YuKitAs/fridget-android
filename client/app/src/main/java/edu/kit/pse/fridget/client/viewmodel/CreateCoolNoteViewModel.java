@@ -35,6 +35,9 @@ import retrofit2.Response;
 public class CreateCoolNoteViewModel extends ViewModel {
     private final MutableLiveData<String> title = new MutableLiveData<>();
     private final MutableLiveData<String> content = new MutableLiveData<>();
+    SharedPreferencesData sharedPreferencesData =new SharedPreferencesData();
+
+
 
     public MutableLiveData<String> getTitle() {
         return title;
@@ -82,7 +85,7 @@ public class CreateCoolNoteViewModel extends ViewModel {
 
     //Erstellen der Cool Note, Viewwechsel zur FullCoolNoteActivity
     public void postCoolNote(View v) {
-
+        String ownMembershipId =sharedPreferencesData.getSharedPreferencesData("ownMemberId",v);
         final Context context = v.getContext();
         Intent intent = new Intent(context, FullTextCoolNoteActivity.class);
         int position = intent.getIntExtra("position", 0);
@@ -91,7 +94,7 @@ public class CreateCoolNoteViewModel extends ViewModel {
             Toast.makeText(context, "Title cannot be empty!", Toast.LENGTH_LONG).show();
         }
         else {
-            CoolNote coolNote = new CoolNote(null, title.getValue(), content.getValue(), "025b108a-0db7-4f92-b52b-a41f413e4b12", position, 0, null, new ArrayList<>());
+            CoolNote coolNote = new CoolNote(null, title.getValue(), content.getValue(), ownMembershipId, position, 0, null, new ArrayList<>());
 
             RetrofitClientInstance.getRetrofitInstance().create(CoolNoteService.class).createCoolNote(coolNote).enqueue(new Callback<CoolNote>() {
                 @Override
