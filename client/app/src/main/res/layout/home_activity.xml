@@ -521,7 +521,7 @@
             android:layout_height="55dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
-            android:background="@android:drawable/btn_star"
+            android:background="@drawable/refresh_button"
             android:onClick="@{(v)-> homeVM.onRefreshButtonClicked(v)}" />
 
         <ImageButton
