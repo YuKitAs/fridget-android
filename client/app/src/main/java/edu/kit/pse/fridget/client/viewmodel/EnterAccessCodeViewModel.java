@@ -16,6 +16,7 @@ import edu.kit.pse.fridget.client.datamodel.Flatshare;
 import edu.kit.pse.fridget.client.datamodel.Member;
 import edu.kit.pse.fridget.client.datamodel.command.CreateFlatshareCommand;
 import edu.kit.pse.fridget.client.datamodel.command.EnterFlatshareCommand;
+import edu.kit.pse.fridget.client.datamodel.command.GetMemberCommand;
 import edu.kit.pse.fridget.client.service.AccessCodeService;
 import edu.kit.pse.fridget.client.service.FlatshareService;
 import edu.kit.pse.fridget.client.service.MembershipService;
@@ -79,16 +80,16 @@ public class EnterAccessCodeViewModel extends ViewModel {
     public void getMembership(String flatshareId,String ownUserId,Context context) {
 
         //create Retrofit instance
-        RetrofitClientInstance.getRetrofitInstance().create(MembershipService.class).getMember(flatshareId,ownUserId).enqueue(new Callback<Member>() {
+        RetrofitClientInstance.getRetrofitInstance().create(MembershipService.class).getMember(flatshareId,ownUserId).enqueue(new Callback<GetMemberCommand>() {
             @Override
-            public void onResponse(Call<Member> call, Response<Member> response) {
-                Member body =response.body();
+            public void onResponse(Call<GetMemberCommand> call, Response<GetMemberCommand> response) {
+                GetMemberCommand body =response.body();
                 //Daten des Response speichern
                 SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
                 SharedPreferences.Editor editor = sharedPref.edit();
                 if (body != null) {
                     Log.i("getMember", String.format("Created Member %s.", new Gson().toJson(response.body())));
-                    String ownMemberId =body.getId();
+                    String ownMemberId =body.getMemberId();
                     String ownmagnetColor =body.getMagnetColor();
 
                     editor.putString("ownMemberId", ownMemberId);
@@ -101,7 +102,7 @@ public class EnterAccessCodeViewModel extends ViewModel {
             }
 
             @Override
-            public void onFailure(Call<Member> call, Throwable t) {
+            public void onFailure(Call<GetMemberCommand> call, Throwable t) {
                 Log.e("getMember", "Connection to Database failed!");
 
 

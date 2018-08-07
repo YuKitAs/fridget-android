@@ -10,9 +10,7 @@ import android.util.Log;
 
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.databinding.FullTextCoolNoteActivityBinding;
-import edu.kit.pse.fridget.client.viewmodel.CreateCoolNoteViewModel;
 import edu.kit.pse.fridget.client.viewmodel.FullCoolNoteViewModel;
-import edu.kit.pse.fridget.client.viewmodel.HomeViewModel;
 
 public class FullTextCoolNoteActivity extends AppCompatActivity {
 
@@ -27,14 +25,15 @@ public class FullTextCoolNoteActivity extends AppCompatActivity {
         //viewmodels
         final FullCoolNoteViewModel fullCoolNoteViewModel = ViewModelProviders.of(this).get(FullCoolNoteViewModel.class);
         binding.setFullNoteVM(fullCoolNoteViewModel);
-        final CreateCoolNoteViewModel createCoolNoteViewModel = ViewModelProviders.of(this).get(CreateCoolNoteViewModel.class);
-        final HomeViewModel homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
 
         Intent i = getIntent();
         String coolNoteId = i.getStringExtra("coolNoteId");
         fullCoolNoteViewModel.getCoolNote(coolNoteId);
+        //GradientDrawable drawable = (GradientDrawable) getDrawable(R.drawable.magnet);
+        //drawable.setColor(Color.parseColor("#000000"));
 
     }
+
 
     @Override
     protected void onStart() {

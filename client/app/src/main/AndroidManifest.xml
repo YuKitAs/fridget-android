@@ -11,29 +11,61 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".activity.AccessCodeActivity" />
-        <activity android:name=".activity.CreateCommentActivity" />
-        <activity android:name=".activity.CreateFlatshareActivity" />
-        <activity android:name=".activity.CreateTextCoolNoteActivity" />
-        <activity android:name=".activity.EditTextFrozenNoteActivity" />
-        <activity android:name=".activity.EnterAccessCodeActivity" />
+        <activity
+            android:name=".activity.AccessCodeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.CreateCommentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.CreateFlatshareActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.CreateTextCoolNoteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.EditTextFrozenNoteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.EnterAccessCodeActivity"
+            android:screenOrientation="portrait" />
 
-        <activity android:name="edu.kit.pse.fridget.client.activity.LoginActivity">
+        <activity
+            android:name="edu.kit.pse.fridget.client.activity.LoginActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.FullTextFrozenNoteActivity" />
-        <activity android:name=".activity.FullImageCoolNoteActivity" />
-        <activity android:name=".activity.GetAccessCodeActivity" />
-        <activity android:name=".activity.HomeActivity" />
-        <activity android:name=".activity.MenuDrawerActivity" />
-        <activity android:name=".activity.LanguageActivity" />
-        <activity android:name=".activity.FullTextCoolNoteActivity" />
-        <activity android:name=".activity.MemberListActivity" />
-        <activity android:name=".activity.StartActivity" />
+        <activity
+            android:name=".activity.FullTextFrozenNoteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.FullImageCoolNoteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.GetAccessCodeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.MenuDrawerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.LanguageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.FullTextCoolNoteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.MemberListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.StartActivity"
+            android:screenOrientation="portrait" />
 
         <service android:name=".service.MyFirebaseMessagingService">
             <intent-filter>
@@ -41,5 +73,4 @@
             </intent-filter>
         </service>
     </application>
-
 </manifest>

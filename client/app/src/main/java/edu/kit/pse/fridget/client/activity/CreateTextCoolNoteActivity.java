@@ -13,7 +13,7 @@ import edu.kit.pse.fridget.client.viewmodel.CreateCoolNoteViewModel;
 
 public class CreateTextCoolNoteActivity extends AppCompatActivity {
 
-    private static final String TAG = FullTextCoolNoteActivity.class.getSimpleName();
+    private static final String TAG = CreateTextCoolNoteActivity.class.getSimpleName();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
