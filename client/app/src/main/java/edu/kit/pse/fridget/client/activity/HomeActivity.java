@@ -29,6 +29,8 @@ public class HomeActivity extends AppCompatActivity implements LifecycleOwner {
         binding.setHomeVM(homeVM);
 
         binding.setLifecycleOwner(this);
+        homeVM.updateLists();
+
 
     }
 
@@ -36,6 +38,7 @@ public class HomeActivity extends AppCompatActivity implements LifecycleOwner {
     protected void onStart() {
         super.onStart();
         Log.i(TAG, "Calling onStart");
+        homeVM.updateLists();
     }
 
     @Override
