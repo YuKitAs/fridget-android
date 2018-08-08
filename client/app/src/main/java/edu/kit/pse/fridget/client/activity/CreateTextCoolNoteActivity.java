@@ -23,79 +23,9 @@ public class CreateTextCoolNoteActivity extends AppCompatActivity {
         CreateTextCoolNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.create_text_cool_note_activity);
         final CreateCoolNoteViewModel createCoolNoteViewModel = ViewModelProviders.of(this).get(CreateCoolNoteViewModel.class);
         binding.setCoolNoteVM(createCoolNoteViewModel);
-
-
-/*        final EditText title = binding.enterTitle;
-        final EditText content = binding.enterContent;
-        final Button boldButton = binding.boldButton;
-        final Button italicButton = binding.italicButton;
-        final Button underlineButton = binding.underlineButton;
-        final String tempCreatorMembershipId = "5cd8d207-39d7-4de1-aa84-64e59804ab70";
-
-        int position = getIntent().getIntExtra("position", 0);*/
-
-
-/*        boldButton.setOnClickListener(v -> {
-                int selectionStart = content.getSelectionStart();
-                int selectionEnd = content.getSelectionEnd();
-                // was ist das?
-                String selectedText = content.getText().toString().substring(selectionStart, selectionEnd);
-                Spannable s = content.getText();
-
-                if (i == 0) {
-                    s.setSpan(new StyleSpan(android.graphics.Typeface.BOLD), selectionStart, selectionEnd, 0);
-                    content.setText(s);
-                    content.setSelection(selectionStart, selectionEnd);
-                    i++;
-                }
-                if (i == 1){
-                    s.setSpan(new StyleSpan(Typeface.NORMAL), selectionStart, selectionEnd, 0);
-                    content.setText(s);
-                    content.setSelection(selectionStart, selectionEnd);
-                    i = 0;
-            }
-        });
-
-        italicButton.setOnClickListener(v -> {
-            int selectionStart = content.getSelectionStart();
-            int selectionEnd = content.getSelectionEnd();
-            String selectedText = content.getText().toString().substring(selectionStart, selectionEnd);
-            Spannable s = content.getText();
-
-            if (i == 0) {
-                s.setSpan(new StyleSpan(Typeface.ITALIC), selectionStart, selectionEnd, 0);
-                content.setText(s);
-                content.setSelection(selectionStart, selectionEnd);
-                i++;
-            }
-            if (i == 1){
-                s.setSpan(new StyleSpan(Typeface.NORMAL), selectionStart, selectionEnd, 0);
-                content.setText(s);
-                content.setSelection(selectionStart, selectionEnd);
-                i = 0;
-            }
-        });
-
-        underlineButton.setOnClickListener(v -> {
-            int startSelection = content.getSelectionStart();
-            int endSelection = content.getSelectionEnd();
-
-            String selectedText = content.getText().toString().substring(startSelection, endSelection);
-            Spannable s = content.getText();
-
-            if (i == 0) {
-                s.setSpan(new UnderlineSpan(), startSelection, endSelection, 0);
-                content.setText(s);
-                content.setSelection(startSelection, endSelection);
-                i++;
-            }
-            if (i == 1){
-                s.setSpan(new UnderlineSpan(), startSelection, endSelection, 0);
-                content.setText(s);
-                content.setSelection(startSelection, endSelection);
-                i = 0;
-            }
-        });*/
+        //Intent i = getIntent();
+        //int position = i.getExtras().getInt("position");
+        //createCoolNoteViewModel.setPosition(position);
 
     }
 
