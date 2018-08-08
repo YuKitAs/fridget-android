@@ -61,8 +61,6 @@ public class HomeViewModel extends ViewModel {
         //this.fakeMembers(); // wird gelöscht
 
         this.setFlatshareIDFromSP();
-       // this.setLiveDataVisibilityList(this.cNList);
-       // this.setLiveDataMagnetColorList(this.getMemberList());
         updateLists();
     }
 
@@ -191,7 +189,11 @@ public class HomeViewModel extends ViewModel {
     }
 
 
-    public void setLiveDataMagnetColorList(Member[] memberlist) {
+    /**
+     * wird in getcNList() aufgerufen, updatet die MagnetListe und den Live Data dazu
+     * @param memberlist die neu vom Server gegettete Liste wird hier übergeben
+     */
+    private void setLiveDataMagnetColorList(Member[] memberlist) {
         CoolNote[] cList = this.cNList;
 
         int i = 0;
@@ -213,6 +215,12 @@ public class HomeViewModel extends ViewModel {
         this.liveDataMagnetColorList.setValue(this.magnetColorList);
     }
 
+    /**
+     * wird in setLiveDataMagnetColorList benötigt
+     * @param id Member ID
+     * @param memberlist
+     * @return MagnetFarbe
+     */
     private int getMemberColorbyUserId(String id, Member[] memberlist) {
         Member[] mlist = memberlist;
 
@@ -231,7 +239,11 @@ public class HomeViewModel extends ViewModel {
     }
 
 
-    public void setLiveDataVisibilityList(CoolNote[] list) {
+    /**
+     * wird in getcNList() aufgerufen, updatet die VisibilityListe und den Live Data dazu
+     * @param list die CoolNote Liste, die neu geupdatet wurde
+     */
+    private void setLiveDataVisibilityList(CoolNote[] list) {
         int i = 0;
         if (list != null) {
             for (CoolNote cn : list) {
@@ -250,7 +262,8 @@ public class HomeViewModel extends ViewModel {
     }
 
     /**
-     * Methode führt Activitywechsel durch, wenn bereits neun CoolNotes existieren, erscheint eine Meldung
+     * Methode führt Activitywechsel zu CreateTextCoolNoteActivity durch,
+     * wenn bereits neun CoolNotes existieren, erscheint eine Meldung
      *
      * @param view
      */
@@ -258,11 +271,10 @@ public class HomeViewModel extends ViewModel {
         this.updateLists();
         LinkedList<Integer> emptyPositions = this.getListOfEmptySpaceForCoolNote();
         if (emptyPositions == null) {
-            // Fehlermeldung... Man kann keine weiteren CoolNotes mehr einfügen
             Toast.makeText(view.getContext(), "You can't add more Cool Note. Please delete some CoolNotes.",Toast.LENGTH_SHORT).show();
 
         } else {
-            int position = this.getRandomEmptyPosition();
+            int position = this.getRandomEmptyPosition(emptyPositions);
             Context context = view.getContext();
             Intent intent = new Intent(context, CreateTextCoolNoteActivity.class);
             intent.putExtra("position", position);
@@ -271,6 +283,11 @@ public class HomeViewModel extends ViewModel {
 
     }
 
+    /**
+     * Methode öffnet den MenüDrawer,
+     *
+     * @param view
+     */
     public void onMenuButtonClicked(View view) {
         this.updateLists();
         Context context = view.getContext();
@@ -284,7 +301,9 @@ public class HomeViewModel extends ViewModel {
 
 
     /**
-     * Methode führt Activitywechsel durch, wenn auf die CoolNotes gedrückt wird
+     * Methode führt Activitywechsel zu FullTextCoolNoteActvity durch,
+     * wenn auf die CoolNotes gedrückt wird, gleichzeitig wird geupdatet,
+     * wenn die Note bereits gelöscht wurde, wird eine Meldung angezeigt
      *
      * @param view
      */
@@ -307,7 +326,8 @@ public class HomeViewModel extends ViewModel {
     }
 
     /**
-     * Methode führt Activitywechsel durch, wenn auf die FrozenNotes gedrückt wird
+     * Methode führt Activitywechsel zu FullTextFrozenNoteActvity durch,
+     * wenn auf die FrozenNotes gedrückt wird
      *
      * @param view
      */
@@ -331,13 +351,13 @@ public class HomeViewModel extends ViewModel {
 
 
     /**
-     * Diese Methode sucht alle leeren Indizes in der Liste von CoolNotes,
-     * Dabei wird immer die Liste vom Server benutzt
+     * wird in onPlusButtonClicked() benutzt
+     * Diese Methode sucht alle leeren Indizes in der Liste von CoolNotes
      *
      * @return IntArray von allen Indizes, die leer sind
      */
     private LinkedList<Integer> getListOfEmptySpaceForCoolNote() {
-        CoolNote[] cnList = this.getcNList();
+        CoolNote[] cnList = this.cNList;
 
         if (cnList == null) {
             LinkedList<Integer> nullarr = new LinkedList<>();
@@ -364,11 +384,14 @@ public class HomeViewModel extends ViewModel {
 
 
     /**
+     * wird in onPlusButtonClicked() benutzt
      * berechnet eine zufällige leere Position
-     * @return
+     *
+     * @param list Liste mit den leeren Positionen auf der Pinnwand
+     * @return Random Position
      */
-    private int getRandomEmptyPosition() {
-        LinkedList<Integer> emptyPositions = getListOfEmptySpaceForCoolNote();
+    private int getRandomEmptyPosition(LinkedList<Integer> list) {
+        LinkedList<Integer> emptyPositions = list;
         Random generator = new Random();
         int randomIndex = 0;
         while (randomIndex == 0) {
