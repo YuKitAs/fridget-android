@@ -73,12 +73,12 @@ public class HomeViewModel extends ViewModel {
      * @param c
      */
     private void setFlatshareIDFromSP(Context c) {
-       /* SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(c);
+       SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(c);
         String data =sharedPreferences.getString("flatshareId","N/A");
-        this.flatshareId = data;*/
+        this.flatshareId = data;
 
-        String id = "1";
-        this.flatshareId = id;
+       /* String id = "1";
+        this.flatshareId = id;*/
 
     }
 
