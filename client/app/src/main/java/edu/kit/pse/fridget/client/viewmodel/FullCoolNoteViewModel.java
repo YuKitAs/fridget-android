@@ -30,14 +30,15 @@ import retrofit2.Response;
 
 public class FullCoolNoteViewModel extends ViewModel {
 
-    private MutableLiveData<String> title;
-    private MutableLiveData<String> content;
-    private MutableLiveData<String> createdAt;
+    private MutableLiveData<String> title = new MutableLiveData<>();
+    private MutableLiveData<String> content = new MutableLiveData<>();
+    private MutableLiveData<String> createdAt = new MutableLiveData<>();
     private String creatorMembershipId;
     private String id;
-    //zum testen
-    private int magnetColor = Color.parseColor("#FF0000");
+    private int magnetColor;
     private List<Member> memberList;
+
+    private SharedPreferencesData sharedPreferencesData =new SharedPreferencesData();
 
     private int magnetColor1;
     private int magnetColor2;
@@ -149,7 +150,7 @@ public class FullCoolNoteViewModel extends ViewModel {
         return id;
     }
 
-    public void getCoolNote(String coolNoteId) {
+    public void getCoolNote(String coolNoteId, View v) {
         RetrofitClientInstance.getRetrofitInstance().create(CoolNoteService.class).getCoolNote(coolNoteId).enqueue(new Callback<CoolNote>() {
             @Override
             public void onResponse(Call<CoolNote> call, Response<CoolNote> response) {
@@ -157,11 +158,10 @@ public class FullCoolNoteViewModel extends ViewModel {
                 if(body != null) {
                     Log.i("Fetching Cool Note", String.format("Cool Note %s fetched.", new Gson().toJson(body)));
 
-                    title.setValue(body.getTitle());
-                    content.setValue(body.getContent());
-                    createdAt.setValue(body.getCreatedAt());
-                    creatorMembershipId = body.getCreatorMembershipId();
-                    id = body.getId();
+                    title.postValue(body.getTitle());
+                    content.postValue(body.getContent());
+                    createdAt.postValue(body.getCreatedAt());
+                    magnetColor = Color.parseColor("#" + sharedPreferencesData.getSharedPreferencesData("ownMagnetColor", v));
                 }
 
             }
