@@ -4,7 +4,9 @@ import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -51,23 +53,33 @@ public class HomeViewModel extends ViewModel {
     private Integer[] magnetColorList = new Integer[9];
 
     private String flatshareId;
+    private SharedPreferencesData sharedPreferencesData =new SharedPreferencesData();
 
     /**
      * Konstruktor
+     * @param c
      */
-    public HomeViewModel() {
+    public HomeViewModel(Context c) {
       //  this.fakeCN(); // wird gelöscht
         //this.fakeFN(); // wird gelöscht
         //this.fakeMembers(); // wird gelöscht
+        this.setFlatshareIDFromSP(c);
 
-        this.setFlatshareIDFromSP();
         updateLists();
     }
 
-    private void setFlatshareIDFromSP() {
-        String id = "1";
+    /**
+     * muss noch getestet werden... deswegen erst "1" als flatshareId
+     * @param c
+     */
+    private void setFlatshareIDFromSP(Context c) {
+       /* SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(c);
+        String data =sharedPreferences.getString("flatshareId","N/A");
+        this.flatshareId = data;*/
 
+        String id = "1";
         this.flatshareId = id;
+
     }
 
     private String getFlatshareId() {

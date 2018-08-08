@@ -2,11 +2,14 @@ package edu.kit.pse.fridget.client.activity;
 
 import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.databinding.HomeActivityBinding;
 import edu.kit.pse.fridget.client.viewmodel.HomeViewModel;
@@ -14,7 +17,9 @@ import edu.kit.pse.fridget.client.viewmodel.HomeViewModel;
 public class HomeActivity extends AppCompatActivity implements LifecycleOwner {
 
     private static final String TAG = HomeActivity.class.getSimpleName();
-    private HomeViewModel homeVM = new HomeViewModel();
+    Context c = getApplicationContext();
+
+    private HomeViewModel homeVM = new HomeViewModel(c);
 
 
 
@@ -29,6 +34,7 @@ public class HomeActivity extends AppCompatActivity implements LifecycleOwner {
         binding.setHomeVM(homeVM);
 
         binding.setLifecycleOwner(this);
+        View v = getWindow().getDecorView().getRootView();
         homeVM.updateLists();
 
 
