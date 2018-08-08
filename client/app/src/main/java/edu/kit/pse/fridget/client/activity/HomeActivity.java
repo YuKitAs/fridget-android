@@ -17,9 +17,8 @@ import edu.kit.pse.fridget.client.viewmodel.HomeViewModel;
 public class HomeActivity extends AppCompatActivity implements LifecycleOwner {
 
     private static final String TAG = HomeActivity.class.getSimpleName();
-    Context c = getApplicationContext();
 
-    private HomeViewModel homeVM = new HomeViewModel(c);
+    private HomeViewModel homeVM = new HomeViewModel();
 
 
 
@@ -30,11 +29,14 @@ public class HomeActivity extends AppCompatActivity implements LifecycleOwner {
 
         HomeActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.home_activity);
 
+        Context c = this.getApplicationContext();
+
         homeVM = ViewModelProviders.of(this).get(HomeViewModel.class);
         binding.setHomeVM(homeVM);
 
         binding.setLifecycleOwner(this);
-        View v = getWindow().getDecorView().getRootView();
+
+        homeVM.setHomeContext(c);
         homeVM.updateLists();
 
 

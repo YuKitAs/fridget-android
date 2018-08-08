@@ -54,31 +54,30 @@ public class HomeViewModel extends ViewModel {
 
     private String flatshareId;
     private SharedPreferencesData sharedPreferencesData =new SharedPreferencesData();
+    private Context homeContext;
 
     /**
      * Konstruktor
-     * @param c
      */
-    public HomeViewModel(Context c) {
+    public HomeViewModel() {
       //  this.fakeCN(); // wird gelöscht
         //this.fakeFN(); // wird gelöscht
         //this.fakeMembers(); // wird gelöscht
-        this.setFlatshareIDFromSP(c);
+        this.setFlatshareIDFromSP();
 
         updateLists();
     }
 
     /**
      * muss noch getestet werden... deswegen erst "1" als flatshareId
-     * @param c
      */
-    private void setFlatshareIDFromSP(Context c) {
-       SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(c);
+    private void setFlatshareIDFromSP() {
+       /*SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(c);
         String data =sharedPreferences.getString("flatshareId","N/A");
-        this.flatshareId = data;
+        this.flatshareId = data;*/
 
-       /* String id = "1";
-        this.flatshareId = id;*/
+        String id = "1";
+        this.flatshareId = id;
 
     }
 
@@ -86,6 +85,9 @@ public class HomeViewModel extends ViewModel {
         return this.flatshareId;
     }
 
+    public void setHomeContext(Context c) {
+        this.homeContext = c;
+    }
     /**
      * alle Listen werden aus dem Server neugeholt
      */
