@@ -36,6 +36,10 @@ public class StartActivity extends AppCompatActivity {
         StartActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.start_activity);
         StartViewModel start = new StartViewModel();
         binding.setStart(start);
+        SharedPreferences sharedPreferences =getSharedPreferences("edu.kit.pse.fridget.client_preferences",MODE_PRIVATE);
+        String flatshareId =sharedPreferences.getString("flatshareId", DEFAULT);
+
+        updateUI(flatshareId);
     }
 
 
