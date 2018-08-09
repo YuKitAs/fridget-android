@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModel;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.StyleSpan;
@@ -50,7 +51,7 @@ public class CreateCoolNoteViewModel extends ViewModel {
         else {
             SpannableStringBuilder str = new SpannableStringBuilder(content);
             str.setSpan(new StyleSpan(Typeface.BOLD), 0, content.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            this.content.setValue(str.toString());
+            this.content.setValue(Html.toHtml(str));
         }
     }
 
@@ -62,7 +63,7 @@ public class CreateCoolNoteViewModel extends ViewModel {
         else {
         SpannableStringBuilder str = new SpannableStringBuilder(content);
         str.setSpan(new StyleSpan(Typeface.ITALIC), 0, content.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        this.content.setValue(str.toString());
+        this.content.setValue(Html.toHtml(str));
         }
     }
 
@@ -74,7 +75,7 @@ public class CreateCoolNoteViewModel extends ViewModel {
         else {
             SpannableStringBuilder str = new SpannableStringBuilder(content);
             str.setSpan(new UnderlineSpan(), 0, content.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            this.content.setValue(str.toString());
+            this.content.setValue(Html.toHtml(str));
         }
     }
 

@@ -138,7 +138,7 @@
                         android:layout_below="@+id/title"
                         android:fontFamily="@font/commonsregular"
                         android:maxLength="300"
-                        android:text="@{fullNoteVM.coolNote.getContent()}"
+                        android:text="@{fullNoteVM.spanned}"
                         android:textColor="#000000"
                         android:textSize="15sp" />
 

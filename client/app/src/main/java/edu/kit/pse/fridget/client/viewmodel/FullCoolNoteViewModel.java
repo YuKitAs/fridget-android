@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.text.Html;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -33,6 +35,12 @@ public class FullCoolNoteViewModel extends ViewModel {
 
     private CoolNote coolNote;
     private String coolNoteId;
+    private Spanned spanned;
+
+    public Spanned getSpanned() {
+        return spanned;
+    }
+
     private List<ReadConfirmationCommand> readConfirmations = new ArrayList<>(15);
 
     public List<ReadConfirmationCommand> getReadConfirmations() {
@@ -83,6 +91,8 @@ public class FullCoolNoteViewModel extends ViewModel {
         return magnetColors;
     }
 
+
+
     public void getCoolNote(String coolNoteId, View v) {
         RetrofitClientInstance.getRetrofitInstance().create(CoolNoteService.class).getCoolNote(coolNoteId).enqueue(new Callback<CoolNote>() {
             @Override
@@ -95,9 +105,7 @@ public class FullCoolNoteViewModel extends ViewModel {
                         if (coolNote.getCreatorMembershipId().equals(mList.get(i).getMemberId())) {
                             magnetColor = Color.parseColor("#"+ mList.get(i).getMagnetColor());
                         }
-                        /*if (readConfirmations.get(i).getMagnetColor().equals(ownMagnetColor)) {
-                            saveReadStatus();
-                        }*/
+                        spanned = Html.fromHtml(coolNote.getContent());
                     }
                 }
             }
