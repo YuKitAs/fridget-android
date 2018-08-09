@@ -4,11 +4,28 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.support.v4.app.LoaderManager;
+import android.database.Cursor;
+import android.widget.SimpleCursorAdapter;
+import android.widget.ArrayAdapter;
+
+import com.google.gson.Gson;
+
+import java.util.List;
 
 import edu.kit.pse.fridget.client.R;
+import edu.kit.pse.fridget.client.datamodel.Flatshare;
+import edu.kit.pse.fridget.client.datamodel.Member;
+import edu.kit.pse.fridget.client.datamodel.User;
+import edu.kit.pse.fridget.client.service.MembershipService;
+import edu.kit.pse.fridget.client.service.RetrofitClientInstance;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,15 +41,50 @@ public class MemberListFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    SimpleCursorAdapter mAdapter;
+    private List<Member> memberList;
+    private Flatshare flat;
+    private String flShID = flat.getId();
+
+    static final String[] PROJECTION = new String[] {};
+
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
 
+    private static final String TAG = MemberListFragment.class.getSimpleName();
+
     public MemberListFragment() {
-        // Required empty public constructor
+        
     }
+
+    public void updateLists() {
+        getMemberList(flShID);
+    }
+
+    public void getMemberList(String flatshareId) {
+        RetrofitClientInstance.getRetrofitInstance().create(MembershipService.class).getMemberList(flatshareId).enqueue(new Callback<List<Member>>() {
+            @Override
+            public void onResponse(Call<List<Member>> call, Response<List<Member>> response) {
+                List<Member> body = response.body();
+                Log.i("Fetching member list", String.format("Member list %s fetched.", new Gson().toJson(body)));
+                memberList = body;
+            }
+
+            @Override
+            public void onFailure(Call<List<Member>> call, Throwable t) {
+                Log.e("Fetching member list", "Fetching member list %s failed.");
+            }
+        });
+    }
+
+
+
+    //GradientDrawable drawable = (GradientDrawable) getDrawable(R.drawable.magnet);
+        //drawable.setColor(Color.parseColor("#000000"));
 
     /**
      * Use this factory method to create a new instance of
@@ -46,8 +98,6 @@ public class MemberListFragment extends Fragment {
     public static MemberListFragment newInstance(String param1, String param2) {
         MemberListFragment fragment = new MemberListFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -55,10 +105,19 @@ public class MemberListFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
+
+        //this.setListAdapter(new ArrayAdapter<String>(
+          //      this, R.layout.list_activity,
+            //    R.id.,userName));
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        updateLists();
+        Log.i(TAG, "Calling onStart");
     }
 
     @Override
@@ -66,13 +125,6 @@ public class MemberListFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_member_list, container, false);
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
     }
 
     @Override

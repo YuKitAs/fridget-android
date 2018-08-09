@@ -5,6 +5,14 @@
     android:layout_height="match_parent"
     tools:context=".fragment.CreateAccessCodeFragment">
 
+    <data>
+        <variable
+            name="createAccess"
+            type="edu.kit.pse.fridget.client.fragment.CreateAccessCodeFragment"
+            tools:ignore="MissingPrefix" />
+
+    </data>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -42,7 +50,7 @@
 
 
             <Button
-                android:id="@+id/button8"
+                android:id="@+id/createAccess"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -51,6 +59,7 @@
                 android:fontFamily="@font/commonsregular"
                 android:text="Create New Access Code"
                 android:textSize="23sp"
+                android:onClick="@{createAccess::createAccess}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.465"
