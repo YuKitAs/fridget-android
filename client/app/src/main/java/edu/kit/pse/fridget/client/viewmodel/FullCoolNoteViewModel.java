@@ -1,7 +1,6 @@
 package edu.kit.pse.fridget.client.viewmodel;
 
 import android.app.AlertDialog;
-import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -13,13 +12,14 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.activity.HomeActivity;
 import edu.kit.pse.fridget.client.datamodel.CoolNote;
-import edu.kit.pse.fridget.client.datamodel.Member;
 import edu.kit.pse.fridget.client.datamodel.ReadConfirmation;
+import edu.kit.pse.fridget.client.datamodel.command.GetMemberCommand;
 import edu.kit.pse.fridget.client.service.CoolNoteService;
 import edu.kit.pse.fridget.client.service.MembershipService;
 import edu.kit.pse.fridget.client.service.ReadConfirmationService;
@@ -30,13 +30,24 @@ import retrofit2.Response;
 
 public class FullCoolNoteViewModel extends ViewModel {
 
-    private MutableLiveData<String> title = new MutableLiveData<>();
-    private MutableLiveData<String> content = new MutableLiveData<>();
-    private MutableLiveData<String> createdAt = new MutableLiveData<>();
-    private String creatorMembershipId;
-    private String id;
+    private CoolNote coolNote;
+
+    public CoolNote getCoolNote() {
+        return coolNote;
+    }
+
     private int magnetColor;
-    private List<Member> memberList;
+
+    public int getMagnetColor() {
+        return magnetColor;
+    }
+
+
+    private List<GetMemberCommand> memberList = new ArrayList<>(15);
+
+    public List<GetMemberCommand> getMemberList() {
+        return memberList;
+    }
 
     private SharedPreferencesData sharedPreferencesData =new SharedPreferencesData();
 
@@ -71,8 +82,6 @@ public class FullCoolNoteViewModel extends ViewModel {
             magnetColor13,
             magnetColor14
     };
-
-    private String tempMemberId = "025b108a-0db7-4f92-b52b-a41f413e4b12";
 
     public int getMagnetColor1() {
         return magnetColor1;
@@ -130,40 +139,20 @@ public class FullCoolNoteViewModel extends ViewModel {
         return magnetColor6;
     }
 
-    public int getMagnetColor() {
-        return magnetColor;
-    }
-
-    public MutableLiveData<String> getTitle() {
-        return title;
-    }
-
-    public MutableLiveData<String> getContent() {
-        return content;
-    }
-
-    public MutableLiveData<String> getCreatedAt() {
-        return createdAt;
-    }
-
-    public String getId() {
-        return id;
-    }
-
     public void getCoolNote(String coolNoteId, View v) {
         RetrofitClientInstance.getRetrofitInstance().create(CoolNoteService.class).getCoolNote(coolNoteId).enqueue(new Callback<CoolNote>() {
             @Override
             public void onResponse(Call<CoolNote> call, Response<CoolNote> response) {
-                CoolNote body = response.body();
-                if(body != null) {
-                    Log.i("Fetching Cool Note", String.format("Cool Note %s fetched.", new Gson().toJson(body)));
-
-                    title.postValue(body.getTitle());
-                    content.postValue(body.getContent());
-                    createdAt.postValue(body.getCreatedAt());
-                    magnetColor = Color.parseColor("#" + sharedPreferencesData.getSharedPreferencesData("ownMagnetColor", v));
+                coolNote = response.body();
+                if(coolNote != null) {
+                    Log.i("Fetching Cool Note", String.format("Cool Note %s fetched.", new Gson().toJson(coolNote)));
+                    List<GetMemberCommand> mList = getMemberList(v);
+                    for (int i = 0; i < mList.size(); i++) {
+                        if (coolNote.getCreatorMembershipId().equals(mList.get(i).getMemberId())) {
+                            magnetColor = Color.parseColor("#"+ mList.get(i).getMagnetColor());
+                        }
+                    }
                 }
-
             }
 
             @Override
@@ -175,21 +164,51 @@ public class FullCoolNoteViewModel extends ViewModel {
     }
 
     //get member für die magnetfarbe
-    public void getMemberList(String flatshareId) {
-        RetrofitClientInstance.getRetrofitInstance().create(MembershipService.class).getMemberList(flatshareId).enqueue(new Callback<List<Member>>() {
+    public List<GetMemberCommand> getMemberList(View v) {
+        //String flatshareId = sharedPreferencesData.getSharedPreferencesData("flatshareId",v);
+        RetrofitClientInstance.getRetrofitInstance().create(MembershipService.class).getMemberList("54381329-7fe5-45b9-8941-944c60111007").enqueue(new Callback<List<GetMemberCommand>>() {
             @Override
-            public void onResponse(Call<List<Member>> call, Response<List<Member>> response) {
-                List<Member> body = response.body();
-                Log.i("Fetching member list", String.format("Member list %s fetched.", new Gson().toJson(body)));
-                memberList = body;
+            public void onResponse(Call<List<GetMemberCommand>> call, Response<List<GetMemberCommand>> response) {
+                memberList = new ArrayList<>(15);
+                List<GetMemberCommand> members = response.body();
+                if (members != null) {
+                    for (int m = 0; m < members.size(); m++) {
+                        memberList.add(members.get(m));
+                    }
+                }
+                Log.i("Fetching Member List", String.format("Member list %s fetched.", new Gson().toJson(memberList)));
+
             }
 
             @Override
-            public void onFailure(Call<List<Member>> call, Throwable t) {
-                Log.e("Fetching member list", "Fetching member list %s failed.");
+            public void onFailure(Call<List<GetMemberCommand>> call, Throwable t) {
+                Log.e("Fetching Memberlist", "There are no Members.");
             }
         });
+
+        return memberList;
     }
+
+    /*private int[] getMagnetColors(Member[] memberlist) {
+        memberlist = getMemberList();
+        magnetColors = new int[15];
+        for(int i = 0; i < memberlist.length; i++) {
+            if (coolNote != null) {
+                magnetColors[i] = Color.parseColor("#" + memberlist[i].getMagnetColor());
+            }
+        }
+        return magnetColors;
+    }
+
+    private int getMemberColorbyUserId(String id, Member[] memberlist) {
+        memberlist = this.getMemberList();
+        for (Member m : memberlist) {
+            if (m.getId().equals(id)) {
+                return Color.parseColor(m.getMagnetColor());
+            }
+        }
+        return Color.parseColor("#000000");
+    }*/
 
     //lesebestätigung
     public void getReadstatus(String coolNoteId) {
@@ -202,7 +221,7 @@ public class FullCoolNoteViewModel extends ViewModel {
 
                     for (int i = 0; i <= body.size(); i++) {
                         ReadConfirmation readConfirmation = body.get(i);
-                        if (readConfirmation.getMembershipId().equals(memberList.get(i).getId())) {
+                        if (readConfirmation.getMembershipId().equals(memberList.get(i))) {
                             magnetColors[i] = Color.parseColor(memberList.get(i).getMagnetColor());
                         }
                     }
@@ -218,7 +237,7 @@ public class FullCoolNoteViewModel extends ViewModel {
 
     //save checkbox status
     public void saveReadStatus(View v) {
-        ReadConfirmation readConfirmation = new ReadConfirmation(null, id, creatorMembershipId);
+        ReadConfirmation readConfirmation = new ReadConfirmation(null, coolNote.getId(), coolNote.getCreatorMembershipId());
         RetrofitClientInstance.getRetrofitInstance().create(ReadConfirmationService.class).createReadStatus(readConfirmation).enqueue(new Callback<ReadConfirmation>() {
             @Override
             public void onResponse(Call<ReadConfirmation> call, Response<ReadConfirmation> response) {
@@ -235,7 +254,7 @@ public class FullCoolNoteViewModel extends ViewModel {
 
     //delete checkbox status
     public void deleteReadStatus(View v) {
-        RetrofitClientInstance.getRetrofitInstance().create(ReadConfirmationService.class).deleteReadStatus(id, creatorMembershipId).enqueue(new Callback<Void>() {
+        RetrofitClientInstance.getRetrofitInstance().create(ReadConfirmationService.class).deleteReadStatus(coolNote.getId(), coolNote.getCreatorMembershipId()).enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 Void body = response.body();
@@ -252,37 +271,38 @@ public class FullCoolNoteViewModel extends ViewModel {
     public void popUp(View v) {
         Context context = v.getContext();
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-            builder.setTitle("Delete Cool Note")
-                    .setMessage("Are you sure you want to delete this Cool Note?")
-                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            deleteCoolNote(v);
-                            dialog.cancel();
-                        }
-                    })
-                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.cancel();
-                        }
-                    })
-                    .setIcon(R.drawable.fridget_logo)
-                    .show();
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Delete Cool Note")
+                .setMessage("Are you sure you want to delete this Cool Note?")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        deleteCoolNote(v);
+                        dialog.cancel();
+                    }
+                })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                })
+                .setIcon(R.drawable.fridget_logo)
+                .show();
         //}
     }
 
     public void deleteCoolNote(View v) {
 
+        String ownMemberId = sharedPreferencesData.getSharedPreferencesData("ownMemberId", v);
         final Context context = v.getContext();
         Intent intent = new Intent(context, HomeActivity.class);
 
-        RetrofitClientInstance.getRetrofitInstance().create(CoolNoteService.class).deleteCoolNote(id).enqueue(new Callback<Void>() {
+        RetrofitClientInstance.getRetrofitInstance().create(CoolNoteService.class).deleteCoolNote(coolNote.getId()).enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
 
                 Void body = response.body();
                 if(body == null) {
-                    if (creatorMembershipId == tempMemberId) {
+                    if (coolNote.getCreatorMembershipId() == ownMemberId) {
                         Log.i("Deleted Cool Note", String.format("Cool Note %s deleted.", new Gson().toJson(null)));
                         context.startActivity(intent);
                     }

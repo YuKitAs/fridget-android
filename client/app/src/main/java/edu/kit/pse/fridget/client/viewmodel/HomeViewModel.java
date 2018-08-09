@@ -4,12 +4,12 @@ import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
+import com.google.gson.Gson;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -21,7 +21,7 @@ import edu.kit.pse.fridget.client.activity.FullTextFrozenNoteActivity;
 import edu.kit.pse.fridget.client.activity.MenuDrawerActivity;
 import edu.kit.pse.fridget.client.datamodel.CoolNote;
 import edu.kit.pse.fridget.client.datamodel.FrozenNote;
-import edu.kit.pse.fridget.client.datamodel.Member;
+import edu.kit.pse.fridget.client.datamodel.command.GetMemberCommand;
 import edu.kit.pse.fridget.client.service.CoolNoteService;
 import edu.kit.pse.fridget.client.service.FrozenNoteService;
 import edu.kit.pse.fridget.client.service.MembershipService;
@@ -49,7 +49,7 @@ public class HomeViewModel extends ViewModel {
     private FrozenNote[] fNList = new FrozenNote[3];
     private Boolean[] visibilityList = new Boolean[9];
 
-    private Member[] memberList = new Member[15];
+    private GetMemberCommand[] memberList = new GetMemberCommand[15];
     private Integer[] magnetColorList = new Integer[9];
 
     private String flatshareId;
@@ -175,27 +175,25 @@ public class HomeViewModel extends ViewModel {
      *
      * @return
      */
-    public Member[] getMemberList() {
-
-        RetrofitClientInstance.getRetrofitInstance().create(MembershipService.class).getMemberList(flatshareId).enqueue(new Callback<List<Member>>() {
+    public GetMemberCommand[] getMemberList() {
+        //String flatshareId = sharedPreferencesData.getSharedPreferencesData("flatshareId",v);
+        RetrofitClientInstance.getRetrofitInstance().create(MembershipService.class).getMemberList(flatshareId).enqueue(new Callback<List<GetMemberCommand>>() {
             @Override
-            public void onResponse(Call<List<Member>> call, Response<List<Member>> response) {
-                memberList = new Member[15];
-                List<Member> members = response.body();
-
+            public void onResponse(Call<List<GetMemberCommand>> call, Response<List<GetMemberCommand>> response) {
+                memberList = new GetMemberCommand[15];
+                List<GetMemberCommand> members = response.body();
                 if (members != null) {
                     for (int m = 0; m < members.size(); m++) {
                         memberList[m] = members.get(m);
                     }
-                } else {
-                    Log.e("getmemberList1", "There are no Members.");
-
                 }
+                Log.i("Fetching Member List", String.format("Member list %s fetched.", new Gson().toJson(memberList)));
+
             }
 
             @Override
-            public void onFailure(Call<List<Member>> call, Throwable t) {
-
+            public void onFailure(Call<List<GetMemberCommand>> call, Throwable t) {
+                Log.e("Fetching Memberlist", "There are no Members.");
             }
         });
 
@@ -207,7 +205,7 @@ public class HomeViewModel extends ViewModel {
      * wird in getcNList() aufgerufen, updatet die MagnetListe und den Live Data dazu
      * @param memberlist die neu vom Server gegettete Liste wird hier übergeben
      */
-    private void setLiveDataMagnetColorList(Member[] memberlist) {
+    private void setLiveDataMagnetColorList(GetMemberCommand[] memberlist) {
         CoolNote[] cList = this.cNList;
 
         int i = 0;
@@ -235,16 +233,16 @@ public class HomeViewModel extends ViewModel {
      * @param memberlist
      * @return MagnetFarbe
      */
-    private int getMemberColorbyUserId(String id, Member[] memberlist) {
-        Member[] mlist = memberlist;
+    private int getMemberColorbyUserId(String id, GetMemberCommand[] memberlist) {
+        GetMemberCommand[] mlist = memberlist;
 
         if (mlist == null) {
             Log.e("member","The member is not found");
             return Color.parseColor("#FFFFFF"); // sollte nie erreicht werden... sonst heißt es, dass es den Member nicht gibt
         }
 
-        for (Member m : mlist) {
-            if (m.getUserId().equals(id)) {
+        for (GetMemberCommand m : mlist) {
+            if (m.getMemberId().equals(id)) {
                 return Color.parseColor(m.getMagnetColor());
             }
         }

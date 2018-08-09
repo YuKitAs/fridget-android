@@ -1,8 +1,5 @@
 package edu.kit.pse.fridget.client.datamodel;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -18,11 +15,9 @@ public class CoolNote {
     private String id;
 
     @SerializedName("title")
-    @NonNull
     private String title;
 
     @SerializedName("content")
-    @Nullable
     private String content;
 
     @SerializedName("creatorMembershipId")

@@ -22,7 +22,7 @@ public interface MembershipService {
 
     //Ruft die Mitglieder einer Flatshare ab
     @GET("/memberships/users")
-    Call<List<Member>> getMemberList(@Query("flatshare") String flatshareId);
+    Call<List<GetMemberCommand>> getMemberList(@Query("flatshare") String flatshareId);
 
     //Ruft einen Benutzer und seine Magnetfarbe ab
     @GET("/memberships")
