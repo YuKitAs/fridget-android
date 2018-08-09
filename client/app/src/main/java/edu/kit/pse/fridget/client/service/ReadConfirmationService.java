@@ -3,6 +3,7 @@ package edu.kit.pse.fridget.client.service;
 import java.util.List;
 
 import edu.kit.pse.fridget.client.datamodel.ReadConfirmation;
+import edu.kit.pse.fridget.client.datamodel.command.ReadConfirmationCommand;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
@@ -20,7 +21,7 @@ public interface ReadConfirmationService {
 
     //Diese Methode ruft den gelesen Status vom Server ab
     @GET("/read-confirmations/users")
-    Call<List<ReadConfirmation>> getReadStatus(@Query("cool-note") String coolNoteId);
+    Call<List<ReadConfirmationCommand>> getReadStatus(@Query("cool-note") String coolNoteId);
 
     //Diese Methode setzt die Checkbox auf markiert
     @Headers("Content-Type: application/json")
