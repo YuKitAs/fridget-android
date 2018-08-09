@@ -1,6 +1,7 @@
 package edu.kit.pse.fridget.client.activity;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -23,9 +24,9 @@ public class CreateTextCoolNoteActivity extends AppCompatActivity {
         CreateTextCoolNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.create_text_cool_note_activity);
         final CreateCoolNoteViewModel createCoolNoteViewModel = ViewModelProviders.of(this).get(CreateCoolNoteViewModel.class);
         binding.setCoolNoteVM(createCoolNoteViewModel);
-        //Intent i = getIntent();
-        //int position = i.getExtras().getInt("position");
-        //createCoolNoteViewModel.setPosition(position);
+        Intent i = getIntent();
+        int position = i.getExtras().getInt("position");
+        createCoolNoteViewModel.setPosition(position);
 
     }
 
