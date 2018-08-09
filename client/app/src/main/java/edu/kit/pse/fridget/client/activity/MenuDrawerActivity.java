@@ -11,7 +11,6 @@ import edu.kit.pse.fridget.client.R;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.widget.Toast;
-import android.view.View;
 import android.view.MenuItem;
 
 import edu.kit.pse.fridget.client.fragment.CreateAccessCodeFragment;
@@ -71,6 +70,4 @@ public class MenuDrawerActivity extends AppCompatActivity implements NavigationV
 
         return super.onOptionsItemSelected(item);
     }
-
-
 }
