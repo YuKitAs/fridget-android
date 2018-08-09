@@ -138,8 +138,6 @@ public class HomeViewModel extends ViewModel {
                     for (CoolNote cn : coolNotes) {
                         cNList[cn.getPosition()] = cn;
                     }
-                    Log.i("Fetching CoolNote List", String.format("CoolNote list  %s fetched.",
-                            new Gson().toJson(coolNotes)));
                     Log.i("Fetching CoolNote List", String.format("CoolNote list cNList %s fetched.",
                             new Gson().toJson(cNList)));
 
