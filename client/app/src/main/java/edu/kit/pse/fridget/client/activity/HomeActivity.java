@@ -39,7 +39,7 @@ public class HomeActivity extends AppCompatActivity implements LifecycleOwner {
         SharedPreferences sharedPreferences =getSharedPreferences("edu.kit.pse.fridget.client_preferences",MODE_PRIVATE);
         String flatshareId =sharedPreferences.getString("flatshareId", "N/A");
 
-        homeVM.setFlatshareId("1");
+        homeVM.setFlatshareId(flatshareId);
         homeVM.updateLists();
 
 

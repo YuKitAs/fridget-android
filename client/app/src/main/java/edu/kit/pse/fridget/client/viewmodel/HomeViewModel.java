@@ -98,7 +98,8 @@ public class HomeViewModel extends ViewModel {
                     for (FrozenNote fn : frozenNotes) {
                         fNList[fn.getPosition()] = fn;
                     }
-                    Log.i("Fetching FNote List", String.format("FrozenNote list cNList %s fetched.", new Gson().toJson(fNList)));
+                    Log.i("Fetching FNote List", String.format("FrozenNote list fNList %s fetched.",
+                            new Gson().toJson(fNList)));
 
                 } else {
                     // sollte nie erreicht werden
@@ -135,9 +136,12 @@ public class HomeViewModel extends ViewModel {
                 if (coolNotes != null) {
                     // Liste in ein nach der Position geordneten Array umwandeln
                     for (CoolNote cn : coolNotes) {
-                        cNList[coolNotes.get(0).getPosition()] = cn;
+                        cNList[cn.getPosition()] = cn;
                     }
-                    Log.i("Fetching CoolNote List", String.format("CoolNote list cNList %s fetched.", new Gson().toJson(cNList)));
+                    Log.i("Fetching CoolNote List", String.format("CoolNote list  %s fetched.",
+                            new Gson().toJson(coolNotes)));
+                    Log.i("Fetching CoolNote List", String.format("CoolNote list cNList %s fetched.",
+                            new Gson().toJson(cNList)));
 
                 } else {
                     Log.e("getcNList", "There are no Cool Note.");
@@ -234,7 +238,7 @@ public class HomeViewModel extends ViewModel {
 
         for (GetMemberCommand m : mlist) {
             if (m.getMemberId().equals(id)) {
-                return Color.parseColor(m.getMagnetColor());
+                return Color.parseColor("#" + m.getMagnetColor());
             }
         }
         return Color.parseColor("#FFFFFF"); // sollte nie erreicht werden... sonst heißt es, dass es den Member nicht gibt
