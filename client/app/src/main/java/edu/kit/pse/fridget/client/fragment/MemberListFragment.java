@@ -21,6 +21,7 @@ import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.datamodel.Flatshare;
 import edu.kit.pse.fridget.client.datamodel.Member;
 import edu.kit.pse.fridget.client.datamodel.User;
+import edu.kit.pse.fridget.client.datamodel.command.GetMemberCommand;
 import edu.kit.pse.fridget.client.service.MembershipService;
 import edu.kit.pse.fridget.client.service.RetrofitClientInstance;
 import retrofit2.Call;
@@ -42,7 +43,7 @@ public class MemberListFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     SimpleCursorAdapter mAdapter;
-    private List<Member> memberList;
+    private List<GetMemberCommand> memberList;
     private Flatshare flat;
     private String flShID = flat.getId();
 
@@ -66,16 +67,16 @@ public class MemberListFragment extends Fragment {
     }
 
     public void getMemberList(String flatshareId) {
-        RetrofitClientInstance.getRetrofitInstance().create(MembershipService.class).getMemberList(flatshareId).enqueue(new Callback<List<Member>>() {
+        RetrofitClientInstance.getRetrofitInstance().create(MembershipService.class).getMemberList(flatshareId).enqueue(new Callback<List<GetMemberCommand>>() {
             @Override
-            public void onResponse(Call<List<Member>> call, Response<List<Member>> response) {
-                List<Member> body = response.body();
+            public void onResponse(Call<List<GetMemberCommand>> call, Response<List<GetMemberCommand>> response) {
+                List<GetMemberCommand> body = response.body();
                 Log.i("Fetching member list", String.format("Member list %s fetched.", new Gson().toJson(body)));
                 memberList = body;
             }
 
             @Override
-            public void onFailure(Call<List<Member>> call, Throwable t) {
+            public void onFailure(Call<List<GetMemberCommand>> call, Throwable t) {
                 Log.e("Fetching member list", "Fetching member list %s failed.");
             }
         });
