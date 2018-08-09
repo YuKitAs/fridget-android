@@ -146,22 +146,11 @@
                         android:id="@+id/readBy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_below="@+id/checkBox"
+                        android:layout_below="@+id/content"
                         android:fontFamily="@font/commonsregular"
                         android:padding="2dp"
                         android:text="@string/readBy"
                         android:textColor="#000000"
-                        android:textSize="12sp" />
-
-                    <CheckBox
-                        android:id="@+id/checkBox"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/content"
-                        android:buttonTint="#00cdc3"
-                        android:fontFamily="@font/commonsregular"
-                        android:text="@string/checkbox"
                         android:textSize="12sp" />
 
                     <ImageView
@@ -236,10 +225,9 @@
                         android:id="@+id/magnet8"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginBottom="178dp"
+                        android:layout_centerVertical="true"
                         android:background="@drawable/magnet"
-                        android:backgroundTint="@{fullNoteVM.magnetColors[7]}"/>
+                        android:backgroundTint="@{fullNoteVM.magnetColors[7]}" />
 
                     <ImageView
                         android:id="@+id/magnet9"
