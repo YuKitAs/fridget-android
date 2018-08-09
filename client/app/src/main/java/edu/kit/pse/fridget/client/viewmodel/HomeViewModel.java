@@ -53,47 +53,30 @@ public class HomeViewModel extends ViewModel {
     private Integer[] magnetColorList = new Integer[9];
 
     private String flatshareId;
-    private SharedPreferencesData sharedPreferencesData =new SharedPreferencesData();
-    private Context homeContext;
+
 
     /**
      * Konstruktor
      */
     public HomeViewModel() {
-      //  this.fakeCN(); // wird gelöscht
-        //this.fakeFN(); // wird gelöscht
-        //this.fakeMembers(); // wird gelöscht
-        this.setFlatshareIDFromSP();
 
-        updateLists();
     }
 
     /**
-     * muss noch getestet werden... deswegen erst "1" als flatshareId
+     * wird in der HomeActivity aufgerufen, durch Shared Preference wird dort die FlatshareId
+     * hierher übergeben
      */
-    private void setFlatshareIDFromSP() {
-       /*SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(c);
-        String data =sharedPreferences.getString("flatshareId","N/A");
-        this.flatshareId = data;*/
-
-        String id = "1";
+    public void setFlatshareId(String id) {
         this.flatshareId = id;
-
     }
 
-    private String getFlatshareId() {
-        return this.flatshareId;
-    }
 
-    public void setHomeContext(Context c) {
-        this.homeContext = c;
-    }
     /**
      * alle Listen werden aus dem Server neugeholt
      */
     public void updateLists() {
-        this.liveDataCNList.setValue(this.getcNList());
         this.liveDataFNList.setValue(this.getfNList());
+        this.liveDataCNList.setValue(this.getcNList());
     }
 
     /**
@@ -115,7 +98,10 @@ public class HomeViewModel extends ViewModel {
                     for (FrozenNote fn : frozenNotes) {
                         fNList[fn.getPosition()] = fn;
                     }
+                    Log.i("Fetching FNote List", String.format("FrozenNote list cNList %s fetched.", new Gson().toJson(fNList)));
+
                 } else {
+                    // sollte nie erreicht werden
                     Log.e("getfNList1", "There are no Frozen Note.");
 
                 }
@@ -123,6 +109,7 @@ public class HomeViewModel extends ViewModel {
 
             @Override
             public void onFailure(Call<List<FrozenNote>> call, Throwable t) {
+                Log.e("getFNList", "Get FrozenNoteList failed.");
 
             }
         });
@@ -150,15 +137,17 @@ public class HomeViewModel extends ViewModel {
                     for (CoolNote cn : coolNotes) {
                         cNList[coolNotes.get(0).getPosition()] = cn;
                     }
+                    Log.i("Fetching CoolNote List", String.format("CoolNote list cNList %s fetched.", new Gson().toJson(cNList)));
+
                 } else {
-                    Log.e("getcNList1", "There are no Cool Note.");
+                    Log.e("getcNList", "There are no Cool Note.");
 
                 }
             }
 
             @Override
             public void onFailure(Call<List<CoolNote>> call, Throwable t) {
-                Log.e("getcNList2", "Get CoolNoteList failed.");
+                Log.e("getcNList", "Get CoolNoteList failed.");
 
             }
         });
@@ -176,7 +165,6 @@ public class HomeViewModel extends ViewModel {
      * @return
      */
     public GetMemberCommand[] getMemberList() {
-        //String flatshareId = sharedPreferencesData.getSharedPreferencesData("flatshareId",v);
         RetrofitClientInstance.getRetrofitInstance().create(MembershipService.class).getMemberList(flatshareId).enqueue(new Callback<List<GetMemberCommand>>() {
             @Override
             public void onResponse(Call<List<GetMemberCommand>> call, Response<List<GetMemberCommand>> response) {
@@ -186,14 +174,17 @@ public class HomeViewModel extends ViewModel {
                     for (int m = 0; m < members.size(); m++) {
                         memberList[m] = members.get(m);
                     }
+                    Log.i("Fetching Member List", String.format("Member list %s fetched.", new Gson().toJson(members)));
+                } else {
+                    Log.e("Fetching Memberlist", "There are no Members. members is null");
+
                 }
-                Log.i("Fetching Member List", String.format("Member list %s fetched.", new Gson().toJson(memberList)));
 
             }
 
             @Override
             public void onFailure(Call<List<GetMemberCommand>> call, Throwable t) {
-                Log.e("Fetching Memberlist", "There are no Members.");
+                Log.e("Fetching Memberlist", "onFailure: There are no Members.");
             }
         });
 
@@ -203,16 +194,16 @@ public class HomeViewModel extends ViewModel {
 
     /**
      * wird in getcNList() aufgerufen, updatet die MagnetListe und den Live Data dazu
-     * @param memberlist die neu vom Server gegettete Liste wird hier übergeben
+     * @param memberCommandlist die neu vom Server gegettete Liste wird hier übergeben
      */
-    private void setLiveDataMagnetColorList(GetMemberCommand[] memberlist) {
+    private void setLiveDataMagnetColorList(GetMemberCommand[] memberCommandlist) {
         CoolNote[] cList = this.cNList;
 
         int i = 0;
         if (cNList != null) {
             for (CoolNote cn : cList) {
                 if (cn != null) {
-                    this.magnetColorList[i] = getMemberColorbyUserId(cn.getCreatorMembershipId(), memberlist);
+                    this.magnetColorList[i] = getMemberColorbyUserId(cn.getCreatorMembershipId(), memberCommandlist);
                 } else {
                     this.magnetColorList[i] = Color.parseColor("#FFFFFF"); // wird invisible gesetzt... also egal, welche Farbe
                 }
@@ -230,11 +221,11 @@ public class HomeViewModel extends ViewModel {
     /**
      * wird in setLiveDataMagnetColorList benötigt
      * @param id Member ID
-     * @param memberlist
+     * @param memberCommandlist
      * @return MagnetFarbe
      */
-    private int getMemberColorbyUserId(String id, GetMemberCommand[] memberlist) {
-        GetMemberCommand[] mlist = memberlist;
+    private int getMemberColorbyUserId(String id, GetMemberCommand[] memberCommandlist) {
+        GetMemberCommand[] mlist = memberCommandlist;
 
         if (mlist == null) {
             Log.e("member","The member is not found");

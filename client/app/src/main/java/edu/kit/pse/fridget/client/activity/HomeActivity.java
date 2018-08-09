@@ -3,6 +3,7 @@ package edu.kit.pse.fridget.client.activity;
 import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -18,7 +19,8 @@ public class HomeActivity extends AppCompatActivity implements LifecycleOwner {
 
     private static final String TAG = HomeActivity.class.getSimpleName();
 
-    private HomeViewModel homeVM = new HomeViewModel();
+
+    private HomeViewModel homeVM;
 
 
 
@@ -29,14 +31,15 @@ public class HomeActivity extends AppCompatActivity implements LifecycleOwner {
 
         HomeActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.home_activity);
 
-        Context c = this.getApplicationContext();
-
         homeVM = ViewModelProviders.of(this).get(HomeViewModel.class);
         binding.setHomeVM(homeVM);
 
         binding.setLifecycleOwner(this);
 
-        homeVM.setHomeContext(c);
+        SharedPreferences sharedPreferences =getSharedPreferences("edu.kit.pse.fridget.client_preferences",MODE_PRIVATE);
+        String flatshareId =sharedPreferences.getString("flatshareId", "N/A");
+
+        homeVM.setFlatshareId("1");
         homeVM.updateLists();
 
 
@@ -47,18 +50,23 @@ public class HomeActivity extends AppCompatActivity implements LifecycleOwner {
         super.onStart();
         Log.i(TAG, "Calling onStart");
         homeVM.updateLists();
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         Log.i(TAG, "Calling onResume");
+        homeVM.updateLists();
+
+
     }
 
     @Override
     protected void onPause() {
         Log.i(TAG, "Calling onPause");
         super.onPause();
+
     }
 
     @Override
