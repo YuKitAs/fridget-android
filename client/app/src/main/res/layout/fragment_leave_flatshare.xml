@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<FrameLayout
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.LeaveFlatshareFragment">
+
+    <data>
+        <variable
+            name="leaveFragment"
+            type="edu.kit.pse.fridget.client.fragment.LeaveFlatshareFragment" />
+
+    </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -21,7 +29,6 @@
             android:layout_gravity="center"
             android:background="@drawable/fridge_face"
             android:orientation="vertical">
-
 
             <TextView
                 android:layout_width="wrap_content"
@@ -43,7 +50,7 @@
 
 
             <Button
-                android:id="@+id/button8"
+                android:id="@+id/leaveFlatshare"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -52,6 +59,7 @@
                 android:fontFamily="@font/commonsregular"
                 android:text="Leave Flatshare"
                 android:textSize="23sp"
+                android:onClick="@{leaveFragment::onButtonclick}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.465"
@@ -68,3 +76,5 @@
     </RelativeLayout>
 
 </FrameLayout>
+
+</layout>

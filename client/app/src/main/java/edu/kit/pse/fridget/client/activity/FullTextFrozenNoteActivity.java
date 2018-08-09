@@ -1,6 +1,7 @@
 package edu.kit.pse.fridget.client.activity;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -22,6 +23,7 @@ import android.text.SpannableString;
 
 
 public class FullTextFrozenNoteActivity extends AppCompatActivity {
+
     private static final String TAG = FullTextFrozenNoteActivity.class.getSimpleName();
 
     final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -41,19 +43,15 @@ public class FullTextFrozenNoteActivity extends AppCompatActivity {
         final FullFrozenNoteViewModel fullFrozenNoteViewModel = ViewModelProviders.of(this).get(FullFrozenNoteViewModel.class);
         binding.setFullFrozenNoteVM(fullFrozenNoteViewModel);
 
-        TextView titleTV = binding.title;
-        TextView contentTV = binding.content;
-        frozenNote = fullFrozenNoteViewModel.getFrozenNote();
-        titleTV.setText(frozenNote.getTitle());
-        contentTV.setText(frozenNote.getContent());
-        binding.setFrozenNote(frozenNote);
+        Intent i = getIntent();
 
         btnOpenDrawer.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View v) {
-                drawer.openDrawer(GravityCompat.START);
+                drawer.openDrawer(drawer);
             }
         });
+
+
 
     }
 
