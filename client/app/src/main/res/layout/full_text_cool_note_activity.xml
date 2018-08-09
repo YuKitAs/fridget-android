@@ -162,7 +162,6 @@
                         android:buttonTint="#00cdc3"
                         android:fontFamily="@font/commonsregular"
                         android:text="@string/checkbox"
-                        android:onClick="@{fullNoteVM::saveReadStatus}"
                         android:textSize="12sp" />
 
                     <ImageView

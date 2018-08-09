@@ -42,7 +42,6 @@ public class FullTextCoolNoteActivity extends AppCompatActivity {
 
     }
 
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -55,17 +54,19 @@ public class FullTextCoolNoteActivity extends AppCompatActivity {
         //viewmodels
         final FullCoolNoteViewModel fullCoolNoteViewModel = ViewModelProviders.of(this).get(FullCoolNoteViewModel.class);
         binding.setFullNoteVM(fullCoolNoteViewModel);
-        SharedPreferences sharedPreferences =getSharedPreferences("edu.kit.pse.fridget.client_preferences",MODE_PRIVATE);
-        String flatshareId =sharedPreferences.getString("flatshareId", "N/A");
-        String ownMemberId =sharedPreferences.getString("ownMemberId", "N/A");
+        SharedPreferences sharedPreferences = getSharedPreferences("edu.kit.pse.fridget.client_preferences",MODE_PRIVATE);
+        String flatshareId = sharedPreferences.getString("flatshareId", "N/A");
+        String ownMemberId = sharedPreferences.getString("ownMemberId", "N/A");
+        String ownMagnetColor = sharedPreferences.getString("ownMagnetColor", "N/A");
 
         fullCoolNoteViewModel.setFlatshareId(flatshareId);
         fullCoolNoteViewModel.setOwnMemberId(ownMemberId);
+        fullCoolNoteViewModel.setMagnetColor(ownMagnetColor);
 
         String coolNoteId = i.getExtras().get("coolNoteId").toString();
         fullCoolNoteViewModel.getCoolNote(coolNoteId, viewGroup);
         fullCoolNoteViewModel.getMemberList(viewGroup);
-
+        fullCoolNoteViewModel.readConfirmation();
 
     }
 
@@ -82,6 +83,7 @@ public class FullTextCoolNoteActivity extends AppCompatActivity {
         final FullCoolNoteViewModel fullCoolNoteViewModel = ViewModelProviders.of(this).get(FullCoolNoteViewModel.class);
         binding.setFullNoteVM(fullCoolNoteViewModel);
         String coolNoteId = i.getExtras().get("coolNoteId").toString();
+        fullCoolNoteViewModel.setCoolNoteId(coolNoteId);
         fullCoolNoteViewModel.getCoolNote(coolNoteId, viewGroup);
         fullCoolNoteViewModel.getMemberList(viewGroup);
         fullCoolNoteViewModel.getReadstatus(coolNoteId, viewGroup);
@@ -103,6 +105,7 @@ public class FullTextCoolNoteActivity extends AppCompatActivity {
         String coolNoteId = i.getExtras().get("coolNoteId").toString();
         fullCoolNoteViewModel.getCoolNote(coolNoteId, viewGroup);
         fullCoolNoteViewModel.getMemberList(viewGroup);
+        fullCoolNoteViewModel.getReadstatus(coolNoteId, viewGroup);
 
     }
 
@@ -121,6 +124,7 @@ public class FullTextCoolNoteActivity extends AppCompatActivity {
         String coolNoteId = i.getExtras().get("coolNoteId").toString();
         fullCoolNoteViewModel.getCoolNote(coolNoteId, viewGroup);
         fullCoolNoteViewModel.getMemberList(viewGroup);
+        fullCoolNoteViewModel.getReadstatus(coolNoteId, viewGroup);
 
     }
 
