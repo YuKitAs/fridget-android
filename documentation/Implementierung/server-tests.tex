@@ -1,0 +1,519 @@
+%\documentclass[a4paper]{scrreprt}
+
+%\usepackage[german]{babel}
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{ae}
+%\usepackage{tocbasic}
+
+ \subsection{Package edu.kit.pse.fridget.server.models}
+ \subsubsection{\texttt{Class AccessCodeTest}}
+ \textbf{Beschreibung} \\
+ \textit{Unittest für AccessCode}
+ \paragraph*{Methoden}
+ \begin{itemize}
+    	\item{\texttt{public void buildNew()}}
+    	
+    	\textit{Testet, ob ein AccessCode-Objekt richtig gebaut wird}
+ \end{itemize}
+
+ \subsubsection{\texttt{Class CoolNoteTest}}
+ \textbf{Beschreibung} \\
+ \textit{Unittest für für CoolNote}
+ \paragraph*{Methoden}
+ \begin{itemize}
+    	\item{\texttt{public void buildForCreation()}}
+    	
+    	\textit{Testet, ob ein CoolNote-Objekt richtig gebaut wird}
+    	
+    	\item{\texttt{public void buildForFetching()}}
+    	
+    	\textit{Testet, ob ein CoolNote-Objekt mit taggedMembershipIds richtig gebaut wird}
+ \end{itemize}
+
+ \subsubsection{\texttt{Class DeviceTest}}
+ \textbf{Beschreibung} \\
+ \textit{Unittest für für Device}
+ \paragraph*{Methoden}
+ \begin{itemize}
+    	\item{\texttt{public void buildNew()}}
+    	
+    	\textit{Testet, ob ein Device-Objekt richtig gebaut wird}
+ \end{itemize}
+
+ \subsubsection{\texttt{Class FlatshareTest}}
+ \textbf{Beschreibung} \\
+ \textit{Unittest für für Flatshare}
+ \paragraph*{Methoden}
+ \begin{itemize}
+    	\item{\texttt{public String getId()}}
+    	
+    	\textit{Getter für WG-ID}
+ \end{itemize}
+
+ \subsubsection{\texttt{Class MembershipTest}}
+ \textbf{Beschreibung} \\
+ \textit{Unittest für für Membership}
+ \paragraph*{Methoden}
+ \begin{itemize}
+    	\item{\texttt{public void buildNew()}}
+    	
+    	\textit{Testet, ob ein Flatshare-Objekt richtig gebaut wird}
+ \end{itemize}
+ 
+ \subsubsection{\texttt{Class ReadConfirmationTest}}
+ \textbf{Beschreibung} \\
+ \textit{Unittest für für ReadConfirmation}
+ \paragraph*{Methoden}
+ \begin{itemize}
+    	\item{\texttt{public void buildNew()}}
+    	
+    	\textit{Testet, ob ein ReadConfirmation-Objekt richtig gebaut wird}
+ \end{itemize}
+ 
+ \subsubsection{\texttt{Class TaggedMemberTest}}
+ \textbf{Beschreibung} \\
+ \textit{Unittest für TaggedMember}
+ \paragraph*{Methoden}
+ \begin{itemize}
+    	\item{\texttt{public void buildNew()}}
+    	
+    	\textit{Testet, ob ein TaggedMember-Objekt richtig gebaut wird}
+ \end{itemize}
+ 
+ \subsubsection{\texttt{Class UserTest}}
+ \textbf{Beschreibung} \\
+ \textit{Unittest für User}
+ \paragraph*{Methoden}
+ \begin{itemize}
+    	\item{\texttt{public void buildNew()}}
+    	
+    	\textit{Testet, ob ein User-Objekt richtig gebaut wird}
+ \end{itemize}
+
+ \subsection{Package edu.kit.pse.fridget.server.models.representations}
+ \subsubsection{\texttt{Class UserMembershipRepresentationTest}}
+ \textbf{Beschreibung} \\
+ \textit{Unittest für UserMembershipRepresentation}
+ \paragraph*{Methoden}
+ \begin{itemize}
+    	\item{\texttt{public void buildFromUserAndMembership()}}
+    	
+    	\textit{Testet, ob ein UserMembershipRepresentation-Objekt richtig gebaut wird}
+ \end{itemize}
+ 
+ \newpage
+ 
+ \subsection{Package edu.kit.pse.fridget.server.services}
+ \subsubsection{\texttt{Class AccessCodeServiceTest}}
+ \textbf{Beschreibung} \\
+ \textit{Unittest für AccessCodeService}
+ \paragraph*{Methoden}
+ \begin{itemize}
+    	\item{\texttt{public void generateAccessCode()}}
+    	
+    	\textit{Testet, ob ein Zugangscode richtig generiert wird}
+    	
+    	\item{\texttt{public void generateAccessCode\_WithIncorrectFlatshareId()}}
+    	
+    	\textit{Testet, ob eine EntityUnprocessableException geworfen wird, falls die gegebene flatshareId falsch ist}
+ \end{itemize}
+ 
+ \subsubsection{\texttt{Class CoolNoteServiceTest}}
+ \textbf{Beschreibung} \\
+ \textit{Unittest für CoolNoteService}
+\paragraph*{Methoden}
+\begin{itemize}
+      	\item{\texttt{public void getAllCoolNotes\_WithIncorrectFlatshareId()}}
+      	
+      	\textit{Testet, ob eine EntityNotFoundException geworfen wird, falls die gegebene flatshareId falsch ist}
+      	
+      	\item{\texttt{public void getCoolNote\_WithIncorrectId}}
+      	
+      	\textit{Testet, ob eine EntityNotFoundException geworfen wird, falls die gegebene coolNoteId falsch ist}
+      	
+      	\item{\texttt{public void saveCoolNote\_WithIncorrectCreatorMembershipId()}}
+      	
+      	\textit{Testet, ob eine EntityUnprocessableException geworfen wird, falls die gegebene creatorMembershipId falsch ist}
+      	
+      	\item{\texttt{public void saveCoolNote\_WithIncorrectPosition}}
+      	
+      	\textit{Testet, ob eine EntityConflictException geworfen wird, falls die gegebene position falsch ist}
+      	
+      	\item{\texttt{public void deleteCoolNote\_WithIncorrectId}}
+      	
+      	\textit{Testet, ob eine EntityConflictException geworfen wird, falls die gegebene coolNoteId falsch ist}
+\end{itemize}
+
+ \subsubsection{\texttt{Class DeviceServiceTest}}
+ \textbf{Beschreibung} \\
+ \textit{Unittest für DeviceService}
+ \paragraph*{Methoden}
+ \begin{itemize}
+    	\item{\texttt{public void saveDevice\_WithIncorrectUserId()}}
+    	
+    	\textit{Testet, ob eine EntityUnprocessableException geworfen wird, falls die gegebene userId falsch ist}
+
+    	\item{\texttt{public void updateDevice\_WithIncorrectUserId()}}
+    	
+    	\textit{Testet, ob eine EntityUnprocessableException geworfen wird, falls die gegebene userId falsch ist}
+ \end{itemize}
+
+ \subsubsection{\texttt{Class FlatshareServiceTest}}
+ \textbf{Beschreibung} \\
+ \textit{Unittest für Flatshare}
+ \paragraph*{Methoden}
+ \begin{itemize}
+    	\item{\texttt{public void getFlatshare\_WithIncorrectId}}
+    	
+    	\textit{Testet, ob eine EntityNotFoundException geworfen wird, falls die gegebene flatshareId falsch ist}
+    	
+    	\item{\texttt{public void saveFlatshare\_WithIncorrectUserId}}
+    	
+    	\textit{Testet, ob eine EntityUnprocessableException geworfen wird, falls die gegebene userId falsch ist}
+ \end{itemize}
+ 
+ \subsubsection{\texttt{Class FrozenNoteServiceTest}}
+ \textbf{Beschreibung} \\
+ \textit{Unittest für FrozenNote}
+ \paragraph*{Methoden}
+ \begin{itemize}
+    	\item{\texttt{public void getAllFrozenNotes\_WithIncorrectFlatshareId()}}
+    	
+    	\textit{Testet, ob eine EntityNotFoundException geworfen wird, falls die gegebene flatshareId falsch ist}
+    	
+    	\item{\texttt{public void getFrozenNote\_WithIncorrectId()}}
+    	
+    	\textit{Testet, ob eine EntityNotFoundException geworfen wird, falls die gegebene frozenNoteId falsch ist}
+    	
+    	\item{\texttt{public void updateFrozenNote\_WithIncorrectFlatshareId()}}
+    	
+    	\textit{Testet, ob eine EntityUnprocessableException geworfen wird, falls die gegebene flatshareId falsch ist}
+
+    	\item{\texttt{public void updateFrozenNote\_WithIncorrectPosition()}}
+    	
+    	\textit{Testet, ob eine EntityConflictException geworfen wird, falls die gegebene position falsch ist}
+ \end{itemize}
+ 
+ \subsubsection{\texttt{Class MembershipServiceTest}}
+ \textbf{Beschreibung} \\
+ \textit{Unittest für MembershipService}
+ \paragraph*{Methoden}
+ \begin{itemize}
+    	\item{\texttt{public void getAllMembers\_WithIncorrectFlatshareId()}}
+    	
+    	\textit{Testet, ob eine EntityNotFoundException geworfen wird, falls die gegebene flatshareId falsch ist}
+    	
+    	\item{\texttt{public void getMember\_WithIncorrectFlatshareId()}}
+    	
+    	\textit{Testet, ob eine EntityNotFoundException geworfen wird, falls die gegebene flatshareId falsch ist}
+    	
+    	\item{\texttt{public void saveMembership\_WithIncorrectAccessCode()}}
+    	
+    	\textit{Testet, ob eine EntityNotFoundException geworfen wird, falls der gegebene accessCode falsch ist}
+    	
+    	\item{\texttt{public void saveMembership\_WithIncorrectUserId()}}
+    	
+    	\textit{Testet, ob eine EntityUnprocessableException geworfen wird, falls die gegebene userId falsch ist}
+    	
+    	\item{\texttt{public void saveMembership\_WithFullFlatshare()}}
+    	
+    	\textit{Testet, ob eine EntityConflictException geworfen wird, falls die WG schon voll ist}
+    	
+    	\item{\texttt{public void deleteMembership\_WithIncorrectFlatshareId()}}
+    	
+    	\textit{Testet, ob eine EntityConflictException geworfen wird, falls die gegebene flatshareId falsch ist}
+    	
+    	\item{\texttt{public void deleteMembership\_WithIncorrectUserId()}}
+    	
+    	\textit{Testet, ob eine EntityConflictException geworfen wird, falls die gegebene userId falsch ist}
+ \end{itemize}
+ 
+ \subsubsection{\texttt{Class ReadConfirmationServiceTest}}
+ \textbf{Beschreibung} \\
+ \textit{Unittest für ReadConfirmationService}
+ \paragraph*{Methoden}
+ \begin{itemize}
+    	\item{\texttt{public void getAllMemberships\_WithIncorrectCoolNoteId()}}
+    	
+    	\textit{Testet, ob eine EntityNotFoundException geworfen wird, falls die gegebene coolNoteId falsch ist}
+    	
+    	\item{\texttt{public void saveReadConfirmation\_WithIncorrectCoolNoteId()}}
+    	
+    	\textit{Testet, ob eine EntityUnprocessableException geworfen wird, falls die gegebene coolNoteId falsch ist}
+    	
+    	\item{\texttt{public void saveReadConfirmation\_WithIncorrectMembershipId()}}
+    	
+    	\textit{Testet, ob eine EntityUnprocessableException geworfen wird, falls die gegebene membershipId falsch ist}
+    	
+    	\item{\texttt{public void deleteReadConfirmation\_WithIncorrectCoolNoteId()}}
+    	
+    	\textit{Testet, ob eine EntityConflictException geworfen wird, falls die gegebene coolNoteId falsch ist} 
+    	
+    	\item{\texttt{public void deleteReadConfirmation\_WithIncorrectMembershipId()}}
+    	
+    	\textit{Testet, ob eine EntityConflictException geworfen wird, falls die gegebene membershipId falsch ist}
+ \end{itemize}
+
+ \subsubsection{\texttt{Class MagnetColorServiceTest}}
+ \textbf{Beschreibung} \\
+ \textit{Unittest für MagnetColorService}
+\paragraph*{Methoden}
+\begin{itemize}
+	\item{\texttt{public void getRandomColor()}}
+	
+	\textit{Testet, ob eine zufällige Farbe generiert wird}
+	
+	\item{\texttt{public void getAvailableRandomColor()}}
+	
+	\textit{Testet, ob eine verfügbare zufällige Farbe generiert wird}	
+\end{itemize}
+
+\subsubsection{\texttt{Class JwtServiceTest}}
+\textbf{Beschreibung} \\
+\textit{Unittest für JwtService}
+\paragraph*{Methoden}
+\begin{itemize}
+   	\item{\texttt{public void encodeAndDecode\_ReturnsCorrectUserId()}}
+   	
+   	\textit{Testet, ob ein JWT richtig encodiert und decodiert wird}
+\end{itemize}
+
+\newpage
+
+ \subsection{Package edu.kit.pse.fridget.server.controllers}
+ \subsubsection{\texttt{Class AccessCodeControllerIntegrationTest}}
+ \textbf{Beschreibung} \\
+ \textit{Integration Test für AccessCodeController}
+ \paragraph*{Methoden}
+ \begin{itemize}
+ 	\item{\texttt{public void generateAccessCode()}}
+ 	
+ 	\textit{Testet, ob ein Zugangscode als ResponseEntity mit einem entsprechenden Statuscode zurückgegeben wird}
+ 	
+ 	\item{\texttt{public void generateAccessCode\_WithIncorrectFlatshareId\_Returns\-UnprocessableEntity()}}
+ 	
+ 	\textit{Testet, ob eine Fehlermeldung mit einem entsprechenden Statuscode im Response zurückgegeben wird, falls die gegebene flatshareId falsch ist}
+ \end{itemize}
+ 
+ \subsubsection{\texttt{Class CoolNoteControllerIntegrationTest}}
+ \textbf{Beschreibung} \\
+ \textit{Integration Test für CoolNoteController}
+ \paragraph*{Methoden}
+ \begin{itemize}
+ 	\item{\texttt{public void getAllCoolNotes()}}
+ 	
+ 	\textit{Testet, ob alle Cool Notes als ResponseEntity mit einem entsprechenden Statuscode zurückgegeben werden}
+ 	
+ 	\item{\texttt{public void getAllCoolNotes\_WithIncorrectFlatshareId()}}
+ 	
+ 	\textit{Testet, ob eine Fehlermeldung mit einem entsprechenden Statuscode im Response zurückgegeben wird, falls die gegebene flatshareId falsch ist}
+ 	
+ 	\item{\texttt{public void getCoolNote()}}
+ 	
+ 	\textit{Testet, ob eine Cool Note als ResponseEntity mit einem entsprechenden Statuscode zurückgegeben wird}
+ 	
+ 	\item{\texttt{public void getCoolNote\_WithIncorrectId()}}
+ 	
+ 	\textit{Testet, ob eine Fehlermeldung mit einem entsprechenden Statuscode im Response zurückgegeben wird, falls die gegebene coolNoteId falsch ist}
+ 	
+ 	\item{\texttt{public void saveCoolNote()}}
+ 	
+ 	\textit{Testet, ob eine Cool Note als ResponseEntity mit einem entsprechenden Statuscode zurückgegeben wird}
+ 	
+ 	\item{\texttt{public void saveCoolNote\_WithIncorrectCreatorMembershipId\_Returns\-UnprocessableEntity()}}
+ 	
+ 	\textit{Testet, ob eine Fehlermeldung mit einem entsprechenden Statuscode im Response zurückgegeben wird, falls die gegebene creatorMembershipId falsch ist}
+ 	
+ 	\item{\texttt{public void saveCoolNote\_WithIncorrectPosition\_ReturnsConflict()}}
+ 	
+ 	\textit{Testet, ob eine Fehlermeldung mit einem entsprechenden Statuscode im Response zurückgegeben wird, falls die gegebene position falsch ist}
+ 	
+ 	\item{\texttt{public void deleteCoolNote()}}
+ 	
+ 	\textit{Testet, ob ein entsprechender Statuscode im Response zurückgegeben wird}
+ 	
+ 	\item{\texttt{public void deleteCoolNote\_WithIncorrectId\_ReturnsConflict}}
+ 	
+ 	\textit{Testet, ob eine Fehlermeldung mit einem entsprechenden Statuscode im Response zurückgegeben wird, falls die gegebene coolNoteId falsch ist}
+ \end{itemize}
+ 
+ \subsubsection{\texttt{Class DeviceControllerIntegrationTest}}
+ \textbf{Beschreibung} \\
+ \textit{Integration Test für DeviceController}
+ \paragraph*{Methoden}
+ \begin{itemize}
+ 	\item{\texttt{public void saveDevice()}}
+ 	
+ 	\textit{Testet, ob ein Device als ResponseEntity mit einem entsprechenden Statuscode zurückgegeben wird}
+ 	
+ 	\item{\texttt{public void saveDevice\_WithIncorrectUserId()}}
+ 	
+ 	\textit{Testet, ob eine Fehlermeldung mit einem entsprechenden Statuscode im Response zurückgegeben wird, falls die gegebene userId falsch ist}
+ 	
+ 	\item{\texttt{public void updateDevice()}}
+ 	
+ 	\textit{Testet, ob ein Device als ResponseEntity mit einem entsprechenden Statuscode zurückgegeben wird}
+ 	
+ 	\item{\texttt{public void updateDevice\_WithIncorrectUserId\_Returns\-UnprocessableEntity()}}
+ 	
+ 	\textit{Testet, ob eine Fehlermeldung mit einem entsprechenden Statuscode im Response zurückgegeben wird, falls die gegebene userId falsch ist}
+ \end{itemize}
+ 
+ \subsubsection{\texttt{Class FlatshareControllerIntegrationTest}}
+ \textbf{Beschreibung} \\
+ \textit{Integration Test für FlatshareController}
+ \paragraph*{Methoden}
+ \begin{itemize}
+ 	\item{\texttt{public void getFlatshare()}}
+ 	
+ 	\textit{Testet, ob eine Flatshare als ResponseEntity mit einem entsprechenden Statuscode zurückgegeben wird}
+ 	
+ 	\item{\texttt{public void getFlatshre\_WithIncorrectId\_ReturnsNotFound()}}
+ 	
+ 	\textit{Testet, ob eine Fehlermeldung mit einem entsprechenden Statuscode im Response zurückgegeben wird, falls die gegebene flatshareId falsch ist}
+ 	
+ 	\item{\texttt{public void saveFlatshare()}}
+ 	
+ 	\textit{Testet, ob eine Flatshare als ResponseEntity mit einem entsprechenden Statuscode zurückgegeben wird}
+ 	
+ 	\item{\texttt{public void saveFlatshare\_WithIncorrectUserId\_Returns\-UnprocessableEntity}}
+ 	
+ 	\textit{Testet, ob eine Fehlermeldung mit einem entsprechenden Statuscode im Response zurückgegeben wird, falls die gegebene userId falsch ist}
+ \end{itemize}
+ 
+ \subsubsection{\texttt{Class FrozenNoteControllerIntegrationTest}}
+ \textbf{Beschreibung} \\
+ \textit{Integration Test für FrozenNoteController}
+ \paragraph*{Methoden}
+ \begin{itemize}
+ 	\item{\texttt{public void getAllFrozenNotes()}}
+ 	
+ 	\textit{Testet, ob alle Frozen Notes als ResponseEntity mit einem entsprechenden Statuscode zurückgegeben werden}
+ 	
+ 	\item{\texttt{public void getAllFrozenNotes\_WithIncorrectFlatshareId()}}
+ 	
+ 	\textit{Testet, ob eine Fehlermeldung mit einem entsprechenden Statuscode im Response zurückgegeben wird, falls die gegebene flatshareId falsch ist}
+ 	
+ 	\item{\texttt{public void getFrozenNote()}}
+ 	
+ 	\textit{Testet, ob eine Frozen Note als ResponseEntity mit einem entsprechenden Statuscode zurückgegeben wird}
+ 	
+ 	\item{\texttt{public void getFrozenNote\_WithIncorrectId()}}
+ 	
+ 	\textit{Testet, ob eine Fehlermeldung mit einem entsprechenden Statuscode im Response zurückgegeben wird, falls die gegebene frozenNoteId falsch ist}
+ 	
+ 	\item{\texttt{public void updateFrozenNote()}}
+ 	
+ 	\textit{Testet, ob eine Frozen Note als ResponseEntity mit einem entsprechenden Statuscode zurückgegeben wird}
+ 	
+ 	\item{\texttt{public void updateFrozenNote\_WithIncorrectFlatshareId\_Returns\-UnprocessableEntity()}}
+ 	
+ 	\textit{Testet, ob eine Fehlermeldung mit einem entsprechenden Statuscode im Response zurückgegeben wird, falls die gegebene flatshareId falsch ist}
+ 	
+ 	\item{\texttt{public void updateFrozenNote\_WithIncorrectPosition\_ReturnsConflict()}}
+ 	
+ 	\textit{Testet, ob eine Fehlermeldung mit einem entsprechenden Statuscode im Response zurückgegeben wird, falls die gegebene position falsch ist}
+ \end{itemize}
+ 
+ \subsubsection{\texttt{Class MembershipControllerIntegrationTest}}
+ \textbf{Beschreibung} \\
+ \textit{Integration Test für MembershipController}
+ \paragraph*{Methoden}
+ \begin{itemize}
+ 	\item{\texttt{public void getAllMembers()}}
+ 	
+ 	\textit{Testet, ob alle Members als ResponseEntity mit einem entsprechenden Statuscode zurückgegeben werden}
+ 	
+ 	\item{\texttt{public void getAllMembers\_WithIncorrectFlatshareId()}}
+ 	
+ 	\textit{Testet, ob eine Fehlermeldung mit einem entsprechenden Statuscode im Response zurückgegeben wird, falls die gegebene flatshareId falsch ist}
+ 	
+ 	\item{\texttt{public void getMember()}}
+ 	
+ 	\textit{Testet, ob ein Member als ResponseEntity mit einem entsprechenden Statuscode zurückgegeben wird}
+ 	
+ 	\item{\texttt{public void getMember\_WithIncorrectUserId()}}
+ 	
+ 	\textit{Testet, ob eine Fehlermeldung mit einem entsprechenden Statuscode im Response zurückgegeben wird, falls die gegebene userId falsch ist}
+ 	
+ 	\item{\texttt{public void getMember\_WithIncorrectFlatshareId()}}
+ 	
+ 	\textit{Testet, ob eine Fehlermeldung mit einem entsprechenden Statuscode im Response zurückgegeben wird, falls die gegebene flatshareId falsch ist}
+ 	
+ 	\item{\texttt{public void saveMembership\_WithAccessCodeDeleted()}}
+ 	
+ 	\textit{Testet, ob ein Member als ResponseEntity mit einem entsprechenden Statuscode zurückgegeben wird und der Zugangscode gelöscht wird}
+ 	
+ 	\item{\texttt{public void saveMembership\_WithIncorrectAccessCode\_ReturnsNotFound()}}
+ 	
+ 	\textit{Testet, ob eine Fehlermeldung mit einem entsprechenden Statuscode im Response zurückgegeben wird, falls der gegebene Zugangscode falsch ist}
+ 	
+ 	\item{\texttt{public void saveMembership\_WithIncorrectUserId\_Returns\-UnprocessableEntity()}}
+ 	
+ 	\textit{Testet, ob eine Fehlermeldung mit einem entsprechenden Statuscode im Response zurückgegeben wird, falls die gegebene userId falsch ist}
+ 	
+ 	\item{\texttt{public void saveMembership\_WithExistedUserId\_ReturnsConflict()}}
+ 	
+ 	\textit{Testet, ob eine Fehlermeldung mit einem entsprechenden Statuscode im Response zurückgegeben wird, falls das Member schon existiert}
+ 	
+ 	\item{\texttt{public void deleteMembership()}}
+ 	
+ 	\textit{Testet, ob ein entsprechender Statuscode im Response zurückgegeben wird}
+ 	
+ 	\item{\texttt{public void deleteMembership\_WithIncorrectFlatshareId\_ReturnsConflict()}}
+ 	
+ 	\textit{Testet, ob eine Fehlermeldung mit einem entsprechenden Statuscode im Response zurückgegeben wird, falls die gegebene flatshareId falsch ist}
+ 	
+ 	\item{\texttt{public void deleteMembership\_WithIncorrectUserId\_ReturnsConflict()}}
+ 	
+ 	\textit{Testet, ob eine Fehlermeldung mit einem entsprechenden Statuscode im Response zurückgegeben wird, falls die gegebene userId falsch ist}
+ \end{itemize}
+ 
+ \subsubsection{\texttt{Class ReadConfirmationControllerIntegrationTest}}
+ \textbf{Beschreibung} \\
+ \textit{Integration Test für ReadConfirmationController}
+ \paragraph*{Methoden}
+ \begin{itemize}
+ 	\item{\texttt{public void getAllMemberships()}}
+ 	
+ 	\textit{Testet, ob alle Members als ResponseEntity mit einem entsprechenden Statuscode zurückgegeben werden}
+ 	
+ 	\item{\texttt{public void getAllMemberships\_WithIncorrectCoolNoteId()}}
+ 	
+ 	\textit{Testet, ob eine Fehlermeldung mit einem entsprechenden Statuscode im Response zurückgegeben wird, falls die gegebene coolNoteId falsch ist}
+ 	
+ 	\item{\texttt{public void saveReadConfirmation()}}
+ 	
+ 	\textit{Testet, ob eine Lesebestätigung als ResponseEntity mit einem entsprechenden Statuscode zurückgegeben wird}
+ 	
+ 	\item{\texttt{public void saveReadConfirmation\_WithIncorrectMembershipId\_Returns\-UnprocessableEntity()}}
+ 	
+ 	\textit{Testet, ob eine Fehlermeldung mit einem entsprechenden Statuscode im Response zurückgegeben wird, falls die gegebene membershipId falsch ist}
+ 	
+ 	\item{\texttt{public void saveReadConfirmation\_WithIncorrectCoolNoteId\_Returns\-UnprocessableEntity()}}
+ 	
+ 	\textit{Testet, ob eine Fehlermeldung mit einem entsprechenden Statuscode im Response zurückgegeben wird, falls die gegebene coolNoteId falsch ist}
+ 	
+ 	\item{\texttt{public void deleteReadConfirmation()}}
+ 	
+ 	\textit{Testet, ob ein entsprechender Statuscode im Response zurückgegeben wird}
+ 	
+ 	\item{\texttt{public void deleteReadConfirmation\_WithIncorrectCoolNoteId\_Returns\-Conflict()}}
+ 	
+ 	\textit{Testet, ob eine Fehlermeldung mit einem entsprechenden Statuscode im Response zurückgegeben wird, falls die gegebene coolNoteId falsch ist}
+ 	
+ 	\item{\texttt{public void deleteReadConfirmation\_WithIncorrectMembershipId\_Returns\-Conflict()}}
+ 	
+ 	\textit{Testet, ob eine Fehlermeldung mit einem entsprechenden Statuscode im Response zurückgegeben wird, falls die gegebene membershipId falsch ist} 	
+ \end{itemize}
+ 
+ \subsubsection{\texttt{Class UserControllerIntegrationTest}}
+ \textbf{Beschreibung} \\
+ \textit{Integration Test für UserController}
+ \paragraph*{Methoden}
+ \begin{itemize}
+ 	\item{\texttt{public void registerOrLogin\_WithIdToken()}}
+ 	
+ 	\textit{Testet, ob ein Benutzer als ResponseEntity mit einem entsprechenden Statuscode zurückgegeben wird}
+ \end{itemize}

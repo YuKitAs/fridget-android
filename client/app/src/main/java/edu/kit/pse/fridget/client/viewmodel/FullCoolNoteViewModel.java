@@ -32,6 +32,16 @@ import retrofit2.Response;
 public class FullCoolNoteViewModel extends ViewModel {
 
     private CoolNote coolNote;
+    private String coolNoteId;
+    private List<ReadConfirmationCommand> readConfirmations = new ArrayList<>(15);
+
+    public List<ReadConfirmationCommand> getReadConfirmations() {
+        return readConfirmations;
+    }
+
+    public void setCoolNoteId(String id) {
+        this.coolNoteId = id;
+    }
 
     public CoolNote getCoolNote() {
         return coolNote;
@@ -45,6 +55,7 @@ public class FullCoolNoteViewModel extends ViewModel {
 
     private String flatshareId;
     private String ownMemberId;
+    private String ownMagnetColor;
 
     private List<GetMemberCommand> memberList = new ArrayList<>(15);
 
@@ -62,82 +73,15 @@ public class FullCoolNoteViewModel extends ViewModel {
         this.ownMemberId = id;
     }
 
+    public void setMagnetColor(String magnetColor) {
+        this.ownMagnetColor = magnetColor;
+    }
+
     private int[] magnetColors = new int[14];
 
     public int[] getMagnetColors() {
         return magnetColors;
     }
-
-    /*private int magnetColor1 = Color.parseColor("#" + magnetColors[0]);
-    private int magnetColor2 = Color.parseColor("#" + magnetColors[1]);
-    private int magnetColor3 = Color.parseColor("#" + magnetColors[2]);
-    private int magnetColor4 = Color.parseColor("#" + magnetColors[3]);
-    private int magnetColor5 = Color.parseColor("#" + magnetColors[4]);
-    private int magnetColor6 = Color.parseColor("#" + magnetColors[5]);
-    private int magnetColor7 = Color.parseColor("#" + magnetColors[6]);
-    private int magnetColor8 = Color.parseColor("#" + magnetColors[7]);
-    private int magnetColor9 = Color.parseColor("#" + magnetColors[8]);
-    private int magnetColor10 = Color.parseColor("#" + magnetColors[9]);
-    private int magnetColor11 = Color.parseColor("#" + magnetColors[10]);
-    private int magnetColor12 = Color.parseColor("#" + magnetColors[11]);
-    private int magnetColor13 = Color.parseColor("#" + magnetColors[12]);
-    private int magnetColor14 = Color.parseColor("#" + magnetColors[13]);*/
-
-    /*public int getMagnetColor1() {
-        return magnetColor1;
-    }
-
-    public int getMagnetColor2() {
-        return magnetColor2;
-    }
-
-    public int getMagnetColor3() {
-        return magnetColor3;
-    }
-
-    public int getMagnetColor4() {
-        return magnetColor4;
-    }
-
-    public int getMagnetColor5() {
-        return magnetColor5;
-    }
-
-    public int getMagnetColor6() {
-        return magnetColor6;
-    }
-
-    public int getMagnetColor7() {
-        return magnetColor7;
-    }
-
-    public int getMagnetColor8() {
-        return magnetColor8;
-    }
-
-    public int getMagnetColor9() {
-        return magnetColor9;
-    }
-
-    public int getMagnetColor10() {
-        return magnetColor10;
-    }
-
-    public int getMagnetColor11() {
-        return magnetColor11;
-    }
-
-    public int getMagnetColor12() {
-        return magnetColor12;
-    }
-
-    public int getMagnetColor13() {
-        return magnetColor13;
-    }
-
-    public int getMagnetColor14() {
-        return magnetColor14;
-    }*/
 
     public void getCoolNote(String coolNoteId, View v) {
         RetrofitClientInstance.getRetrofitInstance().create(CoolNoteService.class).getCoolNote(coolNoteId).enqueue(new Callback<CoolNote>() {
@@ -151,6 +95,9 @@ public class FullCoolNoteViewModel extends ViewModel {
                         if (coolNote.getCreatorMembershipId().equals(mList.get(i).getMemberId())) {
                             magnetColor = Color.parseColor("#"+ mList.get(i).getMagnetColor());
                         }
+                        /*if (readConfirmations.get(i).getMagnetColor().equals(ownMagnetColor)) {
+                            saveReadStatus();
+                        }*/
                     }
                 }
             }
@@ -189,33 +136,12 @@ public class FullCoolNoteViewModel extends ViewModel {
         return memberList;
     }
 
-    /*private int[] getMagnetColors(Member[] memberlist) {
-        memberlist = getMemberList();
-        magnetColors = new int[15];
-        for(int i = 0; i < memberlist.length; i++) {
-            if (coolNote != null) {
-                magnetColors[i] = Color.parseColor("#" + memberlist[i].getMagnetColor());
-            }
-        }
-        return magnetColors;
-    }
-
-    private int getMemberColorbyUserId(String id, Member[] memberlist) {
-        memberlist = this.getMemberList();
-        for (Member m : memberlist) {
-            if (m.getId().equals(id)) {
-                return Color.parseColor(m.getMagnetColor());
-            }
-        }
-        return Color.parseColor("#000000");
-    }*/
-
     //lesebestätigung
-    public void getReadstatus(String coolNoteId, View v) {
+    public List<ReadConfirmationCommand> getReadstatus(String coolNoteId, View v) {
         RetrofitClientInstance.getRetrofitInstance().create(ReadConfirmationService.class).getReadStatus(coolNoteId).enqueue(new Callback<List<ReadConfirmationCommand>>() {
             @Override
             public void onResponse(Call<List<ReadConfirmationCommand>> call, Response<List<ReadConfirmationCommand>> response) {
-                List<ReadConfirmationCommand> readConfirmations = response.body();
+                readConfirmations = response.body();
                 if(readConfirmations != null) {
                     Log.i("getReadConfirmations", String.format("Read confirmations %s fetched.", new Gson().toJson(readConfirmations)));
                     for (int i = 0; i < readConfirmations.size(); i++) {
@@ -229,11 +155,12 @@ public class FullCoolNoteViewModel extends ViewModel {
                 Log.e("getReadConfirmations", "Fetching read confirmations %s failed.");
             }
         });
+        return readConfirmations;
     }
 
     //save checkbox status
-    public void saveReadStatus(View v) {
-        ReadConfirmation readConfirmation = new ReadConfirmation(null, coolNote.getId(), coolNote.getCreatorMembershipId());
+    private void saveReadStatus() {
+        ReadConfirmation readConfirmation = new ReadConfirmation(null, coolNoteId, ownMemberId);
         RetrofitClientInstance.getRetrofitInstance().create(ReadConfirmationService.class).createReadStatus(readConfirmation).enqueue(new Callback<ReadConfirmation>() {
             @Override
             public void onResponse(Call<ReadConfirmation> call, Response<ReadConfirmation> response) {
@@ -248,9 +175,22 @@ public class FullCoolNoteViewModel extends ViewModel {
         });
     }
 
+    public void readConfirmation() {
+        if(readConfirmations != null) {
+            for (int j = 0; j < readConfirmations.size(); j++) {
+                if (!readConfirmations.get(j).getMagnetColor().equals(ownMagnetColor) && (getMagnetColor() != Color.parseColor("#" + ownMagnetColor))) {
+                    saveReadStatus();
+                }
+            }
+        }
+        else if (getMagnetColor() != Color.parseColor("#" + ownMagnetColor)){
+            saveReadStatus();
+        }
+    }
+
     //delete checkbox status
-    public void deleteReadStatus(View v) {
-        RetrofitClientInstance.getRetrofitInstance().create(ReadConfirmationService.class).deleteReadStatus(coolNote.getId(), coolNote.getCreatorMembershipId()).enqueue(new Callback<Void>() {
+    public void deleteReadStatus() {
+        RetrofitClientInstance.getRetrofitInstance().create(ReadConfirmationService.class).deleteReadStatus(coolNoteId, ownMemberId).enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 Void body = response.body();
@@ -286,7 +226,7 @@ public class FullCoolNoteViewModel extends ViewModel {
         //}
     }
 
-    public void deleteCoolNote(View v) {
+    private void deleteCoolNote(View v) {
 
         final Context context = v.getContext();
         Intent intent = new Intent(context, HomeActivity.class);
