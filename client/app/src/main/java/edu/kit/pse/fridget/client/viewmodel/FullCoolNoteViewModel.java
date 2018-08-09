@@ -20,6 +20,7 @@ import edu.kit.pse.fridget.client.activity.HomeActivity;
 import edu.kit.pse.fridget.client.datamodel.CoolNote;
 import edu.kit.pse.fridget.client.datamodel.ReadConfirmation;
 import edu.kit.pse.fridget.client.datamodel.command.GetMemberCommand;
+import edu.kit.pse.fridget.client.datamodel.command.ReadConfirmationCommand;
 import edu.kit.pse.fridget.client.service.CoolNoteService;
 import edu.kit.pse.fridget.client.service.MembershipService;
 import edu.kit.pse.fridget.client.service.ReadConfirmationService;
@@ -42,6 +43,8 @@ public class FullCoolNoteViewModel extends ViewModel {
         return magnetColor;
     }
 
+    private String flatshareId;
+    private String ownMemberId;
 
     private List<GetMemberCommand> memberList = new ArrayList<>(15);
 
@@ -51,39 +54,36 @@ public class FullCoolNoteViewModel extends ViewModel {
 
     private SharedPreferencesData sharedPreferencesData =new SharedPreferencesData();
 
-    private int magnetColor1;
-    private int magnetColor2;
-    private int magnetColor3;
-    private int magnetColor4;
-    private int magnetColor5;
-    private int magnetColor6;
-    private int magnetColor7;
-    private int magnetColor8;
-    private int magnetColor9;
-    private int magnetColor10;
-    private int magnetColor11;
-    private int magnetColor12;
-    private int magnetColor13;
-    private int magnetColor14;
+    public void setFlatshareId(String id) {
+        this.flatshareId = id;
+    }
 
-    private int[] magnetColors = new int[]{
-            magnetColor1,
-            magnetColor2,
-            magnetColor3,
-            magnetColor4,
-            magnetColor5,
-            magnetColor6,
-            magnetColor7,
-            magnetColor8,
-            magnetColor9,
-            magnetColor10,
-            magnetColor11,
-            magnetColor12,
-            magnetColor13,
-            magnetColor14
-    };
+    public void setOwnMemberId(String id) {
+        this.ownMemberId = id;
+    }
 
-    public int getMagnetColor1() {
+    private int[] magnetColors = new int[14];
+
+    public int[] getMagnetColors() {
+        return magnetColors;
+    }
+
+    /*private int magnetColor1 = Color.parseColor("#" + magnetColors[0]);
+    private int magnetColor2 = Color.parseColor("#" + magnetColors[1]);
+    private int magnetColor3 = Color.parseColor("#" + magnetColors[2]);
+    private int magnetColor4 = Color.parseColor("#" + magnetColors[3]);
+    private int magnetColor5 = Color.parseColor("#" + magnetColors[4]);
+    private int magnetColor6 = Color.parseColor("#" + magnetColors[5]);
+    private int magnetColor7 = Color.parseColor("#" + magnetColors[6]);
+    private int magnetColor8 = Color.parseColor("#" + magnetColors[7]);
+    private int magnetColor9 = Color.parseColor("#" + magnetColors[8]);
+    private int magnetColor10 = Color.parseColor("#" + magnetColors[9]);
+    private int magnetColor11 = Color.parseColor("#" + magnetColors[10]);
+    private int magnetColor12 = Color.parseColor("#" + magnetColors[11]);
+    private int magnetColor13 = Color.parseColor("#" + magnetColors[12]);
+    private int magnetColor14 = Color.parseColor("#" + magnetColors[13]);*/
+
+    /*public int getMagnetColor1() {
         return magnetColor1;
     }
 
@@ -124,20 +124,20 @@ public class FullCoolNoteViewModel extends ViewModel {
     }
 
     public int getMagnetColor11() {
-        return magnetColor6;
+        return magnetColor11;
     }
 
     public int getMagnetColor12() {
-        return magnetColor6;
+        return magnetColor12;
     }
 
     public int getMagnetColor13() {
-        return magnetColor6;
+        return magnetColor13;
     }
 
     public int getMagnetColor14() {
-        return magnetColor6;
-    }
+        return magnetColor14;
+    }*/
 
     public void getCoolNote(String coolNoteId, View v) {
         RetrofitClientInstance.getRetrofitInstance().create(CoolNoteService.class).getCoolNote(coolNoteId).enqueue(new Callback<CoolNote>() {
@@ -211,25 +211,21 @@ public class FullCoolNoteViewModel extends ViewModel {
     }*/
 
     //lesebestätigung
-    public void getReadstatus(String coolNoteId) {
-        RetrofitClientInstance.getRetrofitInstance().create(ReadConfirmationService.class).getReadStatus(coolNoteId).enqueue(new Callback<List<ReadConfirmation>>() {
+    public void getReadstatus(String coolNoteId, View v) {
+        RetrofitClientInstance.getRetrofitInstance().create(ReadConfirmationService.class).getReadStatus(coolNoteId).enqueue(new Callback<List<ReadConfirmationCommand>>() {
             @Override
-            public void onResponse(Call<List<ReadConfirmation>> call, Response<List<ReadConfirmation>> response) {
-                List<ReadConfirmation> body = response.body();
-                if(body != null) {
-                    Log.i("getReadConfirmations", String.format("Read confirmations %s fetched.", new Gson().toJson(body)));
-
-                    for (int i = 0; i <= body.size(); i++) {
-                        ReadConfirmation readConfirmation = body.get(i);
-                        if (readConfirmation.getMembershipId().equals(memberList.get(i))) {
-                            magnetColors[i] = Color.parseColor(memberList.get(i).getMagnetColor());
-                        }
+            public void onResponse(Call<List<ReadConfirmationCommand>> call, Response<List<ReadConfirmationCommand>> response) {
+                List<ReadConfirmationCommand> readConfirmations = response.body();
+                if(readConfirmations != null) {
+                    Log.i("getReadConfirmations", String.format("Read confirmations %s fetched.", new Gson().toJson(readConfirmations)));
+                    for (int i = 0; i < readConfirmations.size(); i++) {
+                        magnetColors[i] = Color.parseColor("#" + readConfirmations.get(i).getMagnetColor());
                     }
                 }
             }
 
             @Override
-            public void onFailure(Call<List<ReadConfirmation>> call, Throwable t) {
+            public void onFailure(Call<List<ReadConfirmationCommand>> call, Throwable t) {
                 Log.e("getReadConfirmations", "Fetching read confirmations %s failed.");
             }
         });
@@ -292,31 +288,31 @@ public class FullCoolNoteViewModel extends ViewModel {
 
     public void deleteCoolNote(View v) {
 
-        String ownMemberId = sharedPreferencesData.getSharedPreferencesData("ownMemberId", v);
         final Context context = v.getContext();
         Intent intent = new Intent(context, HomeActivity.class);
 
-        RetrofitClientInstance.getRetrofitInstance().create(CoolNoteService.class).deleteCoolNote(coolNote.getId()).enqueue(new Callback<Void>() {
-            @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
+        if (coolNote.getCreatorMembershipId().equals(ownMemberId)) {
+            RetrofitClientInstance.getRetrofitInstance().create(CoolNoteService.class).deleteCoolNote(coolNote.getId()).enqueue(new Callback<Void>() {
+                @Override
+                public void onResponse(Call<Void> call, Response<Void> response) {
 
-                Void body = response.body();
-                if(body == null) {
-                    if (coolNote.getCreatorMembershipId() == ownMemberId) {
+                    Void body = response.body();
+                    if (body == null) {
                         Log.i("Deleted Cool Note", String.format("Cool Note %s deleted.", new Gson().toJson(null)));
                         context.startActivity(intent);
                     }
-                }
-                else{
-                    Toast.makeText(context, "This is not your Cool Note! You are not allowed to delete it!", Toast.LENGTH_LONG).show();
-                }
-            }
 
-            @Override
-            public void onFailure(Call<Void> call, Throwable t) {
-                Log.e("Delete Cool Note", "Deleting Cool Note %s failed.");
-            }
-        });
+                }
+
+                @Override
+                public void onFailure(Call<Void> call, Throwable t) {
+                    Log.e("Delete Cool Note", "Deleting Cool Note %s failed.");
+                }
+            });
+        }
+        else{
+            Toast.makeText(context, "This is not your Cool Note! You are not allowed to delete it!", Toast.LENGTH_LONG).show();
+        }
     }
 
     public void goBack(View v) {

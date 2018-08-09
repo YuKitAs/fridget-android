@@ -2,6 +2,7 @@ package edu.kit.pse.fridget.client.activity;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -54,6 +55,13 @@ public class FullTextCoolNoteActivity extends AppCompatActivity {
         //viewmodels
         final FullCoolNoteViewModel fullCoolNoteViewModel = ViewModelProviders.of(this).get(FullCoolNoteViewModel.class);
         binding.setFullNoteVM(fullCoolNoteViewModel);
+        SharedPreferences sharedPreferences =getSharedPreferences("edu.kit.pse.fridget.client_preferences",MODE_PRIVATE);
+        String flatshareId =sharedPreferences.getString("flatshareId", "N/A");
+        String ownMemberId =sharedPreferences.getString("ownMemberId", "N/A");
+
+        fullCoolNoteViewModel.setFlatshareId(flatshareId);
+        fullCoolNoteViewModel.setOwnMemberId(ownMemberId);
+
         String coolNoteId = i.getExtras().get("coolNoteId").toString();
         fullCoolNoteViewModel.getCoolNote(coolNoteId, viewGroup);
         fullCoolNoteViewModel.getMemberList(viewGroup);
@@ -76,6 +84,7 @@ public class FullTextCoolNoteActivity extends AppCompatActivity {
         String coolNoteId = i.getExtras().get("coolNoteId").toString();
         fullCoolNoteViewModel.getCoolNote(coolNoteId, viewGroup);
         fullCoolNoteViewModel.getMemberList(viewGroup);
+        fullCoolNoteViewModel.getReadstatus(coolNoteId, viewGroup);
 
     }
 
