@@ -24,14 +24,14 @@ public class FullTextCoolNoteActivity extends AppCompatActivity {
         FullTextCoolNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.full_text_cool_note_activity);
 
         //viewmodels
-        final FullCoolNoteViewModel fullCoolNoteViewModel = ViewModelProviders.of(this).get(FullCoolNoteViewModel.class);
-        binding.setFullNoteVM(fullCoolNoteViewModel);
 
         Intent i = getIntent();
         final ViewGroup viewGroup = (ViewGroup) ((ViewGroup) this
                 .findViewById(android.R.id.content)).getChildAt(0);
-        //String coolNoteId = i.getExtras().get("coolNoteId").toString();
+        final FullCoolNoteViewModel fullCoolNoteViewModel = ViewModelProviders.of(this).get(FullCoolNoteViewModel.class);
+        binding.setFullNoteVM(fullCoolNoteViewModel);
         fullCoolNoteViewModel.getCoolNote("2eb5a862-9a17-4ac1-b07b-d81337df111f", viewGroup);
+        //String coolNoteId = i.getExtras().get("coolNoteId").toString();
         //fullCoolNoteViewModel.getMemberList("c48a9caa-1c98-4f15-a2ca-5048c497b0f5");
         //fullCoolNoteViewModel.getReadstatus("72f795d8-a746-4db7-860a-98a24704d571");
         //GradientDrawable drawable = (GradientDrawable) getDrawable(R.drawable.magnet);
@@ -44,24 +44,65 @@ public class FullTextCoolNoteActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         Log.i(TAG, "Calling onStart");
+        FullTextCoolNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.full_text_cool_note_activity);
+        Intent i = getIntent();
+        final ViewGroup viewGroup = (ViewGroup) ((ViewGroup) this
+                .findViewById(android.R.id.content)).getChildAt(0);
+
+        //viewmodels
+        final FullCoolNoteViewModel fullCoolNoteViewModel = ViewModelProviders.of(this).get(FullCoolNoteViewModel.class);
+        binding.setFullNoteVM(fullCoolNoteViewModel);
+        fullCoolNoteViewModel.getCoolNote("2eb5a862-9a17-4ac1-b07b-d81337df111f", viewGroup);
+
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         Log.i(TAG, "Calling onResume");
+        FullTextCoolNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.full_text_cool_note_activity);
+        Intent i = getIntent();
+        final ViewGroup viewGroup = (ViewGroup) ((ViewGroup) this
+                .findViewById(android.R.id.content)).getChildAt(0);
+
+        //viewmodels
+        final FullCoolNoteViewModel fullCoolNoteViewModel = ViewModelProviders.of(this).get(FullCoolNoteViewModel.class);
+        binding.setFullNoteVM(fullCoolNoteViewModel);
+        fullCoolNoteViewModel.getCoolNote("2eb5a862-9a17-4ac1-b07b-d81337df111f", viewGroup);
+
     }
 
     @Override
     protected void onPause() {
         Log.i(TAG, "Calling onPause");
         super.onPause();
+        FullTextCoolNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.full_text_cool_note_activity);
+        Intent i = getIntent();
+        final ViewGroup viewGroup = (ViewGroup) ((ViewGroup) this
+                .findViewById(android.R.id.content)).getChildAt(0);
+
+        //viewmodels
+        final FullCoolNoteViewModel fullCoolNoteViewModel = ViewModelProviders.of(this).get(FullCoolNoteViewModel.class);
+        binding.setFullNoteVM(fullCoolNoteViewModel);
+        fullCoolNoteViewModel.getCoolNote("2eb5a862-9a17-4ac1-b07b-d81337df111f", viewGroup);
+
     }
 
     @Override
     protected void onStop() {
         Log.i(TAG, "Calling onStop");
         super.onStop();
+        FullTextCoolNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.full_text_cool_note_activity);
+        Intent i = getIntent();
+        final ViewGroup viewGroup = (ViewGroup) ((ViewGroup) this
+                .findViewById(android.R.id.content)).getChildAt(0);
+
+        //viewmodels
+        final FullCoolNoteViewModel fullCoolNoteViewModel = ViewModelProviders.of(this).get(FullCoolNoteViewModel.class);
+        binding.setFullNoteVM(fullCoolNoteViewModel);
+        fullCoolNoteViewModel.getCoolNote("a789eee5-c64e-4100-8a6e-5e09b4bc2f92", viewGroup);
+
     }
 
     @Override

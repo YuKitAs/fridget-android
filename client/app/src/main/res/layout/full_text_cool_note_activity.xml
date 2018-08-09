@@ -112,7 +112,7 @@
                         android:layout_alignStart="@+id/createdOn"
                         android:layout_below="@+id/createdOn"
                         android:fontFamily="@font/commonsregular"
-                        android:text="@={fullNoteVM.createdAt}"
+                        android:text="@{fullNoteVM.coolNote.getCreatedAt()}"
                         android:textColor="#000000"
                         android:textSize="15sp"
                         android:textStyle="italic" />
@@ -126,7 +126,7 @@
                         android:layout_marginTop="89dp"
                         android:fontFamily="@font/commonsregular"
                         android:maxLength="20"
-                        android:text="@={fullNoteVM.title}"
+                        android:text="@{fullNoteVM.coolNote.getTitle()}"
                         android:textColor="#000000"
                         android:textSize="25sp" />
 
@@ -138,7 +138,7 @@
                         android:layout_below="@+id/title"
                         android:fontFamily="@font/commonsregular"
                         android:maxLength="300"
-                        android:text="@={fullNoteVM.content}"
+                        android:text="@{fullNoteVM.coolNote.getContent()}"
                         android:textColor="#000000"
                         android:textSize="15sp" />
 
@@ -162,6 +162,7 @@
                         android:buttonTint="#00cdc3"
                         android:fontFamily="@font/commonsregular"
                         android:text="@string/checkbox"
+                        android:onClick="@{fullNoteVM::saveReadStatus}"
                         android:textSize="12sp" />
 
                     <ImageView
