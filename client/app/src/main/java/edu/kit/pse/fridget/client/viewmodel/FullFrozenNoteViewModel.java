@@ -8,8 +8,9 @@ import android.view.View;
 
 import com.google.gson.Gson;
 
-import edu.kit.pse.fridget.client.activity.FullTextFrozenNoteActivity;
+import edu.kit.pse.fridget.client.activity.EditTextFrozenNoteActivity;
 import edu.kit.pse.fridget.client.activity.HomeActivity;
+import edu.kit.pse.fridget.client.activity.MenuDrawerActivity;
 import edu.kit.pse.fridget.client.datamodel.FrozenNote;
 import edu.kit.pse.fridget.client.service.FrozenNoteService;
 import edu.kit.pse.fridget.client.service.RetrofitClientInstance;
@@ -55,7 +56,7 @@ public class FullFrozenNoteViewModel extends ViewModel {
         String flatshareId =sharedPreferencesData.getSharedPreferencesData("flatshareId",v);
 
         final Context context = v.getContext();
-        Intent intent = new Intent(context, FullTextFrozenNoteActivity.class);
+        Intent intent = new Intent(context, EditTextFrozenNoteActivity.class);
 
             RetrofitClientInstance.getRetrofitInstance().create(FrozenNoteService.class).updateFrozenNote(frozenNoteId, frozenNote).enqueue(new Callback<FrozenNote>() {
                 @Override
@@ -83,6 +84,12 @@ public class FullFrozenNoteViewModel extends ViewModel {
         Intent i = new Intent(context, HomeActivity.class);
         context.startActivity(i);
 
+    }
+
+    public void openMenu(View v) {
+        Context context = v.getContext();
+        Intent i = new Intent(context, MenuDrawerActivity.class);
+        context.startActivity(i);
     }
 
 }

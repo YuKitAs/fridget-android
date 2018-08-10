@@ -59,6 +59,7 @@ public class MenuDrawerActivity extends AppCompatActivity implements NavigationV
         navigationView.setNavigationItemSelectedListener(this);
         setContentView(R.layout.menu_drawer_activity);
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawer.openDrawer(GravityCompat.START);
     }
 
     @Override
