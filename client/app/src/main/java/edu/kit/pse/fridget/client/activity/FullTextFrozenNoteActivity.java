@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.view.GravityCompat;
+import android.view.ViewGroup;
 import android.widget.ImageButton;
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.datamodel.FrozenNote;
@@ -26,34 +27,22 @@ public class FullTextFrozenNoteActivity extends AppCompatActivity {
 
     private static final String TAG = FullTextFrozenNoteActivity.class.getSimpleName();
 
-    final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-
-    final ImageButton btnOpenDrawer = (ImageButton) findViewById(R.id.home);
-
-    FrozenNote frozenNote;
-
-
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "Calling onCreate");
         FullTextFrozenNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.full_text_frozen_note_activity);
 
+        Intent i = getIntent();
+
         final FullFrozenNoteViewModel fullFrozenNoteViewModel = ViewModelProviders.of(this).get(FullFrozenNoteViewModel.class);
         binding.setFullFrozenNoteVM(fullFrozenNoteViewModel);
 
-        Intent i = getIntent();
-
-        btnOpenDrawer.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                drawer.openDrawer(drawer);
-            }
-        });
+        }
 
 
 
-    }
+
 
     @Override
     protected void onStart() {
