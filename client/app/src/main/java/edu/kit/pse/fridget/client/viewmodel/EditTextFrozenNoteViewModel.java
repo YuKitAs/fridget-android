@@ -28,8 +28,18 @@ import retrofit2.Response;
 public class EditTextFrozenNoteViewModel extends ViewModel {
     private final MutableLiveData<String> title = new MutableLiveData<>();
     private final MutableLiveData<String> content = new MutableLiveData<>();
-    private SharedPreferencesData sharedPreferencesData =new SharedPreferencesData();
     private int position;
+    private FrozenNote frozenNote;
+    private String frozenNoteId;
+    private SharedPreferencesData sharedPreferencesData = new SharedPreferencesData();
+
+    public FrozenNote getFrozenNote() {
+        return frozenNote;
+    }
+
+    public void setFrozenNoteId(String id) {
+        this.frozenNoteId = id;
+    }
 
     public MutableLiveData<String> getTitle() {
         return title;
@@ -43,8 +53,8 @@ public class EditTextFrozenNoteViewModel extends ViewModel {
 
     public void bold(View v) {
         String content = this.content.getValue();
-        if(content.isEmpty()){
-            Toast.makeText(v.getContext(), "There is no text in the content box!", Toast.LENGTH_LONG);
+        if(content == null){
+            Toast.makeText(v.getContext(), "There is no text in the content box!", Toast.LENGTH_LONG).show();
         }
         else {
             SpannableStringBuilder str = new SpannableStringBuilder(content);
@@ -55,48 +65,73 @@ public class EditTextFrozenNoteViewModel extends ViewModel {
 
     public void italic(View v) {
         String content = this.content.getValue();
-        SpannableStringBuilder str = new SpannableStringBuilder(content);
-        str.setSpan(new StyleSpan(Typeface.ITALIC), 0, content.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        this.content.setValue(str.toString());
+        if(content == null){
+            Toast.makeText(v.getContext(), "There is no text in the content box!", Toast.LENGTH_LONG).show();
+        }
+        else {
+            SpannableStringBuilder str = new SpannableStringBuilder(content);
+            str.setSpan(new StyleSpan(Typeface.ITALIC), 0, content.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            this.content.setValue(str.toString());
+        }
     }
 
     public void underline(View v) {
         String content = this.content.getValue();
-        SpannableStringBuilder str = new SpannableStringBuilder(content);
-        str.setSpan(new UnderlineSpan(), 0, content.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        this.content.setValue(str.toString());
+        if(content == null){
+            Toast.makeText(v.getContext(), "There is no text in the content box!", Toast.LENGTH_LONG).show();
+        }
+        else {
+            SpannableStringBuilder str = new SpannableStringBuilder(content);
+            str.setSpan(new UnderlineSpan(), 0, content.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            this.content.setValue(str.toString());
+        }
+    }
+
+    public void getFN(){
+        RetrofitClientInstance.getRetrofitInstance().create(FrozenNoteService.class).getFrozenNote(frozenNoteId).enqueue(new Callback<FrozenNote>() {
+            @Override
+            public void onResponse(Call<FrozenNote> call, Response<FrozenNote> response) {
+                frozenNote = response.body();
+                if (frozenNote != null) {
+                    Log.i("Fetching Frozen Note", String.format("Frozen Note has been fetched.", new Gson().toJson(frozenNote)));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<FrozenNote> call, Throwable t) {
+                Log.e("Fetching Frozen Note", "Fetching Frozen Note has failed.");
+                t.printStackTrace();
+            }
+        });
     }
 
     //Editieren der Frozen Note, Viewwechsel zur FullTextFrozenNoteActivity
     public void updateFrozenNote(View v) {
         final Context context = v.getContext();
         Intent intent = new Intent(context, FullTextFrozenNoteActivity.class);
-        String flatshareId = sharedPreferencesData.getSharedPreferencesData("flatshareId",v);
+        String flatshareId = sharedPreferencesData.getSharedPreferencesData("flatshareId", v);
 
+        frozenNote = new FrozenNote(frozenNoteId, title.getValue(), content.getValue(), flatshareId, position);
 
-        if (title.getValue() == null) {
-            Toast.makeText(context, "Title cannot be empty!", Toast.LENGTH_LONG);
-        }
-        else {
-            FrozenNote frozenNote = new FrozenNote(null, title.getValue(), content.getValue(), flatshareId, position);
-
-            RetrofitClientInstance.getRetrofitInstance().create(FrozenNoteService.class).updateFrozenNote(null, frozenNote).enqueue(new Callback<FrozenNote>() {
-                @Override
-                public void onResponse(Call<FrozenNote> call, Response<FrozenNote> response) {
-                    FrozenNote body = response.body();
-                    if (body != null) {
-                        Log.i("Updated Frozen Note", String.format("Frozen Note has been updated.", new Gson().toJson(body)));
-                    }
+        RetrofitClientInstance.getRetrofitInstance().create(FrozenNoteService.class).updateFrozenNote(frozenNoteId, frozenNote).enqueue(new Callback<FrozenNote>() {
+            @Override
+            public void onResponse(Call<FrozenNote> call, Response<FrozenNote> response) {
+                FrozenNote body = response.body();
+                if (body != null) {
+                    Log.i("Updated Frozen Note", String.format("Frozen Note has been updated.", new Gson().toJson(body)));
+                    intent.putExtra("frozenNoteId", frozenNoteId);
+                    context.startActivity(intent);
                 }
+            }
 
-                @Override
-                public void onFailure(Call<FrozenNote> call, Throwable t) {
-                    Log.e("Updating Frozen Note", "Updating Frozen Note has failed.");
-                    t.printStackTrace();
-                }
-            });
-        }
+            @Override
+            public void onFailure(Call<FrozenNote> call, Throwable t) {
+                Log.e("Updating Frozen Note", "Updating Frozen Note has failed.");
+                t.printStackTrace();
+            }
+        });
     }
+
 
     public void goBack(View v) {
         Context context = v.getContext();

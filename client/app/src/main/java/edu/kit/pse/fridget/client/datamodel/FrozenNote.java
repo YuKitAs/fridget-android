@@ -18,7 +18,7 @@ public class FrozenNote {
     /**
      * ID of the Flatshare the Frozen Note belongs to
      */
-    private String flatShareId;
+    private String flatshareId;
 
     /**
      * Position of the Frozen Note on the pinboard
@@ -31,11 +31,11 @@ public class FrozenNote {
      * @return id
      */
 
-    public FrozenNote(String id, String title, String content, String flatShareId, int position){
+    public FrozenNote(String id, String title, String content, String flatshareId, int position){
         this.id = id;
         this.title = title;
         this.content = content;
-        this.flatShareId = flatShareId;
+        this.flatshareId = flatshareId;
         this.position = position;
     }
 
@@ -67,8 +67,8 @@ public class FrozenNote {
      *
      * @return flatShareId
      */
-    public String getFlatShareId() {
-        return flatShareId;
+    public String getFlatshareId() {
+        return flatshareId;
     }
 
     /**

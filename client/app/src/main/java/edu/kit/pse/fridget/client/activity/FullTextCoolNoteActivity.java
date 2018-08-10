@@ -23,17 +23,26 @@ public class FullTextCoolNoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "Calling onCreate");
         FullTextCoolNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.full_text_cool_note_activity);
-
-        //viewmodels
-
         Intent i = getIntent();
         final ViewGroup viewGroup = (ViewGroup) ((ViewGroup) this
                 .findViewById(android.R.id.content)).getChildAt(0);
+
+        //viewmodels
         final FullCoolNoteViewModel fullCoolNoteViewModel = ViewModelProviders.of(this).get(FullCoolNoteViewModel.class);
         binding.setFullNoteVM(fullCoolNoteViewModel);
+        SharedPreferences sharedPreferences = getSharedPreferences("edu.kit.pse.fridget.client_preferences",MODE_PRIVATE);
+        String flatshareId = sharedPreferences.getString("flatshareId", "N/A");
+        String ownMemberId = sharedPreferences.getString("ownMemberId", "N/A");
+        String ownMagnetColor = sharedPreferences.getString("ownMagnetColor", "N/A");
+
+        fullCoolNoteViewModel.setFlatshareId(flatshareId);
+        fullCoolNoteViewModel.setOwnMemberId(ownMemberId);
+        fullCoolNoteViewModel.setMagnetColor(ownMagnetColor);
+
         String coolNoteId = i.getExtras().get("coolNoteId").toString();
         fullCoolNoteViewModel.getCoolNote(coolNoteId, viewGroup);
         fullCoolNoteViewModel.getMemberList(viewGroup);
+        fullCoolNoteViewModel.readConfirmation();
 
         //fullCoolNoteViewModel.getMemberList("c48a9caa-1c98-4f15-a2ca-5048c497b0f5");
         //fullCoolNoteViewModel.getReadstatus("72f795d8-a746-4db7-860a-98a24704d571");
@@ -82,18 +91,26 @@ public class FullTextCoolNoteActivity extends AppCompatActivity {
         //viewmodels
         final FullCoolNoteViewModel fullCoolNoteViewModel = ViewModelProviders.of(this).get(FullCoolNoteViewModel.class);
         binding.setFullNoteVM(fullCoolNoteViewModel);
+        SharedPreferences sharedPreferences = getSharedPreferences("edu.kit.pse.fridget.client_preferences",MODE_PRIVATE);
+        String flatshareId = sharedPreferences.getString("flatshareId", "N/A");
+        String ownMemberId = sharedPreferences.getString("ownMemberId", "N/A");
+        String ownMagnetColor = sharedPreferences.getString("ownMagnetColor", "N/A");
+
+        fullCoolNoteViewModel.setFlatshareId(flatshareId);
+        fullCoolNoteViewModel.setOwnMemberId(ownMemberId);
+        fullCoolNoteViewModel.setMagnetColor(ownMagnetColor);
+
         String coolNoteId = i.getExtras().get("coolNoteId").toString();
-        fullCoolNoteViewModel.setCoolNoteId(coolNoteId);
         fullCoolNoteViewModel.getCoolNote(coolNoteId, viewGroup);
         fullCoolNoteViewModel.getMemberList(viewGroup);
-        fullCoolNoteViewModel.getReadstatus(coolNoteId, viewGroup);
+        fullCoolNoteViewModel.readConfirmation();
 
     }
 
     @Override
     protected void onPause() {
-        Log.i(TAG, "Calling onPause");
         super.onPause();
+        Log.i(TAG, "Calling onPause");
         FullTextCoolNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.full_text_cool_note_activity);
         Intent i = getIntent();
         final ViewGroup viewGroup = (ViewGroup) ((ViewGroup) this
@@ -102,17 +119,26 @@ public class FullTextCoolNoteActivity extends AppCompatActivity {
         //viewmodels
         final FullCoolNoteViewModel fullCoolNoteViewModel = ViewModelProviders.of(this).get(FullCoolNoteViewModel.class);
         binding.setFullNoteVM(fullCoolNoteViewModel);
+        SharedPreferences sharedPreferences = getSharedPreferences("edu.kit.pse.fridget.client_preferences",MODE_PRIVATE);
+        String flatshareId = sharedPreferences.getString("flatshareId", "N/A");
+        String ownMemberId = sharedPreferences.getString("ownMemberId", "N/A");
+        String ownMagnetColor = sharedPreferences.getString("ownMagnetColor", "N/A");
+
+        fullCoolNoteViewModel.setFlatshareId(flatshareId);
+        fullCoolNoteViewModel.setOwnMemberId(ownMemberId);
+        fullCoolNoteViewModel.setMagnetColor(ownMagnetColor);
+
         String coolNoteId = i.getExtras().get("coolNoteId").toString();
         fullCoolNoteViewModel.getCoolNote(coolNoteId, viewGroup);
         fullCoolNoteViewModel.getMemberList(viewGroup);
-        fullCoolNoteViewModel.getReadstatus(coolNoteId, viewGroup);
+        fullCoolNoteViewModel.readConfirmation();
 
     }
 
     @Override
     protected void onStop() {
-        Log.i(TAG, "Calling onStop");
         super.onStop();
+        Log.i(TAG, "Calling onStop");
         FullTextCoolNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.full_text_cool_note_activity);
         Intent i = getIntent();
         final ViewGroup viewGroup = (ViewGroup) ((ViewGroup) this
@@ -121,16 +147,25 @@ public class FullTextCoolNoteActivity extends AppCompatActivity {
         //viewmodels
         final FullCoolNoteViewModel fullCoolNoteViewModel = ViewModelProviders.of(this).get(FullCoolNoteViewModel.class);
         binding.setFullNoteVM(fullCoolNoteViewModel);
+        SharedPreferences sharedPreferences = getSharedPreferences("edu.kit.pse.fridget.client_preferences",MODE_PRIVATE);
+        String flatshareId = sharedPreferences.getString("flatshareId", "N/A");
+        String ownMemberId = sharedPreferences.getString("ownMemberId", "N/A");
+        String ownMagnetColor = sharedPreferences.getString("ownMagnetColor", "N/A");
+
+        fullCoolNoteViewModel.setFlatshareId(flatshareId);
+        fullCoolNoteViewModel.setOwnMemberId(ownMemberId);
+        fullCoolNoteViewModel.setMagnetColor(ownMagnetColor);
+
         String coolNoteId = i.getExtras().get("coolNoteId").toString();
         fullCoolNoteViewModel.getCoolNote(coolNoteId, viewGroup);
         fullCoolNoteViewModel.getMemberList(viewGroup);
-        fullCoolNoteViewModel.getReadstatus(coolNoteId, viewGroup);
+        fullCoolNoteViewModel.readConfirmation();
 
     }
 
     @Override
     protected void onDestroy() {
-        Log.i(TAG, "Calling onDestroy");
         super.onDestroy();
+        Log.i(TAG, "Calling onDestroy");
     }
 }

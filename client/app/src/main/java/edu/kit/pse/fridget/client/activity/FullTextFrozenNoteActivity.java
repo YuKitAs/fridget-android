@@ -30,40 +30,68 @@ public class FullTextFrozenNoteActivity extends AppCompatActivity {
         fullFrozenNoteViewModel.setFrozenNoteId(frozenNoteId);
         fullFrozenNoteViewModel.getFN();
 
-        }
-
-
-
-
+    }
 
     @Override
     protected void onStart() {
         super.onStart();
         Log.i(TAG, "Calling onStart");
+        FullTextFrozenNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.full_text_frozen_note_activity);
+        final FullFrozenNoteViewModel fullFrozenNoteViewModel = ViewModelProviders.of(this).get(FullFrozenNoteViewModel.class);
+        binding.setFullFrozenNoteVM(fullFrozenNoteViewModel);
+
+        Intent i = getIntent();
+        String frozenNoteId = i.getExtras().getString("frozenNoteId");
+        fullFrozenNoteViewModel.setFrozenNoteId(frozenNoteId);
+        fullFrozenNoteViewModel.getFN();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         Log.i(TAG, "Calling onResume");
+        FullTextFrozenNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.full_text_frozen_note_activity);
+        final FullFrozenNoteViewModel fullFrozenNoteViewModel = ViewModelProviders.of(this).get(FullFrozenNoteViewModel.class);
+        binding.setFullFrozenNoteVM(fullFrozenNoteViewModel);
+
+        Intent i = getIntent();
+        String frozenNoteId = i.getExtras().getString("frozenNoteId");
+        fullFrozenNoteViewModel.setFrozenNoteId(frozenNoteId);
+        fullFrozenNoteViewModel.getFN();
     }
 
     @Override
     protected void onPause() {
-        Log.i(TAG, "Calling onPause");
         super.onPause();
+        Log.i(TAG, "Calling onPause");
+        FullTextFrozenNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.full_text_frozen_note_activity);
+        final FullFrozenNoteViewModel fullFrozenNoteViewModel = ViewModelProviders.of(this).get(FullFrozenNoteViewModel.class);
+        binding.setFullFrozenNoteVM(fullFrozenNoteViewModel);
+
+        Intent i = getIntent();
+        String frozenNoteId = i.getExtras().getString("frozenNoteId");
+        fullFrozenNoteViewModel.setFrozenNoteId(frozenNoteId);
+        fullFrozenNoteViewModel.getFN();
     }
 
     @Override
     protected void onStop() {
-        Log.i(TAG, "Calling onStop");
         super.onStop();
+        Log.i(TAG, "Calling onStop");
+        FullTextFrozenNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.full_text_frozen_note_activity);
+        final FullFrozenNoteViewModel fullFrozenNoteViewModel = ViewModelProviders.of(this).get(FullFrozenNoteViewModel.class);
+        binding.setFullFrozenNoteVM(fullFrozenNoteViewModel);
+
+        Intent i = getIntent();
+        String frozenNoteId = i.getExtras().getString("frozenNoteId");
+        fullFrozenNoteViewModel.setFrozenNoteId(frozenNoteId);
+        fullFrozenNoteViewModel.getFN();
     }
 
     @Override
     protected void onDestroy() {
-        Log.i(TAG, "Calling onDestroy");
         super.onDestroy();
+        Log.i(TAG, "Calling onDestroy");
     }
 }
 

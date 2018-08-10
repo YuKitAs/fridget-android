@@ -120,8 +120,8 @@ public class FullCoolNoteViewModel extends ViewModel {
 
     //get member für die magnetfarbe
     public List<GetMemberCommand> getMemberList(View v) {
-        //String flatshareId = sharedPreferencesData.getSharedPreferencesData("flatshareId",v);
-        RetrofitClientInstance.getRetrofitInstance().create(MembershipService.class).getMemberList("54381329-7fe5-45b9-8941-944c60111007").enqueue(new Callback<List<GetMemberCommand>>() {
+        String flatshareId = sharedPreferencesData.getSharedPreferencesData("flatshareId",v);
+        RetrofitClientInstance.getRetrofitInstance().create(MembershipService.class).getMemberList(flatshareId).enqueue(new Callback<List<GetMemberCommand>>() {
             @Override
             public void onResponse(Call<List<GetMemberCommand>> call, Response<List<GetMemberCommand>> response) {
                 memberList = new ArrayList<>(15);

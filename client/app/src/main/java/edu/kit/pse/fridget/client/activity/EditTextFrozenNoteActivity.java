@@ -10,7 +10,6 @@ import android.util.Log;
 
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.databinding.EditTextFrozenNoteActivityBinding;
-import edu.kit.pse.fridget.client.viewmodel.CreateCoolNoteViewModel;
 import edu.kit.pse.fridget.client.viewmodel.EditTextFrozenNoteViewModel;
 
 public class EditTextFrozenNoteActivity extends AppCompatActivity {
@@ -27,6 +26,8 @@ public class EditTextFrozenNoteActivity extends AppCompatActivity {
 
         Intent i = getIntent();
         int position = i.getExtras().getInt("position");
+        String frozenNoteId = i.getExtras().get("frozenNoteId").toString();
+        editTextFrozenNoteViewModel.setFrozenNoteId(frozenNoteId);
         editTextFrozenNoteViewModel.setPosition(position);
 
 

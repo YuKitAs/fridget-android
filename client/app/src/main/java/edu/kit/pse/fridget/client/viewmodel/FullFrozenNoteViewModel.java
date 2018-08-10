@@ -53,29 +53,13 @@ public class FullFrozenNoteViewModel extends ViewModel {
 
     public void editFrozenNote(View v) {
 
-        String flatshareId =sharedPreferencesData.getSharedPreferencesData("flatshareId",v);
+        String flatshareId = sharedPreferencesData.getSharedPreferencesData("flatshareId",v);
 
         final Context context = v.getContext();
         Intent intent = new Intent(context, EditTextFrozenNoteActivity.class);
+        intent.putExtra("frozenNoteId", frozenNoteId);
+        context.startActivity(intent);
 
-            RetrofitClientInstance.getRetrofitInstance().create(FrozenNoteService.class).updateFrozenNote(frozenNoteId, frozenNote).enqueue(new Callback<FrozenNote>() {
-                @Override
-                public void onResponse(Call<FrozenNote> call, Response<FrozenNote> response) {
-                    frozenNote = response.body();
-                    if (frozenNote != null) {
-                        Log.i("Editing Frozen Note", String.format("Frozen Note %s edited.", new Gson().toJson(frozenNote)));
-
-                        intent.putExtra("position", frozenNote.getPosition());
-                        context.startActivity(intent);
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<FrozenNote> call, Throwable t) {
-                    Log.e("Editing Frozen Note", "Editing Frozen Note %s failed.");
-                    t.printStackTrace();
-                }
-            });
     }
 
     public void goBack(View v) {
