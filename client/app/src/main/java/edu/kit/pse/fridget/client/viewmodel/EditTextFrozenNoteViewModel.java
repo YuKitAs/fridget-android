@@ -125,9 +125,6 @@ public class EditTextFrozenNoteViewModel extends ViewModel {
                     intent.putExtra("frozenNoteId", frozenNoteId);
                     context.startActivity(intent);
                 }
-                else {
-                    Log.e("Updating Frozen Note", "Updating Frozen Note has failed.");
-                }
             }
 
             @Override
