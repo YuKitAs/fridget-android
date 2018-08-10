@@ -1,7 +1,6 @@
 package edu.kit.pse.fridget.client.fragment;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,16 +8,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Toast;
-
-
-import com.google.gson.Gson;
-
-import java.util.List;
 
 import edu.kit.pse.fridget.client.R;
-import edu.kit.pse.fridget.client.activity.StartActivity;
 import edu.kit.pse.fridget.client.service.MembershipService;
 import edu.kit.pse.fridget.client.service.RetrofitClientInstance;
 import retrofit2.Call;
@@ -34,6 +25,8 @@ import retrofit2.Response;
  * create an instance of this fragment.
  */
 public class LeaveFlatshareFragment extends Fragment {
+    private static final String TAG = LeaveFlatshareFragment.class.getSimpleName();
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -86,27 +79,18 @@ public class LeaveFlatshareFragment extends Fragment {
     }
 
 
-    public void onButtonClick(View view) {
-        final Context context = view.getContext();
-        Intent intent = new Intent(context, StartActivity.class);
-
+    public void deleteMembership() {
         RetrofitClientInstance.getRetrofitInstance().create(MembershipService.class).deleteMember(flatshareId, userId).enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-
-                Void body = response.body();
-                if(body == null) {
-                    Log.i("Deleted Member", String.format("Member has been deleted.", new Gson().toJson(null)));
-                    context.startActivity(intent);
-                }
+                Log.i(TAG, "Member has been deleted.");
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Log.e("Delete Member", "Deleting Member has failed.");
+                Log.e(TAG, "Deleting Member failed.");
             }
-
-    });
+        });
     }
 
     @Override
