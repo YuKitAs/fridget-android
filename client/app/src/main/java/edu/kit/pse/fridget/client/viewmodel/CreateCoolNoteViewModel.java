@@ -30,7 +30,7 @@ import retrofit2.Response;
 public class CreateCoolNoteViewModel extends ViewModel {
     private final MutableLiveData<String> title = new MutableLiveData<>();
     private final MutableLiveData<String> content = new MutableLiveData<>();
-    SharedPreferencesData sharedPreferencesData =new SharedPreferencesData();
+    private SharedPreferencesData sharedPreferencesData =new SharedPreferencesData();
     private int position;
 
     public MutableLiveData<String> getTitle() {

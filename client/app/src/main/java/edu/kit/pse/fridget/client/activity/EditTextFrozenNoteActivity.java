@@ -1,5 +1,7 @@
 package edu.kit.pse.fridget.client.activity;
 
+import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,6 +10,8 @@ import android.util.Log;
 
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.databinding.EditTextFrozenNoteActivityBinding;
+import edu.kit.pse.fridget.client.viewmodel.CreateCoolNoteViewModel;
+import edu.kit.pse.fridget.client.viewmodel.EditTextFrozenNoteViewModel;
 
 public class EditTextFrozenNoteActivity extends AppCompatActivity {
 
@@ -18,6 +22,14 @@ public class EditTextFrozenNoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "Calling onCreate");
         EditTextFrozenNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.edit_text_frozen_note_activity);
+        final EditTextFrozenNoteViewModel editTextFrozenNoteViewModel = ViewModelProviders.of(this).get(EditTextFrozenNoteViewModel.class);
+        binding.setFrozenNoteVM(editTextFrozenNoteViewModel);
+
+        Intent i = getIntent();
+        int position = i.getExtras().getInt("position");
+        editTextFrozenNoteViewModel.setPosition(position);
+
+
     }
 
     @Override

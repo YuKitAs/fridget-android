@@ -35,6 +35,7 @@
                 android:layout_height="55dp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
+                android:onClick="@{fullFrozenNoteVM::editFrozenNote}"
                 android:background="@drawable/edit_button" />
 
             <ImageButton

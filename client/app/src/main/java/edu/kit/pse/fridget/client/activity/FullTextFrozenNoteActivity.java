@@ -7,20 +7,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v4.view.GravityCompat;
-import android.view.ViewGroup;
-import android.widget.ImageButton;
+
 import edu.kit.pse.fridget.client.R;
-import edu.kit.pse.fridget.client.datamodel.FrozenNote;
 import edu.kit.pse.fridget.client.databinding.FullTextFrozenNoteActivityBinding;
 import edu.kit.pse.fridget.client.viewmodel.FullFrozenNoteViewModel;
-
-import android.view.View;
-import android.widget.TextView;
-import android.widget.EditText;
-import android.text.Html;
-import android.text.SpannableString;
 
 
 public class FullTextFrozenNoteActivity extends AppCompatActivity {
@@ -32,11 +22,13 @@ public class FullTextFrozenNoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "Calling onCreate");
         FullTextFrozenNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.full_text_frozen_note_activity);
-
-        Intent i = getIntent();
-
         final FullFrozenNoteViewModel fullFrozenNoteViewModel = ViewModelProviders.of(this).get(FullFrozenNoteViewModel.class);
         binding.setFullFrozenNoteVM(fullFrozenNoteViewModel);
+
+        Intent i = getIntent();
+        String frozenNoteId = i.getExtras().getString("frozenNoteId");
+        fullFrozenNoteViewModel.setFrozenNoteId(frozenNoteId);
+        fullFrozenNoteViewModel.getFN();
 
         }
 

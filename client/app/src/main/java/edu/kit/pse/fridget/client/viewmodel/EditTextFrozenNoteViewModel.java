@@ -16,9 +16,6 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
-
-import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.activity.FullTextFrozenNoteActivity;
 import edu.kit.pse.fridget.client.activity.HomeActivity;
 import edu.kit.pse.fridget.client.datamodel.FrozenNote;
@@ -31,6 +28,8 @@ import retrofit2.Response;
 public class EditTextFrozenNoteViewModel extends ViewModel {
     private final MutableLiveData<String> title = new MutableLiveData<>();
     private final MutableLiveData<String> content = new MutableLiveData<>();
+    private SharedPreferencesData sharedPreferencesData =new SharedPreferencesData();
+    private int position;
 
     public MutableLiveData<String> getTitle() {
         return title;
@@ -39,6 +38,8 @@ public class EditTextFrozenNoteViewModel extends ViewModel {
     public MutableLiveData<String> getContent() {
         return content;
     }
+
+    public int setPosition(int position) { return this.position = position; }
 
     public void bold(View v) {
         String content = this.content.getValue();
@@ -67,15 +68,17 @@ public class EditTextFrozenNoteViewModel extends ViewModel {
     }
 
     //Editieren der Frozen Note, Viewwechsel zur FullTextFrozenNoteActivity
-    public void edtFrozenNote(View v) {
+    public void updateFrozenNote(View v) {
         final Context context = v.getContext();
         Intent intent = new Intent(context, FullTextFrozenNoteActivity.class);
+        String flatshareId = sharedPreferencesData.getSharedPreferencesData("flatshareId",v);
+
 
         if (title.getValue() == null) {
             Toast.makeText(context, "Title cannot be empty!", Toast.LENGTH_LONG);
         }
         else {
-            FrozenNote frozenNote = new FrozenNote(null, title.getValue(), content.getValue(), "025b108a-0db7-4f92-b52b-a41f413e4b12", 0);
+            FrozenNote frozenNote = new FrozenNote(null, title.getValue(), content.getValue(), flatshareId, position);
 
             RetrofitClientInstance.getRetrofitInstance().create(FrozenNoteService.class).updateFrozenNote(null, frozenNote).enqueue(new Callback<FrozenNote>() {
                 @Override

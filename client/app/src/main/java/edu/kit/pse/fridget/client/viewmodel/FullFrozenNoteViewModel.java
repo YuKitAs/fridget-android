@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.google.gson.Gson;
 
+import edu.kit.pse.fridget.client.activity.FullTextFrozenNoteActivity;
 import edu.kit.pse.fridget.client.activity.HomeActivity;
 import edu.kit.pse.fridget.client.datamodel.FrozenNote;
 import edu.kit.pse.fridget.client.service.FrozenNoteService;
@@ -18,28 +19,27 @@ import retrofit2.Response;
 
 public class FullFrozenNoteViewModel extends ViewModel {
 
-    private String title;
-    private String content;
-    private String id;
+    private FrozenNote frozenNote;
+    private String frozenNoteId;
 
-    public String getTitle() {
-        return title;
+    public void setFrozenNoteId(String id) {
+        this.frozenNoteId = id;
     }
 
-    public String getContent() {
-        return content;
+    public FrozenNote getFrozenNote() {
+        return frozenNote;
     }
 
-    public void getFrozenNote(String frozenNoteId){
+    private SharedPreferencesData sharedPreferencesData =new SharedPreferencesData();
+
+    public void getFN(){
         RetrofitClientInstance.getRetrofitInstance().create(FrozenNoteService.class).getFrozenNote(frozenNoteId).enqueue(new Callback<FrozenNote>() {
             @Override
             public void onResponse(Call<FrozenNote> call, Response<FrozenNote> response) {
-                FrozenNote body = response.body();
-                Log.i("Fetching Frozen Note", String.format("Frozen Note has been fetched.", new Gson().toJson(body)));
-
-                title = body.getTitle();
-                content = body.getContent();
-                id = body.getId();
+                frozenNote = response.body();
+                if (frozenNote != null) {
+                    Log.i("Fetching Frozen Note", String.format("Frozen Note has been fetched.", new Gson().toJson(frozenNote)));
+                }
             }
 
             @Override
@@ -48,6 +48,33 @@ public class FullFrozenNoteViewModel extends ViewModel {
                 t.printStackTrace();
             }
         });
+    }
+
+    public void editFrozenNote(View v) {
+
+        String flatshareId =sharedPreferencesData.getSharedPreferencesData("flatshareId",v);
+
+        final Context context = v.getContext();
+        Intent intent = new Intent(context, FullTextFrozenNoteActivity.class);
+
+            RetrofitClientInstance.getRetrofitInstance().create(FrozenNoteService.class).updateFrozenNote(frozenNoteId, frozenNote).enqueue(new Callback<FrozenNote>() {
+                @Override
+                public void onResponse(Call<FrozenNote> call, Response<FrozenNote> response) {
+                    frozenNote = response.body();
+                    if (frozenNote != null) {
+                        Log.i("Editing Frozen Note", String.format("Frozen Note %s edited.", new Gson().toJson(frozenNote)));
+
+                        intent.putExtra("position", frozenNote.getPosition());
+                        context.startActivity(intent);
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<FrozenNote> call, Throwable t) {
+                    Log.e("Editing Frozen Note", "Editing Frozen Note %s failed.");
+                    t.printStackTrace();
+                }
+            });
     }
 
     public void goBack(View v) {
