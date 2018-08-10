@@ -12,28 +12,28 @@ import java.util.List;
  */
 public class CoolNote {
     @SerializedName("id")
-    private String id;
+    private final String id;
 
     @SerializedName("title")
-    private String title;
+    private final String title;
 
     @SerializedName("content")
-    private String content;
+    private final String content;
 
     @SerializedName("creatorMembershipId")
-    private String creatorMembershipId;
+    private final String creatorMembershipId;
 
     @SerializedName("createdAt")
-    private String createdAt;
+    private final String createdAt;
 
     @SerializedName("position")
-    private int position;
+    private final int position;
 
     @SerializedName("importance")
-    private int importance;
+    private final int importance;
 
     @SerializedName("taggedMembershipIds")
-    private List<String> taggedMembershipIds;
+    private final List<String> taggedMembershipIds;
 
     public CoolNote(String id, String title, String content, String creatorMembershipId, int position, int importance, String createdAt,
                     List<String> taggedMembershipIds) {

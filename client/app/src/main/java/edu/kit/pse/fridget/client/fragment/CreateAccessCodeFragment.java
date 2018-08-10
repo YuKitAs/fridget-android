@@ -1,7 +1,6 @@
 package edu.kit.pse.fridget.client.fragment;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,12 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.gson.Gson;
-
 import edu.kit.pse.fridget.client.R;
-import edu.kit.pse.fridget.client.activity.HomeActivity;
 import edu.kit.pse.fridget.client.datamodel.AccessCode;
-import edu.kit.pse.fridget.client.datamodel.Flatshare;
+import edu.kit.pse.fridget.client.datamodel.command.GenerateAccessCodeCommand;
 import edu.kit.pse.fridget.client.service.AccessCodeService;
 import edu.kit.pse.fridget.client.service.RetrofitClientInstance;
 import retrofit2.Call;
@@ -32,9 +28,7 @@ import retrofit2.Response;
  * create an instance of this fragment.
  */
 public class CreateAccessCodeFragment extends Fragment {
-
-    // TODO: Rename and change types of parameters
-    private Flatshare flatshare;
+    private static final String TAG = CreateAccessCodeFragment.class.getSimpleName();
 
     private OnFragmentInteractionListener mListener;
 
@@ -71,28 +65,22 @@ public class CreateAccessCodeFragment extends Fragment {
     }
 
 
-    public void createAccess(View view) {
-        if (view.getId() == R.id.createAccess) {
-            final Context context = view.getContext();
-            Intent intent = new Intent(context, HomeActivity.class);
-            RetrofitClientInstance.getRetrofitInstance().create(AccessCodeService.class).generateAccessCode(flatshare).enqueue(new Callback<AccessCode>() {
-                @Override
-                public void onResponse(Call<AccessCode> call, Response<AccessCode> response) {
-                    Log.i("Generate Access Code", String.format("Access Code generated", new Gson().toJson(null)));
-                    context.startActivity(intent);
+    public void getAccessCode() {
+        RetrofitClientInstance.getRetrofitInstance().create(AccessCodeService.class).generateAccessCode(new GenerateAccessCodeCommand("38406d18-a3da-4811-aff7-fcfe73e8c8ef")).enqueue(new Callback<AccessCode>() {
+            @Override
+            public void onResponse(Call<AccessCode> call, Response<AccessCode> response) {
+                if (response.body() != null) {
+                    Log.i(TAG, String.format("Access Code generated: %s", response.body().getContent()));
                 }
+            }
 
-                @Override
-                public void onFailure(Call<AccessCode> call, Throwable t) {
-                    Log.e("Delete Member", "Deleting Member has failed.");
-                }
-
-            });
-
-        }
+            @Override
+            public void onFailure(Call<AccessCode> call, Throwable t) {
+                Log.e(TAG, "Getting access code failed.");
+                t.printStackTrace();
+            }
+        });
     }
-
-
 
 
     @Override

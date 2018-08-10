@@ -1,9 +1,7 @@
 package edu.kit.pse.fridget.client.service;
 
 import edu.kit.pse.fridget.client.datamodel.AccessCode;
-import edu.kit.pse.fridget.client.datamodel.Flatshare;
-
-
+import edu.kit.pse.fridget.client.datamodel.command.GenerateAccessCodeCommand;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Headers;
@@ -19,5 +17,5 @@ public interface AccessCodeService {
     //Diese Methode fordert den AccessCode einer Flatshare an
     @Headers("Content-Type: application/json")
     @POST("/access-codes")
-    Call<AccessCode> generateAccessCode(@Body Flatshare flatshare);
+    Call<AccessCode> generateAccessCode(@Body GenerateAccessCodeCommand generateAccessCodeCommand);
 }
