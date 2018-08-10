@@ -401,6 +401,9 @@ public class HomeViewModel extends ViewModel {
         int randomIndex = 0;
         while (randomIndex == 0) {
             randomIndex = generator.nextInt(emptyPositions.size());
+            if (randomIndex == 0) {
+                break;
+            }
         }
         return emptyPositions.get(randomIndex);
     }
