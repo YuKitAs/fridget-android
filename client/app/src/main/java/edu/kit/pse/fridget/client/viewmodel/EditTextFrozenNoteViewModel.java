@@ -50,7 +50,7 @@ public class EditTextFrozenNoteViewModel extends ViewModel {
         return content;
     }
 
-    public int setPosition(int position) { return this.position = position; }
+    public void setPosition(int position) { this.position = position; }
 
     public void bold(View v) {
         String content = this.content.getValue();
@@ -119,11 +119,14 @@ public class EditTextFrozenNoteViewModel extends ViewModel {
         RetrofitClientInstance.getRetrofitInstance().create(FrozenNoteService.class).updateFrozenNote(frozenNoteId, frozenNote).enqueue(new Callback<FrozenNote>() {
             @Override
             public void onResponse(Call<FrozenNote> call, Response<FrozenNote> response) {
-                FrozenNote body = response.body();
-                if (body != null) {
-                    Log.i("Updated Frozen Note", String.format("Frozen Note has been updated.", new Gson().toJson(body)));
+                frozenNote = response.body();
+                if (frozenNote != null) {
+                    Log.i("Updated Frozen Note", String.format("Frozen Note has been updated.", new Gson().toJson(frozenNote)));
                     intent.putExtra("frozenNoteId", frozenNoteId);
                     context.startActivity(intent);
+                }
+                else {
+                    Log.e("Updating Frozen Note", "Updating Frozen Note has failed.");
                 }
             }
 
