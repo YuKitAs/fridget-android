@@ -3,6 +3,8 @@ package edu.kit.pse.fridget.client.viewmodel;
 import android.arch.lifecycle.ViewModel;
 import android.content.Context;
 import android.content.Intent;
+import android.text.Html;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.View;
 
@@ -22,6 +24,11 @@ public class FullFrozenNoteViewModel extends ViewModel {
 
     private FrozenNote frozenNote;
     private String frozenNoteId;
+    private Spanned spanned;
+
+    public Spanned getSpanned() {
+        return spanned;
+    }
 
     public void setFrozenNoteId(String id) {
         this.frozenNoteId = id;
@@ -41,6 +48,7 @@ public class FullFrozenNoteViewModel extends ViewModel {
                 if (frozenNote != null) {
                     Log.i("Fetching Frozen Note", String.format("Frozen Note has been fetched.", new Gson().toJson(frozenNote)));
                 }
+                spanned = Html.fromHtml(frozenNote.getContent());
             }
 
             @Override

@@ -87,7 +87,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="40dp"
                     android:fontFamily="@font/commonsregular"
-                    android:text="@{fullFrozenNoteVM.frozenNote.getContent()}"
+                    android:text="@{fullFrozenNoteVM.spanned}"
                     android:textColor="#000000"
                     android:textSize="15sp" />
 

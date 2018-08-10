@@ -29,6 +29,7 @@ public class EditTextFrozenNoteActivity extends AppCompatActivity {
         String frozenNoteId = i.getExtras().get("frozenNoteId").toString();
         editTextFrozenNoteViewModel.setFrozenNoteId(frozenNoteId);
         editTextFrozenNoteViewModel.setPosition(position);
+        editTextFrozenNoteViewModel.getFN();
 
 
     }
@@ -37,30 +38,70 @@ public class EditTextFrozenNoteActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         Log.i(TAG, "Calling onStart");
+        EditTextFrozenNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.edit_text_frozen_note_activity);
+        final EditTextFrozenNoteViewModel editTextFrozenNoteViewModel = ViewModelProviders.of(this).get(EditTextFrozenNoteViewModel.class);
+        binding.setFrozenNoteVM(editTextFrozenNoteViewModel);
+
+        Intent i = getIntent();
+        int position = i.getExtras().getInt("position");
+        String frozenNoteId = i.getExtras().get("frozenNoteId").toString();
+        editTextFrozenNoteViewModel.setFrozenNoteId(frozenNoteId);
+        editTextFrozenNoteViewModel.setPosition(position);
+        editTextFrozenNoteViewModel.getFN();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         Log.i(TAG, "Calling onResume");
+        EditTextFrozenNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.edit_text_frozen_note_activity);
+        final EditTextFrozenNoteViewModel editTextFrozenNoteViewModel = ViewModelProviders.of(this).get(EditTextFrozenNoteViewModel.class);
+        binding.setFrozenNoteVM(editTextFrozenNoteViewModel);
+
+        Intent i = getIntent();
+        int position = i.getExtras().getInt("position");
+        String frozenNoteId = i.getExtras().get("frozenNoteId").toString();
+        editTextFrozenNoteViewModel.setFrozenNoteId(frozenNoteId);
+        editTextFrozenNoteViewModel.setPosition(position);
+        editTextFrozenNoteViewModel.getFN();
     }
 
     @Override
     protected void onPause() {
-        Log.i(TAG, "Calling onPause");
         super.onPause();
+        Log.i(TAG, "Calling onPause");
+        EditTextFrozenNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.edit_text_frozen_note_activity);
+        final EditTextFrozenNoteViewModel editTextFrozenNoteViewModel = ViewModelProviders.of(this).get(EditTextFrozenNoteViewModel.class);
+        binding.setFrozenNoteVM(editTextFrozenNoteViewModel);
+
+        Intent i = getIntent();
+        int position = i.getExtras().getInt("position");
+        String frozenNoteId = i.getExtras().get("frozenNoteId").toString();
+        editTextFrozenNoteViewModel.setFrozenNoteId(frozenNoteId);
+        editTextFrozenNoteViewModel.setPosition(position);
+        editTextFrozenNoteViewModel.getFN();
     }
 
     @Override
     protected void onStop() {
-        Log.i(TAG, "Calling onStop");
         super.onStop();
+        Log.i(TAG, "Calling onStop");
+        EditTextFrozenNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.edit_text_frozen_note_activity);
+        final EditTextFrozenNoteViewModel editTextFrozenNoteViewModel = ViewModelProviders.of(this).get(EditTextFrozenNoteViewModel.class);
+        binding.setFrozenNoteVM(editTextFrozenNoteViewModel);
+
+        Intent i = getIntent();
+        int position = i.getExtras().getInt("position");
+        String frozenNoteId = i.getExtras().get("frozenNoteId").toString();
+        editTextFrozenNoteViewModel.setFrozenNoteId(frozenNoteId);
+        editTextFrozenNoteViewModel.setPosition(position);
+        editTextFrozenNoteViewModel.getFN();
     }
 
     @Override
     protected void onDestroy() {
-        Log.i(TAG, "Calling onDestroy");
         super.onDestroy();
+        Log.i(TAG, "Calling onDestroy");
     }
 
 }
