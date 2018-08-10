@@ -18,4 +18,7 @@
     <string name="createdOn"><i>Created on: </i></string>
     <string name="checkbox">I have seen this</string>
     <string name="readBy">Read by: </string>
+    <string name="member_list">Member List</string>
+    <string name="get_access_code">Get Access Code</string>
+    <string name="leave_flatshare">Leave Flatshare</string>
 </resources>

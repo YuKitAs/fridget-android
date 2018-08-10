@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/memlist"
+            android:icon="@drawable/member"
+            android:title="@string/member_list" />
+        <item
+            android:id="@+id/add_member"
+            android:icon="@drawable/create_access"
+            android:title="@string/get_access_code" />
+        <item
+            android:id="@+id/leave_flatshare"
+            android:icon="@drawable/leave"
+            android:title="@string/leave_flatshare" />
+    </group>
+</menu>

@@ -12,7 +12,6 @@ import com.google.gson.Gson;
 
 import edu.kit.pse.fridget.client.activity.EditTextFrozenNoteActivity;
 import edu.kit.pse.fridget.client.activity.HomeActivity;
-import edu.kit.pse.fridget.client.activity.MenuDrawerActivity;
 import edu.kit.pse.fridget.client.datamodel.FrozenNote;
 import edu.kit.pse.fridget.client.service.FrozenNoteService;
 import edu.kit.pse.fridget.client.service.RetrofitClientInstance;
@@ -38,9 +37,9 @@ public class FullFrozenNoteViewModel extends ViewModel {
         return frozenNote;
     }
 
-    private SharedPreferencesData sharedPreferencesData =new SharedPreferencesData();
+    private SharedPreferencesData sharedPreferencesData = new SharedPreferencesData();
 
-    public void getFN(){
+    public void getFN() {
         RetrofitClientInstance.getRetrofitInstance().create(FrozenNoteService.class).getFrozenNote(frozenNoteId).enqueue(new Callback<FrozenNote>() {
             @Override
             public void onResponse(Call<FrozenNote> call, Response<FrozenNote> response) {
@@ -61,13 +60,31 @@ public class FullFrozenNoteViewModel extends ViewModel {
 
     public void editFrozenNote(View v) {
 
-        String flatshareId = sharedPreferencesData.getSharedPreferencesData("flatshareId",v);
+        String flatshareId = sharedPreferencesData.getSharedPreferencesData("flatshareId", v);
 
         final Context context = v.getContext();
         Intent intent = new Intent(context, EditTextFrozenNoteActivity.class);
         intent.putExtra("frozenNoteId", frozenNoteId);
         context.startActivity(intent);
 
+        RetrofitClientInstance.getRetrofitInstance().create(FrozenNoteService.class).updateFrozenNote(frozenNoteId, frozenNote).enqueue(new Callback<FrozenNote>() {
+            @Override
+            public void onResponse(Call<FrozenNote> call, Response<FrozenNote> response) {
+                frozenNote = response.body();
+                if (frozenNote != null) {
+                    Log.i("Editing Frozen Note", String.format("Frozen Note %s edited.", new Gson().toJson(frozenNote)));
+
+                    intent.putExtra("position", frozenNote.getPosition());
+                    context.startActivity(intent);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<FrozenNote> call, Throwable t) {
+                Log.e("Editing Frozen Note", "Editing Frozen Note %s failed.");
+                t.printStackTrace();
+            }
+        });
     }
 
     public void goBack(View v) {
@@ -77,11 +94,4 @@ public class FullFrozenNoteViewModel extends ViewModel {
         context.startActivity(i);
 
     }
-
-    public void openMenu(View v) {
-        Context context = v.getContext();
-        Intent i = new Intent(context, MenuDrawerActivity.class);
-        context.startActivity(i);
-    }
-
 }

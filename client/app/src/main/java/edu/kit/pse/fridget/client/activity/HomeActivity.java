@@ -2,14 +2,16 @@ package edu.kit.pse.fridget.client.activity;
 
 import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.databinding.HomeActivityBinding;
@@ -19,10 +21,9 @@ public class HomeActivity extends AppCompatActivity implements LifecycleOwner {
 
     private static final String TAG = HomeActivity.class.getSimpleName();
 
-
     private HomeViewModel homeVM;
 
-
+    private DrawerLayout drawerLayout;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,13 +37,19 @@ public class HomeActivity extends AppCompatActivity implements LifecycleOwner {
 
         binding.setLifecycleOwner(this);
 
-        SharedPreferences sharedPreferences =getSharedPreferences("edu.kit.pse.fridget.client_preferences",MODE_PRIVATE);
-        String flatshareId =sharedPreferences.getString("flatshareId", "N/A");
+        SharedPreferences sharedPreferences = getSharedPreferences("edu.kit.pse.fridget.client_preferences", MODE_PRIVATE);
+        String flatshareId = sharedPreferences.getString("flatshareId", "N/A");
 
         homeVM.setFlatshareId(flatshareId);
         homeVM.updateLists();
 
+        drawerLayout = findViewById(R.id.drawer_layout);
+        ImageButton menuButton = findViewById(R.id.menu_button);
 
+        menuButton.setOnClickListener((v) -> {
+            drawerLayout.openDrawer(GravityCompat.START);
+            menuButton.setVisibility(View.INVISIBLE);
+        });
     }
 
     @Override

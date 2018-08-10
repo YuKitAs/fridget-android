@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import com.google.gson.Gson;
 
 import edu.kit.pse.fridget.client.R;
-import edu.kit.pse.fridget.client.activity.GetAccessCodeActivity;
 import edu.kit.pse.fridget.client.activity.HomeActivity;
 import edu.kit.pse.fridget.client.datamodel.AccessCode;
 import edu.kit.pse.fridget.client.datamodel.Flatshare;

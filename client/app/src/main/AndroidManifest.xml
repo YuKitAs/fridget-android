@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="edu.kit.pse.fridget.client" >
+    package="edu.kit.pse.fridget.client">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
@@ -8,33 +9,57 @@
         android:label="Fridget"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        >
+        android:theme="@style/AppTheme">
 
+        <activity
+            android:name=".activity.AccessCodeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.CreateCommentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.CreateFlatshareActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.CreateTextCoolNoteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.EditTextFrozenNoteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.EnterAccessCodeActivity"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".activity.AccessCodeActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.CreateCommentActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.CreateFlatshareActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.CreateTextCoolNoteActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.EditTextFrozenNoteActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.EnterAccessCodeActivity" android:screenOrientation="portrait"/>
-
-        <activity android:name="edu.kit.pse.fridget.client.activity.LoginActivity" android:screenOrientation="portrait">
+        <activity
+            android:name="edu.kit.pse.fridget.client.activity.LoginActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.FullTextFrozenNoteActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.FullImageCoolNoteActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.GetAccessCodeActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.HomeActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.MenuDrawerActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.LanguageActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.FullTextCoolNoteActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.MemberListActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.StartActivity"  android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.FullTextFrozenNoteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.FullImageCoolNoteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.LanguageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.FullTextCoolNoteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.MemberListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.StartActivity"
+            android:screenOrientation="portrait" />
 
 
     </application>

@@ -2,15 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="130dp"
-    android:padding="16dp"
     android:background="#83FEC5"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@{flatshare.name}"
         android:fontFamily="@font/commonsregular"
+        android:text="Super Cool Flatshare"
         android:textColor="#000000"
         android:textSize="34sp" />
 

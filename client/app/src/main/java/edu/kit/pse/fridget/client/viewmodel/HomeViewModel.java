@@ -18,7 +18,6 @@ import java.util.Random;
 import edu.kit.pse.fridget.client.activity.CreateTextCoolNoteActivity;
 import edu.kit.pse.fridget.client.activity.FullTextCoolNoteActivity;
 import edu.kit.pse.fridget.client.activity.FullTextFrozenNoteActivity;
-import edu.kit.pse.fridget.client.activity.MenuDrawerActivity;
 import edu.kit.pse.fridget.client.datamodel.CoolNote;
 import edu.kit.pse.fridget.client.datamodel.FrozenNote;
 import edu.kit.pse.fridget.client.datamodel.command.GetMemberCommand;
@@ -196,6 +195,7 @@ public class HomeViewModel extends ViewModel {
 
     /**
      * wird in getcNList() aufgerufen, updatet die MagnetListe und den Live Data dazu
+     *
      * @param memberCommandlist die neu vom Server gegettete Liste wird hier übergeben
      */
     private void setLiveDataMagnetColorList(GetMemberCommand[] memberCommandlist) {
@@ -222,7 +222,8 @@ public class HomeViewModel extends ViewModel {
 
     /**
      * wird in setLiveDataMagnetColorList benötigt
-     * @param id Member ID
+     *
+     * @param id                Member ID
      * @param memberCommandlist
      * @return MagnetFarbe
      */
@@ -230,7 +231,7 @@ public class HomeViewModel extends ViewModel {
         GetMemberCommand[] mlist = memberCommandlist;
 
         if (mlist == null) {
-            Log.e("member","The member is not found");
+            Log.e("member", "The member is not found");
             return Color.parseColor("#FFFFFF"); // sollte nie erreicht werden... sonst heißt es, dass es den Member nicht gibt
         }
 
@@ -246,6 +247,7 @@ public class HomeViewModel extends ViewModel {
 
     /**
      * wird in getcNList() aufgerufen, updatet die VisibilityListe und den Live Data dazu
+     *
      * @param list die CoolNote Liste, die neu geupdatet wurde
      */
     private void setLiveDataVisibilityList(CoolNote[] list) {
@@ -276,7 +278,7 @@ public class HomeViewModel extends ViewModel {
         this.updateLists();
         LinkedList<Integer> emptyPositions = this.getListOfEmptySpaceForCoolNote();
         if (emptyPositions == null) {
-            Toast.makeText(view.getContext(), "You can't add more Cool Note. Please delete some CoolNotes.",Toast.LENGTH_SHORT).show();
+            Toast.makeText(view.getContext(), "You can't add more Cool Note. Please delete some CoolNotes.", Toast.LENGTH_SHORT).show();
 
         } else {
             int position = this.getRandomEmptyPosition(emptyPositions);
@@ -288,17 +290,19 @@ public class HomeViewModel extends ViewModel {
 
     }
 
+    /*    */
+
     /**
      * Methode öffnet den MenüDrawer,
      *
      * @param view
-     */
+     *//*
     public void onMenuButtonClicked(View view) {
         this.updateLists();
         Context context = view.getContext();
         Intent intent = new Intent(context, MenuDrawerActivity.class);
         context.startActivity(intent);
-    }
+    }*/
 
     public void onRefreshButtonClicked(View view) {
         updateLists();
@@ -315,7 +319,7 @@ public class HomeViewModel extends ViewModel {
     public void openFullCoolNote(View view) {
         this.updateLists();
         int position = Integer.parseInt(view.getTag().toString());
-        if (liveDataCNList.getValue() != null ) {
+        if (liveDataCNList.getValue() != null) {
             if (this.liveDataCNList.getValue()[position - 1] != null) {
                 Context context = view.getContext();
                 String cNid = this.liveDataCNList.getValue()[position - 1].getId();
@@ -323,10 +327,10 @@ public class HomeViewModel extends ViewModel {
                 intent.putExtra("coolNoteId", cNid);
                 context.startActivity(intent);
             } else {
-                Toast.makeText(view.getContext(),"This Cool Note was deleted.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), "This Cool Note was deleted.", Toast.LENGTH_SHORT).show();
             }
-        }else {
-            Toast.makeText(view.getContext(),"This Cool Note was deleted.",Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(view.getContext(), "This Cool Note was deleted.", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -342,7 +346,7 @@ public class HomeViewModel extends ViewModel {
         int position = Integer.parseInt(view.getTag().toString());
 
         if (liveDataCNList.getValue() != null) {
-            if ( this.liveDataFNList.getValue()[position - 1] != null) {
+            if (this.liveDataFNList.getValue()[position - 1] != null) {
                 String fNid = this.liveDataFNList.getValue()[position - 1].getId();
                 Intent intent = new Intent(context, FullTextFrozenNoteActivity.class);
                 intent.putExtra("frozenNoteId", fNid);
@@ -366,7 +370,7 @@ public class HomeViewModel extends ViewModel {
 
         if (cnList == null) {
             LinkedList<Integer> nullarr = new LinkedList<>();
-            for (int num = 0; num < 9; num++){
+            for (int num = 0; num < 9; num++) {
                 nullarr.add(num);
             }
             return nullarr;

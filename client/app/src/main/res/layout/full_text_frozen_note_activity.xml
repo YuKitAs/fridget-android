@@ -39,7 +39,6 @@
                 android:layout_width="55dp"
                 android:layout_height="55dp"
                 android:layout_alignParentTop="true"
-                android:onClick="@{fullFrozenNoteVM::openMenu}"
                 android:background="@drawable/menu_button" />
 
             <ImageButton
