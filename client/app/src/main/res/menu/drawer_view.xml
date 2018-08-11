@@ -4,14 +4,17 @@
         <item
             android:id="@+id/memlist"
             android:icon="@drawable/member"
-            android:title="@string/member_list" />
+            android:title="@string/member_list"
+            android:fontFamily="@font/commonsregular" />
         <item
             android:id="@+id/add_member"
             android:icon="@drawable/create_access"
-            android:title="@string/get_access_code" />
+            android:title="@string/get_access_code"
+            android:fontFamily="@font/commonsregular" />
         <item
             android:id="@+id/leave_flatshare"
             android:icon="@drawable/leave"
-            android:title="@string/leave_flatshare" />
+            android:title="@string/leave_flatshare"
+            android:fontFamily="@font/commonsregular" />
     </group>
 </menu>

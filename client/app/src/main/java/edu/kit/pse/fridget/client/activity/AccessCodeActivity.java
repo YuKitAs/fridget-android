@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageButton;
 
 import edu.kit.pse.fridget.client.R;
@@ -33,11 +32,6 @@ public class AccessCodeActivity extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.drawer_layout);
         ImageButton menuButton = findViewById(R.id.menu_button);
-
-        menuButton.setOnClickListener((v) -> {
-            drawerLayout.openDrawer(GravityCompat.START);
-            menuButton.setVisibility(View.INVISIBLE);
-        });
 
     }
 

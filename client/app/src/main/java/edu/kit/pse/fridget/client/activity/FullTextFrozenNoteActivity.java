@@ -2,6 +2,7 @@ package edu.kit.pse.fridget.client.activity;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -17,6 +18,7 @@ import android.widget.ImageButton;
 
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.databinding.FullTextFrozenNoteActivityBinding;
+import edu.kit.pse.fridget.client.databinding.NavHeaderBinding;
 import edu.kit.pse.fridget.client.viewmodel.FullFrozenNoteViewModel;
 
 
@@ -53,6 +55,12 @@ public class FullTextFrozenNoteActivity extends AppCompatActivity {
             menuButton.setVisibility(View.INVISIBLE);
         });
 
+        SharedPreferences sharedPreferences = getSharedPreferences("edu.kit.pse.fridget.client_preferences", MODE_PRIVATE);
+        String flatshareName = sharedPreferences.getString("flatshareName", "N/A");
+        NavHeaderBinding _bind = DataBindingUtil.inflate(getLayoutInflater(), R.layout.nav_header, binding
+                .navView, false);
+        binding.navView.addHeaderView(_bind.getRoot());
+        _bind.flatsharename.setText(flatshareName);
     }
 
     @Override

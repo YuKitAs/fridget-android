@@ -2,6 +2,7 @@ package edu.kit.pse.fridget.client.activity;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,6 +16,7 @@ import android.view.MenuItem;
 
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.databinding.EditTextFrozenNoteActivityBinding;
+import edu.kit.pse.fridget.client.databinding.NavHeaderBinding;
 import edu.kit.pse.fridget.client.viewmodel.EditTextFrozenNoteViewModel;
 
 public class EditTextFrozenNoteActivity extends AppCompatActivity {
@@ -45,6 +47,13 @@ public class EditTextFrozenNoteActivity extends AppCompatActivity {
         actionbar.setHomeAsUpIndicator(R.drawable.menubutton_plain);
 
         drawerLayout = findViewById(R.id.drawer_layout);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("edu.kit.pse.fridget.client_preferences", MODE_PRIVATE);
+        String flatshareName = sharedPreferences.getString("flatshareName", "N/A");
+        NavHeaderBinding _bind = DataBindingUtil.inflate(getLayoutInflater(), R.layout.nav_header, binding
+                .navView, false);
+        binding.navView.addHeaderView(_bind.getRoot());
+        _bind.flatsharename.setText(flatshareName);
     }
 
     @Override

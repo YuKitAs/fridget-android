@@ -16,6 +16,7 @@ import android.view.MenuItem;
 
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.databinding.HomeActivityBinding;
+import edu.kit.pse.fridget.client.databinding.NavHeaderBinding;
 import edu.kit.pse.fridget.client.viewmodel.HomeViewModel;
 
 public class HomeActivity extends AppCompatActivity implements LifecycleOwner {
@@ -38,12 +39,12 @@ public class HomeActivity extends AppCompatActivity implements LifecycleOwner {
         binding.setLifecycleOwner(this);
 
         SharedPreferences sharedPreferences = getSharedPreferences("edu.kit.pse.fridget.client_preferences", MODE_PRIVATE);
-        String flatshareId = sharedPreferences.getString("flatshareId", "N/A");
         String flatshareName = sharedPreferences.getString("flatshareName", "N/A");
+        String flatshareId = sharedPreferences.getString("flatshareId", "N/A");
+
 
         homeVM.setFlatshareId(flatshareId);
         homeVM.updateLists();
-        homeVM.setFlatshareName(flatshareName);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -52,6 +53,11 @@ public class HomeActivity extends AppCompatActivity implements LifecycleOwner {
         actionbar.setHomeAsUpIndicator(R.drawable.menubutton_plain);
 
         drawerLayout = findViewById(R.id.drawer_layout);
+
+        NavHeaderBinding _bind = DataBindingUtil.inflate(getLayoutInflater(), R.layout.nav_header, binding
+                .navView, false);
+        binding.navView.addHeaderView(_bind.getRoot());
+        _bind.flatsharename.setText(flatshareName);
     }
 
     @Override

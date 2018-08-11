@@ -19,6 +19,7 @@ import android.widget.ImageButton;
 
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.databinding.FullTextCoolNoteActivityBinding;
+import edu.kit.pse.fridget.client.databinding.NavHeaderBinding;
 import edu.kit.pse.fridget.client.viewmodel.FullCoolNoteViewModel;
 
 public class FullTextCoolNoteActivity extends AppCompatActivity {
@@ -66,6 +67,12 @@ public class FullTextCoolNoteActivity extends AppCompatActivity {
             drawerLayout.openDrawer(GravityCompat.START);
             menuButton.setVisibility(View.INVISIBLE);
         });
+
+        String flatshareName = sharedPreferences.getString("flatshareName", "N/A");
+        NavHeaderBinding _bind = DataBindingUtil.inflate(getLayoutInflater(), R.layout.nav_header, binding
+                .navView, false);
+        binding.navView.addHeaderView(_bind.getRoot());
+        _bind.flatsharename.setText(flatshareName);
 
     }
 
