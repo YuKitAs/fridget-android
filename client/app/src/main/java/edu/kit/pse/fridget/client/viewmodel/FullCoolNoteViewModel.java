@@ -105,7 +105,12 @@ public class FullCoolNoteViewModel extends ViewModel {
                         if (coolNote.getCreatorMembershipId().equals(mList.get(i).getMemberId())) {
                             magnetColor = Color.parseColor("#"+ mList.get(i).getMagnetColor());
                         }
-                        spanned = Html.fromHtml(coolNote.getContent());
+                        if (coolNote.getContent() == null) {
+                            spanned = Html.fromHtml("");
+                        }
+                        if (coolNote.getContent() != null) {
+                            spanned = Html.fromHtml(coolNote.getContent());
+                        }
                     }
                 }
             }
