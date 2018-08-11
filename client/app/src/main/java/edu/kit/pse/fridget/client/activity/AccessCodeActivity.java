@@ -1,29 +1,54 @@
 package edu.kit.pse.fridget.client.activity;
 
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ImageButton;
 
 import edu.kit.pse.fridget.client.R;
-
-import edu.kit.pse.fridget.client.databinding.EnterAccessCodeActivityBinding;
-import edu.kit.pse.fridget.client.datamodel.command.EnterFlatshareCommand;
-import edu.kit.pse.fridget.client.viewmodel.EnterAccessCodeViewModel;
 
 public class AccessCodeActivity extends AppCompatActivity {
 
     private static final String TAG = AccessCodeActivity.class.getSimpleName();
+
+    private DrawerLayout drawerLayout;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "Calling onCreate");
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setDisplayHomeAsUpEnabled(true);
+        actionbar.setHomeAsUpIndicator(R.drawable.menubutton_plain);
+
+        drawerLayout = findViewById(R.id.drawer_layout);
+        ImageButton menuButton = findViewById(R.id.menu_button);
+
+        menuButton.setOnClickListener((v) -> {
+            drawerLayout.openDrawer(GravityCompat.START);
+            menuButton.setVisibility(View.INVISIBLE);
+        });
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                drawerLayout.openDrawer(GravityCompat.START);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 

@@ -17,20 +17,32 @@
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#cdfeed"
-        android:padding="5dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                android:background="?android:attr/colorPrimary"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+
+
+            <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#cdfeed">
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/home"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
+            android:layout_gravity="top|start"
             android:layout_marginBottom="15dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
@@ -48,7 +60,6 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/note_home"
-                android:clickable="true"
                 android:onClick="@{(v)-> homeVM.openFullCoolNote(v)}"
                 android:tag="1"
                 android:text="@{homeVM.liveDataCNList[0].getTitle()}"
@@ -71,7 +82,6 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/note_home"
-                android:clickable="true"
                 android:onClick="@{(v)-> homeVM.openFullCoolNote(v)}"
                 android:tag="2"
                 android:text="@{homeVM.liveDataCNList[1].getTitle()}"
@@ -93,7 +103,6 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/note_home"
-                android:clickable="true"
                 android:onClick="@{(v)-> homeVM.openFullCoolNote(v)}"
                 android:tag="3"
                 android:text="@{homeVM.liveDataCNList[2].getTitle()}"
@@ -115,7 +124,6 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/note_home"
-                android:clickable="true"
                 android:onClick="@{(v)-> homeVM.openFullCoolNote(v)}"
                 android:tag="4"
                 android:text="@{homeVM.liveDataCNList[3].getTitle()}"
@@ -137,7 +145,6 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/note_home"
-                android:clickable="true"
                 android:onClick="@{(v)-> homeVM.openFullCoolNote(v)}"
                 android:tag="5"
                 android:text="@{homeVM.liveDataCNList[4].getTitle()}"
@@ -159,7 +166,6 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/note_home"
-                android:clickable="true"
                 android:onClick="@{(v)-> homeVM.openFullCoolNote(v)}"
                 android:tag="6"
                 android:text="@{homeVM.liveDataCNList[5].getTitle()}"
@@ -181,7 +187,6 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/note_home"
-                android:clickable="true"
                 android:onClick="@{(v)-> homeVM.openFullCoolNote(v)}"
                 android:tag="7"
                 android:text="@{homeVM.liveDataCNList[6].getTitle()}"
@@ -203,7 +208,6 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/note_home"
-                android:clickable="true"
                 android:onClick="@{(v)-> homeVM.openFullCoolNote(v)}"
                 android:tag="8"
                 android:text="@{homeVM.liveDataCNList[7].getTitle()}"
@@ -225,7 +229,6 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/note_home"
-                android:clickable="true"
                 android:onClick="@{(v)-> homeVM.openFullCoolNote(v)}"
                 android:tag="9"
                 android:text="@{homeVM.liveDataCNList[8].getTitle()}"
@@ -413,7 +416,6 @@
                 android:layout_marginStart="22dp"
                 android:layout_marginTop="36dp"
                 android:background="@drawable/note_home"
-                android:clickable="true"
                 android:onClick="@{(v)-> homeVM.openFullFrozenNote(v)}"
                 android:tag="1"
                 android:text="@{homeVM.liveDataFNList[0].getTitle()}"
@@ -435,7 +437,6 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="36dp"
                 android:background="@drawable/note_home"
-                android:clickable="true"
                 android:onClick="@{(v)-> homeVM.openFullFrozenNote(v)}"
                 android:tag="2"
                 android:text="@{homeVM.liveDataFNList[1].getTitle()}"
@@ -456,7 +457,6 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="36dp"
                 android:background="@drawable/note_home"
-                android:clickable="true"
                 android:onClick="@{(v)-> homeVM.openFullFrozenNote(v)}"
                 android:tag="3"
                 android:text="@{homeVM.liveDataFNList[2].getTitle()}"
@@ -525,33 +525,28 @@
             android:id="@+id/menu_button"
             android:layout_width="55dp"
             android:layout_height="55dp"
-            android:layout_alignParentTop="true"
+            android:layout_gravity="top|start"
             android:background="@drawable/menu_button" />
 
         <ImageButton
             android:id="@+id/refresh_button"
             android:layout_width="55dp"
             android:layout_height="55dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
+            android:layout_gravity="top|end"
             android:background="@drawable/refresh_button"
             android:onClick="@{(v)-> homeVM.onRefreshButtonClicked(v)}" />
 
-        <ImageButton
-            android:id="@+id/plus_button"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:background="@drawable/plus_button"
-            android:onClick="@{(v)-> homeVM.onPlusButtonClicked(v)}" />
+                <ImageButton
+                    android:id="@+id/plus_button"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_gravity="bottom|end"
+                    android:background="@drawable/plus_button"
+                    android:onClick="@{(v)-> homeVM.onPlusButtonClicked(v)}" />
 
-    </RelativeLayout>
+    </FrameLayout>
 
-        <FrameLayout
-            android:id="@+id/content_frame"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+        </LinearLayout>
 
         <android.support.design.widget.NavigationView
             android:id="@+id/nav_view"

@@ -8,7 +8,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -39,9 +41,17 @@ public class HomeActivity extends AppCompatActivity implements LifecycleOwner {
 
         SharedPreferences sharedPreferences = getSharedPreferences("edu.kit.pse.fridget.client_preferences", MODE_PRIVATE);
         String flatshareId = sharedPreferences.getString("flatshareId", "N/A");
+        String flatshareName = sharedPreferences.getString("flatshareName", "N/A");
 
         homeVM.setFlatshareId(flatshareId);
         homeVM.updateLists();
+        homeVM.setFlatshareName(flatshareName);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setDisplayHomeAsUpEnabled(true);
+        actionbar.setHomeAsUpIndicator(R.drawable.menubutton_plain);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         ImageButton menuButton = findViewById(R.id.menu_button);

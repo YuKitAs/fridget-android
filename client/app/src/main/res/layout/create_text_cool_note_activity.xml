@@ -9,7 +9,25 @@
             type="edu.kit.pse.fridget.client.viewmodel.CreateCoolNoteViewModel" />
     </data>
 
-    <RelativeLayout
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="?android:attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#cdfeed"
@@ -17,10 +35,8 @@
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/rootRL"
-            android:layout_width="392dp"
-            android:layout_height="598dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:background="@drawable/fridge_face">
 
             <RelativeLayout
@@ -143,7 +159,7 @@
                     android:text="@={coolNoteVM.content}"
                     android:textColor="#000000"
                     android:textSize="13sp"
-                    android:gravity="top|left"
+                    android:gravity="top|start"
                     app:layout_constraintBottom_toBottomOf="@+id/contentBox2"
                     app:layout_constraintEnd_toEndOf="@+id/contentBox3"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -224,8 +240,7 @@
             android:id="@+id/menu_button"
             android:layout_width="53dp"
             android:layout_height="55dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
+            android:layout_gravity="top|start"
             android:background="@drawable/menu_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -236,8 +251,7 @@
             android:id="@+id/back_button"
             android:layout_width="55dp"
             android:layout_height="55dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
+            android:layout_gravity="top|end"
             android:background="@drawable/back_button"
             android:onClick="@{coolNoteVM::goBack}"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -245,6 +259,21 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0" />
 
-    </RelativeLayout>
+    </FrameLayout>
+
+    </LinearLayout>
+
+        <android.support.design.widget.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="#D6FFD0"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/nav_header"
+            app:menu="@menu/drawer_view"
+            android:visibility="visible"/>
+
+    </android.support.v4.widget.DrawerLayout>
 
 </layout>

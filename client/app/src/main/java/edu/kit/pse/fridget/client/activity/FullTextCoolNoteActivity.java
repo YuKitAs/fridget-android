@@ -6,9 +6,16 @@ import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.databinding.FullTextCoolNoteActivityBinding;
@@ -17,6 +24,8 @@ import edu.kit.pse.fridget.client.viewmodel.FullCoolNoteViewModel;
 public class FullTextCoolNoteActivity extends AppCompatActivity {
 
     private static final String TAG = FullTextCoolNoteActivity.class.getSimpleName();
+
+    private DrawerLayout drawerLayout;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,12 +53,32 @@ public class FullTextCoolNoteActivity extends AppCompatActivity {
         fullCoolNoteViewModel.getMemberList(viewGroup);
         fullCoolNoteViewModel.readConfirmation();
 
-        //fullCoolNoteViewModel.getMemberList("c48a9caa-1c98-4f15-a2ca-5048c497b0f5");
-        //fullCoolNoteViewModel.getReadstatus("72f795d8-a746-4db7-860a-98a24704d571");
-        //GradientDrawable drawable = (GradientDrawable) getDrawable(R.drawable.magnet);
-        //drawable.setColor(Color.parseColor("#000000"));
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setDisplayHomeAsUpEnabled(true);
+        actionbar.setHomeAsUpIndicator(R.drawable.menubutton_plain);
+
+        drawerLayout = findViewById(R.id.drawer_layout);
+        ImageButton menuButton = findViewById(R.id.menu_button);
+
+        menuButton.setOnClickListener((v) -> {
+            drawerLayout.openDrawer(GravityCompat.START);
+            menuButton.setVisibility(View.INVISIBLE);
+        });
 
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                drawerLayout.openDrawer(GravityCompat.START);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
     @Override
     protected void onStart() {
