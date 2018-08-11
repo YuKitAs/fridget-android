@@ -22,12 +22,13 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
-        android:background="?android:attr/colorPrimary"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="?android:attr/colorPrimary"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:visibility="visible" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -35,17 +36,17 @@
         android:background="#cdfeed"
         android:padding="5dp">
 
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
         <RelativeLayout
-            android:id="@+id/rootRL"
+            android:id="@+id/fullCoolNote"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:background="@drawable/note_big"
             android:orientation="vertical">
-
-            <android.support.constraint.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
 
                 <ImageButton
                     android:id="@+id/menu_button"
@@ -78,19 +79,17 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent" />
 
-                <ImageView
-                    android:id="@+id/magnet"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/magnet"
-                    android:backgroundTint="@{fullNoteVM.magnetColor}"
-                    app:layout_constraintEnd_toStartOf="@+id/back_button"
-                    app:layout_constraintStart_toEndOf="@+id/menu_button"
-                    app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/magnet"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/magnet"
+                android:backgroundTint="@{fullNoteVM.magnetColor}"
+                app:layout_constraintEnd_toStartOf="@+id/back_button"
+                app:layout_constraintStart_toEndOf="@+id/menu_button"
+                app:layout_constraintTop_toTopOf="parent" />
 
                 <RelativeLayout
                     android:id="@+id/relativeLayout"
@@ -301,9 +300,9 @@
 
                 </RelativeLayout>
 
-            </android.support.constraint.ConstraintLayout>
-
         </RelativeLayout>
+
+        </android.support.constraint.ConstraintLayout>
 
     </FrameLayout>
 
