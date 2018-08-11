@@ -22,6 +22,7 @@ import edu.kit.pse.fridget.client.databinding.NavHeaderBinding;
 import edu.kit.pse.fridget.client.fragment.CreateAccessCodeFragment;
 import edu.kit.pse.fridget.client.fragment.LeaveFlatshareFragment;
 import edu.kit.pse.fridget.client.fragment.MemberListFragment;
+
 import edu.kit.pse.fridget.client.viewmodel.HomeViewModel;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -98,7 +99,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         }
 
        if (fragment != null) {
-            Log.e("not null", "not null");
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.placeholder_frame, fragment);
             ft.commit();
