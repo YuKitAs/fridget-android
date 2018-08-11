@@ -89,6 +89,7 @@ public class LeaveFlatshareFragment extends Fragment {
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
                 Log.e(TAG, "Deleting Member failed.");
+                t.printStackTrace();
             }
         });
     }

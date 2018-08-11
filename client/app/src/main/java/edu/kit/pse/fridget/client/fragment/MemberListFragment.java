@@ -8,10 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.app.LoaderManager;
-import android.database.Cursor;
 import android.widget.SimpleCursorAdapter;
-import android.widget.ArrayAdapter;
 
 import com.google.gson.Gson;
 
@@ -19,9 +16,7 @@ import java.util.List;
 
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.datamodel.Flatshare;
-import edu.kit.pse.fridget.client.datamodel.Member;
-import edu.kit.pse.fridget.client.datamodel.User;
-import edu.kit.pse.fridget.client.datamodel.command.GetMemberCommand;
+import edu.kit.pse.fridget.client.datamodel.representation.UserMembershipRepresentation;
 import edu.kit.pse.fridget.client.service.MembershipService;
 import edu.kit.pse.fridget.client.service.RetrofitClientInstance;
 import retrofit2.Call;
@@ -37,29 +32,16 @@ import retrofit2.Response;
  * create an instance of this fragment.
  */
 public class MemberListFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
     SimpleCursorAdapter mAdapter;
-    private List<GetMemberCommand> memberList;
     private Flatshare flat;
     private String flShID = flat.getId();
-
-    static final String[] PROJECTION = new String[] {};
-
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     private OnFragmentInteractionListener mListener;
 
     private static final String TAG = MemberListFragment.class.getSimpleName();
 
     public MemberListFragment() {
-        
+
     }
 
     public void updateLists() {
@@ -67,25 +49,26 @@ public class MemberListFragment extends Fragment {
     }
 
     public void getMemberList(String flatshareId) {
-        RetrofitClientInstance.getRetrofitInstance().create(MembershipService.class).getMemberList(flatshareId).enqueue(new Callback<List<GetMemberCommand>>() {
+        RetrofitClientInstance.getRetrofitInstance().create(MembershipService.class).getMemberList(flatshareId).enqueue(new Callback<List<UserMembershipRepresentation>>() {
             @Override
-            public void onResponse(Call<List<GetMemberCommand>> call, Response<List<GetMemberCommand>> response) {
-                List<GetMemberCommand> body = response.body();
-                Log.i("Fetching member list", String.format("Member list %s fetched.", new Gson().toJson(body)));
-                memberList = body;
+            public void onResponse(Call<List<UserMembershipRepresentation>> call, Response<List<UserMembershipRepresentation>> response) {
+                List<UserMembershipRepresentation> body = response.body();
+                if (body != null) {
+                    Log.i(TAG, String.format("Member list fetched: %s", new Gson().toJson(body)));
+                }
             }
 
             @Override
-            public void onFailure(Call<List<GetMemberCommand>> call, Throwable t) {
-                Log.e("Fetching member list", "Fetching member list %s failed.");
+            public void onFailure(Call<List<UserMembershipRepresentation>> call, Throwable t) {
+                Log.e(TAG, "Fetching member list failed.");
+                t.printStackTrace();
             }
         });
     }
 
 
-
     //GradientDrawable drawable = (GradientDrawable) getDrawable(R.drawable.magnet);
-        //drawable.setColor(Color.parseColor("#000000"));
+    //drawable.setColor(Color.parseColor("#000000"));
 
     /**
      * Use this factory method to create a new instance of
@@ -109,8 +92,8 @@ public class MemberListFragment extends Fragment {
 
 
         //this.setListAdapter(new ArrayAdapter<String>(
-          //      this, R.layout.list_activity,
-            //    R.id.,userName));
+        //      this, R.layout.list_activity,
+        //    R.id.,userName));
 
     }
 

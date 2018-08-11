@@ -12,13 +12,9 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 
 import edu.kit.pse.fridget.client.activity.HomeActivity;
-import edu.kit.pse.fridget.client.datamodel.Flatshare;
 import edu.kit.pse.fridget.client.datamodel.Member;
-import edu.kit.pse.fridget.client.datamodel.command.CreateFlatshareCommand;
 import edu.kit.pse.fridget.client.datamodel.command.EnterFlatshareCommand;
-import edu.kit.pse.fridget.client.datamodel.command.GetMemberCommand;
-import edu.kit.pse.fridget.client.service.AccessCodeService;
-import edu.kit.pse.fridget.client.service.FlatshareService;
+import edu.kit.pse.fridget.client.datamodel.representation.UserMembershipRepresentation;
 import edu.kit.pse.fridget.client.service.MembershipService;
 import edu.kit.pse.fridget.client.service.RetrofitClientInstance;
 import retrofit2.Call;
@@ -80,10 +76,10 @@ public class EnterAccessCodeViewModel extends ViewModel {
     public void getMembership(String flatshareId,String ownUserId,Context context) {
 
         //create Retrofit instance
-        RetrofitClientInstance.getRetrofitInstance().create(MembershipService.class).getMember(flatshareId,ownUserId).enqueue(new Callback<GetMemberCommand>() {
+        RetrofitClientInstance.getRetrofitInstance().create(MembershipService.class).getMember(flatshareId, ownUserId).enqueue(new Callback<UserMembershipRepresentation>() {
             @Override
-            public void onResponse(Call<GetMemberCommand> call, Response<GetMemberCommand> response) {
-                GetMemberCommand body =response.body();
+            public void onResponse(Call<UserMembershipRepresentation> call, Response<UserMembershipRepresentation> response) {
+                UserMembershipRepresentation body = response.body();
                 //Daten des Response speichern
                 SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
                 SharedPreferences.Editor editor = sharedPref.edit();
@@ -102,7 +98,7 @@ public class EnterAccessCodeViewModel extends ViewModel {
             }
 
             @Override
-            public void onFailure(Call<GetMemberCommand> call, Throwable t) {
+            public void onFailure(Call<UserMembershipRepresentation> call, Throwable t) {
                 Log.e("getMember", "Connection to Database failed!");
 
 

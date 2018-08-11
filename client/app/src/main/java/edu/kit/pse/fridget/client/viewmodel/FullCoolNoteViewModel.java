@@ -21,8 +21,8 @@ import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.activity.HomeActivity;
 import edu.kit.pse.fridget.client.datamodel.CoolNote;
 import edu.kit.pse.fridget.client.datamodel.ReadConfirmation;
-import edu.kit.pse.fridget.client.datamodel.command.GetMemberCommand;
 import edu.kit.pse.fridget.client.datamodel.command.ReadConfirmationCommand;
+import edu.kit.pse.fridget.client.datamodel.representation.UserMembershipRepresentation;
 import edu.kit.pse.fridget.client.service.CoolNoteService;
 import edu.kit.pse.fridget.client.service.MembershipService;
 import edu.kit.pse.fridget.client.service.ReadConfirmationService;
@@ -65,9 +65,9 @@ public class FullCoolNoteViewModel extends ViewModel {
     private String ownMemberId;
     private String ownMagnetColor;
 
-    private List<GetMemberCommand> memberList = new ArrayList<>(15);
+    private List<UserMembershipRepresentation> memberList = new ArrayList<>(15);
 
-    public List<GetMemberCommand> getMemberList() {
+    public List<UserMembershipRepresentation> getMemberList() {
         return memberList;
     }
 
@@ -100,7 +100,7 @@ public class FullCoolNoteViewModel extends ViewModel {
                 coolNote = response.body();
                 if(coolNote != null) {
                     Log.i("Fetching Cool Note", String.format("Cool Note %s fetched.", new Gson().toJson(coolNote)));
-                    List<GetMemberCommand> mList = getMemberList(v);
+                    List<UserMembershipRepresentation> mList = getMemberList(v);
                     for (int i = 0; i < mList.size(); i++) {
                         if (coolNote.getCreatorMembershipId().equals(mList.get(i).getMemberId())) {
                             magnetColor = Color.parseColor("#"+ mList.get(i).getMagnetColor());
@@ -119,13 +119,13 @@ public class FullCoolNoteViewModel extends ViewModel {
     }
 
     //get member für die magnetfarbe
-    public List<GetMemberCommand> getMemberList(View v) {
+    public List<UserMembershipRepresentation> getMemberList(View v) {
         String flatshareId = sharedPreferencesData.getSharedPreferencesData("flatshareId",v);
-        RetrofitClientInstance.getRetrofitInstance().create(MembershipService.class).getMemberList(flatshareId).enqueue(new Callback<List<GetMemberCommand>>() {
+        RetrofitClientInstance.getRetrofitInstance().create(MembershipService.class).getMemberList(flatshareId).enqueue(new Callback<List<UserMembershipRepresentation>>() {
             @Override
-            public void onResponse(Call<List<GetMemberCommand>> call, Response<List<GetMemberCommand>> response) {
+            public void onResponse(Call<List<UserMembershipRepresentation>> call, Response<List<UserMembershipRepresentation>> response) {
                 memberList = new ArrayList<>(15);
-                List<GetMemberCommand> members = response.body();
+                List<UserMembershipRepresentation> members = response.body();
                 if (members != null) {
                     for (int m = 0; m < members.size(); m++) {
                         memberList.add(members.get(m));
@@ -136,7 +136,7 @@ public class FullCoolNoteViewModel extends ViewModel {
             }
 
             @Override
-            public void onFailure(Call<List<GetMemberCommand>> call, Throwable t) {
+            public void onFailure(Call<List<UserMembershipRepresentation>> call, Throwable t) {
                 Log.e("Fetching Memberlist", "There are no Members.");
             }
         });

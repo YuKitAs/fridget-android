@@ -3,23 +3,22 @@ package edu.kit.pse.fridget.client.datamodel;
 import com.google.gson.annotations.SerializedName;
 
 public class ReadConfirmation {
-
     @SerializedName("id")
-    private String id;
+    private final String id;
 
     @SerializedName("coolNoteId")
-    private String coolNoteId;
+    private final String coolNoteId;
 
     @SerializedName("membershipId")
-    private String membershipId;
+    private final String membershipId;
 
-    public ReadConfirmation(String id, String coolNoteId, String membershipId){
+    public ReadConfirmation(String id, String coolNoteId, String membershipId) {
         this.id = id;
         this.coolNoteId = coolNoteId;
         this.membershipId = membershipId;
     }
 
-    public String getId(){
+    public String getId() {
         return id;
     }
 
@@ -30,6 +29,5 @@ public class ReadConfirmation {
     public String getCoolNoteId() {
         return coolNoteId;
     }
-
 }
 

@@ -1,29 +1,24 @@
 package edu.kit.pse.fridget.client.datamodel;
 
-import android.databinding.BaseObservable;
-import android.databinding.Bindable;
+import com.google.gson.annotations.SerializedName;
 
-public class Flatshare extends BaseObservable {
+public class Flatshare {
+    @SerializedName("id")
+    private final String id;
 
+    @SerializedName("name")
+    private final String name;
 
-    //Name der WG
-    public String name;
-
-
-    //ID der WG
-    public String id;
-
-    @Bindable
-    public String getName() {
-        return name;
+    public Flatshare(String id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
     public String getId() {
         return id;
     }
 
-    public void setName(String name){
-        this.name =name;
-
+    public String getName() {
+        return name;
     }
 }

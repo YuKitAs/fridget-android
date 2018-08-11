@@ -20,7 +20,7 @@ import edu.kit.pse.fridget.client.activity.FullTextCoolNoteActivity;
 import edu.kit.pse.fridget.client.activity.FullTextFrozenNoteActivity;
 import edu.kit.pse.fridget.client.datamodel.CoolNote;
 import edu.kit.pse.fridget.client.datamodel.FrozenNote;
-import edu.kit.pse.fridget.client.datamodel.command.GetMemberCommand;
+import edu.kit.pse.fridget.client.datamodel.representation.UserMembershipRepresentation;
 import edu.kit.pse.fridget.client.service.CoolNoteService;
 import edu.kit.pse.fridget.client.service.FrozenNoteService;
 import edu.kit.pse.fridget.client.service.MembershipService;
@@ -48,7 +48,7 @@ public class HomeViewModel extends ViewModel {
     private FrozenNote[] fNList = new FrozenNote[3];
     private Boolean[] visibilityList = new Boolean[9];
 
-    private GetMemberCommand[] memberList = new GetMemberCommand[15];
+    private UserMembershipRepresentation[] memberList = new UserMembershipRepresentation[15];
     private Integer[] magnetColorList = new Integer[9];
 
     private String flatshareId;
@@ -165,12 +165,12 @@ public class HomeViewModel extends ViewModel {
      *
      * @return
      */
-    public GetMemberCommand[] getMemberList() {
-        RetrofitClientInstance.getRetrofitInstance().create(MembershipService.class).getMemberList(flatshareId).enqueue(new Callback<List<GetMemberCommand>>() {
+    public UserMembershipRepresentation[] getMemberList() {
+        RetrofitClientInstance.getRetrofitInstance().create(MembershipService.class).getMemberList(flatshareId).enqueue(new Callback<List<UserMembershipRepresentation>>() {
             @Override
-            public void onResponse(Call<List<GetMemberCommand>> call, Response<List<GetMemberCommand>> response) {
-                memberList = new GetMemberCommand[15];
-                List<GetMemberCommand> members = response.body();
+            public void onResponse(Call<List<UserMembershipRepresentation>> call, Response<List<UserMembershipRepresentation>> response) {
+                memberList = new UserMembershipRepresentation[15];
+                List<UserMembershipRepresentation> members = response.body();
                 if (members != null) {
                     for (int m = 0; m < members.size(); m++) {
                         memberList[m] = members.get(m);
@@ -184,7 +184,7 @@ public class HomeViewModel extends ViewModel {
             }
 
             @Override
-            public void onFailure(Call<List<GetMemberCommand>> call, Throwable t) {
+            public void onFailure(Call<List<UserMembershipRepresentation>> call, Throwable t) {
                 Log.e("Fetching Memberlist", "onFailure: There are no Members.");
             }
         });
@@ -198,7 +198,7 @@ public class HomeViewModel extends ViewModel {
      *
      * @param memberCommandlist die neu vom Server gegettete Liste wird hier übergeben
      */
-    private void setLiveDataMagnetColorList(GetMemberCommand[] memberCommandlist) {
+    private void setLiveDataMagnetColorList(UserMembershipRepresentation[] memberCommandlist) {
         CoolNote[] cList = this.cNList;
 
         int i = 0;
@@ -227,15 +227,15 @@ public class HomeViewModel extends ViewModel {
      * @param memberCommandlist
      * @return MagnetFarbe
      */
-    private int getMemberColorbyUserId(String id, GetMemberCommand[] memberCommandlist) {
-        GetMemberCommand[] mlist = memberCommandlist;
+    private int getMemberColorbyUserId(String id, UserMembershipRepresentation[] memberCommandlist) {
+        UserMembershipRepresentation[] mlist = memberCommandlist;
 
         if (mlist == null) {
             Log.e("member", "The member is not found");
             return Color.parseColor("#FFFFFF"); // sollte nie erreicht werden... sonst heißt es, dass es den Member nicht gibt
         }
 
-        for (GetMemberCommand m : mlist) {
+        for (UserMembershipRepresentation m : mlist) {
             if (m.getMemberId().equals(id)) {
                 return Color.parseColor("#" + m.getMagnetColor());
             }

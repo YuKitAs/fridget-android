@@ -1,37 +1,29 @@
 package edu.kit.pse.fridget.client.datamodel;
 
+import com.google.gson.annotations.SerializedName;
+
 public class FrozenNote {
-    /**
-     * ID of the Frozen Note
-     */
-    private String id;
+    @SerializedName("id")
+    private final String id;
 
-    /**
-     * Title of the Frozen Note
-     */
-    private String title;
-    /**
-     * Content of the Frozen Note
-     */
-    private String content;
+    @SerializedName("title")
+    private final String title;
 
-    /**
-     * ID of the Flatshare the Frozen Note belongs to
-     */
-    private String flatshareId;
+    @SerializedName("content")
+    private final String content;
 
-    /**
-     * Position of the Frozen Note on the pinboard
-     */
-    private int position;
+    @SerializedName("flatshareId")
+    private final String flatshareId;
+
+    @SerializedName("position")
+    private final int position;
 
     /**
      * Getter for the ID
      *
      * @return id
      */
-
-    public FrozenNote(String id, String title, String content, String flatshareId, int position){
+    public FrozenNote(String id, String title, String content, String flatshareId, int position) {
         this.id = id;
         this.title = title;
         this.content = content;

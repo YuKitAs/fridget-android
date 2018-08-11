@@ -4,7 +4,7 @@ import java.util.List;
 
 import edu.kit.pse.fridget.client.datamodel.Member;
 import edu.kit.pse.fridget.client.datamodel.command.EnterFlatshareCommand;
-import edu.kit.pse.fridget.client.datamodel.command.GetMemberCommand;
+import edu.kit.pse.fridget.client.datamodel.representation.UserMembershipRepresentation;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
@@ -22,12 +22,12 @@ public interface MembershipService {
 
     //Ruft die Mitglieder einer Flatshare ab
     @GET("/memberships/users")
-    Call<List<GetMemberCommand>> getMemberList(@Query("flatshare") String flatshareId);
+    Call<List<UserMembershipRepresentation>> getMemberList(@Query("flatshare") String flatshareId);
 
     //Ruft einen Benutzer und seine Magnetfarbe ab
     @GET("/memberships")
-    Call<GetMemberCommand> getMember(@Query("flatshare") String flatshareId,
-                                     @Query("user") String userId);
+    Call<UserMembershipRepresentation> getMember(@Query("flatshare") String flatshareId,
+                                                 @Query("user") String userId);
 
     //Fügt einen neues Member in bestehende flatshare hinzu
     @Headers("Content-Type: application/json")
