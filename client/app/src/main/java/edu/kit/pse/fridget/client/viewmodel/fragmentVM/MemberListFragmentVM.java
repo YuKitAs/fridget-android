@@ -32,33 +32,30 @@ public class MemberListFragmentVM extends ViewModel {
     private String flatshareId;
 
     public MemberListFragmentVM() {
-
         resetLists();
-        getMemberList(flatshareId);
-        liveDataNameList.setValue(this.memberNameList);
-        liveDataMagnetList.setValue(this.magnetColorList);
-        liveDataVisibilityList.setValue(this.visibilityList);
     }
+
 
     public void setFlatshareId(String f) {
         this.flatshareId = f;
     }
 
     public void updateLists(){
-        resetLists();
-        getMemberList("1");
+        Log.i(TAG, "updateLists");
+
         liveDataNameList.setValue(this.memberNameList);
         liveDataMagnetList.setValue(this.magnetColorList);
         liveDataVisibilityList.setValue(this.visibilityList);
     }
 
 
-    private void getMemberList(String flatshareId) {
+    public void fetchMemberList(String flatshareId) {
         RetrofitClientInstance.getRetrofitInstance().create(MembershipService.class).getMemberList(flatshareId).enqueue(new Callback<List<UserMembershipRepresentation>>() {
             @Override
             public void onResponse(Call<List<UserMembershipRepresentation>> call, Response<List<UserMembershipRepresentation>> response) {
                 List<UserMembershipRepresentation> memList = response.body();
                 if (memList != null) {
+                    resetLists();
                     Log.i(TAG, String.format("Member list fetched: %s", new Gson().toJson(memList)));
 
                     for (int n = 0; n < memList.size(); n++) {
@@ -66,6 +63,9 @@ public class MemberListFragmentVM extends ViewModel {
                         visibilityList[n] = true;
                         magnetColorList[n] = Color.parseColor("#" + memList.get(n).getMagnetColor());
                     }
+
+                    updateLists();
+
                     Log.i(TAG, String.format("Member Name list fetched: %s", new Gson().toJson(memberNameList)));
                     Log.i(TAG, String.format("Member Magnet Color list fetched: %s", new Gson().toJson(magnetColorList)));
                     Log.i(TAG, String.format("Member Magnet Color list fetched: %s", new Gson().toJson(visibilityList)));

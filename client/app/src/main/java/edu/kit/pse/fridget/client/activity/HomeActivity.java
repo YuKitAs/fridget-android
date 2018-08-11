@@ -97,8 +97,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         }
 
         //Übergeben von FlatshareId mit Bundle
+        SharedPreferences sharedPreferences = getSharedPreferences("edu.kit.pse.fridget.client_preferences", MODE_PRIVATE);
+        String fsId = sharedPreferences.getString("flatshareId", "N/A");
         Bundle bundle = new Bundle();
-        bundle.putString("FlatshareId", this.flatshareId);
+        bundle.putString("FlatshareId", fsId);
 
        if (fragment != null) {
            fragment.setArguments(bundle);
