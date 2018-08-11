@@ -128,7 +128,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     protected void onStart() {
         super.onStart();
         Log.i(TAG, "Calling onStart");
-        homeVM.fetchData();
 
     }
 
@@ -136,33 +135,23 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     protected void onResume() {
         super.onResume();
         Log.i(TAG, "Calling onResume");
-        homeVM.fetchData();
-
-
     }
 
     @Override
     protected void onPause() {
-        Log.i(TAG, "Calling onPause");
         super.onPause();
-        homeVM.fetchData();
-
-
+        Log.i(TAG, "Calling onPause");
     }
 
     @Override
     protected void onStop() {
-        Log.i(TAG, "Calling onStop");
         super.onStop();
-        homeVM.fetchData();
-
+        Log.i(TAG, "Calling onStop");
     }
 
     @Override
     protected void onDestroy() {
-        Log.i(TAG, "Calling onDestroy");
         super.onDestroy();
+        Log.i(TAG, "Calling onDestroy");
     }
-
-
 }
