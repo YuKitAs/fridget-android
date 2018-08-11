@@ -85,7 +85,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -97,7 +96,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             fragment = new CreateAccessCodeFragment();
         } else if (id == R.id.leave_flatshare) {
             fragment = new LeaveFlatshareFragment();
-
         }
 
         //Übergeben von FlatshareId mit Bundle
@@ -109,7 +107,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.placeholder_frame, fragment);
             ft.commit();
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
