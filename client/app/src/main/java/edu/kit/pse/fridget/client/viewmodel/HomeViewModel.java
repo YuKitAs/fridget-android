@@ -33,32 +33,31 @@ import retrofit2.Response;
  * Diese Klasse stellt alle benötigten Informationen zur Verfügung, die die HomeActivity benötigt
  */
 public class HomeViewModel extends ViewModel {
-
+    private static final int NUM_OF_COOL_NOTES = 9;
+    private static final int NUM_OF_FROZEN_NOTES = 3;
+    private static final int NUM_OF_MEMBERS = 15;
 
     public MutableLiveData<CoolNote[]> liveDataCNList = new MutableLiveData<CoolNote[]>();
     public MutableLiveData<Boolean[]> liveDataVisibilityList = new MutableLiveData<Boolean[]>();
+    public MutableLiveData<Integer[]> liveDataMagnetColorList = new MutableLiveData<Integer[]>();
 
     public MutableLiveData<FrozenNote[]> liveDataFNList = new MutableLiveData<FrozenNote[]>();
 
-    public MutableLiveData<Integer[]> liveDataMagnetColorList = new MutableLiveData<Integer[]>();
-
-
     // Die Listen sind nach der Position geordnet
-    private CoolNote[] cNList = new CoolNote[9];
-    private FrozenNote[] fNList = new FrozenNote[3];
-    private Boolean[] visibilityList = new Boolean[9];
+    private CoolNote[] cNList = new CoolNote[NUM_OF_COOL_NOTES];
+    private Boolean[] visibilityList = new Boolean[NUM_OF_COOL_NOTES];
+    private Integer[] magnetColorList = new Integer[NUM_OF_COOL_NOTES];
 
-    private UserMembershipRepresentation[] memberList = new UserMembershipRepresentation[15];
-    private Integer[] magnetColorList = new Integer[9];
+    private FrozenNote[] fNList = new FrozenNote[NUM_OF_FROZEN_NOTES];
+
+    private UserMembershipRepresentation[] memberList = new UserMembershipRepresentation[NUM_OF_MEMBERS];
 
     private String flatshareId;
-
 
     /**
      * Konstruktor
      */
     public HomeViewModel() {
-
     }
 
     /**
@@ -69,22 +68,31 @@ public class HomeViewModel extends ViewModel {
         this.flatshareId = id;
     }
 
+    /**
+     * load everything from server
+     */
+    public void fetchData() {
+        fetchMemberList();
+        fetchFronzenNoteList();
+        fetchCoolNoteList();
+    }
 
     /**
-     * alle Listen werden aus dem Server neugeholt
+     * update view with data loaded from server
      */
-    public void updateLists() {
-        this.liveDataFNList.setValue(this.getfNList());
-        this.liveDataCNList.setValue(this.getcNList());
+    public void updateView() {
+        this.liveDataFNList.setValue(fNList);
+        this.liveDataCNList.setValue(cNList);
+
+        this.setLiveDataVisibilityList(this.cNList);
+        this.setLiveDataMagnetColorList(this.memberList);
     }
 
     /**
      * get Methode für die Liste der FrozenNotes
      * hier verbinden mit dem Server
-     *
-     * @return
      */
-    public FrozenNote[] getfNList() {
+    private void fetchFronzenNoteList() {
         RetrofitClientInstance.getRetrofitInstance().create(FrozenNoteService.class).getAllFrozenNote(flatshareId).enqueue(new Callback<List<FrozenNote>>() {
             @Override
             public void onResponse(Call<List<FrozenNote>> call, Response<List<FrozenNote>> response) {
@@ -100,32 +108,29 @@ public class HomeViewModel extends ViewModel {
                     Log.i("Fetching FNote List", String.format("FrozenNote list fNList %s fetched.",
                             new Gson().toJson(fNList)));
 
+                    // Only update view after we have got all data we need
+                    updateView();
                 } else {
                     // sollte nie erreicht werden
                     Log.e("getfNList1", "There are no Frozen Note.");
-
                 }
             }
 
             @Override
             public void onFailure(Call<List<FrozenNote>> call, Throwable t) {
                 Log.e("getFNList", "Get FrozenNoteList failed.");
-
             }
         });
-        return fNList;
-    }
 
+        // At this moment, the fNList is not yet loaded from server
+        // return fNList;
+    }
 
     /**
      * get Methode für die Liste der CoolNotes
      * hier verbinden mit dem Server
-     *
-     * @return
      */
-    public CoolNote[] getcNList() {
-
-
+    private void fetchCoolNoteList() {
         RetrofitClientInstance.getRetrofitInstance().create(CoolNoteService.class).getAllCoolNotes(flatshareId).enqueue(new Callback<List<CoolNote>>() {
             @Override
             public void onResponse(Call<List<CoolNote>> call, Response<List<CoolNote>> response) {
@@ -140,23 +145,17 @@ public class HomeViewModel extends ViewModel {
                     Log.i("Fetching CoolNote List", String.format("CoolNote list cNList %s fetched.",
                             new Gson().toJson(cNList)));
 
+                    updateView();
                 } else {
                     Log.e("getcNList", "There are no Cool Note.");
-
                 }
             }
 
             @Override
             public void onFailure(Call<List<CoolNote>> call, Throwable t) {
                 Log.e("getcNList", "Get CoolNoteList failed.");
-
             }
         });
-
-        // visibiltyList updaten
-        this.setLiveDataVisibilityList(this.cNList);
-        this.setLiveDataMagnetColorList(this.getMemberList());
-        return cNList;
     }
 
     /**
@@ -165,7 +164,7 @@ public class HomeViewModel extends ViewModel {
      *
      * @return
      */
-    public UserMembershipRepresentation[] getMemberList() {
+    private void fetchMemberList() {
         RetrofitClientInstance.getRetrofitInstance().create(MembershipService.class).getMemberList(flatshareId).enqueue(new Callback<List<UserMembershipRepresentation>>() {
             @Override
             public void onResponse(Call<List<UserMembershipRepresentation>> call, Response<List<UserMembershipRepresentation>> response) {
@@ -176,11 +175,11 @@ public class HomeViewModel extends ViewModel {
                         memberList[m] = members.get(m);
                     }
                     Log.i("Fetching Member List", String.format("Member list %s fetched.", new Gson().toJson(members)));
+
+                    updateView();
                 } else {
                     Log.e("Fetching Memberlist", "There are no Members. members is null");
-
                 }
-
             }
 
             @Override
@@ -188,10 +187,7 @@ public class HomeViewModel extends ViewModel {
                 Log.e("Fetching Memberlist", "onFailure: There are no Members.");
             }
         });
-
-        return memberList;
     }
-
 
     /**
      * wird in getcNList() aufgerufen, updatet die MagnetListe und den Live Data dazu
@@ -205,7 +201,7 @@ public class HomeViewModel extends ViewModel {
         if (cNList != null) {
             for (CoolNote cn : cList) {
                 if (cn != null) {
-                    this.magnetColorList[i] = getMemberColorbyUserId(cn.getCreatorMembershipId(), memberCommandlist);
+                    this.magnetColorList[i] = getMagnetColorByUserId(cn.getCreatorMembershipId(), memberCommandlist);
                 } else {
                     this.magnetColorList[i] = Color.parseColor("#FFFFFF"); // wird invisible gesetzt... also egal, welche Farbe
                 }
@@ -216,8 +212,8 @@ public class HomeViewModel extends ViewModel {
                 this.magnetColorList[n] = Color.parseColor("#FFFFFF");
             }
         }
-        Log.i("homeVM", String.format("Member Magnet Color list fetched: %s", new Gson().toJson(magnetColorList)));
 
+        Log.i("homeVM", String.format("Member Magnet Color list fetched: %s", new Gson().toJson(magnetColorList)));
 
         this.liveDataMagnetColorList.setValue(this.magnetColorList);
     }
@@ -229,7 +225,7 @@ public class HomeViewModel extends ViewModel {
      * @param memberCommandlist
      * @return MagnetFarbe
      */
-    private int getMemberColorbyUserId(String id, UserMembershipRepresentation[] memberCommandlist) {
+    private int getMagnetColorByUserId(String id, UserMembershipRepresentation[] memberCommandlist) {
         UserMembershipRepresentation[] mlist = memberCommandlist;
 
         if (mlist == null) {
@@ -238,12 +234,12 @@ public class HomeViewModel extends ViewModel {
         }
 
         for (UserMembershipRepresentation m : mlist) {
-            if (m.getMemberId().equals(id)) {
+            if (m != null && m.getMemberId().equals(id)) {
                 return Color.parseColor("#" + m.getMagnetColor());
             }
         }
-        return Color.parseColor("#FFFFFF"); // sollte nie erreicht werden... sonst heißt es, dass es den Member nicht gibt
 
+        return Color.parseColor("#FFFFFF");
     }
 
 
@@ -277,7 +273,7 @@ public class HomeViewModel extends ViewModel {
      * @param view
      */
     public void onPlusButtonClicked(View view) {
-        this.updateLists();
+        fetchData();
         LinkedList<Integer> emptyPositions = this.getListOfEmptySpaceForCoolNote();
         if (emptyPositions == null) {
             Toast.makeText(view.getContext(), "You can't add more Cool Note. Please delete some CoolNotes.", Toast.LENGTH_SHORT).show();
@@ -292,8 +288,6 @@ public class HomeViewModel extends ViewModel {
 
     }
 
-    /*    */
-
     /**
      * Methode öffnet den MenüDrawer,
      *
@@ -305,9 +299,8 @@ public class HomeViewModel extends ViewModel {
         Intent intent = new Intent(context, MenuDrawerActivity.class);
         context.startActivity(intent);
     }*/
-
     public void onRefreshButtonClicked(View view) {
-        updateLists();
+        fetchData();
     }
 
 
@@ -319,7 +312,7 @@ public class HomeViewModel extends ViewModel {
      * @param view
      */
     public void openFullCoolNote(View view) {
-        this.updateLists();
+        fetchData();
         int position = Integer.parseInt(view.getTag().toString());
         if (liveDataCNList.getValue() != null) {
             if (this.liveDataCNList.getValue()[position - 1] != null) {
@@ -343,7 +336,7 @@ public class HomeViewModel extends ViewModel {
      * @param view
      */
     public void openFullFrozenNote(View view) {
-        this.updateLists();
+        fetchData();
         Context context = view.getContext();
         int position = Integer.parseInt(view.getTag().toString());
 
@@ -359,7 +352,6 @@ public class HomeViewModel extends ViewModel {
             Log.e("frozenNote", "Get FrozenNote failed.");
         }
     }
-
 
     /**
      * wird in onPlusButtonClicked() benutzt
@@ -392,7 +384,6 @@ public class HomeViewModel extends ViewModel {
         }
         return arr;
     }
-
 
     /**
      * wird in onPlusButtonClicked() benutzt
@@ -448,8 +439,6 @@ public class HomeViewModel extends ViewModel {
 
     }
 
-
-
     private void fakeFN() {
         FrozenNote fN1 = new FrozenNote("0", "Notfallkontakte", "brr brr", "0", 0);
         FrozenNote fN2 = new FrozenNote("1", "Einkaufsliste", "brr brr", "0", 1);
@@ -461,7 +450,6 @@ public class HomeViewModel extends ViewModel {
 
     }
 
-
     private void fakeMembers() {
         Member m1 = new Member("0", "0", "0", "#4B088A");
         Member m2 = new Member("1", "1", "0", "#ff00ab");
@@ -471,8 +459,5 @@ public class HomeViewModel extends ViewModel {
         this.memberList[2] = m3;
 
     }
-
     */
-
-
 }

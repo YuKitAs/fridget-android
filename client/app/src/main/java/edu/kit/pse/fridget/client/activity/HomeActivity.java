@@ -22,7 +22,6 @@ import edu.kit.pse.fridget.client.databinding.NavHeaderBinding;
 import edu.kit.pse.fridget.client.fragment.CreateAccessCodeFragment;
 import edu.kit.pse.fridget.client.fragment.LeaveFlatshareFragment;
 import edu.kit.pse.fridget.client.fragment.MemberListFragment;
-
 import edu.kit.pse.fridget.client.viewmodel.HomeViewModel;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -47,12 +46,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         homeVM = ViewModelProviders.of(this).get(HomeViewModel.class);
         homeVM.setFlatshareId(flatshareId);
-        homeVM.updateLists();
+        homeVM.updateView();
+        homeVM.fetchData();
 
         binding.setHomeVM(homeVM);
-
         binding.setLifecycleOwner(this);
-
 
         //Navigation Drawer
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -75,7 +73,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        homeVM.updateLists();
+        homeVM.fetchData();
 
         switch (item.getItemId()) {
             case android.R.id.home:
@@ -128,7 +126,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     protected void onStart() {
         super.onStart();
         Log.i(TAG, "Calling onStart");
-        homeVM.updateLists();
+        homeVM.fetchData();
 
     }
 
@@ -136,7 +134,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     protected void onResume() {
         super.onResume();
         Log.i(TAG, "Calling onResume");
-        homeVM.updateLists();
+        homeVM.fetchData();
 
 
     }
@@ -145,7 +143,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     protected void onPause() {
         Log.i(TAG, "Calling onPause");
         super.onPause();
-        homeVM.updateLists();
+        homeVM.fetchData();
 
 
     }
@@ -154,7 +152,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     protected void onStop() {
         Log.i(TAG, "Calling onStop");
         super.onStop();
-        homeVM.updateLists();
+        homeVM.fetchData();
 
     }
 
