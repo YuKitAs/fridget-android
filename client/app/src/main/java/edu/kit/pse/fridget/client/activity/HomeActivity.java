@@ -44,7 +44,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         String flatshareId = sharedPreferences.getString("flatshareId", "N/A");
 
         homeVM = ViewModelProviders.of(this).get(HomeViewModel.class);
-        homeVM.setFlatshareId("1");
+        homeVM.setFlatshareId(flatshareId);
         homeVM.updateLists();
 
         binding.setHomeVM(homeVM);
