@@ -51,7 +51,7 @@ public class CreateCoolNoteViewModel extends ViewModel {
         else {
             SpannableStringBuilder str = new SpannableStringBuilder(content);
             str.setSpan(new StyleSpan(Typeface.BOLD), 0, content.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            this.content.setValue(Html.toHtml(str));
+            this.content.postValue(Html.toHtml(str));
         }
     }
 
@@ -63,7 +63,7 @@ public class CreateCoolNoteViewModel extends ViewModel {
         else {
         SpannableStringBuilder str = new SpannableStringBuilder(content);
         str.setSpan(new StyleSpan(Typeface.ITALIC), 0, content.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        this.content.setValue(Html.toHtml(str));
+        this.content.postValue(Html.toHtml(str));
         }
     }
 
@@ -89,27 +89,31 @@ public class CreateCoolNoteViewModel extends ViewModel {
             Toast.makeText(context, "Title cannot be empty!", Toast.LENGTH_LONG).show();
         }
         else {
-            CoolNote coolNote = new CoolNote(null, title.getValue(), content.getValue(), ownMembershipId, position, 0, null, new ArrayList<>());
+                if (content.getValue() == null) {
+                    content.postValue("");
+                }
 
-            RetrofitClientInstance.getRetrofitInstance().create(CoolNoteService.class).createCoolNote(coolNote).enqueue(new Callback<CoolNote>() {
-                @Override
-                public void onResponse(Call<CoolNote> call, Response<CoolNote> response) {
-                    CoolNote body = response.body();
-                    if (body != null) {
-                        Log.i("Created Cool Note", String.format("Cool Note %s created.", new Gson().toJson(body)));
+                CoolNote coolNote = new CoolNote(null, title.getValue(), content.getValue(), ownMembershipId, position, 0, null, new ArrayList<>());
 
-                        intent.putExtra("coolNoteId", body.getId());
-                        context.startActivity(intent);
+                RetrofitClientInstance.getRetrofitInstance().create(CoolNoteService.class).createCoolNote(coolNote).enqueue(new Callback<CoolNote>() {
+                    @Override
+                    public void onResponse(Call<CoolNote> call, Response<CoolNote> response) {
+                        CoolNote body = response.body();
+                        if (body != null) {
+                            Log.i("Created Cool Note", String.format("Cool Note %s created.", new Gson().toJson(body)));
+                            intent.putExtra("coolNoteId", body.getId());
+                            context.startActivity(intent);
+                        }
                     }
-                }
 
-                @Override
-                public void onFailure(Call<CoolNote> call, Throwable t) {
-                    Log.e("Creating Cool Note", "Creating Cool Note %s failed.");
-                    t.printStackTrace();
-                }
-            });
-        }
+                    @Override
+                    public void onFailure(Call<CoolNote> call, Throwable t) {
+                        Log.e("Creating Cool Note", "Creating Cool Note %s failed.");
+                        t.printStackTrace();
+                    }
+                });
+            }
+
     }
 
     //Viewwechsel zur HomeActivity
