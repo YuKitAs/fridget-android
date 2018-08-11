@@ -33,6 +33,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     private DrawerLayout drawerLayout;
 
+    private String flatshareId;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +43,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         SharedPreferences sharedPreferences = getSharedPreferences("edu.kit.pse.fridget.client_preferences", MODE_PRIVATE);
         String flatshareName = sharedPreferences.getString("flatshareName", "N/A");
-        String flatshareId = sharedPreferences.getString("flatshareId", "N/A");
+        flatshareId = sharedPreferences.getString("flatshareId", "N/A");
 
         homeVM = ViewModelProviders.of(this).get(HomeViewModel.class);
         homeVM.setFlatshareId(flatshareId);
@@ -98,7 +100,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         }
 
+        //Übergeben von FlatshareId mit Bundle
+        Bundle bundle = new Bundle();
+        bundle.putString("FlatshareId", this.flatshareId);
+
        if (fragment != null) {
+           fragment.setArguments(bundle);
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.placeholder_frame, fragment);
             ft.commit();

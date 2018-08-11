@@ -29,13 +29,19 @@ public class MemberListFragmentVM extends ViewModel {
     private String[] memberNameList = new String[15];
     private Integer[] magnetColorList = new Integer[15];
 
+    private String flatshareId;
+
     public MemberListFragmentVM() {
 
         resetLists();
-        getMemberList("1");
+        getMemberList(flatshareId);
         liveDataNameList.setValue(this.memberNameList);
         liveDataMagnetList.setValue(this.magnetColorList);
         liveDataVisibilityList.setValue(this.visibilityList);
+    }
+
+    public void setFlatshareId(String f) {
+        this.flatshareId = f;
     }
 
     public void updateLists(){

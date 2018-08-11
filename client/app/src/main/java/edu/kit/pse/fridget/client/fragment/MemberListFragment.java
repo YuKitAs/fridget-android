@@ -17,9 +17,8 @@ import edu.kit.pse.fridget.client.viewmodel.fragmentVM.MemberListFragmentVM;
 public class MemberListFragment extends Fragment {
 
     private static final String TAG = MemberListFragment.class.getSimpleName();
-    String flatshareID = null;
     MemberListFragmentVM vm = new MemberListFragmentVM();
-
+    String flatshareId;
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -31,10 +30,12 @@ public class MemberListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
 
         Log.i(TAG, "Calling onCreateView");
 
+        this.flatshareId = getArguments().getString("FlatshareId");
+        vm.setFlatshareId(flatshareId);
+        
         FragmentMemberListBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_member_list, container, false);
 
         vm.updateLists();
