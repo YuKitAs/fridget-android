@@ -10,6 +10,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -29,7 +30,6 @@ public class HomeActivity extends AppCompatActivity implements LifecycleOwner {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "Calling onCreate");
-
         HomeActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.home_activity);
 
         homeVM = ViewModelProviders.of(this).get(HomeViewModel.class);
@@ -50,6 +50,16 @@ public class HomeActivity extends AppCompatActivity implements LifecycleOwner {
             drawerLayout.openDrawer(GravityCompat.START);
             menuButton.setVisibility(View.INVISIBLE);
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                drawerLayout.openDrawer(GravityCompat.START);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
