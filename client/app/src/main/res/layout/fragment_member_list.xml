@@ -1,56 +1,447 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="edu.kit.pse.fridget.client.fragment.MemberListFragment">
+
+    <data>
+        <variable
+            name="vm"
+            type="edu.kit.pse.fridget.client.viewmodel.fragmentVM.MemberListFragmentVM" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/member_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@drawable/fridge_face"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/back_button"
+            android:onClick="@{(v)-> vm.onBackButtonClicked(v)}" />
+
 
         <RelativeLayout
-            android:id="@+id/member_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:background="@drawable/fridge_face"
-            android:orientation="vertical">
+            android:layout_width="312dp"
+            android:layout_height="281dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="40dp">
 
-            <ImageButton
-                android:id="@+id/back_button"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:layout_alignParentEnd="true"
+
+            <TextView
+                android:id="@+id/member_list_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:background="@drawable/back_button"/>
+                android:fontFamily="@font/commonsregular"
+                android:text="Member List:"
+                android:textColor="#000000"
+                android:textSize="25sp" />
 
-            <RelativeLayout
-                android:layout_width="312dp"
-                android:layout_height="281dp"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="40dp">
-
-
-                <TextView
-                    android:id="@+id/member_list_heading"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:fontFamily="@font/commonsregular"
-                    android:text="Member List:"
-                    android:textColor="#000000"
-                    android:textSize="25sp" />
-
-                <ListView
-                    android:id="@+id/android:list"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true">
+            <ScrollView
+                android:layout_width="299dp"
+                android:layout_height="213dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_weight="1">
 
 
-                </ListView>
+                <TableLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
 
-            </RelativeLayout>
+                    <TableRow
+                        android:id="@+id/member1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="235dp"
+                            android:layout_height="wrap_content"
+                            android:layout_column="1"
+                            android:text="@{vm.liveDataNameList.getValue()[0]}"
+                            android:textColor="#000000"
+                            android:textSize="18sp"
+                            android:visibility="@{vm.liveDataVisibilityList.getValue()[0] ? View.VISIBLE : View.INVISIBLE}" />
+
+                        <Button
+                            android:id="@+id/magnet1"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_column="2"
+                            android:background="@drawable/magnet"
+                            android:backgroundTint="@{vm.liveDataMagnetList[0]}"
+                            android:visibility="@{vm.liveDataVisibilityList[0] ? View.VISIBLE : View.INVISIBLE}" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/member2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="199dp"
+                            android:layout_height="wrap_content"
+                            android:layout_column="1"
+                            android:text="@{vm.liveDataNameList[1]}"
+                            android:textSize="18sp"
+                            android:textColor="#000000"
+                            android:visibility="@{vm.liveDataVisibilityList[1] ? View.VISIBLE : View.INVISIBLE}" />
+
+                        <Button
+                            android:id="@+id/magnet2"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_column="2"
+                            android:background="@drawable/magnet"
+                            android:backgroundTint="@{vm.liveDataMagnetList[1]}"
+                            android:visibility="@{vm.liveDataVisibilityList[1] ? View.VISIBLE : View.INVISIBLE}" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/member3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="199dp"
+                            android:layout_height="wrap_content"
+                            android:layout_column="1"
+                            android:text="@{vm.liveDataNameList[2]}"
+                            android:textSize="18sp"
+                            android:textColor="#000000"
+                            android:visibility="@{vm.liveDataVisibilityList[2] ? View.VISIBLE : View.INVISIBLE}" />
+
+                        <Button
+                            android:id="@+id/magnet3"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_column="2"
+                            android:background="@drawable/magnet"
+                            android:backgroundTint="@{vm.liveDataMagnetList[2]}"
+                            android:visibility="@{vm.liveDataVisibilityList[2] ? View.VISIBLE : View.INVISIBLE}" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/member4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="199dp"
+                            android:layout_height="wrap_content"
+                            android:layout_column="1"
+                            android:text="@{vm.liveDataNameList[3]}"
+                            android:textSize="18sp"
+                            android:textColor="#000000"
+                            android:visibility="@{vm.liveDataVisibilityList[3] ? View.VISIBLE : View.INVISIBLE}" />
+
+                        <Button
+                            android:id="@+id/magnet4"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_column="2"
+                            android:background="@drawable/magnet"
+                            android:backgroundTint="@{vm.liveDataMagnetList[3]}"
+                            android:visibility="@{vm.liveDataVisibilityList[3] ? View.VISIBLE : View.INVISIBLE}" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/member5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="235dp"
+                            android:layout_height="wrap_content"
+                            android:layout_column="1"
+                            android:text="@{vm.liveDataNameList.getValue()[4]}"
+                            android:textColor="#000000"
+                            android:textSize="18sp"
+                            android:visibility="@{vm.liveDataVisibilityList.getValue()[4] ? View.VISIBLE : View.INVISIBLE}" />
+
+                        <Button
+                            android:id="@+id/magnet5"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_column="2"
+                            android:background="@drawable/magnet"
+                            android:backgroundTint="@{vm.liveDataMagnetList[4]}"
+                            android:visibility="@{vm.liveDataVisibilityList[4] ? View.VISIBLE : View.INVISIBLE}" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/member6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="199dp"
+                            android:layout_height="wrap_content"
+                            android:layout_column="1"
+                            android:text="@{vm.liveDataNameList[5]}"
+                            android:textSize="18sp"
+                            android:textColor="#000000"
+                            android:visibility="@{vm.liveDataVisibilityList[5] ? View.VISIBLE : View.INVISIBLE}" />
+
+                        <Button
+                            android:id="@+id/magnet6"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_column="2"
+                            android:background="@drawable/magnet"
+                            android:backgroundTint="@{vm.liveDataMagnetList[5]}"
+                            android:visibility="@{vm.liveDataVisibilityList[5] ? View.VISIBLE : View.INVISIBLE}" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/member7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="199dp"
+                            android:layout_height="wrap_content"
+                            android:layout_column="1"
+                            android:text="@{vm.liveDataNameList[6]}"
+                            android:textSize="18sp"
+                            android:textColor="#000000"
+                            android:visibility="@{vm.liveDataVisibilityList[6] ? View.VISIBLE : View.INVISIBLE}" />
+
+                        <Button
+                            android:id="@+id/magnet7"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_column="2"
+                            android:background="@drawable/magnet"
+                            android:backgroundTint="@{vm.liveDataMagnetList[6]}"
+                            android:visibility="@{vm.liveDataVisibilityList[6] ? View.VISIBLE : View.INVISIBLE}" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/member8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="199dp"
+                            android:layout_height="wrap_content"
+                            android:layout_column="1"
+                            android:text="@{vm.liveDataNameList[7]}"
+                            android:textSize="18sp"
+                            android:textColor="#000000"
+                            android:visibility="@{vm.liveDataVisibilityList[7] ? View.VISIBLE : View.INVISIBLE}" />
+
+                        <Button
+                            android:id="@+id/magnet8"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_column="2"
+                            android:background="@drawable/magnet"
+                            android:backgroundTint="@{vm.liveDataMagnetList[7]}"
+                            android:visibility="@{vm.liveDataVisibilityList[7] ? View.VISIBLE : View.INVISIBLE}" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/member9"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="235dp"
+                            android:layout_height="wrap_content"
+                            android:layout_column="1"
+                            android:text="@{vm.liveDataNameList.getValue()[8]}"
+                            android:textColor="#000000"
+                            android:textSize="18sp"
+                            android:visibility="@{vm.liveDataVisibilityList.getValue()[8] ? View.VISIBLE : View.INVISIBLE}" />
+
+                        <Button
+                            android:id="@+id/magnet9"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_column="2"
+                            android:background="@drawable/magnet"
+                            android:backgroundTint="@{vm.liveDataMagnetList[8]}"
+                            android:visibility="@{vm.liveDataVisibilityList[8] ? View.VISIBLE : View.INVISIBLE}" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/member10"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="199dp"
+                            android:layout_height="wrap_content"
+                            android:layout_column="1"
+                            android:text="@{vm.liveDataNameList[9]}"
+                            android:textSize="18sp"
+                            android:textColor="#000000"
+                            android:visibility="@{vm.liveDataVisibilityList[9] ? View.VISIBLE : View.INVISIBLE}" />
+
+                        <Button
+                            android:id="@+id/magnet10"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_column="2"
+                            android:background="@drawable/magnet"
+                            android:backgroundTint="@{vm.liveDataMagnetList[9]}"
+                            android:visibility="@{vm.liveDataVisibilityList[9] ? View.VISIBLE : View.INVISIBLE}" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/member11"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="199dp"
+                            android:layout_height="wrap_content"
+                            android:layout_column="1"
+                            android:text="@{vm.liveDataNameList[10]}"
+                            android:textSize="18sp"
+                            android:textColor="#000000"
+                            android:visibility="@{vm.liveDataVisibilityList[10] ? View.VISIBLE : View.INVISIBLE}" />
+
+                        <Button
+                            android:id="@+id/magnet11"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_column="2"
+                            android:background="@drawable/magnet"
+                            android:backgroundTint="@{vm.liveDataMagnetList[10]}"
+                            android:visibility="@{vm.liveDataVisibilityList[10] ? View.VISIBLE : View.INVISIBLE}" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/member12"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="199dp"
+                            android:layout_height="wrap_content"
+                            android:layout_column="1"
+                            android:text="@{vm.liveDataNameList[11]}"
+                            android:textSize="18sp"
+                            android:textColor="#000000"
+                            android:visibility="@{vm.liveDataVisibilityList[11] ? View.VISIBLE : View.INVISIBLE}" />
+
+                        <Button
+                            android:id="@+id/magnet12"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_column="2"
+                            android:background="@drawable/magnet"
+                            android:backgroundTint="@{vm.liveDataMagnetList[11]}"
+                            android:visibility="@{vm.liveDataVisibilityList[11] ? View.VISIBLE : View.INVISIBLE}" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/member13"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="235dp"
+                            android:layout_height="wrap_content"
+                            android:layout_column="1"
+                            android:text="@{vm.liveDataNameList.getValue()[12]}"
+                            android:textColor="#000000"
+                            android:textSize="18sp"
+                            android:visibility="@{vm.liveDataVisibilityList.getValue()[12] ? View.VISIBLE : View.INVISIBLE}" />
+
+                        <Button
+                            android:id="@+id/magnet13"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_column="2"
+                            android:background="@drawable/magnet"
+                            android:backgroundTint="@{vm.liveDataMagnetList[12]}"
+                            android:visibility="@{vm.liveDataVisibilityList[12] ? View.VISIBLE : View.INVISIBLE}" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/member14"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="199dp"
+                            android:layout_height="wrap_content"
+                            android:layout_column="1"
+                            android:text="@{vm.liveDataNameList[13]}"
+                            android:textSize="18sp"
+                            android:textColor="#000000"
+                            android:visibility="@{vm.liveDataVisibilityList[13] ? View.VISIBLE : View.INVISIBLE}" />
+
+                        <Button
+                            android:id="@+id/magnet14"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_column="2"
+                            android:background="@drawable/magnet"
+                            android:backgroundTint="@{vm.liveDataMagnetList[13]}"
+                            android:visibility="@{vm.liveDataVisibilityList[13] ? View.VISIBLE : View.INVISIBLE}" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/member15"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="199dp"
+                            android:layout_height="wrap_content"
+                            android:layout_column="1"
+                            android:text="@{vm.liveDataNameList[14]}"
+                            android:textSize="18sp"
+                            android:textColor="#000000"
+                            android:visibility="@{vm.liveDataVisibilityList[14] ? View.VISIBLE : View.INVISIBLE}" />
+
+                        <Button
+                            android:id="@+id/magnet15"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_column="2"
+                            android:background="@drawable/magnet"
+                            android:backgroundTint="@{vm.liveDataMagnetList[14]}"
+                            android:visibility="@{vm.liveDataVisibilityList[14] ? View.VISIBLE : View.INVISIBLE}" />
+
+                    </TableRow>
+
+                </TableLayout>
+            </ScrollView>
 
         </RelativeLayout>
 
-</FrameLayout>
+    </RelativeLayout>
+
+</layout>

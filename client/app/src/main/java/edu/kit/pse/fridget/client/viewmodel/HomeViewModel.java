@@ -216,6 +216,8 @@ public class HomeViewModel extends ViewModel {
                 this.magnetColorList[n] = Color.parseColor("#FFFFFF");
             }
         }
+        Log.i("homeVM", String.format("Member Magnet Color list fetched: %s", new Gson().toJson(magnetColorList)));
+
 
         this.liveDataMagnetColorList.setValue(this.magnetColorList);
     }
