@@ -520,14 +520,6 @@
 
         </android.support.constraint.ConstraintLayout>
 
-
-        <ImageButton
-            android:id="@+id/menu_button"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_gravity="top|start"
-            android:background="@drawable/menu_button" />
-
         <ImageButton
             android:id="@+id/refresh_button"
             android:layout_width="55dp"
