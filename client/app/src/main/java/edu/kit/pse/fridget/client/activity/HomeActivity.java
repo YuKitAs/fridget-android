@@ -13,8 +13,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageButton;
 
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.databinding.HomeActivityBinding;
@@ -54,12 +52,6 @@ public class HomeActivity extends AppCompatActivity implements LifecycleOwner {
         actionbar.setHomeAsUpIndicator(R.drawable.menubutton_plain);
 
         drawerLayout = findViewById(R.id.drawer_layout);
-        ImageButton menuButton = findViewById(R.id.menu_button);
-
-        menuButton.setOnClickListener((v) -> {
-            drawerLayout.openDrawer(GravityCompat.START);
-            menuButton.setVisibility(View.INVISIBLE);
-        });
     }
 
     @Override
