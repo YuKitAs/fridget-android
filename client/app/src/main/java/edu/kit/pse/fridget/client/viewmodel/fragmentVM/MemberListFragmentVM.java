@@ -2,6 +2,8 @@ package edu.kit.pse.fridget.client.viewmodel.fragmentVM;
 
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +12,7 @@ import com.google.gson.Gson;
 
 import java.util.List;
 
+import edu.kit.pse.fridget.client.activity.HomeActivity;
 import edu.kit.pse.fridget.client.datamodel.representation.UserMembershipRepresentation;
 import edu.kit.pse.fridget.client.service.MembershipService;
 import edu.kit.pse.fridget.client.service.RetrofitClientInstance;
@@ -20,19 +23,22 @@ import retrofit2.Response;
 public class MemberListFragmentVM extends ViewModel {
 
     private static final String TAG = MemberListFragmentVM.class.getSimpleName();
+    private static final int NUM_OF_MEMBERS = 15;
+
 
     public MutableLiveData<String[]> liveDataNameList = new MutableLiveData<String[]>();
     public MutableLiveData<Integer[]> liveDataMagnetList = new MutableLiveData<Integer[]>();
     public MutableLiveData<Boolean[]> liveDataVisibilityList = new MutableLiveData<Boolean[]>();
 
-    private Boolean[] visibilityList = new Boolean[15];
-    private String[] memberNameList = new String[15];
-    private Integer[] magnetColorList = new Integer[15];
+    private Boolean[] visibilityList = new Boolean[NUM_OF_MEMBERS];
+    private String[] memberNameList = new String[NUM_OF_MEMBERS];
+    private Integer[] magnetColorList = new Integer[NUM_OF_MEMBERS];
 
     private String flatshareId;
 
     public MemberListFragmentVM() {
         resetLists();
+
     }
 
 
@@ -40,7 +46,11 @@ public class MemberListFragmentVM extends ViewModel {
         this.flatshareId = f;
     }
 
-    public void updateLists(){
+    public void fetchData(){
+        fetchMemberList();
+    }
+
+    public void updateView(){
         Log.i(TAG, "updateLists");
 
         liveDataNameList.setValue(this.memberNameList);
@@ -49,13 +59,14 @@ public class MemberListFragmentVM extends ViewModel {
     }
 
 
-    public void fetchMemberList(String flatshareId) {
+    public void fetchMemberList() {
         RetrofitClientInstance.getRetrofitInstance().create(MembershipService.class).getMemberList(flatshareId).enqueue(new Callback<List<UserMembershipRepresentation>>() {
             @Override
             public void onResponse(Call<List<UserMembershipRepresentation>> call, Response<List<UserMembershipRepresentation>> response) {
                 List<UserMembershipRepresentation> memList = response.body();
+                resetLists();
+
                 if (memList != null) {
-                    resetLists();
                     Log.i(TAG, String.format("Member list fetched: %s", new Gson().toJson(memList)));
 
                     for (int n = 0; n < memList.size(); n++) {
@@ -64,16 +75,16 @@ public class MemberListFragmentVM extends ViewModel {
                         magnetColorList[n] = Color.parseColor("#" + memList.get(n).getMagnetColor());
                     }
 
-                    updateLists();
-
                     Log.i(TAG, String.format("Member Name list fetched: %s", new Gson().toJson(memberNameList)));
                     Log.i(TAG, String.format("Member Magnet Color list fetched: %s", new Gson().toJson(magnetColorList)));
                     Log.i(TAG, String.format("Member Magnet Color list fetched: %s", new Gson().toJson(visibilityList)));
 
+                    updateView();
+
                 } else {
                     Log.e(TAG, "There are no Member.");
-
                 }
+                updateView();
             }
 
             @Override
@@ -101,6 +112,8 @@ public class MemberListFragmentVM extends ViewModel {
     }
 
     public void onBackButtonClicked(View v) {
-
+        Context context = v.getContext();
+        Intent intent = new Intent(context, HomeActivity.class);
+        context.startActivity(intent);
     }
 }

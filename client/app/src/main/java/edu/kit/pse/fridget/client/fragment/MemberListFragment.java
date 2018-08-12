@@ -23,7 +23,13 @@ public class MemberListFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        vm.updateLists();
+
+        this.flatshareId = getArguments().getString("FlatshareId");
+        vm.setFlatshareId(flatshareId);
+
+        vm.updateView();
+        vm.fetchData();
+
 
     }
 
@@ -33,12 +39,15 @@ public class MemberListFragment extends Fragment {
 
         Log.i(TAG, "Calling onCreateView");
 
-        this.flatshareId = getArguments().getString("FlatshareId");
-        vm.setFlatshareId(flatshareId);
-        
+
         FragmentMemberListBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_member_list, container, false);
 
-        vm.updateLists();
+        this.flatshareId = getArguments().getString("FlatshareId");
+        vm.setFlatshareId(flatshareId);
+
+        vm.updateView();
+        vm.fetchData();
+
         binding.setVm(vm);
 
         return binding.getRoot();

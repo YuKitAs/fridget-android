@@ -70,10 +70,10 @@
                             android:layout_width="235dp"
                             android:layout_height="wrap_content"
                             android:layout_column="1"
-                            android:text="@{vm.liveDataNameList.getValue()[0]}"
+                            android:text="@{vm.liveDataNameList[0]}"
                             android:textColor="#000000"
                             android:textSize="18sp"
-                            android:visibility="@{vm.liveDataVisibilityList.getValue()[0] ? View.VISIBLE : View.INVISIBLE}" />
+                            android:visibility="@{vm.liveDataVisibilityList[0] ? View.VISIBLE : View.INVISIBLE}" />
 
                         <Button
                             android:id="@+id/magnet1"
