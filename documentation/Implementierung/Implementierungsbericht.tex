@@ -464,6 +464,7 @@
 	\textbf{Beschreibung} \\
 	\textit{Die Klasse kümmert sich um die Daten in den shared preferences, die wir verwenden, um wichtige Daten lokal auf den Gerät zu speichern.} \\
 	
+	\textbf{Attribute}
 	\begin{itemize}
 		\item \textbf{DEFAULT}: Die ID des Accesscode. \\
 		\textbf{Typ:} String
@@ -474,6 +475,21 @@
 		\item{\texttt{public String getPreferencesData(String key, View v)}}\\
 		\textit{Gibt die Daten aus den shared preferences zurück}\\
 	\end{itemize}
+
+
+\subsubsection{\texttt{public class PushNotificationHandler extends FirebaseMessagingService}}
+\textbf{Beschreibung} \\
+\textit{Die Klasse kümmert sich um die Push-Benachrichtigungen.} \\
+
+\textbf{Methoden}
+\begin{itemize}
+	\item{\texttt{public void onMessageReceived(RemoteMessage remoteMessage)}}\\
+	\textit{Kümmert sich darum, was passiert, wenn die Push-Benachrichtigung erhalten wurde.}\\
+	\item{\texttt{public void getPushNotificationIntent(String coolNoteId)}}\\
+	\textit{Kümmert sich um den View-Wechsel, wenn man auf die Push-Benachrichtigung tippt}\\
+	\item{\texttt{public Intent getPushNotificationIntent(String coolNoteId)}}\\
+	\textit{Kümmert sich um den View-Wechsel, wenn man auf die Push-Benachrichtigung tippt}\\
+\end{itemize}
 		
 		\chapter{Änderungen gegenüber der Datenstruktur}
 		
