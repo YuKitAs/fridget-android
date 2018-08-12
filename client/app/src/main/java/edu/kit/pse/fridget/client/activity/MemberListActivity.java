@@ -32,12 +32,6 @@ public class MemberListActivity extends AppCompatActivity {
         actionbar.setHomeAsUpIndicator(R.drawable.menubutton_plain);
 
         drawerLayout = findViewById(R.id.drawer_layout);
-        ImageButton menuButton = findViewById(R.id.menu_button);
-
-        menuButton.setOnClickListener((v) -> {
-            drawerLayout.openDrawer(GravityCompat.START);
-            menuButton.setVisibility(View.INVISIBLE);
-        });
     }
 
     @Override
