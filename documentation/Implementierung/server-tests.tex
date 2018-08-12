@@ -246,6 +246,10 @@
     	
     	\textit{Testet, ob eine EntityUnprocessableException geworfen wird, falls die gegebene membershipId falsch ist}
     	
+    	\item{\texttt{public void saveReadConfirmation\_WithExistedCoolNoteIdAndMembershipId()}}
+    	
+    	\textit{Testet, ob eine EntityConflictException geworfen wird, falls die gegebenen coolNoteId und membershipId schon existieren}
+    	
     	\item{\texttt{public void deleteReadConfirmation\_WithIncorrectCoolNoteId()}}
     	
     	\textit{Testet, ob eine EntityConflictException geworfen wird, falls die gegebene coolNoteId falsch ist} 
@@ -494,6 +498,10 @@
  	\item{\texttt{public void saveReadConfirmation\_WithIncorrectCoolNoteId\_Returns\-UnprocessableEntity()}}
  	
  	\textit{Testet, ob eine Fehlermeldung mit einem entsprechenden Statuscode im Response zurückgegeben wird, falls die gegebene coolNoteId falsch ist}
+ 	
+ 	\item{\texttt{public void saveReadConfirmation\_WithExistedCoolNoteId\-AndMembershipId\_ReturnsConflict()}}
+ 	
+ 	\textit{Testet, ob eine Fehlermeldung mit einem entsprechenden Statuscode im Response zurückgegeben wird, falls die gegebenen coolNoteId und membershipId schon existieren} 	
  	
  	\item{\texttt{public void deleteReadConfirmation()}}
  	
