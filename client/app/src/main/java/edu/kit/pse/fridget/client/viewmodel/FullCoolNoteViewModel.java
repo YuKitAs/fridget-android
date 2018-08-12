@@ -28,6 +28,7 @@ import edu.kit.pse.fridget.client.service.ReadConfirmationService;
 import edu.kit.pse.fridget.client.service.RetrofitClientInstance;
 import edu.kit.pse.fridget.client.utility.DateTimeUtilities;
 import edu.kit.pse.fridget.client.utility.MagnetColorUtilities;
+import edu.kit.pse.fridget.client.utility.StyledContentUtilities;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -84,9 +85,7 @@ public class FullCoolNoteViewModel extends ViewModel {
 
                     liveDataCreateTime.setValue(DateTimeUtilities.convertToLocalTime(coolNote.getCreatedAt()));
                     liveDataTitle.setValue(coolNote.getTitle());
-                    liveDataStyledContent.setValue(coolNote.getContent() != null
-                            ? Html.fromHtml(coolNote.getContent())
-                            : Html.fromHtml("<p></p>"));
+                    liveDataStyledContent.setValue(StyledContentUtilities.convertToSpanned(coolNote.getContent()));
 
                     sendReadConfirmation();
                 }
