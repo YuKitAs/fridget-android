@@ -20,7 +20,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:id="@+id/fullFrozen">
+            android:id="@+id/fullFrozen"
+            android:background="#cdfeed">
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -30,10 +31,9 @@
                 android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
             <FrameLayout
+                android:id="@+id/placeholder_frame"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#cdfeed"
-                android:padding="5dp">
+                android:layout_height="match_parent">
 
                 <RelativeLayout
                     android:id="@+id/rootRL"
