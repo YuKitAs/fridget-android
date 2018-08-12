@@ -1,7 +1,6 @@
 package edu.kit.pse.fridget.client.activity;
 
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -13,9 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.databinding.FullTextCoolNoteActivityBinding;
@@ -33,26 +30,24 @@ public class FullTextCoolNoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "Calling onCreate");
         FullTextCoolNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.full_text_cool_note_activity);
-        Intent i = getIntent();
-        final ViewGroup viewGroup = (ViewGroup) ((ViewGroup) this
-                .findViewById(android.R.id.content)).getChildAt(0);
 
-        //viewmodels
+        final ViewGroup viewGroup = (ViewGroup) ((ViewGroup) this.findViewById(android.R.id.content)).getChildAt(0);
         final FullCoolNoteViewModel fullCoolNoteViewModel = ViewModelProviders.of(this).get(FullCoolNoteViewModel.class);
-        binding.setFullNoteVM(fullCoolNoteViewModel);
-        SharedPreferences sharedPreferences = getSharedPreferences("edu.kit.pse.fridget.client_preferences",MODE_PRIVATE);
-        String flatshareId = sharedPreferences.getString("flatshareId", "N/A");
+
+        SharedPreferences sharedPreferences = getSharedPreferences("edu.kit.pse.fridget.client_preferences", MODE_PRIVATE);
+
+        String coolNoteId = getIntent().getExtras().get("coolNoteId").toString();
         String ownMemberId = sharedPreferences.getString("ownMemberId", "N/A");
         String ownMagnetColor = sharedPreferences.getString("ownMagnetColor", "N/A");
 
-        fullCoolNoteViewModel.setFlatshareId(flatshareId);
+        fullCoolNoteViewModel.setCoolNoteId(coolNoteId);
         fullCoolNoteViewModel.setOwnMemberId(ownMemberId);
-        fullCoolNoteViewModel.setMagnetColor(ownMagnetColor);
+        fullCoolNoteViewModel.setOwnMagnetColor(ownMagnetColor);
 
-        String coolNoteId = i.getExtras().get("coolNoteId").toString();
-        fullCoolNoteViewModel.getCoolNote(coolNoteId, viewGroup);
-        fullCoolNoteViewModel.getMemberList(viewGroup);
-        fullCoolNoteViewModel.readConfirmation();
+        fullCoolNoteViewModel.fetchData();
+
+        binding.setFullNoteVM(fullCoolNoteViewModel);
+        binding.setLifecycleOwner(this);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -61,12 +56,6 @@ public class FullTextCoolNoteActivity extends AppCompatActivity {
         actionbar.setHomeAsUpIndicator(R.drawable.menubutton_plain);
 
         drawerLayout = findViewById(R.id.drawer_layout);
-        ImageButton menuButton = findViewById(R.id.menu_button);
-
-        menuButton.setOnClickListener((v) -> {
-            drawerLayout.openDrawer(GravityCompat.START);
-            menuButton.setVisibility(View.INVISIBLE);
-        });
 
         String flatshareName = sharedPreferences.getString("flatshareName", "N/A");
         NavHeaderBinding _bind = DataBindingUtil.inflate(getLayoutInflater(), R.layout.nav_header, binding
@@ -91,112 +80,24 @@ public class FullTextCoolNoteActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         Log.i(TAG, "Calling onStart");
-        FullTextCoolNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.full_text_cool_note_activity);
-        Intent i = getIntent();
-        final ViewGroup viewGroup = (ViewGroup) ((ViewGroup) this
-                .findViewById(android.R.id.content)).getChildAt(0);
-
-        //viewmodels
-        final FullCoolNoteViewModel fullCoolNoteViewModel = ViewModelProviders.of(this).get(FullCoolNoteViewModel.class);
-        binding.setFullNoteVM(fullCoolNoteViewModel);
-        SharedPreferences sharedPreferences = getSharedPreferences("edu.kit.pse.fridget.client_preferences",MODE_PRIVATE);
-        String flatshareId = sharedPreferences.getString("flatshareId", "N/A");
-        String ownMemberId = sharedPreferences.getString("ownMemberId", "N/A");
-        String ownMagnetColor = sharedPreferences.getString("ownMagnetColor", "N/A");
-
-        fullCoolNoteViewModel.setFlatshareId(flatshareId);
-        fullCoolNoteViewModel.setOwnMemberId(ownMemberId);
-        fullCoolNoteViewModel.setMagnetColor(ownMagnetColor);
-
-        String coolNoteId = i.getExtras().get("coolNoteId").toString();
-        fullCoolNoteViewModel.getCoolNote(coolNoteId, viewGroup);
-        fullCoolNoteViewModel.getMemberList(viewGroup);
-        fullCoolNoteViewModel.readConfirmation();
-
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         Log.i(TAG, "Calling onResume");
-        FullTextCoolNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.full_text_cool_note_activity);
-        Intent i = getIntent();
-        final ViewGroup viewGroup = (ViewGroup) ((ViewGroup) this
-                .findViewById(android.R.id.content)).getChildAt(0);
-
-        //viewmodels
-        final FullCoolNoteViewModel fullCoolNoteViewModel = ViewModelProviders.of(this).get(FullCoolNoteViewModel.class);
-        binding.setFullNoteVM(fullCoolNoteViewModel);
-        SharedPreferences sharedPreferences = getSharedPreferences("edu.kit.pse.fridget.client_preferences",MODE_PRIVATE);
-        String flatshareId = sharedPreferences.getString("flatshareId", "N/A");
-        String ownMemberId = sharedPreferences.getString("ownMemberId", "N/A");
-        String ownMagnetColor = sharedPreferences.getString("ownMagnetColor", "N/A");
-
-        fullCoolNoteViewModel.setFlatshareId(flatshareId);
-        fullCoolNoteViewModel.setOwnMemberId(ownMemberId);
-        fullCoolNoteViewModel.setMagnetColor(ownMagnetColor);
-
-        String coolNoteId = i.getExtras().get("coolNoteId").toString();
-        fullCoolNoteViewModel.getCoolNote(coolNoteId, viewGroup);
-        fullCoolNoteViewModel.getMemberList(viewGroup);
-        fullCoolNoteViewModel.readConfirmation();
-
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         Log.i(TAG, "Calling onPause");
-        FullTextCoolNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.full_text_cool_note_activity);
-        Intent i = getIntent();
-        final ViewGroup viewGroup = (ViewGroup) ((ViewGroup) this
-                .findViewById(android.R.id.content)).getChildAt(0);
-
-        //viewmodels
-        final FullCoolNoteViewModel fullCoolNoteViewModel = ViewModelProviders.of(this).get(FullCoolNoteViewModel.class);
-        binding.setFullNoteVM(fullCoolNoteViewModel);
-        SharedPreferences sharedPreferences = getSharedPreferences("edu.kit.pse.fridget.client_preferences",MODE_PRIVATE);
-        String flatshareId = sharedPreferences.getString("flatshareId", "N/A");
-        String ownMemberId = sharedPreferences.getString("ownMemberId", "N/A");
-        String ownMagnetColor = sharedPreferences.getString("ownMagnetColor", "N/A");
-
-        fullCoolNoteViewModel.setFlatshareId(flatshareId);
-        fullCoolNoteViewModel.setOwnMemberId(ownMemberId);
-        fullCoolNoteViewModel.setMagnetColor(ownMagnetColor);
-
-        String coolNoteId = i.getExtras().get("coolNoteId").toString();
-        fullCoolNoteViewModel.getCoolNote(coolNoteId, viewGroup);
-        fullCoolNoteViewModel.getMemberList(viewGroup);
-        fullCoolNoteViewModel.readConfirmation();
-
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         Log.i(TAG, "Calling onStop");
-        FullTextCoolNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.full_text_cool_note_activity);
-        Intent i = getIntent();
-        final ViewGroup viewGroup = (ViewGroup) ((ViewGroup) this
-                .findViewById(android.R.id.content)).getChildAt(0);
-
-        //viewmodels
-        final FullCoolNoteViewModel fullCoolNoteViewModel = ViewModelProviders.of(this).get(FullCoolNoteViewModel.class);
-        binding.setFullNoteVM(fullCoolNoteViewModel);
-        SharedPreferences sharedPreferences = getSharedPreferences("edu.kit.pse.fridget.client_preferences",MODE_PRIVATE);
-        String flatshareId = sharedPreferences.getString("flatshareId", "N/A");
-        String ownMemberId = sharedPreferences.getString("ownMemberId", "N/A");
-        String ownMagnetColor = sharedPreferences.getString("ownMagnetColor", "N/A");
-
-        fullCoolNoteViewModel.setFlatshareId(flatshareId);
-        fullCoolNoteViewModel.setOwnMemberId(ownMemberId);
-        fullCoolNoteViewModel.setMagnetColor(ownMagnetColor);
-
-        String coolNoteId = i.getExtras().get("coolNoteId").toString();
-        fullCoolNoteViewModel.getCoolNote(coolNoteId, viewGroup);
-        fullCoolNoteViewModel.getMemberList(viewGroup);
-        fullCoolNoteViewModel.readConfirmation();
-
     }
 
     @Override

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -48,15 +48,6 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:id="@+id/menu_button"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
-                    android:layout_alignParentTop="true"
-                    android:background="@drawable/menu_button"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageButton
                     android:id="@+id/back_button"
                     android:layout_width="55dp"
                     android:layout_height="55dp"
@@ -87,9 +78,9 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:background="@drawable/magnet"
-                    android:backgroundTint="@{fullNoteVM.magnetColor}"
-                    app:layout_constraintEnd_toStartOf="@+id/back_button"
-                    app:layout_constraintStart_toEndOf="@+id/menu_button"
+                    android:backgroundTint="@{fullNoteVM.liveDataOwnMagnetColor}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <RelativeLayout
@@ -99,11 +90,11 @@
                     android:layout_centerInParent="true"
                     android:layout_marginBottom="16dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="20dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.166"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="1.0">
@@ -128,7 +119,7 @@
                         android:layout_alignStart="@+id/createdOn"
                         android:layout_below="@+id/createdOn"
                         android:fontFamily="@font/commonsregular"
-                        android:text="@{fullNoteVM.coolNote.getCreatedAt()}"
+                        android:text="@{fullNoteVM.liveDataCreateTime}"
                         android:textColor="#000000"
                         android:textSize="15sp"
                         android:textStyle="italic" />
@@ -142,7 +133,7 @@
                         android:layout_marginTop="89dp"
                         android:fontFamily="@font/commonsregular"
                         android:maxLength="20"
-                        android:text="@{fullNoteVM.coolNote.getTitle()}"
+                        android:text="@{fullNoteVM.liveDataTitle}"
                         android:textColor="#000000"
                         android:textSize="25sp" />
 
@@ -154,7 +145,7 @@
                         android:layout_below="@+id/title"
                         android:fontFamily="@font/commonsregular"
                         android:maxLength="300"
-                        android:text="@{fullNoteVM.spanned}"
+                        android:text="@{fullNoteVM.liveDataStyledContent}"
                         android:textColor="#000000"
                         android:textSize="15sp" />
 
@@ -176,7 +167,8 @@
                         android:layout_below="@+id/readBy"
                         android:layout_centerVertical="true"
                         android:background="@drawable/magnet"
-                        android:backgroundTint="@{fullNoteVM.magnetColors[0]}"/>
+                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(0)}"
+                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(0)}" />
 
                     <ImageView
                         android:id="@+id/magnet2"
@@ -186,7 +178,8 @@
                         android:layout_marginEnd="-57dp"
                         android:layout_toStartOf="@+id/magnet3"
                         android:background="@drawable/magnet"
-                        android:backgroundTint="@{fullNoteVM.magnetColors[1]}"/>
+                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(1)}"
+                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(1)}" />
 
                     <ImageView
                         android:id="@+id/magnet3"
@@ -196,7 +189,8 @@
                         android:layout_alignTop="@+id/magnet1"
                         android:layout_marginStart="64dp"
                         android:background="@drawable/magnet"
-                        android:backgroundTint="@{fullNoteVM.magnetColors[2]}"/>
+                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(2)}"
+                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(2)}" />
 
                     <ImageView
                         android:id="@+id/magnet4"
@@ -205,7 +199,8 @@
                         android:layout_alignTop="@+id/magnet3"
                         android:layout_toEndOf="@+id/creationDate"
                         android:background="@drawable/magnet"
-                        android:backgroundTint="@{fullNoteVM.magnetColors[3]}"/>
+                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(3)}"
+                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(3)}" />
 
                     <ImageView
                         android:id="@+id/magnet5"
@@ -215,7 +210,8 @@
                         android:layout_alignTop="@+id/magnet3"
                         android:layout_marginStart="129dp"
                         android:background="@drawable/magnet"
-                        android:backgroundTint="@{fullNoteVM.magnetColors[4]}"/>
+                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(4)}"
+                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(4)}" />
 
                     <ImageView
                         android:id="@+id/magnet6"
@@ -225,7 +221,8 @@
                         android:layout_alignTop="@+id/magnet3"
                         android:layout_marginEnd="124dp"
                         android:background="@drawable/magnet"
-                        android:backgroundTint="@{fullNoteVM.magnetColors[5]}"/>
+                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(5)}"
+                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(5)}" />
 
                     <ImageView
                         android:id="@+id/magnet7"
@@ -235,7 +232,8 @@
                         android:layout_alignTop="@+id/magnet3"
                         android:layout_marginEnd="91dp"
                         android:background="@drawable/magnet"
-                        android:backgroundTint="@{fullNoteVM.magnetColors[6]}"/>
+                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(6)}"
+                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(6)}" />
 
                     <ImageView
                         android:id="@+id/magnet8"
@@ -243,7 +241,8 @@
                         android:layout_height="25dp"
                         android:layout_centerVertical="true"
                         android:background="@drawable/magnet"
-                        android:backgroundTint="@{fullNoteVM.magnetColors[7]}" />
+                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(7)}"
+                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(7)}" />
 
                     <ImageView
                         android:id="@+id/magnet9"
@@ -252,7 +251,8 @@
                         android:layout_alignEnd="@+id/magnet2"
                         android:layout_alignTop="@+id/magnet14"
                         android:background="@drawable/magnet"
-                        android:backgroundTint="@{fullNoteVM.magnetColors[8]}"/>
+                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(8)}"
+                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(8)}" />
 
                     <ImageView
                         android:id="@+id/magnet10"
@@ -261,7 +261,8 @@
                         android:layout_alignStart="@+id/magnet3"
                         android:layout_alignTop="@+id/magnet8"
                         android:background="@drawable/magnet"
-                        android:backgroundTint="@{fullNoteVM.magnetColors[9]}"/>
+                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(9)}"
+                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(9)}" />
 
                     <ImageView
                         android:id="@+id/magnet11"
@@ -270,7 +271,8 @@
                         android:layout_alignTop="@+id/magnet8"
                         android:layout_toEndOf="@+id/creationDate"
                         android:background="@drawable/magnet"
-                        android:backgroundTint="@{fullNoteVM.magnetColors[10]}"/>
+                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(10)}"
+                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(10)}" />
 
                     <ImageView
                         android:id="@+id/magnet12"
@@ -279,7 +281,8 @@
                         android:layout_alignStart="@+id/magnet5"
                         android:layout_alignTop="@+id/magnet8"
                         android:background="@drawable/magnet"
-                        android:backgroundTint="@{fullNoteVM.magnetColors[11]}"/>
+                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(11)}"
+                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(11)}" />
 
                     <ImageView
                         android:id="@+id/magnet13"
@@ -288,7 +291,8 @@
                         android:layout_alignStart="@+id/magnet6"
                         android:layout_alignTop="@+id/magnet12"
                         android:background="@drawable/magnet"
-                        android:backgroundTint="@{fullNoteVM.magnetColors[12]}"/>
+                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(12)}"
+                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(12)}" />
 
                     <ImageView
                         android:id="@+id/magnet14"
@@ -297,7 +301,8 @@
                         android:layout_alignStart="@+id/magnet7"
                         android:layout_alignTop="@+id/magnet12"
                         android:background="@drawable/magnet"
-                        android:backgroundTint="@{fullNoteVM.magnetColors[13]}"/>
+                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(13)}"
+                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(13)}" />
 
                 </RelativeLayout>
 
