@@ -50,7 +50,6 @@ public class LoginActivity extends AppCompatActivity implements
         Log.i(TAG, "Calling onCreate");
         setContentView(R.layout.login_activity);
 
-
         // Button listener
         findViewById(R.id.sign_in_button).setOnClickListener(this);
 
@@ -70,13 +69,13 @@ public class LoginActivity extends AppCompatActivity implements
     public void onStart() {
         super.onStart();
 
-        updateUI();
+        redirectToStartActivity();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        updateUI();
+        redirectToStartActivity();
     }
 
     @Override
@@ -93,7 +92,7 @@ public class LoginActivity extends AppCompatActivity implements
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e);
-                updateUI();
+                redirectToStartActivity();
             }
         }
     }
@@ -113,7 +112,7 @@ public class LoginActivity extends AppCompatActivity implements
                         // If sign in fails, display a message to the user.
                         Log.w(TAG, "signInWithCredential:failure", task.getException());
                         Toast.makeText(LoginActivity.this, "Authentification failed", Toast.LENGTH_SHORT).show();
-                        updateUI();
+                        redirectToStartActivity();
                     }
                 });
     }
@@ -151,7 +150,7 @@ public class LoginActivity extends AppCompatActivity implements
                     editor.putString("OwnUserIDnumber", ownUserId);
                     editor.putString("OwnUserName", ownUserName);
                     editor.commit();
-                    updateUI();
+                    redirectToStartActivity();
                 } else Log.e(TAG, "Post an Server failed");
             }
 
@@ -163,13 +162,13 @@ public class LoginActivity extends AppCompatActivity implements
         });
     }
 
-    private void updateUI() {
+    private void redirectToStartActivity() {
         String DEFAULT = "N/A";
         String ownUserId;
         SharedPreferences sharedpref = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = sharedpref.edit();
         ownUserId = sharedpref.getString("OwnUserIDnumber", DEFAULT);
-        if (ownUserId != DEFAULT) {
+        if (!DEFAULT.equals(ownUserId)) {
             startActivity(new Intent(LoginActivity.this, StartActivity.class));
         }
     }
