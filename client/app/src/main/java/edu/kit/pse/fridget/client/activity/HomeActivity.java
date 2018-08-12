@@ -16,7 +16,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
 
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.databinding.HomeActivityBinding;
@@ -157,10 +156,20 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void setButtonsInvisible() {
-        ImageButton refresh = findViewById(R.id.refresh_button);
-        ImageButton plus = findViewById(R.id.plus_button);
-        refresh.setVisibility(View.INVISIBLE);
-        plus.setVisibility(View.INVISIBLE);
+        findViewById(R.id.refresh_button).setVisibility(View.INVISIBLE);
+        findViewById(R.id.plus_button).setVisibility(View.INVISIBLE);
+        findViewById(R.id.coolNote1).setVisibility(View.INVISIBLE);
+        findViewById(R.id.coolNote2).setVisibility(View.INVISIBLE);
+        findViewById(R.id.coolNote3).setVisibility(View.INVISIBLE);
+        findViewById(R.id.coolNote4).setVisibility(View.INVISIBLE);
+        findViewById(R.id.coolNote5).setVisibility(View.INVISIBLE);
+        findViewById(R.id.coolNote6).setVisibility(View.INVISIBLE);
+        findViewById(R.id.coolNote7).setVisibility(View.INVISIBLE);
+        findViewById(R.id.coolNote8).setVisibility(View.INVISIBLE);
+        findViewById(R.id.coolNote9).setVisibility(View.INVISIBLE);
+        findViewById(R.id.frozenNote1).setVisibility(View.INVISIBLE);
+        findViewById(R.id.frozenNote2).setVisibility(View.INVISIBLE);
+        findViewById(R.id.frozenNote3).setVisibility(View.INVISIBLE);
 
     }
 }
