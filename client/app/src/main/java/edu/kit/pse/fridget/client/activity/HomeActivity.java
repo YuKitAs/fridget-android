@@ -32,8 +32,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     private DrawerLayout drawerLayout;
 
-    private String flatshareId;
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +40,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         SharedPreferences sharedPreferences = getSharedPreferences("edu.kit.pse.fridget.client_preferences", MODE_PRIVATE);
         String flatshareName = sharedPreferences.getString("flatshareName", "N/A");
-        flatshareId = sharedPreferences.getString("flatshareId", "N/A");
+        String flatshareId = sharedPreferences.getString("flatshareId", "N/A");
 
         homeVM = ViewModelProviders.of(this).get(HomeViewModel.class);
         homeVM.setFlatshareId(flatshareId);
