@@ -26,6 +26,7 @@ import edu.kit.pse.fridget.client.datamodel.command.ReadConfirmationCommand;
 import edu.kit.pse.fridget.client.service.CoolNoteService;
 import edu.kit.pse.fridget.client.service.ReadConfirmationService;
 import edu.kit.pse.fridget.client.service.RetrofitClientInstance;
+import edu.kit.pse.fridget.client.utility.DateTimeUtilities;
 import edu.kit.pse.fridget.client.utility.MagnetColorUtilities;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -81,7 +82,7 @@ public class FullCoolNoteViewModel extends ViewModel {
                 if (coolNote != null) {
                     Log.i(TAG, String.format("Cool Note %s fetched.", new Gson().toJson(coolNote)));
 
-                    liveDataCreateTime.setValue(coolNote.getCreatedAt());
+                    liveDataCreateTime.setValue(DateTimeUtilities.convertToLocalTime(coolNote.getCreatedAt()));
                     liveDataTitle.setValue(coolNote.getTitle());
                     liveDataStyledContent.setValue(coolNote.getContent() != null
                             ? Html.fromHtml(coolNote.getContent())
