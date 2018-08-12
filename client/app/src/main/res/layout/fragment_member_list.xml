@@ -54,13 +54,12 @@
                 android:layout_width="299dp"
                 android:layout_height="213dp"
                 android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:layout_weight="1">
+                android:layout_centerVertical="true">
 
 
                 <TableLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent">
+                    android:layout_height="wrap_content">
 
                     <TableRow
                         android:id="@+id/member1"
