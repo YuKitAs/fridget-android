@@ -437,54 +437,12 @@
 		\item{\texttt{public String getJwt()}}\\
 		\textit{Gibt das JWT zurück.}\\
 	\end{itemize}
-
-	\section{Package edu.kit.pse.fridget.client.service}
-	\subsection{Neue Klassen}
-	\subsubsection{\texttt{public class RetrofitClientIntance}}
-	\textbf{Beschreibung} \\
-	\textit{Die Klasse RetrofitClientInstance erstelle die Retrofit-Instanz, damit die Services verwendet werden können.} \\
 	
-	\textbf{Attribute}
-	\begin{itemize}
-		\item \textbf{retrofit}: Die Retrofit-Instanz. \\
-		\textbf{Typ:} Retrofit
-		
-		\item \textbf\textit{{BASE-URL:}} Die Basis-URL. \\
-		\textbf{Typ:} String
-	\end{itemize}
-	\textbf{Methoden}
-	\begin{itemize}
-		\item{\texttt{public static Retrofit getRetrofitIntance()}}\\
-		\textit{Erstellt die Retrofit-Client-Instanz und gibt sie zuruück.}\\
-	\end{itemize}
-
 	\section{Package edu.kit.pse.fridget.client.viewmodel}
-		\subsection{Neue Klassen}
+		\subsection{Entfernte Klassen}
 		\begin{itemize}
-			\item \texttt{public class SharedPreferencesData}
+			\item \texttt{public class LoginViewModel extends ViewModel}
 		\end{itemize}
-	\textbf{Beschreibung} \\
-	\textit{Die Klasse kümmert sich um die Daten in den shared preferences, die wir verwenden, um wichtige Daten lokal auf den Gerät zu speichern.} \\
-	
-	\textbf{Attribute}
-	\begin{itemize}
-		\item \textbf{DEFAULT}: Die ID des Accesscode. \\
-		\textbf{Typ:} String
-		
-		\item \textbf{flatshareId:} Die ID der WG, zu der der Accesscode gehört. \\
-		\textbf{Typ:} String
-		
-		\item \textbf{content:} Der Inhalt des Accesscodes.\\
-		\textbf{Typ:} String
-	\end{itemize}
-	
-	\textbf{Methoden}
-	\begin{itemize}
-		\item{\texttt{public String getFlatshareId()}}\\
-		\textit{Gibt die ID der WG des Accesscodes zurück.}\\
-		\item{\texttt{public String getContent()}}\\
-		\textit{Gibt den Accesscode als String zurück.}\\
-	\end{itemize}
 	
 		\subsection{\texttt{StartViewModel extends ViewModel}}
 		
