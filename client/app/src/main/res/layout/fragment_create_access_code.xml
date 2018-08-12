@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".fragment.CreateAccessCodeFragment">
 
     <data>
         <variable
-            name="createAccess"
+            name="createAccesscodeFR"
             type="edu.kit.pse.fridget.client.fragment.CreateAccessCodeFragment"
-            tools:ignore="MissingPrefix" />
+           />
+        <variable
+            name="createAccesscodeVM"
+            type="edu.kit.pse.fridget.client.viewmodel.CreateAccessCode"
+            />
+        <import type="android.view.View" />
 
     </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:padding="5dp"
         android:background="#cdfeed">
 
@@ -31,27 +33,19 @@
             android:background="@drawable/fridge_face"
             android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/back_button"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:layout_gravity="top|end"
-                android:background="@drawable/back_button"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
+
+                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/commonsregular"
                 android:gravity="center_horizontal"
-                android:text="To add a new Member to\n your Flatshare:"
+                android:text="This is your onetime Access Code"
                 android:textColor="@android:color/black"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -60,30 +54,46 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
 
-            <Button
-                android:id="@+id/createAccess"
+            <TextView
+                android:id="@+id/createAccesscode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="172dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/commonsregular"
-                android:text="Create New Access Code"
-                android:textSize="23sp"
-                android:onClick="@{createAccess::createAccess}"
+                android:text="@={createAccesscodeFR.accesscode.getValue()}"
+                android:textColor="@android:color/black"
+                android:textSize="30sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.465"
+
+                app:layout_constraintHorizontal_bias="0.478"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.75">
+                app:layout_constraintTop_toBottomOf="@+id/textView2">
 
 
-            </Button>
+            </TextView>
+
+            <Button
+                android:id="@+id/OK_Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="OK"
+                android:onClick="@{(v)-> createAccesscodeFR.onClickOK(v)}"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/createAccesscode" />
 
 
         </android.support.constraint.ConstraintLayout>
 
     </RelativeLayout>
 
-</FrameLayout>
+</layout>

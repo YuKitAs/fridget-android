@@ -31,7 +31,6 @@ public class AccessCodeActivity extends AppCompatActivity {
         actionbar.setHomeAsUpIndicator(R.drawable.menubutton_plain);
 
         drawerLayout = findViewById(R.id.drawer_layout);
-        ImageButton menuButton = findViewById(R.id.menu_button);
 
     }
 

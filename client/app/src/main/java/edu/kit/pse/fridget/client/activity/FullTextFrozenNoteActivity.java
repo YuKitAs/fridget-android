@@ -1,7 +1,6 @@
 package edu.kit.pse.fridget.client.activity;
 
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -13,8 +12,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageButton;
 
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.databinding.FullTextFrozenNoteActivityBinding;
@@ -34,12 +31,15 @@ public class FullTextFrozenNoteActivity extends AppCompatActivity {
         Log.i(TAG, "Calling onCreate");
         FullTextFrozenNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.full_text_frozen_note_activity);
         final FullFrozenNoteViewModel fullFrozenNoteViewModel = ViewModelProviders.of(this).get(FullFrozenNoteViewModel.class);
-        binding.setFullFrozenNoteVM(fullFrozenNoteViewModel);
 
-        Intent i = getIntent();
-        String frozenNoteId = i.getExtras().getString("frozenNoteId");
+        String frozenNoteId = getIntent().getExtras().getString("frozenNoteId");
+
         fullFrozenNoteViewModel.setFrozenNoteId(frozenNoteId);
-        fullFrozenNoteViewModel.getFN();
+
+        fullFrozenNoteViewModel.fetchData();
+
+        binding.setFullFrozenNoteVM(fullFrozenNoteViewModel);
+        binding.setLifecycleOwner(this);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -48,12 +48,6 @@ public class FullTextFrozenNoteActivity extends AppCompatActivity {
         actionbar.setHomeAsUpIndicator(R.drawable.menubutton_plain);
 
         drawerLayout = findViewById(R.id.drawer_layout);
-        ImageButton menuButton = findViewById(R.id.menu_button);
-
-        menuButton.setOnClickListener((v) -> {
-            drawerLayout.openDrawer(GravityCompat.START);
-            menuButton.setVisibility(View.INVISIBLE);
-        });
 
         SharedPreferences sharedPreferences = getSharedPreferences("edu.kit.pse.fridget.client_preferences", MODE_PRIVATE);
         String flatshareName = sharedPreferences.getString("flatshareName", "N/A");
@@ -77,56 +71,24 @@ public class FullTextFrozenNoteActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         Log.i(TAG, "Calling onStart");
-        FullTextFrozenNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.full_text_frozen_note_activity);
-        final FullFrozenNoteViewModel fullFrozenNoteViewModel = ViewModelProviders.of(this).get(FullFrozenNoteViewModel.class);
-        binding.setFullFrozenNoteVM(fullFrozenNoteViewModel);
-
-        Intent i = getIntent();
-        String frozenNoteId = i.getExtras().getString("frozenNoteId");
-        fullFrozenNoteViewModel.setFrozenNoteId(frozenNoteId);
-        fullFrozenNoteViewModel.getFN();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         Log.i(TAG, "Calling onResume");
-        FullTextFrozenNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.full_text_frozen_note_activity);
-        final FullFrozenNoteViewModel fullFrozenNoteViewModel = ViewModelProviders.of(this).get(FullFrozenNoteViewModel.class);
-        binding.setFullFrozenNoteVM(fullFrozenNoteViewModel);
-
-        Intent i = getIntent();
-        String frozenNoteId = i.getExtras().getString("frozenNoteId");
-        fullFrozenNoteViewModel.setFrozenNoteId(frozenNoteId);
-        fullFrozenNoteViewModel.getFN();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         Log.i(TAG, "Calling onPause");
-        FullTextFrozenNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.full_text_frozen_note_activity);
-        final FullFrozenNoteViewModel fullFrozenNoteViewModel = ViewModelProviders.of(this).get(FullFrozenNoteViewModel.class);
-        binding.setFullFrozenNoteVM(fullFrozenNoteViewModel);
-
-        Intent i = getIntent();
-        String frozenNoteId = i.getExtras().getString("frozenNoteId");
-        fullFrozenNoteViewModel.setFrozenNoteId(frozenNoteId);
-        fullFrozenNoteViewModel.getFN();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         Log.i(TAG, "Calling onStop");
-        FullTextFrozenNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.full_text_frozen_note_activity);
-        final FullFrozenNoteViewModel fullFrozenNoteViewModel = ViewModelProviders.of(this).get(FullFrozenNoteViewModel.class);
-        binding.setFullFrozenNoteVM(fullFrozenNoteViewModel);
-
-        Intent i = getIntent();
-        String frozenNoteId = i.getExtras().getString("frozenNoteId");
-        fullFrozenNoteViewModel.setFrozenNoteId(frozenNoteId);
-        fullFrozenNoteViewModel.getFN();
     }
 
     @Override
