@@ -29,13 +29,20 @@ public class CreateTextCoolNoteActivity extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "Calling onCreate");
-
         CreateTextCoolNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.create_text_cool_note_activity);
+
         final CreateCoolNoteViewModel createCoolNoteViewModel = ViewModelProviders.of(this).get(CreateCoolNoteViewModel.class);
-        binding.setCoolNoteVM(createCoolNoteViewModel);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("edu.kit.pse.fridget.client_preferences", MODE_PRIVATE);
+        String ownMembershipId = sharedPreferences.getString("ownMemberId", "N/A");
         Intent i = getIntent();
         int position = i.getExtras().getInt("position");
+
+        createCoolNoteViewModel.setOwnMembershipId(ownMembershipId);
         createCoolNoteViewModel.setPosition(position);
+
+        binding.setCoolNoteVM(createCoolNoteViewModel);
+        binding.setLifecycleOwner(this);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -45,13 +52,11 @@ public class CreateTextCoolNoteActivity extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.drawer_layout);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("edu.kit.pse.fridget.client_preferences", MODE_PRIVATE);
         String flatshareName = sharedPreferences.getString("flatshareName", "N/A");
         NavHeaderBinding _bind = DataBindingUtil.inflate(getLayoutInflater(), R.layout.nav_header, binding
                 .navView, false);
         binding.navView.addHeaderView(_bind.getRoot());
         _bind.flatsharename.setText(flatshareName);
-
     }
 
     @Override
@@ -78,20 +83,20 @@ public class CreateTextCoolNoteActivity extends AppCompatActivity {
 
     @Override
     protected void onPause() {
-        Log.i(TAG, "Calling onPause");
         super.onPause();
+        Log.i(TAG, "Calling onPause");
     }
 
     @Override
     protected void onStop() {
-        Log.i(TAG, "Calling onStop");
         super.onStop();
+        Log.i(TAG, "Calling onStop");
     }
 
     @Override
     protected void onDestroy() {
-        Log.i(TAG, "Calling onDestroy");
         super.onDestroy();
+        Log.i(TAG, "Calling onDestroy");
     }
 
 }
