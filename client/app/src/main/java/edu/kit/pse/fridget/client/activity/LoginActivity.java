@@ -2,7 +2,6 @@ package edu.kit.pse.fridget.client.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
@@ -36,8 +35,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LoginActivity extends AppCompatActivity implements
-        View.OnClickListener {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+    private static final String DEFAULT = "N/A";
 
     private static final int RC_SIGN_IN = 1;
     private static final String TAG = LoginActivity.class.getSimpleName();
@@ -49,6 +48,13 @@ public class LoginActivity extends AppCompatActivity implements
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "Calling onCreate");
+
+        String ownUserId = restoreUserId();
+        if (!DEFAULT.equals(ownUserId)) {
+            redirectToStartActivity(ownUserId);
+            return;
+        }
+
         setContentView(R.layout.login_activity);
 
         // Button listener
@@ -67,19 +73,6 @@ public class LoginActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-
-        redirectToStartActivity();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        redirectToStartActivity();
-    }
-
-    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -93,7 +86,7 @@ public class LoginActivity extends AppCompatActivity implements
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e);
-                redirectToStartActivity();
+                Toast.makeText(LoginActivity.this, "Authentification failed", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -113,7 +106,6 @@ public class LoginActivity extends AppCompatActivity implements
                         // If sign in fails, display a message to the user.
                         Log.w(TAG, "signInWithCredential:failure", task.getException());
                         Toast.makeText(LoginActivity.this, "Authentification failed", Toast.LENGTH_SHORT).show();
-                        redirectToStartActivity();
                     }
                 });
     }
@@ -134,10 +126,6 @@ public class LoginActivity extends AppCompatActivity implements
         RetrofitClientInstance.getRetrofitInstance().create(UserService.class).sendIdToken(googleIdToken).enqueue(new Callback<UserWithJwtRepresentation>() {
             @Override
             public void onResponse(@NonNull Call<UserWithJwtRepresentation> call, @NonNull Response<UserWithJwtRepresentation> response) {
-                //Daten des Response speichern
-                SharedPreferences sharedUser = PreferenceManager.getDefaultSharedPreferences(context);
-                SharedPreferences.Editor editor = sharedUser.edit();
-
                 UserWithJwtRepresentation body = response.body();
                 if (body != null) {
                     User user = body.getUser();
@@ -148,10 +136,14 @@ public class LoginActivity extends AppCompatActivity implements
 
                     String ownUserId = user.getId();
                     String ownUserName = user.getGoogleName();
-                    editor.putString("OwnUserIDnumber", ownUserId);
-                    editor.putString("OwnUserName", ownUserName);
-                    editor.commit();
-                    redirectToStartActivity();
+
+                    //Daten des Response speichern
+                    PreferenceManager.getDefaultSharedPreferences(context).edit()
+                            .putString("OwnUserIDnumber", ownUserId)
+                            .putString("OwnUserName", ownUserName)
+                            .apply();
+
+                    redirectToStartActivity(ownUserId);
                 } else Log.e(TAG, "Post an Server failed");
             }
 
@@ -163,23 +155,21 @@ public class LoginActivity extends AppCompatActivity implements
         });
     }
 
-    private void redirectToStartActivity() {
-        String DEFAULT = "N/A";
-        String ownUserId;
-        SharedPreferences sharedpref = PreferenceManager.getDefaultSharedPreferences(context);
-        ownUserId = sharedpref.getString("OwnUserIDnumber", DEFAULT);
-        if (!DEFAULT.equals(ownUserId)) {
-            Intent intent = new Intent(LoginActivity.this, StartActivity.class);
+    private String restoreUserId() {
+        return PreferenceManager.getDefaultSharedPreferences(context).getString("OwnUserIDnumber", DEFAULT);
+    }
 
-            // If user clicks on the push notification, coolNoteId will be set in extras
-            String coolNoteId = SafeIntentExtrasExtractor.getString(getIntent(), "coolNoteId");
+    private void redirectToStartActivity(String ownUserId) {
+        Intent intent = new Intent(LoginActivity.this, StartActivity.class);
 
-            if (coolNoteId != null) {
-                intent.putExtra("coolNoteId", coolNoteId);
-            }
+        // If user clicks on the push notification, coolNoteId will be set in extras
+        String coolNoteId = SafeIntentExtrasExtractor.getString(getIntent(), "coolNoteId");
 
-            startActivity(intent);
+        if (coolNoteId != null) {
+            intent.putExtra("coolNoteId", coolNoteId);
         }
+
+        startActivity(intent);
     }
 
     private void sendDevice(String userId) {
