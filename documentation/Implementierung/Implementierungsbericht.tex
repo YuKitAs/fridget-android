@@ -68,16 +68,114 @@
 	Um Fachbegriffe zu erläutern, befindet sich im letzten Abschnitt ein Glossar.
 	
 	\chapter{Umsetzung von den Muss- und Wunschkriterien}
+	\section{Umgesetzte Musskriterien}
+		\begin{table}[h!]
+			\centering
+			\label{my-label}
+			\begin{tabular}{p{2cm}p{12cm}}
+				
+				\multicolumn{2}{c}{\textbf{1 - Erstellen einer WG-Pinnwand}} \\ \hline
+				\centering{[}KM1010{]} & Eine Person muss sich in der App mit einem Google Account registrieren.\\
+				\centering{[}KM1020{]}& Ein Benutzer kann sich mit einem Zugangscode bei einer bestehenden WG-Pinnwand anmelden oder eine neue WG-Pinnwand erstellen.                                 \\
+				\centering{[}KM1030{]}& Beim Erstellen einer neuen WG-Pinnwand gibt der Benutzer dieser einen Namen.\\ 
+				\centering{[}KM1040{]}& Die Pinnwand ist unterteilt in \textit{Frozen Notes} und \textit{Cool Notes}.\\ 
+				\centering{[}KM1050{]}& Die \textit{Frozen Notes} sind feste, nicht löschbare, bearbeitbare Notizen und werden beim Erstellen der WG generiert.\\ 
+				\centering{[}KM1060{]}& Die \textit{Cool Notes} sind löschbare, nicht bearbeitbare Notizen und werden vom Benutzer erstellt.\\ 
+				\hline
+			\end{tabular}
+		\end{table}
+		
+		\vspace{5mm}
+		
+		\begin{table}[h!]
+			\centering
+			\label{my-label}
+			\begin{tabular}{p{2cm}p{12cm}}
+				
+				\multicolumn{2}{c}{\textbf{2 - Interaktion mit der Pinnwand}} \\ \hline
+				\centering{[}KM2010{]} & Der Benutzer kann eine \textit{Cool Note} mit einer Überschrift und Textinhalt erstellen und löschen.\\
+				\centering{[}KM2020{]}& Der Benutzer kann die \textit{Frozen Notes} bearbeiten.                                 \\
+				\centering{[}KM2030{]}& Dem Benutzer wird eine Magnetfarbe zugeteilt.\\ 
+				
+				\hline
+			\end{tabular}
+		\end{table}
+		
+		\vspace{5mm}
+		
+		\begin{table}[h!]
+			\centering
+			\label{my-label}
+			\begin{tabular}{p{2cm}p{12cm}}
+				
+				\multicolumn{2}{c}{\textbf{3 - Synchronisierung mit dem Server}} \\ \hline
+				\centering{[}KM3010{]} & Der Benutzer kann die App manuell aktualisieren.\\
+				
+				\hline
+			\end{tabular}
+		\end{table}
+		
+		\vspace{5mm}
+		
+		\begin{table}[h!]
+			\centering
+			\label{my-label}
+			\begin{tabular}{p{2cm}p{12cm}}
+				
+				\multicolumn{2}{c}{\textbf{4 - App-Menü}} \\ \hline
+				\centering{[}KM4010{]} & Der Benutzer kann eine Liste der Mitglieder und ihre entsprechende Magnetfarbe einsehen.\\
+				\centering{[}KM4020{]}& Der Benutzer kann eine WG verlassen.                               \\
+				\centering{[}KM4030{]}& Die App-Sprache ist Englisch.\\ 
+				
+				\hline
+			\end{tabular}
+		\end{table}
+		
+		\vspace{5mm}
+		
+		\begin{table}[h!]
+			\centering
+			\label{my-label}
+			\begin{tabular}{p{2cm}p{12cm}}
+				
+				\multicolumn{2}{c}{\textbf{5 - Lesebestätigung}} \\ \hline
+				\centering{[}KM5010{]} & Der Ersteller sieht, wer seine \textit{Cool Notes} gelesen hat.\\
+				\centering{[}KM5020{]}& Der Benutzer kann markieren, welche \textit{Cool Notes} er gelesen hat.                               \\ 
+				
+				\hline
+			\end{tabular}
+		\end{table}
+		
+		\vspace{5mm}
+		
+		\begin{table}[h!]
+			\centering
+			\label{my-label}
+			\begin{tabular}{p{2cm}p{12cm}}
+				
+				\multicolumn{2}{c}{\textbf{6 - Push-Benachrichtigung}} \\ \hline
+				\centering{[}KM5010{]} & Alle Mitglieder bekommen für eine neue \textit{Cool Note} eine Push-Benachrichtigung.\\
+				\centering{[}KM5020{]}& Über die Push-Benachrichtigung gelangt der Benutzer direkt zur neuen \textit{Cool Note}.                               \\
+				
+				\hline
+			\end{tabular}
+		\end{table}
+	\section{Umgesetzte Wunschkriterien}
+	Wir konnten leider keine unserer Wunschkriterien in Fridget umsetzen. Unser Problem war großteils Zeit, da für uns die richtige Implementierung der Muss-Kriterien Vorrang hatten.\\
+	Jedoch wurden die Wunschkriterien KW1010 und KW1020 (``Benutzer können nur in ihrer \textit{Cool Note} einen oder mehrere Mitglieder taggen." und ``Nur die getaggten Mitglieder bekommen eine Push-Benachrichtigung.") auf der Serverseite implementiert.\\
+	
+	\newpage
 	
 	\chapter{Änderungen gegenüber dem Feinentwurf}
 	
-	\section{Package edu.kit.fridget.client.activity}
+	\section{Package edu.kit.pse.fridget.client.activity}
 		\subsection{Entfernte Klassen}
+			Die folgende Klassen wurden als Fragmente implementiert und daher wurden die Activity Klassen entfernt.
 			\begin{itemize}
 				\item \texttt{public GetAccessCodeActivity extends AppCompatActivity implements View.OnClickListener}
 				\item \texttt{public class MemberListActivity extends AppCompatActivity implements View.OnClickListener implements SwipeRefreshLayout.OnRefreshListener}
 			\end{itemize}
-			Diese Klassen wurden als Fragmente implementiert.
+			Die folgende Klassen sind leere Klassen die noch nicht implementiert wurden, da sie für Wunschkriterien gebraucht sind.
 			\begin{itemize}
 				\item \texttt{public class FullImageCoolNoteActivity extends AppCompatActivity implements View.OnClickListener implements SwipeRefreshLayout.OnRefreshListener}
 				\item \texttt{public class CreateImageCoolNoteActivity extends AppCompatActivity implements View.OnClickListener implements SwipeRefreshLayout.OnRefreshListener}
@@ -163,7 +261,7 @@
 				\item \texttt{protected void onStop()}
 				\item \texttt{protected void onDestroy()}
 			\end{itemize}
-		\subsection{\texttt{public class EditFrozenNoteActivity extends AppCompatActivity implements View.OnClickListener} ersetzt durch \texttt{public class EditTextFrozenNoteActivity extends AppCompatActivity}}
+		\subsection{\texttt{public class EditFrozenNoteActivity extends AppCompatActivity implements View.OnClickListener} \textit{ersetzt durch} \texttt{public class EditTextFrozenNoteActivity extends AppCompatActivity}}
 		\textbf{Neue Methoden}
 		\begin{itemize}
 			\item \texttt{public boolean onOptionsItemSelected(MenuItem item)}
@@ -174,7 +272,7 @@
 			\item \texttt{protected void onDestroy()}
 		\end{itemize}
 		
-		\subsection{\texttt{public class AccessCodeActivity extends AppCompatActivity implements View.OnClickListener} ersetzt durch \texttt{public class AccessCodeActivity extends AppCompatActivity}}
+		\subsection{\texttt{public class AccessCodeActivity extends AppCompatActivity implements View.OnClickListener} \textit{ersetzt durch} \texttt{public class AccessCodeActivity extends AppCompatActivity}}
 		\textbf{Neue Methoden}
 		\begin{itemize}
 			\item \texttt{public boolean onOptionsItemSelected(MenuItem item)}
@@ -184,6 +282,17 @@
 			\item \texttt{protected void onStop()}
 			\item \texttt{protected void onDestroy()}
 		\end{itemize}
+	
+	\section{Package edu.kit.pse.fridget.client.viewmodel}
+		\subsection{Entfernte Klassen}
+		\begin{itemize}
+			\item \texttt{public class LoginViewModel extends ViewModel}
+		\end{itemize}
+	
+		\subsection{\texttt{StartViewModel extends ViewModel}}
+		
+		
+	
 		
 		\chapter{Änderungen gegenüber der Datenstruktur}
 		
