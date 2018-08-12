@@ -17,9 +17,10 @@
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage[colorlinks=true, allcolors=blue, breaklinks = true]{hyperref}
 \usepackage{tocstyle}
-\usepackage{longtable}
 \usetocstyle{standard}
 \settocfeature{raggedhook}{\raggedright}
+\usepackage{longtable}
+\usepackage{scrhack}
 \usepackage{graphicx}
 \usepackage{float}
 \graphicspath{ {images/} }
@@ -52,7 +53,7 @@
 		Karlsruher Institut für Technologie
 		
 	\end{center}
-	
+
 	\thispagestyle{empty}
 	
 	\tableofcontents
@@ -69,22 +70,22 @@
 	\chapter{Umsetzung von den Muss- und Wunschkriterien}
 	
 	\chapter{Änderungen gegenüber dem Feinentwurf}
-	\section{Package edu.kit.fridget.client.activity}
-	\subsection{Entfernte Klassen}
-		\begin{itemize}
-			\item \texttt{public GetAccessCodeActivity extends AppCompatActivity implements View.OnClickListener}
-			\item \texttt{public class MemberListActivity extends AppCompatActivity implements View.OnClickListener implements SwipeRefreshLayout.OnRefreshListener}
-		\end{itemize}
-			Diese Klassen wurden als Fragmente implementiert.
-		\begin{itemize}
-			\item \texttt{public class FullImageCoolNoteActivity extends AppCompatActivity implements View.OnClickListener implements SwipeRefreshLayout.OnRefreshListener}
-			\item \texttt{public class CreateImageCoolNoteActivity extends AppCompatActivity implements View.OnClickListener implements SwipeRefreshLayout.OnRefreshListener}
-			\item \texttt{public class CreateCommentActivity extends AppCompatActivity implements View.OnClickListener}
-			\item \texttt{public class LanguageActivity extends AppCompatActivity implements View.OnClickListener}
-		\end{itemize}
 	
-	\subsection{\texttt{public class LoginActivity extends AppCompatActivity implements View.OnClickListener}}
-		\textbf{Neue Methoden}
+	\section{Package edu.kit.fridget.client.activity}
+		\subsection{Entfernte Klassen}
+			\begin{itemize}
+				\item \texttt{public GetAccessCodeActivity extends AppCompatActivity implements View.OnClickListener}
+				\item \texttt{public class MemberListActivity extends AppCompatActivity implements View.OnClickListener implements SwipeRefreshLayout.OnRefreshListener}
+			\end{itemize}
+			Diese Klassen wurden als Fragmente implementiert.
+			\begin{itemize}
+				\item \texttt{public class FullImageCoolNoteActivity extends AppCompatActivity implements View.OnClickListener implements SwipeRefreshLayout.OnRefreshListener}
+				\item \texttt{public class CreateImageCoolNoteActivity extends AppCompatActivity implements View.OnClickListener implements SwipeRefreshLayout.OnRefreshListener}
+				\item \texttt{public class CreateCommentActivity extends AppCompatActivity implements View.OnClickListener}
+				\item \texttt{public class LanguageActivity extends AppCompatActivity implements View.OnClickListener}
+			\end{itemize}
+		\subsection{\texttt{public class LoginActivity extends AppCompatActivity implements View.OnClickListener}}
+			\textbf{Neue Methoden}
 			\begin{itemize}
 				\item \texttt{public void onStart()}
 				\item \texttt{public void onActivityResult(int requestCode, int resultCode, Intent data)}
@@ -94,83 +95,75 @@
 				\item \texttt{private void sendIdToken(String googleIdToken)}
 				\item \texttt{private void updateUI()}
 			\end{itemize}
-
-	\subsection{\texttt{public class StartActivity extends AppCompatActivity implements View.OnClickListener}}
-		\textbf{Neue Methoden}
+		\subsection{\texttt{public class StartActivity extends AppCompatActivity implements View.OnClickListener}}
+			\textbf{Neue Methoden}
 			\begin{itemize}
-			\item \texttt{protected void onStart()}
-			\item \texttt{protected void onResume()}
-			\item \texttt{protected void onPause()}
-			\item \texttt{protected void onStop()}
-			\item \texttt{protected void onDestroy()}
-			\item \texttt{private void updateUI(String flatshareId())}
-		\end{itemize}
-			
-	\subsection{\texttt{public class CreateFlatshareActivity extends AppCompatActivity implements View.OnClickListener}}
-		\textbf{Neue Methoden}
-		\begin{itemize}
-			\item \texttt{protected void onStart()}
-			\item \texttt{protected void onPause()}
-			\item \texttt{protected void onStop()}
-			\item \texttt{private void updateUI(String flatshareId())}
-		\end{itemize}
-	
-	\subsection{\texttt{public class EnterAccessCodeActivity extends AppCompatActivity implements View.OnClickListener}}
-		\textbf{Neue Methoden}
-		\begin{itemize}
-			\item \texttt{protected void onStart()}
-			\item \texttt{protected void onPause()}
-			\item \texttt{protected void onStop()}
-			\item \texttt{private void updateUI(String flatshareId())}
-		\end{itemize}
-			
-	\subsubsection{\texttt{public class HomeActivity extends AppCompatActivity implements View.OnClickListener implements SwipeRefreshLayout.OnRefreshListener } ersetzt durch \texttt{public class HomeActivity extends AppCompatActivity implements View.OnClickListener implements NavigationView.OnNavigationItemSelectedListener }}
-		\textbf{Neue Methoden}
-		\begin{itemize}
-			\item \texttt{public boolean onOptionsItemSelected(MenuItem item)}
-			\item \texttt{public boolean onNavigationItemSelected(MenuItem item)}
-			\item \texttt{public void onBackPressed()}
-			\item \texttt{protected void onStart()}
-			\item \texttt{protected void onResume()}
-			\item \texttt{protected void onPause()}
-			\item \texttt{protected void onStop()}
-			\item \texttt{protected void onDestroy()}
-		\end{itemize}
-			
-	\subsection{\texttt{public class FullTextCoolNoteActivity extends AppCompatActivity implements View.OnClickListener implements SwipeRefreshLayout.OnRefreshListener} ersetzt durch \texttt{public class FullTextCoolNoteActivity extends AppCompatActivityr}}
-		\textbf{Neue Methoden}
-		\begin{itemize}
-			\item \texttt{public boolean onOptionsItemSelected(MenuItem item)}
-			\item \texttt{protected void onStart()}
-			\item \texttt{protected void onResume()}
-			\item \texttt{protected void onPause()}
-			\item \texttt{protected void onStop()}
-			\item \texttt{protected void onDestroy()}
-		\end{itemize}
-			
-	\subsection{\texttt{public class FullFrozenNoteActivity extends AppCompatActivity implements View.OnClickListener implements SwipeRefreshLayout.OnRefreshListener} ersetzt durch \texttt{public class FullTextFrozenNoteActivity extends AppCompatActivity}}
-		\textbf{Neue Methoden}
-		\begin{itemize}
-			\item \texttt{public boolean onOptionsItemSelected(MenuItem item)}
-			\item \texttt{protected void onStart()}
-			\item \texttt{protected void onResume()}
-			\item \texttt{protected void onPause()}
-			\item \texttt{protected void onStop()}
-			\item \texttt{protected void onDestroy()}
-		\end{itemize}
-			
-	\subsection{\texttt{public class CreateTextCoolNoteActivity extends AppCompatActivity implements View.OnClickListener} ersetzt durch {\texttt{public class CreateTextCoolNoteActivity extends AppCompatActivity}}
-		\textbf{Neue Methoden}
-		\begin{itemize}
-			\item \texttt{public boolean onOptionsItemSelected(MenuItem item)}
-			\item \texttt{protected void onStart()}
-			\item \texttt{protected void onResume()}
-			\item \texttt{protected void onPause()}
-			\item \texttt{protected void onStop()}
-			\item \texttt{protected void onDestroy()}
-		\end{itemize}
-			
-	\subsection{\texttt{public class EditFrozenNoteActivity extends AppCompatActivity implements View.OnClickListener} ersetzt durch {\texttt{public class EditTextFrozenNoteActivity extends AppCompatActivity}}
+				\item \texttt{protected void onStart()}
+				\item \texttt{protected void onResume()}
+				\item \texttt{protected void onPause()}
+				\item \texttt{protected void onStop()}
+				\item \texttt{protected void onDestroy()}
+				\item \texttt{private void updateUI(String flatshareId())}
+			\end{itemize}
+		\subsection{\texttt{public class CreateFlatshareActivity extends AppCompatActivity implements View.OnClickListener}}
+			\textbf{Neue Methoden}
+			\begin{itemize}
+				\item \texttt{protected void onStart()}
+				\item \texttt{protected void onPause()}
+				\item \texttt{protected void onStop()}
+				\item \texttt{private void updateUI(String flatshareId())}
+			\end{itemize}
+		\subsection{\texttt{public class EnterAccessCodeActivity extends AppCompatActivity implements View.OnClickListener}}
+			\textbf{Neue Methoden}
+			\begin{itemize}
+				\item \texttt{protected void onStart()}
+				\item \texttt{protected void onPause()}
+				\item \texttt{protected void onStop()}
+				\item \texttt{private void updateUI(String flatshareId())}
+			\end{itemize}
+		\subsection{\texttt{public class HomeActivity extends AppCompatActivity implements View.OnClickListener implements SwipeRefreshLayout.OnRefreshListener } ersetzt durch \texttt{public class HomeActivity extends AppCompatActivity implements View.OnClickListener implements NavigationView.OnNavigationItemSelectedListener }}
+			\textbf{Neue Methoden}
+			\begin{itemize}
+				\item \texttt{public boolean onOptionsItemSelected(MenuItem item)}
+				\item \texttt{public boolean onNavigationItemSelected(MenuItem item)}
+				\item \texttt{public void onBackPressed()}
+				\item \texttt{protected void onStart()}
+				\item \texttt{protected void onResume()}
+				\item \texttt{protected void onPause()}
+				\item \texttt{protected void onStop()}
+				\item \texttt{protected void onDestroy()}
+			\end{itemize}
+		\subsection{\texttt{public class FullTextCoolNoteActivity extends AppCompatActivity implements View.OnClickListener implements SwipeRefreshLayout.OnRefreshListener} \textit{ersetzt durch} \texttt{public class FullTextCoolNoteActivity extends AppCompatActivity}}
+			\textbf{Neue Methoden}
+			\begin{itemize}
+				\item \texttt{public boolean onOptionsItemSelected(MenuItem item)}
+				\item \texttt{protected void onStart()}
+				\item \texttt{protected void onResume()}
+				\item \texttt{protected void onPause()}
+				\item \texttt{protected void onStop()}
+				\item \texttt{protected void onDestroy()}
+			\end{itemize}
+		\subsection{\texttt{public class FullFrozenNoteActivity extends AppCompatActivity implements View.OnClickListener implements SwipeRefreshLayout.OnRefreshListener} \textit{ersetzt durch} \texttt{public class FullTextFrozenNoteActivity extends AppCompatActivity}}
+			\textbf{Neue Methoden}
+			\begin{itemize}
+				\item \texttt{public boolean onOptionsItemSelected(MenuItem item)}
+				\item \texttt{protected void onStart()}
+				\item \texttt{protected void onResume()}
+				\item \texttt{protected void onPause()}
+				\item \texttt{protected void onStop()}
+				\item \texttt{protected void onDestroy()}
+			\end{itemize}
+		\subsection{\texttt{public class CreateTextCoolNoteActivity extends AppCompatActivity implements View.OnClickListener} \textit{ersetzt durch} \texttt{public class CreateTextCoolNoteActivity extends AppCompatActivity}}
+			\textbf{Neue Methoden}
+			\begin{itemize}
+				\item \texttt{public boolean onOptionsItemSelected(MenuItem item)}
+				\item \texttt{protected void onStart()}
+				\item \texttt{protected void onResume()}
+				\item \texttt{protected void onPause()}
+				\item \texttt{protected void onStop()}
+				\item \texttt{protected void onDestroy()}
+			\end{itemize}
+		\subsection{\texttt{public class EditFrozenNoteActivity extends AppCompatActivity implements View.OnClickListener} ersetzt durch \texttt{public class EditTextFrozenNoteActivity extends AppCompatActivity}}
 		\textbf{Neue Methoden}
 		\begin{itemize}
 			\item \texttt{public boolean onOptionsItemSelected(MenuItem item)}
@@ -180,8 +173,8 @@
 			\item \texttt{protected void onStop()}
 			\item \texttt{protected void onDestroy()}
 		\end{itemize}
-			
-	\subsection{\texttt{public class AccessCodeActivity extends AppCompatActivity implements View.OnClickListener} ersetzt durch \texttt{public class AccessCodeActivity extends AppCompatActivity}}
+		
+		\subsection{\texttt{public class AccessCodeActivity extends AppCompatActivity implements View.OnClickListener} ersetzt durch \texttt{public class AccessCodeActivity extends AppCompatActivity}}
 		\textbf{Neue Methoden}
 		\begin{itemize}
 			\item \texttt{public boolean onOptionsItemSelected(MenuItem item)}
@@ -191,13 +184,14 @@
 			\item \texttt{protected void onStop()}
 			\item \texttt{protected void onDestroy()}
 		\end{itemize}
-	
-	\chapter{Änderungen gegenüber der Datenstruktur}
-	
-	\chapter{Unit Tests}
-	\input{server-tests}
-	
-	\chapter{Glossar}
-	
-	\chapter{Anhang}
+		
+		\chapter{Änderungen gegenüber der Datenstruktur}
+		
+		\chapter{Unit Tests}
+		\input{server-tests}
+		
+		\chapter{Glossar}
+		
+		\chapter{Anhang}
+
 \end{document}
