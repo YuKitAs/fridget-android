@@ -3,14 +3,13 @@ package edu.kit.pse.fridget.client.fragment;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import edu.kit.pse.fridget.client.databinding.FragmentMemberListBinding;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import edu.kit.pse.fridget.client.R;
+import edu.kit.pse.fridget.client.databinding.FragmentMemberListBinding;
 import edu.kit.pse.fridget.client.viewmodel.fragmentVM.MemberListFragmentVM;
 
 
@@ -49,6 +48,7 @@ public class MemberListFragment extends Fragment {
         vm.fetchData();
 
         binding.setVm(vm);
+        binding.setLifecycleOwner(this);
 
         return binding.getRoot();
 
