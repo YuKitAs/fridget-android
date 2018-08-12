@@ -108,7 +108,7 @@ public class FullCoolNoteViewModel extends ViewModel {
                 List<UserMembershipRepresentation> memberships = response.body();
                 if (memberships != null) {
                     for (UserMembershipRepresentation membership : memberships) {
-                        if (membership.getMemberId().equals(ownMembershipId)) {
+                        if (membership.getMemberId().equals(coolNote.getCreatorMembershipId())) {
                             liveDataCreatorMagnetColor.setValue(MagnetColorUtilities.convertMagnetColor(membership.getMagnetColor()));
                             return;
                         }
