@@ -27,30 +27,25 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class EditTextFrozenNoteViewModel extends ViewModel {
-    private final MutableLiveData<String> title = new MutableLiveData<>();
-    private final MutableLiveData<String> content = new MutableLiveData<>();
-    private int position;
-    private FrozenNote frozenNote;
-    private String frozenNoteId;
-    private SharedPreferencesData sharedPreferencesData = new SharedPreferencesData();
+    private static final String TAG = FullFrozenNoteViewModel.class.getSimpleName();
 
-    public FrozenNote getFrozenNote() {
-        return frozenNote;
-    }
+    public MutableLiveData<String> title = new MutableLiveData<String>();
+    public MutableLiveData<String> content = new MutableLiveData<String>();
+
+    private String frozenNoteId;
+    private FrozenNote frozenNote;
+    private int position;
+    private SharedPreferencesData sharedPreferencesData = new SharedPreferencesData();
 
     public void setFrozenNoteId(String id) {
         this.frozenNoteId = id;
     }
 
-    public MutableLiveData<String> getTitle() {
-        return title;
-    }
-
-    public MutableLiveData<String> getContent() {
-        return content;
-    }
-
     public void setPosition(int position) { this.position = position; }
+
+    public void fetchData() {
+        fetchFrozenNote();
+    }
 
     public void bold(View v) {
         String content = this.content.getValue();
@@ -88,13 +83,15 @@ public class EditTextFrozenNoteViewModel extends ViewModel {
         }
     }
 
-    public void getFN(){
+    private void fetchFrozenNote() {
         RetrofitClientInstance.getRetrofitInstance().create(FrozenNoteService.class).getFrozenNote(frozenNoteId).enqueue(new Callback<FrozenNote>() {
             @Override
             public void onResponse(Call<FrozenNote> call, Response<FrozenNote> response) {
                 frozenNote = response.body();
+
                 if (frozenNote != null) {
-                    Log.i("Fetching Frozen Note", String.format("Frozen Note has been fetched.", new Gson().toJson(frozenNote)));
+                    Log.i(TAG, String.format("Frozen Note %s has been fetched.", new Gson().toJson(frozenNote)));
+
                     title.setValue(frozenNote.getTitle());
                     content.setValue(frozenNote.getContent());
                 }
@@ -102,16 +99,17 @@ public class EditTextFrozenNoteViewModel extends ViewModel {
 
             @Override
             public void onFailure(Call<FrozenNote> call, Throwable t) {
-                Log.e("Fetching Frozen Note", "Fetching Frozen Note has failed.");
-                t.printStackTrace();
+                Log.e(TAG, "Fetching Frozen Note has failed.");
             }
         });
     }
 
-    //Editieren der Frozen Note, Viewwechsel zur FullTextFrozenNoteActivity
     public void updateFrozenNote(View v) {
         final Context context = v.getContext();
         Intent intent = new Intent(context, FullTextFrozenNoteActivity.class);
+        intent.putExtra("frozenNoteId", frozenNoteId);
+        context.startActivity(intent);
+
         String flatshareId = sharedPreferencesData.getSharedPreferencesData("flatshareId", v);
 
         frozenNote = new FrozenNote(frozenNoteId, title.getValue(), content.getValue(), flatshareId, position);
@@ -121,20 +119,17 @@ public class EditTextFrozenNoteViewModel extends ViewModel {
             public void onResponse(Call<FrozenNote> call, Response<FrozenNote> response) {
                 frozenNote = response.body();
                 if (frozenNote != null) {
-                    Log.i("Updated Frozen Note", String.format("Frozen Note has been updated.", new Gson().toJson(frozenNote)));
-                    intent.putExtra("frozenNoteId", frozenNoteId);
+                    Log.i(TAG, String.format("Frozen Note %s edited.", new Gson().toJson(frozenNote)));
                     context.startActivity(intent);
                 }
             }
 
             @Override
             public void onFailure(Call<FrozenNote> call, Throwable t) {
-                Log.e("Updating Frozen Note", "Updating Frozen Note has failed.");
-                t.printStackTrace();
+                Log.e(TAG, "Editing Frozen Note %s failed.");
             }
         });
     }
-
 
     public void goBack(View v) {
         Context context = v.getContext();

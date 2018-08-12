@@ -32,13 +32,14 @@ public class EditTextFrozenNoteActivity extends AppCompatActivity {
         EditTextFrozenNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.edit_text_frozen_note_activity);
         final EditTextFrozenNoteViewModel editTextFrozenNoteViewModel = ViewModelProviders.of(this).get(EditTextFrozenNoteViewModel.class);
         binding.setFrozenNoteVM(editTextFrozenNoteViewModel);
+        binding.setLifecycleOwner(this);
 
         Intent i = getIntent();
         int position = i.getExtras().getInt("position");
         String frozenNoteId = i.getExtras().get("frozenNoteId").toString();
         editTextFrozenNoteViewModel.setFrozenNoteId(frozenNoteId);
         editTextFrozenNoteViewModel.setPosition(position);
-        editTextFrozenNoteViewModel.getFN();
+        editTextFrozenNoteViewModel.fetchData();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -70,64 +71,25 @@ public class EditTextFrozenNoteActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         Log.i(TAG, "Calling onStart");
-        EditTextFrozenNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.edit_text_frozen_note_activity);
-        final EditTextFrozenNoteViewModel editTextFrozenNoteViewModel = ViewModelProviders.of(this).get(EditTextFrozenNoteViewModel.class);
-        binding.setFrozenNoteVM(editTextFrozenNoteViewModel);
 
-        Intent i = getIntent();
-        int position = i.getExtras().getInt("position");
-        String frozenNoteId = i.getExtras().get("frozenNoteId").toString();
-        editTextFrozenNoteViewModel.setFrozenNoteId(frozenNoteId);
-        editTextFrozenNoteViewModel.setPosition(position);
-        editTextFrozenNoteViewModel.getFN();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         Log.i(TAG, "Calling onResume");
-        EditTextFrozenNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.edit_text_frozen_note_activity);
-        final EditTextFrozenNoteViewModel editTextFrozenNoteViewModel = ViewModelProviders.of(this).get(EditTextFrozenNoteViewModel.class);
-        binding.setFrozenNoteVM(editTextFrozenNoteViewModel);
-
-        Intent i = getIntent();
-        int position = i.getExtras().getInt("position");
-        String frozenNoteId = i.getExtras().get("frozenNoteId").toString();
-        editTextFrozenNoteViewModel.setFrozenNoteId(frozenNoteId);
-        editTextFrozenNoteViewModel.setPosition(position);
-        editTextFrozenNoteViewModel.getFN();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         Log.i(TAG, "Calling onPause");
-        EditTextFrozenNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.edit_text_frozen_note_activity);
-        final EditTextFrozenNoteViewModel editTextFrozenNoteViewModel = ViewModelProviders.of(this).get(EditTextFrozenNoteViewModel.class);
-        binding.setFrozenNoteVM(editTextFrozenNoteViewModel);
-
-        Intent i = getIntent();
-        int position = i.getExtras().getInt("position");
-        String frozenNoteId = i.getExtras().get("frozenNoteId").toString();
-        editTextFrozenNoteViewModel.setFrozenNoteId(frozenNoteId);
-        editTextFrozenNoteViewModel.setPosition(position);
-        editTextFrozenNoteViewModel.getFN();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         Log.i(TAG, "Calling onStop");
-        EditTextFrozenNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.edit_text_frozen_note_activity);
-        final EditTextFrozenNoteViewModel editTextFrozenNoteViewModel = ViewModelProviders.of(this).get(EditTextFrozenNoteViewModel.class);
-        binding.setFrozenNoteVM(editTextFrozenNoteViewModel);
-
-        Intent i = getIntent();
-        int position = i.getExtras().getInt("position");
-        String frozenNoteId = i.getExtras().get("frozenNoteId").toString();
-        editTextFrozenNoteViewModel.setFrozenNoteId(frozenNoteId);
-        editTextFrozenNoteViewModel.setPosition(position);
-        editTextFrozenNoteViewModel.getFN();
     }
 
     @Override
