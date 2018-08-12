@@ -10,6 +10,7 @@ import android.util.Log;
 
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.databinding.StartActivityBinding;
+import edu.kit.pse.fridget.client.utility.SafeIntentExtrasExtractor;
 import edu.kit.pse.fridget.client.viewmodel.StartViewModel;
 
 public class StartActivity extends AppCompatActivity {
@@ -27,7 +28,7 @@ public class StartActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("edu.kit.pse.fridget.client_preferences", MODE_PRIVATE);
         String flatshareId = sharedPreferences.getString("flatshareId", DEFAULT);
 
-        redirectToHomeActivity(flatshareId);
+        redirectToNextActivity(flatshareId);
     }
 
 
@@ -38,7 +39,7 @@ public class StartActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("edu.kit.pse.fridget.client_preferences", MODE_PRIVATE);
         String flatshareId = sharedPreferences.getString("flatshareId", DEFAULT);
 
-        redirectToHomeActivity(flatshareId);
+        redirectToNextActivity(flatshareId);
 
         Log.i(TAG, "Calling onStart");
     }
@@ -69,9 +70,26 @@ public class StartActivity extends AppCompatActivity {
     }
 
     //Es wird geprüft ob schon eine flatshareid vorhanden ist, wenn ja wird automatisch in HomeActivity gewechselt
-    private void redirectToHomeActivity(String flatshareId) {
+    private void redirectToNextActivity(String flatshareId) {
         if (!DEFAULT.equals(flatshareId)) {
-            startActivity(new Intent(StartActivity.this, HomeActivity.class));
+            // If user clicks on the push notification, coolNoteId will be set in extras
+            String coolNoteId = SafeIntentExtrasExtractor.getString(getIntent(), "coolNoteId");
+
+            if (coolNoteId != null) {
+                redirectToFullTextCoolNoteActivity(coolNoteId);
+            } else {
+                redirectToHomeActivity();
+            }
         }
+    }
+
+    private void redirectToHomeActivity() {
+        startActivity(new Intent(StartActivity.this, HomeActivity.class));
+    }
+
+    private void redirectToFullTextCoolNoteActivity(String coolNoteId) {
+        Intent intent = new Intent(StartActivity.this, FullTextCoolNoteActivity.class);
+        intent.putExtra("coolNoteId", coolNoteId);
+        startActivity(intent);
     }
 }

@@ -31,6 +31,7 @@ import edu.kit.pse.fridget.client.datamodel.representation.UserWithJwtRepresenta
 import edu.kit.pse.fridget.client.service.DeviceService;
 import edu.kit.pse.fridget.client.service.RetrofitClientInstance;
 import edu.kit.pse.fridget.client.service.UserService;
+import edu.kit.pse.fridget.client.utility.SafeIntentExtrasExtractor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -166,10 +167,18 @@ public class LoginActivity extends AppCompatActivity implements
         String DEFAULT = "N/A";
         String ownUserId;
         SharedPreferences sharedpref = PreferenceManager.getDefaultSharedPreferences(context);
-        SharedPreferences.Editor editor = sharedpref.edit();
         ownUserId = sharedpref.getString("OwnUserIDnumber", DEFAULT);
         if (!DEFAULT.equals(ownUserId)) {
-            startActivity(new Intent(LoginActivity.this, StartActivity.class));
+            Intent intent = new Intent(LoginActivity.this, StartActivity.class);
+
+            // If user clicks on the push notification, coolNoteId will be set in extras
+            String coolNoteId = SafeIntentExtrasExtractor.getString(getIntent(), "coolNoteId");
+
+            if (coolNoteId != null) {
+                intent.putExtra("coolNoteId", coolNoteId);
+            }
+
+            startActivity(intent);
         }
     }
 
