@@ -69,26 +69,22 @@ public class EditTextFrozenNoteViewModel extends ViewModel {
     }
 
     public void updateFrozenNote(View v) {
-        final Context context = v.getContext();
+        FrozenNote updatedFrozenNote = new FrozenNote(frozenNoteId, liveDataTitle.getValue(), styledContent.getHtmlContent(), flatshareId, position);
 
-        frozenNote = new FrozenNote(frozenNoteId, liveDataTitle.getValue(), styledContent.getHtmlContent(), flatshareId, position);
-
-        RetrofitClientInstance.getRetrofitInstance().create(FrozenNoteService.class).updateFrozenNote(frozenNoteId, frozenNote).enqueue(new Callback<FrozenNote>() {
+        RetrofitClientInstance.getRetrofitInstance().create(FrozenNoteService.class).updateFrozenNote(frozenNoteId, updatedFrozenNote).enqueue(new Callback<FrozenNote>() {
             @Override
             public void onResponse(Call<FrozenNote> call, Response<FrozenNote> response) {
-                frozenNote = response.body();
-                if (frozenNote != null) {
-                    Log.i(TAG, String.format("Frozen Note %s edited.", new Gson().toJson(frozenNote)));
-                }
+                Log.i(TAG, String.format("Frozen Note %s edited.", new Gson().toJson(response.body())));
             }
 
             @Override
             public void onFailure(Call<FrozenNote> call, Throwable t) {
-                Log.e(TAG, "Editing Frozen Note %s failed.");
+                Log.e(TAG, "Editing Frozen Note failed.");
             }
         });
 
         // Start another activity after started sending data to server
+        final Context context = v.getContext();
         Intent intent = new Intent(context, FullTextFrozenNoteActivity.class);
         intent.putExtra("frozenNoteId", frozenNoteId);
         context.startActivity(intent);
