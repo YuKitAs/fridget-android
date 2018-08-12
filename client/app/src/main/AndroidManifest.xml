@@ -52,7 +52,7 @@
             android:name=".activity.StartActivity"
             android:screenOrientation="portrait" />
 
-        <service android:name=".service.MyFirebaseMessagingService">
+        <service android:name=".PushNotificationHandler">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
