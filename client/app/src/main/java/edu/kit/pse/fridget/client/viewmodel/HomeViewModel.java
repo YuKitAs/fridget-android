@@ -25,6 +25,7 @@ import edu.kit.pse.fridget.client.service.CoolNoteService;
 import edu.kit.pse.fridget.client.service.FrozenNoteService;
 import edu.kit.pse.fridget.client.service.MembershipService;
 import edu.kit.pse.fridget.client.service.RetrofitClientInstance;
+import edu.kit.pse.fridget.client.utility.MagnetColorUtilities;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -230,16 +231,16 @@ public class HomeViewModel extends ViewModel {
 
         if (mlist == null) {
             Log.e("member", "The member is not found");
-            return Color.parseColor("#FFFFFF"); // sollte nie erreicht werden... sonst heißt es, dass es den Member nicht gibt
+            return MagnetColorUtilities.getDefaultMagnetColor(); // sollte nie erreicht werden... sonst heißt es, dass es den Member nicht gibt
         }
 
         for (UserMembershipRepresentation m : mlist) {
             if (m != null && m.getMemberId().equals(id)) {
-                return Color.parseColor("#" + m.getMagnetColor());
+                return MagnetColorUtilities.convertMagnetColor(m.getMagnetColor());
             }
         }
 
-        return Color.parseColor("#FFFFFF");
+        return MagnetColorUtilities.getDefaultMagnetColor();
     }
 
 
