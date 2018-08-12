@@ -1,7 +1,9 @@
 package edu.kit.pse.fridget.client.fragment;
 
+import android.arch.lifecycle.MutableLiveData;
 import android.content.Context;
-import android.net.Uri;
+import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -9,69 +11,71 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.gson.Gson;
+
 import edu.kit.pse.fridget.client.R;
+import edu.kit.pse.fridget.client.activity.EnterAccessCodeActivity;
+import edu.kit.pse.fridget.client.activity.HomeActivity;
+import edu.kit.pse.fridget.client.databinding.FragmentCreateAccessCodeBinding;
 import edu.kit.pse.fridget.client.datamodel.AccessCode;
 import edu.kit.pse.fridget.client.datamodel.command.GenerateAccessCodeCommand;
 import edu.kit.pse.fridget.client.service.AccessCodeService;
 import edu.kit.pse.fridget.client.service.RetrofitClientInstance;
+import edu.kit.pse.fridget.client.viewmodel.CreateAccessCode;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link CreateAccessCodeFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link CreateAccessCodeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class CreateAccessCodeFragment extends Fragment {
+
+
+    private final MutableLiveData<String> accesscode = new MutableLiveData<>();
+
+    public MutableLiveData<String> getAccesscode() {
+        return accesscode;
+    }
+
+
+
+
+
+
+    private String flatshareId;
+
+
     private static final String TAG = CreateAccessCodeFragment.class.getSimpleName();
 
-    private OnFragmentInteractionListener mListener;
-
-    public CreateAccessCodeFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CreateAccessCodeFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CreateAccessCodeFragment newInstance(String param1, String param2) {
-        CreateAccessCodeFragment fragment = new CreateAccessCodeFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Log.i(TAG, "Calling onCreateView");
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_create_access_code, container, false);
+
+        FragmentCreateAccessCodeBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_create_access_code, container, false);
+        binding.setCreateAccesscodeFR(this);
+        return binding.getRoot();
     }
 
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        Log.i(TAG, "Calling onViewCreated");
+        super.onViewCreated(view, savedInstanceState);
+        this.flatshareId = getArguments().getString("FlatshareId");
+        getAccessCode(flatshareId);
+    }
 
-    public void getAccessCode() {
-        RetrofitClientInstance.getRetrofitInstance().create(AccessCodeService.class).generateAccessCode(new GenerateAccessCodeCommand("38406d18-a3da-4811-aff7-fcfe73e8c8ef")).enqueue(new Callback<AccessCode>() {
+    public void getAccessCode(String flatshareid) {
+        RetrofitClientInstance.getRetrofitInstance().create(AccessCodeService.class).generateAccessCode(new GenerateAccessCodeCommand(flatshareid)).enqueue(new Callback<AccessCode>() {
             @Override
             public void onResponse(Call<AccessCode> call, Response<AccessCode> response) {
+                AccessCode code = response.body();
                 if (response.body() != null) {
-                    Log.i(TAG, String.format("Access Code generated: %s", response.body().getContent()));
-                }
+                    Log.i(TAG, String.format("Access Code generated: %s", new Gson().toJson(code)));
+
+                    accesscode.setValue(code.getContent());
+                } else Log.e(TAG, "Connection to Server did not work");
             }
 
             @Override
@@ -82,37 +86,16 @@ public class CreateAccessCodeFragment extends Fragment {
         });
     }
 
+    public void onClickOK(View v) {
+        Context context = v.getContext();
+        Intent intent = new Intent(context, HomeActivity.class);
+        context.startActivity(intent);
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
     }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
 }
+
+
+
+
 
