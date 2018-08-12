@@ -1,4 +1,4 @@
-package edu.kit.pse.fridget.client.activity.ActivityTests.activity;
+package edu.kit.pse.fridget.client.activity;
 
 import android.support.test.rule.ActivityTestRule;
 import android.view.View;
@@ -9,9 +9,8 @@ import org.junit.Rule;
 import org.junit.Test;
 
 import edu.kit.pse.fridget.client.R;
-import edu.kit.pse.fridget.client.activity.CreateFlatshareActivity;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 /**
  * Diese Klasse testet, ob CreatFlatshareActivity gestartet wird

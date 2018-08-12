@@ -1,4 +1,4 @@
-package edu.kit.pse.fridget.client.activity.ActivityTests.activity;
+package edu.kit.pse.fridget.client.activity;
 
 import android.support.test.rule.ActivityTestRule;
 
@@ -6,8 +6,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-
-import edu.kit.pse.fridget.client.activity.CreateTextCoolNoteActivity;
 
 public class CreateTextCoolNoteActivityTest {
 

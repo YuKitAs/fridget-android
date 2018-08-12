@@ -15,9 +15,6 @@
             android:name=".activity.AccessCodeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.CreateCommentActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".activity.CreateFlatshareActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -43,13 +40,7 @@
             android:name=".activity.FullTextFrozenNoteActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.FullImageCoolNoteActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".activity.HomeActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.LanguageActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.FullTextCoolNoteActivity"
