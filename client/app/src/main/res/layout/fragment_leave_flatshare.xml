@@ -35,11 +35,12 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/back_button"
-                android:onClick="@{vm::onBackButtonClicked}"
+                android:onClick="@{(v)-> vm.onBackButtonClicked(v)}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="80dp"
                 android:layout_marginBottom="8dp"
@@ -51,11 +52,11 @@
                 android:text="@string/leaveFlatshare_sure"
                 android:textColor="@android:color/black"
                 android:textSize="23sp"
-                app:layout_constraintVertical_bias="0.50"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.50" />
 
 
             <Button
@@ -66,15 +67,14 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/commonsregular"
+                android:onClick="@{(v)-> vm.deleteMembership(v)}"
                 android:text="@string/leave_flatshare"
                 android:textSize="23sp"
-                android:onClick="@{vm::deleteMembership}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.465"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.75">
+                app:layout_constraintTop_toBottomOf="@+id/textView3">
 
 
             </Button>

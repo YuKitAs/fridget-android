@@ -31,9 +31,13 @@ public class LeaveFlatshareFragmentVM {
                 SharedPreferences mySPrefs = PreferenceManager.getDefaultSharedPreferences(context);
                 SharedPreferences.Editor editor = mySPrefs.edit();
                 editor.remove("ownMemberId");
+                editor.remove("flatshareId");
+                editor.remove("flatshareName");
+                editor.remove("ownMagnetColor");
                 editor.apply();
                 Log.i(TAG, "Member has been deleted.");
                 context.startActivity(intent);
+
             }
 
             @Override
