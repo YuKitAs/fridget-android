@@ -15,6 +15,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.databinding.HomeActivityBinding;
@@ -104,6 +106,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
            fragment.setArguments(bundle);
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.placeholder_frame, fragment);
+            this.setButtonsInvisible();
             ft.commit();
         }
 
@@ -151,5 +154,13 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     protected void onDestroy() {
         super.onDestroy();
         Log.i(TAG, "Calling onDestroy");
+    }
+
+    private void setButtonsInvisible() {
+        ImageButton refresh = findViewById(R.id.refresh_button);
+        ImageButton plus = findViewById(R.id.plus_button);
+        refresh.setVisibility(View.INVISIBLE);
+        plus.setVisibility(View.INVISIBLE);
+
     }
 }

@@ -406,59 +406,30 @@ public class HomeViewModel extends ViewModel {
         return emptyPositions.get(randomIndex);
     }
 
-    /*
-    private void fakeCN() {
 
-        CoolNote cN1 = new CoolNote("1", "Boo", "testtest",
-                "0", 1, 1, null, null);
-        CoolNote cN2 = new CoolNote("2", "lalala", "testtest",
-                "1", 2, 1, null, null);
-        CoolNote cN3 = new CoolNote("3", "lelele", "testtest",
-                "2", 3, 1, null, null);
-        CoolNote cN4 = new CoolNote("4", "lululu", "testtest",
-                "0", 4, 1, null, null);
-        CoolNote cN5 = new CoolNote("5", "lololol", "testtest",
-                "2", 5, 1, null, null);
-        CoolNote cN6 = new CoolNote("6", "nya", "testtestn",
-                "2", 6, 1, null, null);
-        CoolNote cN7 = new CoolNote("7", "meow", "testtest",
-                "1", 7, 1, null, null);
-        CoolNote cN8 = new CoolNote("8", "yaay", "testtest",
-                "1", 8, 1, null, null);
-        CoolNote cN9 = new CoolNote("9", "brr", "testtest",
-                "0", 9, 1, null, null);
+    // getter and setter
 
-        this.cNList[0] = cN1;
-        this.cNList[1] = cN2;
-        this.cNList[2] = cN3;
-        this.cNList[3] = cN4;
-        this.cNList[4] = cN5;
-        this.cNList[5] = cN6;
-        this.cNList[6] = cN7;
-        this.cNList[7] = cN8;
-        this.cNList[8] = cN9;
-
+    public CoolNote[] getcNList() {
+        return cNList;
     }
 
-    private void fakeFN() {
-        FrozenNote fN1 = new FrozenNote("0", "Notfallkontakte", "brr brr", "0", 0);
-        FrozenNote fN2 = new FrozenNote("1", "Einkaufsliste", "brr brr", "0", 1);
-        FrozenNote fN3 = new FrozenNote("2", "nomnom", "brr brr", "0", 2);
-
-        this.fNList[0] = fN1;
-        this.fNList[1] = fN2;
-        this.fNList[2] = fN3;
-
+    public FrozenNote[] getfNList() {
+        return fNList;
     }
 
-    private void fakeMembers() {
-        Member m1 = new Member("0", "0", "0", "#4B088A");
-        Member m2 = new Member("1", "1", "0", "#ff00ab");
-        Member m3 = new Member("2", "2", "0", "#2f9624");
-        this.memberList[0] = m1;
-        this.memberList[1] = m2;
-        this.memberList[2] = m3;
-
+    public Boolean[] getVisibilityList() {
+        return visibilityList;
     }
-    */
+
+    public Integer[] getMagnetColorList() {
+        return magnetColorList;
+    }
+
+    public UserMembershipRepresentation[] getMemberList() {
+        return memberList;
+    }
+
+    public void setcNList(CoolNote[] cnList){
+        this.cNList = cnList;
+    }
 }
