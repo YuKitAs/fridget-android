@@ -36,14 +36,14 @@ public class FullTextCoolNoteActivity extends AppCompatActivity {
         final FullCoolNoteViewModel fullCoolNoteViewModel = ViewModelProviders.of(this).get(FullCoolNoteViewModel.class);
 
         SharedPreferences sharedPreferences = getSharedPreferences("edu.kit.pse.fridget.client_preferences", MODE_PRIVATE);
+        String flatshareId = sharedPreferences.getString("flatshareId", "N/A");
 
         String coolNoteId = getIntent().getExtras().get("coolNoteId").toString();
         String ownMemberId = sharedPreferences.getString("ownMemberId", "N/A");
-        String ownMagnetColor = sharedPreferences.getString("ownMagnetColor", "N/A");
 
+        fullCoolNoteViewModel.setFlatshareId(flatshareId);
         fullCoolNoteViewModel.setCoolNoteId(coolNoteId);
-        fullCoolNoteViewModel.setOwnMemberId(ownMemberId);
-        fullCoolNoteViewModel.setOwnMagnetColor(ownMagnetColor);
+        fullCoolNoteViewModel.setOwnMembershipId(ownMemberId);
 
         fullCoolNoteViewModel.fetchData();
 
