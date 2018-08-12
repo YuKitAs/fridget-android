@@ -1,6 +1,7 @@
 package edu.kit.pse.fridget.client.activity;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -75,6 +76,14 @@ public class FullTextCoolNoteActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        startActivity(new Intent(this, HomeActivity.class));
+        finish();
+
+    }
 
     @Override
     protected void onStart() {
