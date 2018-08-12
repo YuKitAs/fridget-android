@@ -1,5 +1,6 @@
 package edu.kit.pse.fridget.client.viewmodel.common;
 
+import android.arch.lifecycle.MutableLiveData;
 import android.graphics.Typeface;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
@@ -9,72 +10,35 @@ import android.text.style.StyleSpan;
 import android.text.style.UnderlineSpan;
 
 public class StyledContentViewModel {
-    private final String plainContent;
+    public final MutableLiveData<String> liveDataPlainContent = new MutableLiveData<>();
+    public final MutableLiveData<Boolean> liveDataBold = new MutableLiveData<>();
+    public final MutableLiveData<Boolean> liveDataItalic = new MutableLiveData<>();
+    public final MutableLiveData<Boolean> liveDataUnderline = new MutableLiveData<>();
 
-    private boolean bold;
-    private boolean italic;
-    private boolean underline;
-
-    private StyledContentViewModel(String plainContent, boolean bold, boolean italic, boolean underline) {
-        this.plainContent = plainContent;
-        this.bold = bold;
-        this.italic = italic;
-        this.underline = underline;
+    public StyledContentViewModel(String plainContent) {
+        this.liveDataPlainContent.setValue(plainContent);
+        this.liveDataBold.setValue(false);
+        this.liveDataItalic.setValue(false);
+        this.liveDataUnderline.setValue(false);
     }
 
     public void toggleBold() {
-        bold = !bold;
+        liveDataBold.setValue(!liveDataBold.getValue());
     }
 
     public void toggleItalic() {
-        italic = !italic;
+        liveDataItalic.setValue(!liveDataItalic.getValue());
     }
 
     public void toggleUnderline() {
-        underline = !underline;
-    }
-
-    public boolean isBold() {
-        return bold;
-    }
-
-    public boolean isItalic() {
-        return italic;
-    }
-
-    public boolean isUnderline() {
-        return underline;
-    }
-
-    public Spanned getSpannedContent() {
-        SpannableStringBuilder spannedContentBuilder = new SpannableStringBuilder(plainContent);
-
-        if (bold) {
-            spannedContentBuilder.setSpan(new StyleSpan(Typeface.BOLD), 0, plainContent.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        }
-        if (italic) {
-            spannedContentBuilder.setSpan(new StyleSpan(Typeface.ITALIC), 0, plainContent.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        }
-        if (underline) {
-            spannedContentBuilder.setSpan(new UnderlineSpan(), 0, plainContent.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        }
-
-        return SpannedString.valueOf(spannedContentBuilder);
+        liveDataUnderline.setValue(!liveDataUnderline.getValue());
     }
 
     public String getHtmlContent() {
-        return Html.toHtml(getSpannedContent());
+        return Html.toHtml(getSpannedContent()).trim();
     }
 
-    public String getPlainContent() {
-        return plainContent;
-    }
-
-    public static StyledContentViewModel fromPlainContent(String plainContent) {
-        return new StyledContentViewModel(plainContent, false, false, false);
-    }
-
-    public static StyledContentViewModel fromHtmlContent(String htmlContent) {
+    public void setHtmlContent(String htmlContent) {
         Spanned spanned = new SpannedString(Html.fromHtml(htmlContent));
 
         StyleSpan[] styleSpans = spanned.getSpans(0, spanned.length(), StyleSpan.class);
@@ -96,6 +60,25 @@ public class StyledContentViewModel {
             underline = true;
         }
 
-        return new StyledContentViewModel(spanned.toString(), bold, italic, underline);
+        liveDataPlainContent.setValue(spanned.toString());
+        liveDataBold.setValue(bold);
+        liveDataItalic.setValue(italic);
+        liveDataUnderline.setValue(underline);
+    }
+
+    private Spanned getSpannedContent() {
+        SpannableStringBuilder spannedContentBuilder = new SpannableStringBuilder(liveDataPlainContent.getValue());
+
+        if (liveDataBold.getValue()) {
+            spannedContentBuilder.setSpan(new StyleSpan(Typeface.BOLD), 0, liveDataPlainContent.getValue().length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
+        if (liveDataItalic.getValue()) {
+            spannedContentBuilder.setSpan(new StyleSpan(Typeface.ITALIC), 0, liveDataPlainContent.getValue().length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
+        if (liveDataUnderline.getValue()) {
+            spannedContentBuilder.setSpan(new UnderlineSpan(), 0, liveDataPlainContent.getValue().length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
+
+        return SpannedString.valueOf(spannedContentBuilder);
     }
 }
