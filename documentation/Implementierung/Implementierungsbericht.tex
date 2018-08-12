@@ -64,9 +64,7 @@
 	des Softwarepraktikums PSE im Sommersemester 2018.
 	Zunächst verlieren wir in diesen Dokument Worte über die Umsetzung von den Muss- und Wunschkriterien unserer App.
 	In Abschnitt 3 beschreiben wir die Änderungen gegenüber des Feinentwurfs.
-	Die Änderungen gegenüber der Datenstruktur wird in Abschnitt 4 erläutert.
 	Ebenso wichtig sind die Unit Tests der Applikation, welche im nachfolgenden Abschnitt 5 aufgelistet sind.
-	Um Fachbegriffe zu erläutern, befindet sich im letzten Abschnitt ein Glossar.
 	
 	\chapter{Umsetzung von den Muss- und Wunschkriterien}
 	\section{Umgesetzte Musskriterien}
@@ -402,14 +400,12 @@
 	\item{\texttt{public Intent getPushNotificationIntent(String coolNoteId)}}\\
 	\textit{Kümmert sich um den View-Wechsel, wenn man auf die Push-Benachrichtigung tippt}\\
 \end{itemize}
-		
-		\chapter{Änderungen gegenüber der Datenstruktur}
-		
+
+\section{Package edu.kit.pse.fridget.client.utility}
+\textbf{Beschreibung} \\
+In diesem Package befinden sich einige Utility-Klassen, die sich um Kleinigkeiten kümmern, hauptsächlich Konvertierungen.
+
 		\chapter{Unit Tests}
 		\input{server-tests}
-		
-		\chapter{Glossar}
-		
-		\chapter{Anhang}
 
 \end{document}
