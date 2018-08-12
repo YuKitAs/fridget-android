@@ -22,4 +22,6 @@
     <string name="get_access_code">Get Access Code</string>
     <string name="leave_flatshare">Leave Flatshare</string>
     <string name="leaveFlatshare_sure">Are you sure you want to\n leave your Flatshare?</string>
+    <string name="memberList">Member List: </string>
+
 </resources>
