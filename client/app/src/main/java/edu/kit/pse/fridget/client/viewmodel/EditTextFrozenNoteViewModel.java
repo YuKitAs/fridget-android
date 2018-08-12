@@ -47,18 +47,6 @@ public class EditTextFrozenNoteViewModel extends ViewModel {
         fetchFrozenNote();
     }
 
-    public void bold(View v) {
-        styledContent.toggleBold();
-    }
-
-    public void italic(View v) {
-        styledContent.toggleItalic();
-    }
-
-    public void underline(View v) {
-        styledContent.toggleUnderline();
-    }
-
     private void fetchFrozenNote() {
         RetrofitClientInstance.getRetrofitInstance().create(FrozenNoteService.class).getFrozenNote(frozenNoteId).enqueue(new Callback<FrozenNote>() {
             @Override
