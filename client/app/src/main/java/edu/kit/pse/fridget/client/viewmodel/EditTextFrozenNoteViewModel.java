@@ -26,16 +26,17 @@ public class EditTextFrozenNoteViewModel extends ViewModel {
     public MutableLiveData<String> liveDataTitle = new MutableLiveData<String>();
     public final StyledContentViewModel styledContent = new StyledContentViewModel("");
 
-    public MutableLiveData<String> title = new MutableLiveData<String>();
-    public MutableLiveData<String> content = new MutableLiveData<String>();
-
+    private String flatshareId;
     private String frozenNoteId;
     private FrozenNote frozenNote;
     private int position;
-    private SharedPreferencesData sharedPreferencesData = new SharedPreferencesData();
 
-    public void setFrozenNoteId(String id) {
-        this.frozenNoteId = id;
+    public void setFlatshareId(String flatshareId) {
+        this.flatshareId = flatshareId;
+    }
+
+    public void setFrozenNoteId(String frozenNoteId) {
+        this.frozenNoteId = frozenNoteId;
     }
 
     public void setPosition(int position) {
@@ -81,8 +82,6 @@ public class EditTextFrozenNoteViewModel extends ViewModel {
 
     public void updateFrozenNote(View v) {
         final Context context = v.getContext();
-
-        String flatshareId = sharedPreferencesData.getSharedPreferencesData("flatshareId", v);
 
         frozenNote = new FrozenNote(frozenNoteId, liveDataTitle.getValue(), styledContent.getHtmlContent(), flatshareId, position);
 

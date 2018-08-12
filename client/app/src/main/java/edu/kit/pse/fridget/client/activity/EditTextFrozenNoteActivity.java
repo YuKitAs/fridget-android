@@ -30,16 +30,23 @@ public class EditTextFrozenNoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "Calling onCreate");
         EditTextFrozenNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.edit_text_frozen_note_activity);
-        final EditTextFrozenNoteViewModel editTextFrozenNoteViewModel = ViewModelProviders.of(this).get(EditTextFrozenNoteViewModel.class);
-        binding.setFrozenNoteVM(editTextFrozenNoteViewModel);
-        binding.setLifecycleOwner(this);
 
+        final EditTextFrozenNoteViewModel editTextFrozenNoteViewModel = ViewModelProviders.of(this).get(EditTextFrozenNoteViewModel.class);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("edu.kit.pse.fridget.client_preferences", MODE_PRIVATE);
+
+        String flatshareId = sharedPreferences.getString("flatshareId", "N/A");
         Intent i = getIntent();
         int position = i.getExtras().getInt("position");
         String frozenNoteId = i.getExtras().get("frozenNoteId").toString();
+
+        editTextFrozenNoteViewModel.setFlatshareId(flatshareId);
         editTextFrozenNoteViewModel.setFrozenNoteId(frozenNoteId);
         editTextFrozenNoteViewModel.setPosition(position);
         editTextFrozenNoteViewModel.fetchData();
+
+        binding.setFrozenNoteVM(editTextFrozenNoteViewModel);
+        binding.setLifecycleOwner(this);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -49,7 +56,6 @@ public class EditTextFrozenNoteActivity extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.drawer_layout);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("edu.kit.pse.fridget.client_preferences", MODE_PRIVATE);
         String flatshareName = sharedPreferences.getString("flatshareName", "N/A");
         NavHeaderBinding _bind = DataBindingUtil.inflate(getLayoutInflater(), R.layout.nav_header, binding
                 .navView, false);

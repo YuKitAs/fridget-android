@@ -13,7 +13,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.ViewGroup;
 
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.databinding.FullTextCoolNoteActivityBinding;
@@ -32,12 +31,11 @@ public class FullTextCoolNoteActivity extends AppCompatActivity {
         Log.i(TAG, "Calling onCreate");
         FullTextCoolNoteActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.full_text_cool_note_activity);
 
-        final ViewGroup viewGroup = (ViewGroup) ((ViewGroup) this.findViewById(android.R.id.content)).getChildAt(0);
         final FullCoolNoteViewModel fullCoolNoteViewModel = ViewModelProviders.of(this).get(FullCoolNoteViewModel.class);
 
         SharedPreferences sharedPreferences = getSharedPreferences("edu.kit.pse.fridget.client_preferences", MODE_PRIVATE);
-        String flatshareId = sharedPreferences.getString("flatshareId", "N/A");
 
+        String flatshareId = sharedPreferences.getString("flatshareId", "N/A");
         String coolNoteId = getIntent().getExtras().get("coolNoteId").toString();
         String ownMemberId = sharedPreferences.getString("ownMemberId", "N/A");
 
