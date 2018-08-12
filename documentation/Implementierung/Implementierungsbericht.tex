@@ -283,6 +283,161 @@
 			\item \texttt{protected void onDestroy()}
 		\end{itemize}
 	
+		\section{Package edu.kit.fridget.client.datamodel}
+	\subsection{Entfernte Datamodels}
+	\begin{itemize}
+		\item \texttt{public class Notification}
+	\end{itemize}
+	\textbf{Begründung:}\\
+	Wir haben kein Datamodel für die Push-Benachrichtigung gebraucht, da wir Firebase dafür benutzt haben.
+	\subsection{Veränderte Datamodels}
+	\subsubsection{\texttt{public class CoolNote}}
+	\textbf{Entfernte Attribute}
+	\begin{itemize}
+		\item \texttt{String flatshareId}
+	\end{itemize}
+	\textbf{Begründung:}\\
+	Wir haben die Cool Notes über die creatorMembershipId identifiziert und diese hängt mit der flatshareId zusammen. Daher war ein extra Attribut flatshareId nicht nötig.\\
+	\textbf{Veränderte Attribute}
+	\begin{itemize}
+		\item \texttt{String creatorUserId -> String creatorMembershipId}
+		\item \texttt{List<String> taggedUserIds -> List<String> taggedMembershipIds}
+	\end{itemize}
+	\textbf{Begründung:}\\
+	User ist die falsche Bezeichnung. Innerhalb einer Flatshare wird ein User zu einem Member. Die Beziehung zwischen Flatshare und Member wird als Membership bezeichnet.
+	\subsubsection{\texttt{public class ReadConfirmation}}
+	\textbf{Veränderte Attribute}
+	\begin{itemize}
+		\item \texttt{String readConfirmationId -> String id}
+		\item \texttt{String userId -> String membershipId}
+	\end{itemize}
+	\textbf{Begründung:}\\
+	Da es die Id im Datamodel ReadConfirmation ist, braucht man das nicht extra im Namen erwähnen. Die userId wurde umbenannt, da innerhalb einer Flatshare ein User zu einem Member wird.
+	\subsection{Neue Datamodels}
+	\subsubsection{\texttt{public class Device}}
+	\textbf{Beschreibung} \\
+	\textit{Diese Klasse stellt ein Endgerät dar.} \\
+	
+	\textbf{Attribute}
+	\begin{itemize}
+		\item \textbf{id}: Die ID des Devices. \\
+		\textbf{Typ:} String
+		
+		\item \textbf{userId:} Die ID des Users, dem das Device gehört. \\
+		\textbf{Typ:} String
+		
+		\item \textbf{instanceIdToken:} Ein Token, der für die Push-Benachrichtigung benötigt wird.\\
+		\textbf{Typ:} String
+	\end{itemize}
+	
+	\textbf{Methoden}
+	\begin{itemize}
+		\item{\texttt{public String getUserId()}}\\
+		\textit{Gibt die User-ID des Users als String zurück.}\\
+		\item{\texttt{public String getInstanceIdToken()}}\\
+		\textit{Gibt den InstanceID-Token als String zurück.}\\
+	\end{itemize}
+	\subsubsection{\texttt{public class CreateFlatshareCommand}}
+	\textbf{Beschreibung} \\
+	\textit{Die Klasse CreateFlatshareCommand stellt ein Model dar, das die richtigen Attribute für den Flatshare-Service enthält, um eine Flatshare zu erstellen.} \\
+	
+	\textbf{Attribute}
+	\begin{itemize}
+		\item \textbf{flatshareName}: Der Name der Flatshare. \\
+		\textbf{Typ:} String
+		
+		\item \textbf{userId:} Die ID des Users, der die Flatshare erstellt. \\
+		\textbf{Typ:} String
+	\end{itemize}
+	
+	\textbf{Methoden}
+	\begin{itemize}
+		\item{\texttt{public String getFlatshareName()}}\\
+		\textit{Gibt den Namen der WG als String zurück.}\\
+		\item{\texttt{public String getUserId()}}\\
+		\textit{Gibt die User-ID als String zurück.}\\
+	\end{itemize}
+	\subsubsection{\texttt{public class EnterFlatshareCommand}}
+	\textbf{Beschreibung} \\
+	\textit{Die Klasse EnterFlatshareCommand stellt ein Model dar, das die richtigen Attribute für den Flatshare-Service enthält, um einer WG beizutreten} \\
+	
+	\textbf{Attribute}
+	\begin{itemize}
+		\item \textbf{accessCode}: Der Access-Code der WG. \\
+		\textbf{Typ:} String
+		
+		\item \textbf{userId:} Die ID des Users, der der WG beitreten will. \\
+		\textbf{Typ:} String
+	\end{itemize}
+	
+	\textbf{Methoden}
+	\begin{itemize}
+		\item{\texttt{public String getAccessCode()}}\\
+		\textit{Gibt den Accesscode als String zurück.}\\
+		\item{\texttt{public String getUserId()}}\\
+		\textit{Gibt die User-Id als String zurück}\\
+	\end{itemize}
+	\subsubsection{\texttt{public class GenerateAccessCodeCommand}}
+	\textbf{Beschreibung} \\
+	\textit{Die Klasse GenerateAccessCodeCommand stellt ein Model dar, das die richtigen Attribute für den Access-Code-Service enthält, um einen gültigen Access-Code zu generieren.} \\
+	
+	\textbf{Attribute}
+	\begin{itemize}
+		\item \textbf{flatshareId:} Die ID der WG, zu der der Accesscode gehört. \\
+		\textbf{Typ:} String
+	\end{itemize}
+	
+	\textbf{Methoden}
+	\begin{itemize}
+		\item{\texttt{public String getFlatshareId()}}\\
+		\textit{Gibt die ID der WG des Accesscodes zurück.}\\
+	\end{itemize}
+	\subsubsection{\texttt{public class UserMembershipRepresentation}}
+	\textbf{Beschreibung} \\
+	\textit{Die Klasse UserMembershipRepresentation stellt ein Model dar, das die richtigen Attribute für den Membership-Service enthält, um die Member-Liste zu getten.} \\
+	
+	\textbf{Attribute}
+	\begin{itemize}
+		\item \textbf{membershipId}: Die ID des Memberships. \\
+		\textbf{Typ:} String
+		
+		\item \textbf{magnetColor:} Die Magnetfarbe des Members. \\
+		\textbf{Typ:} String
+		
+		\item \textbf{googleName:} Der Google-Name des Users.\\
+		\textbf{Typ:} String
+	\end{itemize}
+	
+	\textbf{Methoden}
+	\begin{itemize}
+		\item{\texttt{public String getMemberId()}}\\
+		\textit{Gibt die ID des Members zurück.}\\
+		\item{\texttt{public String getMagnetColor()}}\\
+		\textit{Gibt die Magnetfarbe des Members zurück.}\\
+		\item{\texttt{public String getGoogleName()}}
+		\textit{Gibt den Google-Namen des Users zurück.}
+	\end{itemize}
+	\subsubsection{\texttt{public class UserWithJwtRepresentation}}
+	\textbf{Beschreibung} \\
+	\textit{Die Klasse UserWithJwtRepresentation stellt ein Model dar, das die richtigen Attribute für den Login-Service enthält, um einen Login durchzuführen.} \\
+	
+	\textbf{Attribute}
+	\begin{itemize}
+		\item \textbf{user}: Der User, der beim Login erstellt wird. \\
+		\textbf{Typ:} User
+		
+		\item \textbf{jwt:} Das JWT. \\
+		\textbf{Typ:} String
+	\end{itemize}
+	
+	\textbf{Methoden}
+	\begin{itemize}
+		\item{\texttt{public String getUser()}}\\
+		\textit{Gibt den User zurück}\\
+		\item{\texttt{public String getJwt()}}\\
+		\textit{Gibt das JWT zurück.}\\
+	\end{itemize}
+	
 	\section{Package edu.kit.pse.fridget.client.viewmodel}
 		\subsection{Entfernte Klassen}
 		\begin{itemize}
