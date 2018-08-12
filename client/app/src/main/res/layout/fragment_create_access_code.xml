@@ -6,13 +6,9 @@
 
     <data>
         <variable
-            name="createAccesscodeFR"
-            type="edu.kit.pse.fridget.client.fragment.CreateAccessCodeFragment"
+            name="createAccessCodeFragmentVM"
+            type="edu.kit.pse.fridget.client.viewmodel.fragmentVM.CreateAccessCodeFragmentVM"
            />
-        <variable
-            name="createAccesscodeVM"
-            type="edu.kit.pse.fridget.client.viewmodel.CreateAccessCode"
-            />
         <import type="android.view.View" />
 
     </data>
@@ -62,7 +58,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/commonsregular"
-                android:text="@={createAccesscodeFR.accesscode.getValue()}"
+                android:text="@={createAccessCodeFragmentVM.accesscode.getValue()}"
                 android:textColor="@android:color/black"
                 android:textSize="30sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -84,7 +80,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="OK"
-                android:onClick="@{(v)-> createAccesscodeFR.onClickOK(v)}"
+                android:onClick="@{(v)-> createAccessCodeFragmentVM.onClickOK(v)}"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
