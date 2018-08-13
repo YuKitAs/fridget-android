@@ -93,14 +93,14 @@
                     android:layout_marginTop="8dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintHorizontal_bias="0.369"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1.0">
+                    app:layout_constraintVertical_bias="0.384">
 
                     <TextView
                         android:id="@+id/createdOn"
-                        android:layout_width="wrap_content"
+                        android:layout_width="97dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
@@ -113,7 +113,7 @@
 
                     <TextView
                         android:id="@+id/creationDate"
-                        android:layout_width="96dp"
+                        android:layout_width="108dp"
                         android:layout_height="wrap_content"
                         android:layout_alignStart="@+id/createdOn"
                         android:layout_below="@+id/createdOn"
@@ -166,8 +166,8 @@
                         android:layout_below="@+id/readBy"
                         android:layout_centerVertical="true"
                         android:background="@drawable/magnet"
-                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(0)}"
-                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(0)}" />
+                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(0)}"
+                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(0)}" />
 
                     <ImageView
                         android:id="@+id/magnet2"
@@ -177,8 +177,8 @@
                         android:layout_marginEnd="-57dp"
                         android:layout_toStartOf="@+id/magnet3"
                         android:background="@drawable/magnet"
-                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(1)}"
-                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(1)}" />
+                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(1)}"
+                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(1)}" />
 
                     <ImageView
                         android:id="@+id/magnet3"
@@ -188,18 +188,18 @@
                         android:layout_alignTop="@+id/magnet1"
                         android:layout_marginStart="64dp"
                         android:background="@drawable/magnet"
-                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(2)}"
-                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(2)}" />
+                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(2)}"
+                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(2)}" />
 
                     <ImageView
                         android:id="@+id/magnet4"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
-                        android:layout_alignTop="@+id/magnet3"
-                        android:layout_toEndOf="@+id/creationDate"
+                        android:layout_below="@+id/readBy"
+                        android:layout_toEndOf="@+id/createdOn"
                         android:background="@drawable/magnet"
-                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(3)}"
-                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(3)}" />
+                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(3)}"
+                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(3)}" />
 
                     <ImageView
                         android:id="@+id/magnet5"
@@ -209,8 +209,8 @@
                         android:layout_alignTop="@+id/magnet3"
                         android:layout_marginStart="129dp"
                         android:background="@drawable/magnet"
-                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(4)}"
-                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(4)}" />
+                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(4)}"
+                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(4)}" />
 
                     <ImageView
                         android:id="@+id/magnet6"
@@ -220,8 +220,8 @@
                         android:layout_alignTop="@+id/magnet3"
                         android:layout_marginEnd="124dp"
                         android:background="@drawable/magnet"
-                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(5)}"
-                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(5)}" />
+                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(5)}"
+                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(5)}" />
 
                     <ImageView
                         android:id="@+id/magnet7"
@@ -231,8 +231,8 @@
                         android:layout_alignTop="@+id/magnet3"
                         android:layout_marginEnd="91dp"
                         android:background="@drawable/magnet"
-                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(6)}"
-                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(6)}" />
+                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(6)}"
+                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(6)}" />
 
                     <ImageView
                         android:id="@+id/magnet8"
@@ -240,8 +240,8 @@
                         android:layout_height="25dp"
                         android:layout_centerVertical="true"
                         android:background="@drawable/magnet"
-                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(7)}"
-                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(7)}" />
+                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(7)}"
+                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(7)}" />
 
                     <ImageView
                         android:id="@+id/magnet9"
@@ -250,8 +250,8 @@
                         android:layout_alignEnd="@+id/magnet2"
                         android:layout_alignTop="@+id/magnet14"
                         android:background="@drawable/magnet"
-                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(8)}"
-                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(8)}" />
+                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(8)}"
+                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(8)}" />
 
                     <ImageView
                         android:id="@+id/magnet10"
@@ -260,18 +260,18 @@
                         android:layout_alignStart="@+id/magnet3"
                         android:layout_alignTop="@+id/magnet8"
                         android:background="@drawable/magnet"
-                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(9)}"
-                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(9)}" />
+                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(9)}"
+                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(9)}" />
 
                     <ImageView
                         android:id="@+id/magnet11"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
-                        android:layout_alignTop="@+id/magnet8"
-                        android:layout_toEndOf="@+id/creationDate"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/createdOn"
                         android:background="@drawable/magnet"
-                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(10)}"
-                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(10)}" />
+                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(10)}"
+                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(10)}" />
 
                     <ImageView
                         android:id="@+id/magnet12"
@@ -280,8 +280,8 @@
                         android:layout_alignStart="@+id/magnet5"
                         android:layout_alignTop="@+id/magnet8"
                         android:background="@drawable/magnet"
-                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(11)}"
-                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(11)}" />
+                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(11)}"
+                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(11)}" />
 
                     <ImageView
                         android:id="@+id/magnet13"
@@ -290,8 +290,8 @@
                         android:layout_alignStart="@+id/magnet6"
                         android:layout_alignTop="@+id/magnet12"
                         android:background="@drawable/magnet"
-                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(12)}"
-                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(12)}" />
+                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(12)}"
+                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(12)}" />
 
                     <ImageView
                         android:id="@+id/magnet14"
@@ -300,8 +300,8 @@
                         android:layout_alignStart="@+id/magnet7"
                         android:layout_alignTop="@+id/magnet12"
                         android:background="@drawable/magnet"
-                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(13)}"
-                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(13)}" />
+                        android:backgroundTint="@{fullNoteVM.liveDataReaderMagnetColors.getMagnetColor(13)}"
+                        android:visibility="@{fullNoteVM.liveDataReaderMagnetColors.isVisible(13)}" />
 
                 </RelativeLayout>
 
