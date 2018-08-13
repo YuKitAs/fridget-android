@@ -168,21 +168,19 @@ public class FullCoolNoteViewModel extends ViewModel {
 
     public void popUp(View v) {
         Context context = v.getContext();
-
+        if (!coolNote.getCreatorMembershipId().equals(ownMembershipId)) {
+            Toast.makeText(context, "This is not your Cool Note! You are not allowed to delete it!", Toast.LENGTH_LONG).show();
+            return;
+        }
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Delete Cool Note")
                 .setMessage("Are you sure you want to delete this Cool Note?")
-                .setPositiveButton(android.R.string.yes, (dialog, which) -> {
-                    if (!coolNote.getCreatorMembershipId().equals(ownMembershipId)) {
-                        Toast.makeText(context, "This is not your Cool Note! You are not allowed to delete it!", Toast.LENGTH_LONG).show();
-                        return;
-                    }
-
+                .setPositiveButton("YES", (dialog, which) -> {
                     deleteCoolNote();
                     dialog.cancel();
                     goBack(v);
                 })
-                .setNegativeButton(android.R.string.no, (dialog, which) -> dialog.cancel())
+                .setNegativeButton("NO", (dialog, which) -> dialog.cancel())
                 .setIcon(R.drawable.fridget_logo)
                 .show();
     }
