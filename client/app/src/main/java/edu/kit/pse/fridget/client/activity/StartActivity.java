@@ -1,8 +1,10 @@
 package edu.kit.pse.fridget.client.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.os.SharedMemory;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -17,9 +19,12 @@ public class StartActivity extends AppCompatActivity {
     private static final String TAG = StartActivity.class.getSimpleName();
     private static final String DEFAULT = "N/A";
 
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         Log.i(TAG, "Calling onCreate");
 
         // Redirect to next activity before loading the full view

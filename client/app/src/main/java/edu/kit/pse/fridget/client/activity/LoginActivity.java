@@ -180,6 +180,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
 
             String token = task.getResult().getToken();
+            PreferenceManager.getDefaultSharedPreferences(context).edit()
+            .putString("device",token).apply();
+
 
             RetrofitClientInstance.getRetrofitInstance().create(DeviceService.class).sendDevice(new Device(null, userId, token)).enqueue(new Callback<Device>() {
                 @Override

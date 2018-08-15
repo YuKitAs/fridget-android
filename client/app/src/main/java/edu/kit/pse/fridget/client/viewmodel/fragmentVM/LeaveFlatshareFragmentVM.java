@@ -28,7 +28,6 @@ public class LeaveFlatshareFragmentVM {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 PreferenceManager.getDefaultSharedPreferences(context).edit()
-                        .remove("OwnUserIDnumber")
                         .remove("ownMemberId")
                         .remove("flatshareId")
                         .remove("flatshareName")
