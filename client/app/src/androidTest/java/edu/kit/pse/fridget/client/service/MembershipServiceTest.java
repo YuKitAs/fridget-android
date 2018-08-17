@@ -1,4 +1,4 @@
-package edu.kit.pse.fridget.client.ServiceTests;
+package edu.kit.pse.fridget.client.service;
 
 import com.google.gson.Gson;
 import com.squareup.okhttp.mockwebserver.MockResponse;

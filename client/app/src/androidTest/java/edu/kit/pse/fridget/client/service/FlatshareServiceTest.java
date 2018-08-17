@@ -1,4 +1,4 @@
-package edu.kit.pse.fridget.client.ServiceTests;
+package edu.kit.pse.fridget.client.service;
 
 import android.app.Instrumentation;
 import android.support.test.rule.ActivityTestRule;
