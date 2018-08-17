@@ -1,4 +1,4 @@
-package edu.kit.pse.fridget.client.activity;
+package edu.kit.pse.fridget.client.activity.activityBuildTest;
 
 import android.support.test.rule.ActivityTestRule;
 import android.view.View;
@@ -9,6 +9,7 @@ import org.junit.Rule;
 import org.junit.Test;
 
 import edu.kit.pse.fridget.client.R;
+import edu.kit.pse.fridget.client.activity.StartActivity;
 
 /**
  * Diese Klasse testet, ob StartActivity gestartet wird

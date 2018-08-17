@@ -1,4 +1,4 @@
-package edu.kit.pse.fridget.client.activity.ActivityTests.activity;
+package edu.kit.pse.fridget.client.activity.ActivityTests.activityChangeViewTest;
 
 import android.app.Activity;
 import android.app.Instrumentation;
@@ -11,27 +11,22 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
-import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.activity.CreateFlatshareActivity;
 import edu.kit.pse.fridget.client.activity.EnterAccessCodeActivity;
 import edu.kit.pse.fridget.client.activity.HomeActivity;
 import edu.kit.pse.fridget.client.activity.StartActivity;
-import edu.kit.pse.fridget.client.fragment.CreateAccessCodeFragment;
-import edu.kit.pse.fridget.client.viewmodel.SharedPreferencesData;
 
 import static android.support.test.InstrumentationRegistry.getInstrumentation;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
-import static edu.kit.pse.fridget.client.R.id.back_button;
 import static edu.kit.pse.fridget.client.R.id.button4;
 import static edu.kit.pse.fridget.client.R.id.button5;
-import static edu.kit.pse.fridget.client.R.id.start;
 import static org.junit.Assert.assertNotNull;
 
 
 /**
- * Diese Klasse testet Viewwechsel von der CreateFlatshareActivity aus
+ * Diese Klasse testet Viewwechsel von der StartActivity aus
  */
 public class StartActivityChangeViewTest {
 
