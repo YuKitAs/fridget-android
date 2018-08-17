@@ -37,18 +37,19 @@ public class FlatshareServiceTest {
      * Testet die Methode createFlatshare
      * @throws IOException
      */
+    Flatshare flatshare =new Flatshare("testId","testName");
+    CreateFlatshareCommand createFlatshareCommand = new CreateFlatshareCommand("testName","testUserId");
+
+    MockWebServer server =new MockWebServer();
+
+    Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl(server.url("").toString())
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
 
     @Test
     public void createFlatshare() throws IOException {
-        Flatshare flatshare =new Flatshare("testId","testName");
-        CreateFlatshareCommand createFlatshareCommand = new CreateFlatshareCommand("testName","testUserId");
 
-        MockWebServer server =new MockWebServer();
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(server.url("").toString())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
 
         server.enqueue(new MockResponse().setBody(new Gson().toJson(flatshare)));
         FlatshareService service = retrofit.create(FlatshareService.class);
@@ -65,14 +66,6 @@ public class FlatshareServiceTest {
 
     @Test
     public void getFlatshare() throws IOException {
-        Flatshare flatshare =new Flatshare("testId","testName");
-
-        MockWebServer server =new MockWebServer();
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(server.url("").toString())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
 
         server.enqueue(new MockResponse().setBody(new Gson().toJson(flatshare)));
         FlatshareService service = retrofit.create(FlatshareService.class);
