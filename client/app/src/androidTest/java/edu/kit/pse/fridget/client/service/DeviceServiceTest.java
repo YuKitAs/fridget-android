@@ -48,7 +48,7 @@ public class DeviceServiceTest extends InstrumentationTestCase {
 
 
     @Test
-    public void testGenerateAccesscode() throws Exception {
+    public void testsendDevice() throws Exception {
         BehaviorDelegate<DeviceService> delegate = mockRetrofit.create(DeviceService.class);
         DeviceService deviceService = new MockDeviceService(delegate);
 
