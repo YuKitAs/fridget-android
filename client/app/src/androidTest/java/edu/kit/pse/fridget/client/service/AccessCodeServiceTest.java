@@ -36,12 +36,11 @@ import static org.junit.Assert.*;
 
 public class AccessCodeServiceTest extends InstrumentationTestCase {
 
-   
+
    private MockRetrofit mockRetrofit;
    GenerateAccessCodeCommand generateAccessCodeCommand = new GenerateAccessCodeCommand("test");
 
   public Retrofit retrofit;
-
 
 
    @Override
