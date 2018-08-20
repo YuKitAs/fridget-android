@@ -36,7 +36,7 @@ import static org.junit.Assert.*;
 
 public class AccessCodeServiceTest extends InstrumentationTestCase {
 
-    AccessCode testAccessCode  = new AccessCode("testId","testContent","flatshareId");
+   
    private MockRetrofit mockRetrofit;
    GenerateAccessCodeCommand generateAccessCodeCommand = new GenerateAccessCodeCommand("test");
 
