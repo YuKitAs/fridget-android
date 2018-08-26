@@ -35,7 +35,7 @@
         android:background="#cdfeed">
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/rootRL"
+            android:id="@+id/editFrozen"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/fridge_face">
