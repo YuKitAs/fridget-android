@@ -31,7 +31,7 @@ public class EditTextFrozenNoteTest {
     public ActivityTestRule<HomeActivity> mActivityTestRule = new ActivityTestRule<>(HomeActivity.class);
 
     @Test
-    public void createTextCoolNoteTest() {
+    public void editTextFrozenNoteTest() {
 
         Context context = getInstrumentation().getTargetContext();
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
