@@ -30,12 +30,12 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <FrameLayout
-        android:id="@+id/placeholder_frame"
+        android:id="@+id/placeholder_frame_fullCN"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <RelativeLayout
-            android:id="@+id/rootRL"
+            android:id="@+id/fullCN"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -83,7 +83,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <RelativeLayout
-                    android:id="@+id/relativeLayout"
+                    android:id="@+id/relativeLayout_CN"
                     android:layout_width="310dp"
                     android:layout_height="435dp"
                     android:layout_centerInParent="true"
@@ -124,7 +124,7 @@
                         android:textStyle="italic" />
 
                     <TextView
-                        android:id="@+id/title"
+                        android:id="@+id/title2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
@@ -137,11 +137,11 @@
                         android:textSize="25sp" />
 
                     <TextView
-                        android:id="@+id/content"
+                        android:id="@+id/content2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
-                        android:layout_below="@+id/title"
+                        android:layout_below="@+id/title2"
                         android:fontFamily="@font/commonsregular"
                         android:maxLength="300"
                         android:text="@{fullNoteVM.liveDataStyledContent}"
@@ -152,7 +152,9 @@
                         android:id="@+id/readBy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="148dp"
                         android:fontFamily="@font/commonsregular"
                         android:padding="2dp"
                         android:text="@string/readBy"

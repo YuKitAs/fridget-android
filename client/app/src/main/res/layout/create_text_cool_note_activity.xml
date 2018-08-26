@@ -28,14 +28,14 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
     <FrameLayout
-        android:id="@+id/placeholder_frame"
+        android:id="@+id/placeholder_frame_createCN"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#cdfeed"
         android:padding="5dp">
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/rootRL"
+            android:id="@+id/createCN"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/fridge_face">
