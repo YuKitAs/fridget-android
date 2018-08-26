@@ -6,7 +6,7 @@ import retrofit2.Call;
 import retrofit2.mock.BehaviorDelegate;
 
 public class MockUserService implements UserService {
-    private User user =new User ("testId","TestGoogleUserId","TestGoogleName");
+    private User user =new User ("testId","testGoogleUserId","testGoogleName");
     private final BehaviorDelegate<UserService> delegate;
 
     public MockUserService (BehaviorDelegate<UserService>service) {

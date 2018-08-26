@@ -18,6 +18,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunnerArguments clearPackageData: 'true'
     }
     buildTypes {
         release {
@@ -30,7 +31,11 @@ android {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
     }
+
+
 }
+
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -74,6 +79,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     androidTestImplementation 'org.mockito:mockito-android:2.7.22'
     androidTestImplementation 'com.squareup.okhttp:mockwebserver:2.7.2'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestUtil 'com.android.support.test:orchestrator:1.0.2'
+
 }
 
 apply plugin: 'com.google.gms.google-services'
