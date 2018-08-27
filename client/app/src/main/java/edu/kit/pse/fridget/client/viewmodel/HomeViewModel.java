@@ -74,7 +74,7 @@ public class HomeViewModel extends ViewModel {
      */
     public void fetchData() {
         fetchMemberList();
-        fetchFronzenNoteList();
+        fetchFrozenNoteList();
         fetchCoolNoteList();
     }
 
@@ -93,7 +93,7 @@ public class HomeViewModel extends ViewModel {
      * get Methode für die Liste der FrozenNotes
      * hier verbinden mit dem Server
      */
-    private void fetchFronzenNoteList() {
+    private void fetchFrozenNoteList() {
         RetrofitClientInstance.getRetrofitInstance().create(FrozenNoteService.class).getAllFrozenNote(flatshareId).enqueue(new Callback<List<FrozenNote>>() {
             @Override
             public void onResponse(Call<List<FrozenNote>> call, Response<List<FrozenNote>> response) {
