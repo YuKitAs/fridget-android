@@ -2,6 +2,7 @@ package edu.kit.pse.fridget.client.activity.ActivityTests.activityChangeViewTest
 
 import android.app.Activity;
 import android.app.Instrumentation;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.test.rule.ActivityTestRule;
 
@@ -14,6 +15,9 @@ import edu.kit.pse.fridget.client.activity.CreateFlatshareActivity;
 import edu.kit.pse.fridget.client.activity.EnterAccessCodeActivity;
 import edu.kit.pse.fridget.client.activity.HomeActivity;
 import edu.kit.pse.fridget.client.activity.StartActivity;
+import edu.kit.pse.fridget.client.datamodel.AccessCode;
+import edu.kit.pse.fridget.client.datamodel.Flatshare;
+import retrofit2.Response;
 
 import static android.support.test.InstrumentationRegistry.getInstrumentation;
 import static android.support.test.espresso.Espresso.onView;
@@ -46,13 +50,21 @@ public class CreateFlatshareActivityChangeViewTest {
 
     @Test
     public void clickOnCreate() {
-         //textinput
-        onView(withId(flatsharename_input)).perform(typeText("testName"),closeSoftKeyboard());
-        onView(withId(create)).perform(click());
-        Activity createFlatshareActivity = getInstrumentation().waitForMonitorWithTimeout(monitor_home,5000);
-        assertNotNull(createFlatshareActivity);
+        SharedPreferences sharedPreferences =getInstrumentation().getTargetContext().getSharedPreferences("edu.kit.pse.fridget.client_preferences", Context.MODE_PRIVATE);
+        String flatshareId =sharedPreferences.getString("flatshareId","N/A");
 
+        if (flatshareId != "N/A"){
+            Activity homeActivity = getInstrumentation().waitForMonitorWithTimeout(monitor_home,5000);
+            assertNotNull(homeActivity);
+            homeActivity.finish();
+        }
+        else {
+            onView(withId(flatsharename_input)).perform(typeText("testName"), closeSoftKeyboard());
+            onView(withId(create)).perform(click());
+            Activity createFlatshareActivity = getInstrumentation().waitForMonitorWithTimeout(monitor_home, 5000);
+            assertNotNull(createFlatshareActivity);
 
+        }
 
         createFlatshareActivity.finish();
     }
