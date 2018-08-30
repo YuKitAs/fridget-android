@@ -2,6 +2,7 @@ package edu.kit.pse.fridget.client.activity.ActivityTests.activityChangeViewTest
 
 import android.app.Activity;
 import android.app.Instrumentation;
+import android.content.SharedPreferences;
 import android.support.test.rule.ActivityTestRule;
 
 import org.junit.After;
@@ -17,9 +18,12 @@ import edu.kit.pse.fridget.client.activity.StartActivity;
 import static android.support.test.InstrumentationRegistry.getInstrumentation;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
+import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static edu.kit.pse.fridget.client.R.id.button4;
 import static edu.kit.pse.fridget.client.R.id.create;
+import static edu.kit.pse.fridget.client.R.id.flatsharename_input;
 import static org.junit.Assert.*;
 
 public class CreateFlatshareActivityChangeViewTest {
@@ -42,9 +46,14 @@ public class CreateFlatshareActivityChangeViewTest {
 
     @Test
     public void clickOnCreate() {
+        //textinput
+        onView(withId(flatsharename_input)).perform(typeText("testName"),closeSoftKeyboard());
         onView(withId(create)).perform(click());
         Activity createFlatshareActivity = getInstrumentation().waitForMonitorWithTimeout(monitor_home,5000);
         assertNotNull(createFlatshareActivity);
+
+
+
         createFlatshareActivity.finish();
     }
 

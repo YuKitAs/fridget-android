@@ -47,6 +47,30 @@
           }
         },
         {
+          "client_id": "734475006869-6h29r17oqpim32nqqf3nchqgcjt30aai.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.kit.pse.fridget.client",
+            "certificate_hash": "f326a09a78c883e7bd967f1dd3beedeefc552ea5"
+          }
+        },
+        {
+          "client_id": "734475006869-b07fh12su22qoegntk9psqvet65p853o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.kit.pse.fridget.client",
+            "certificate_hash": "1da3f501a79714a8bd74de841b6c2b65d12d85bb"
+          }
+        },
+        {
+          "client_id": "734475006869-e0167ovk11s2jmiu383bh80p35l385th.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.kit.pse.fridget.client",
+            "certificate_hash": "a6932be905f78a5b3e65cd65609352fcb8579944"
+          }
+        },
+        {
           "client_id": "734475006869-ag1tv7qa0d0klumtprvcp65pqhsbc2e5.apps.googleusercontent.com",
           "client_type": 3
         }
