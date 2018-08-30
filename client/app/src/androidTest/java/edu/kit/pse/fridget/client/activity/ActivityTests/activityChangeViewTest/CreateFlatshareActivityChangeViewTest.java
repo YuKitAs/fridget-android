@@ -46,7 +46,7 @@ public class CreateFlatshareActivityChangeViewTest {
 
     @Test
     public void clickOnCreate() {
-        //textinput
+         //textinput
         onView(withId(flatsharename_input)).perform(typeText("testName"),closeSoftKeyboard());
         onView(withId(create)).perform(click());
         Activity createFlatshareActivity = getInstrumentation().waitForMonitorWithTimeout(monitor_home,5000);
