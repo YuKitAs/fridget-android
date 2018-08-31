@@ -32,6 +32,7 @@ import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.action.ViewActions.replaceText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
@@ -49,31 +50,45 @@ public class CreateTextCoolNoteTest {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         String magnetColor = sharedPreferences.getString("ownMagnetColor", "N/A");
 
+        //click plus button
         ViewInteraction plusButton = onView(withId(R.id.plus_button));
         plusButton.perform(click());
 
+        //check if view change was successful
+        onView(withId(R.id.createCN)).check(matches(isDisplayed()));
+
+        //enter title and check if the typed title is displayed
         ViewInteraction enterTitle = onView(withId(R.id.enterTitle));
         enterTitle.perform(click());
         enterTitle.perform(replaceText("testTitle"), closeSoftKeyboard());
         enterTitle.check(matches(withText("testTitle")));
 
+        //enter content and check if the typed content is displayed
         ViewInteraction enterContent = onView(withId(R.id.enterContent));
         enterContent.perform(click());
         enterContent.perform(replaceText("testContent"), closeSoftKeyboard());
         enterContent.check(matches(withText("testContent")));
 
+        //click post button
         ViewInteraction postButton = onView(withId(R.id.postButton));
         postButton.perform(click());
 
+        //check if view change was successful
+        onView(withId(R.id.fullCN)).check(matches(isDisplayed()));
+
+        //check if correct title is displayed
         ViewInteraction title = onView(withId(R.id.title2));
         title.check(matches(withText("testTitle")));
 
+        //check if correct content is displayed
         ViewInteraction content = onView(withId(R.id.content2));
         content.check(matches(withText("testContent\n\n")));
 
+        //check if magnet has correct colour
         ViewInteraction magnet = onView(withId(R.id.magnet_CN));
         //magnet.check(matches(withBackgroundTint(Color.parseColor("#" + magnetColor))));
 
+        //click on back button
         ViewInteraction backButton = onView(withId(R.id.back_button));
         backButton.perform(click());
     }
