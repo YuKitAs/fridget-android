@@ -222,6 +222,27 @@
 		
 		
 	\end{itemize}
+	\subsubsection{public class FullTextCoolNoteActivityTest}
+	\textbf{Beschreibung}\\
+	\textit{Diese Klasse testet das erfolgreiche Builden der FullTextCoolNoteActivity.}\\
+	\\	
+	\textbf{Methoden}
+	\begin{itemize}
+		
+		\item\texttt{{public void setUp() throws Exception}}
+		
+		\textit{Diese Methode setzt die ActivityTestRule zur FullTextCoolNoteActivity auf null.}
+		
+		\item\texttt{{public void TestLaunch()}}
+		
+		\textit{Diese Methode testet das Builden der View zur FullTextCoolNoteActivity.}
+		
+		\item\texttt{{public void tearDown()}}
+		
+		\textit{Diese Methode setzt die ActivityTestRule zur FullTextCoolNoteActivity wieder auf null.}
+		
+		
+	\end{itemize}
 	\subsubsection{public class FullTextFrozenNoteActivityTest}
 	\textbf{Beschreibung}\\
 	\textit{Diese Klasse testet das erfolgreiche Builden der FullTextFrozenNoteActivity.}\\
@@ -245,6 +266,38 @@
 	\end{itemize}
 	
 	\subsection{Viewmodel}
+	\subsubsection{public class StyledContentViewModelTest}
+	\textbf{Beschreibung}\\
+	\textit{Diese Klasse testet das Styling des Textes in der Content-Box.}\\
+	\\	
+	\textbf{Methoden}
+	\begin{itemize}
+		
+		\item\texttt{{public void setUp() throws Exception}}
+		
+		\textit{Diese Methode erstellt ein neues StyledContentViewModel.}
+		
+		\item\texttt{{public void toggleBold\_ReturnsCorrectHtmlContent()}}
+		
+		\textit{Diese Methode testet den Bold-Button.}
+		
+		\item\texttt{{public void toggleItalic\_ReturnsCorrectHtmlContent()}}
+		
+		\textit{Diese Methode testet den Italic-Button.}
+		
+		\item\texttt{{public void toggleUnderline\_ReturnsCorrectHtmlContent()}}
+		
+		\textit{Diese Methode testet den Underline-Button.}
+		
+		\item\texttt{{public void toggleCombinedStyles\_ReturnsCorrectHtmlContent()}}
+		
+		\textit{Diese Methode testet die Kombination aus alles Styling-Button.}
+		
+		\item\texttt{{public void parseFromHtmlContent\_ReturnsTheSameHtmlContent()}}
+		
+		\textit{Diese Methode testet das Parsen des Textes.}
+		
+	\end{itemize}
 	\subsection{Services}
 	\subsubsection{\texttt{public class AccessCodeServiceTest}}
 	\textbf{Beschreibung}\\
@@ -432,7 +485,8 @@
 	\section{Server}
 	
 	\chapter{Espresso-Tests}
-	\section{Testszenarien}
+	\section{Cool Note}
+	\subsection{\texttt{public class CreateTextCoolNoteTest}}
 	
 	\chapter{Nutzerstudie}
 	
