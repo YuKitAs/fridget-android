@@ -4,26 +4,18 @@ package edu.kit.pse.fridget.client.activity.espresso;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.ColorDrawable;
 import android.preference.PreferenceManager;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.ViewInteraction;
-import android.support.test.espresso.matcher.BoundedMatcher;
-import android.support.test.internal.util.Checks;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.LargeTest;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import android.widget.ImageView;
 
-import org.hamcrest.Description;
-import org.hamcrest.Matcher;
-import org.hamcrest.TypeSafeMatcher;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import java.util.Random;
 
 import edu.kit.pse.fridget.client.R;
 import edu.kit.pse.fridget.client.activity.CreateTextCoolNoteActivity;
@@ -42,13 +34,22 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 @RunWith(AndroidJUnit4.class)
 public class CreateTextCoolNoteTest {
 
+    private int randomIndex = 0;
+
     @Rule
     public ActivityTestRule<CreateTextCoolNoteActivity> mActivityTestRule = new ActivityTestRule<CreateTextCoolNoteActivity>(CreateTextCoolNoteActivity.class) {
         @Override
         protected Intent getActivityIntent() {
             Context targetContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
             Intent intent = new Intent(targetContext, CreateTextCoolNoteActivity.class);
-            intent.putExtra("position",0);
+            Random generator = new Random();
+            while (randomIndex == 0) {
+                randomIndex = generator.nextInt(9);
+                if (randomIndex == 0) {
+                    break;
+                }
+            }
+            intent.putExtra("position", randomIndex);
             return intent;
         }};
 
@@ -87,7 +88,7 @@ public class CreateTextCoolNoteTest {
         content.check(matches(withText("testContent\n\n")));
 
         //check if magnet has correct colour
-        ViewInteraction magnet = onView(withId(R.id.magnet_CN));
+        //ViewInteraction magnet = onView(withId(R.id.magnet_CN));
         //magnet.check(matches(withBackgroundTint(Color.parseColor("#" + magnetColor))));
 
         //click on back button
@@ -95,33 +96,81 @@ public class CreateTextCoolNoteTest {
         backButton.perform(click());
 
         //check if cool note exists in home and when clicked display correctly
-        ViewInteraction coolNote1 = onView(withId(R.id.coolNote1));
-        coolNote1.check(matches(isDisplayed()));
-        coolNote1.perform(click());
-        onView(withId(R.id.fullCN)).check(matches(isDisplayed()));
-        title.check(matches(withText("testTitle")));
-        content.check(matches(withText("testContent\n\n")));
+        if (randomIndex == 0) {
+            ViewInteraction coolNote1 = onView(withId(R.id.coolNote1));
+            coolNote1.check(matches(isDisplayed()));
+            coolNote1.perform(click());
+            onView(withId(R.id.fullCN)).check(matches(isDisplayed()));
+            title.check(matches(withText("testTitle")));
+            content.check(matches(withText("testContent\n\n")));
+        }
+        if (randomIndex == 1) {
+            ViewInteraction coolNote2 = onView(withId(R.id.coolNote2));
+            coolNote2.check(matches(isDisplayed()));
+            coolNote2.perform(click());
+            onView(withId(R.id.fullCN)).check(matches(isDisplayed()));
+            title.check(matches(withText("testTitle")));
+            content.check(matches(withText("testContent\n\n")));
+        }
+        if (randomIndex == 2) {
+            ViewInteraction coolNote3 = onView(withId(R.id.coolNote3));
+            coolNote3.check(matches(isDisplayed()));
+            coolNote3.perform(click());
+            onView(withId(R.id.fullCN)).check(matches(isDisplayed()));
+            title.check(matches(withText("testTitle")));
+            content.check(matches(withText("testContent\n\n")));
+        }
+        if (randomIndex == 3) {
+            ViewInteraction coolNote4 = onView(withId(R.id.coolNote4));
+            coolNote4.check(matches(isDisplayed()));
+            coolNote4.perform(click());
+            onView(withId(R.id.fullCN)).check(matches(isDisplayed()));
+            title.check(matches(withText("testTitle")));
+            content.check(matches(withText("testContent\n\n")));
+        }
+        if (randomIndex == 4) {
+            ViewInteraction coolNote5 = onView(withId(R.id.coolNote5));
+            coolNote5.check(matches(isDisplayed()));
+            coolNote5.perform(click());
+            onView(withId(R.id.fullCN)).check(matches(isDisplayed()));
+            title.check(matches(withText("testTitle")));
+            content.check(matches(withText("testContent\n\n")));
+        }
+        if (randomIndex == 5) {
+            ViewInteraction coolNote6 = onView(withId(R.id.coolNote6));
+            coolNote6.check(matches(isDisplayed()));
+            coolNote6.perform(click());
+            onView(withId(R.id.fullCN)).check(matches(isDisplayed()));
+            title.check(matches(withText("testTitle")));
+            content.check(matches(withText("testContent\n\n")));
+        }
+        if (randomIndex == 6) {
+            ViewInteraction coolNote7 = onView(withId(R.id.coolNote7));
+            coolNote7.check(matches(isDisplayed()));
+            coolNote7.perform(click());
+            onView(withId(R.id.fullCN)).check(matches(isDisplayed()));
+            title.check(matches(withText("testTitle")));
+            content.check(matches(withText("testContent\n\n")));
+        }
+        if (randomIndex == 7) {
+            ViewInteraction coolNote8 = onView(withId(R.id.coolNote8));
+            coolNote8.check(matches(isDisplayed()));
+            coolNote8.perform(click());
+            onView(withId(R.id.fullCN)).check(matches(isDisplayed()));
+            title.check(matches(withText("testTitle")));
+            content.check(matches(withText("testContent\n\n")));
+        }
+        if (randomIndex == 8) {
+            ViewInteraction coolNote9 = onView(withId(R.id.coolNote9));
+            coolNote9.check(matches(isDisplayed()));
+            coolNote9.perform(click());
+            onView(withId(R.id.fullCN)).check(matches(isDisplayed()));
+            title.check(matches(withText("testTitle")));
+            content.check(matches(withText("testContent\n\n")));
+        }
     }
 
-    private static Matcher<View> childAtPosition(
-            final Matcher<View> parentMatcher, final int position) {
-
-        return new TypeSafeMatcher<View>() {
-            @Override
-            public void describeTo(Description description) {
-                description.appendText("Child at position " + position + " in parent ");
-                parentMatcher.describeTo(description);
-            }
-
-            @Override
-            public boolean matchesSafely(View view) {
-                ViewParent parent = view.getParent();
-                return parent instanceof ViewGroup && parentMatcher.matches(parent)
-                        && view.equals(((ViewGroup) parent).getChildAt(position));
-            }
-        };
-    }
-
+    /*
     public static Matcher<View> withBackgroundTint(final int color) {
         Checks.checkNotNull(color);
         return new BoundedMatcher<View, ImageView>(ImageView.class) {
@@ -134,5 +183,5 @@ public class CreateTextCoolNoteTest {
                 description.appendText("with text color: ");
             }
         };
-    }
+    }*/
 }
