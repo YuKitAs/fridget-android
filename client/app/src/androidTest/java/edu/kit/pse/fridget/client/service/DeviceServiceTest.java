@@ -2,18 +2,10 @@ package edu.kit.pse.fridget.client.service;
 
 import android.test.InstrumentationTestCase;
 
-import com.google.gson.Gson;
-import com.squareup.okhttp.mockwebserver.MockResponse;
-import com.squareup.okhttp.mockwebserver.MockWebServer;
-
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.io.IOException;
-
-import edu.kit.pse.fridget.client.datamodel.AccessCode;
 import edu.kit.pse.fridget.client.datamodel.Device;
-import edu.kit.pse.fridget.client.datamodel.representation.UserWithJwtRepresentation;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
@@ -21,8 +13,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.mock.BehaviorDelegate;
 import retrofit2.mock.MockRetrofit;
 import retrofit2.mock.NetworkBehavior;
-
-import static org.junit.Assert.*;
 
 public class DeviceServiceTest extends InstrumentationTestCase {
 
@@ -48,7 +38,7 @@ public class DeviceServiceTest extends InstrumentationTestCase {
 
 
     @Test
-    public void testsendDevice() throws Exception {
+    public void testSendDevice() throws Exception {
         BehaviorDelegate<DeviceService> delegate = mockRetrofit.create(DeviceService.class);
         DeviceService deviceService = new MockDeviceService(delegate);
 

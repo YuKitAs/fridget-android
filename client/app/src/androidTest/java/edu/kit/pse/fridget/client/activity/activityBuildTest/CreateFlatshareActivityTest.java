@@ -31,7 +31,7 @@ public class CreateFlatshareActivityTest {
 
     @Test
     public void TestLaunch() {
-    View view =createFlatshareActivity.findViewById(R.id.flatsharename);
+    View view =createFlatshareActivity.findViewById(R.id.createFlatshare);
     assertNotNull(view);
     }
 

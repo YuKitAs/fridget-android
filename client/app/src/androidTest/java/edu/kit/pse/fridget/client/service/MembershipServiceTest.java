@@ -1,8 +1,5 @@
 package edu.kit.pse.fridget.client.service;
 
-import android.test.InstrumentationTestCase;
-
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,8 +17,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.mock.BehaviorDelegate;
 import retrofit2.mock.MockRetrofit;
 import retrofit2.mock.NetworkBehavior;
-
-import static org.junit.Assert.*;
 
 public class MembershipServiceTest  {
     MockRetrofit mockRetrofit;
@@ -49,7 +44,7 @@ public class MembershipServiceTest  {
 
 
     @Test
-    public void getMemberList() throws IOException {
+    public void testGetMemberList() throws IOException {
         String testFlatshareId = "testFlatshareId";
         BehaviorDelegate<MembershipService> delegate = mockRetrofit.create(MembershipService.class);
         MembershipService membershipService = new MockMembershipService(delegate);
@@ -69,7 +64,7 @@ public class MembershipServiceTest  {
     }
 
     @Test
-    public void getMember() throws IOException {
+    public void testGetMember() throws IOException {
         String testFlatshareId = "testFlatshareId";
         String testUserId = "testUserId";
         BehaviorDelegate<MembershipService> delegate = mockRetrofit.create(MembershipService.class);
@@ -85,7 +80,7 @@ public class MembershipServiceTest  {
     }
 
     @Test
-    public void createMembership() throws IOException {
+    public void testCreateMembership() throws IOException {
 
         BehaviorDelegate<MembershipService> delegate = mockRetrofit.create(MembershipService.class);
         MembershipService membershipService = new MockMembershipService(delegate);
@@ -101,7 +96,7 @@ public class MembershipServiceTest  {
     }
 
     @Test
-    public void deleteMember() throws IOException {
+    public void testDeleteMember() throws IOException {
         String testFlatshareId = "testFlatshareId";
         String testUserId = "testUserId";
         BehaviorDelegate<MembershipService> delegate = mockRetrofit.create(MembershipService.class);
