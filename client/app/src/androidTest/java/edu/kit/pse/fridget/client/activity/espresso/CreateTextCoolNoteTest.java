@@ -2,9 +2,11 @@ package edu.kit.pse.fridget.client.activity.espresso;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.preference.PreferenceManager;
+import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.ViewInteraction;
 import android.support.test.espresso.matcher.BoundedMatcher;
 import android.support.test.internal.util.Checks;
@@ -24,7 +26,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import edu.kit.pse.fridget.client.R;
-import edu.kit.pse.fridget.client.activity.HomeActivity;
+import edu.kit.pse.fridget.client.activity.CreateTextCoolNoteActivity;
 
 import static android.support.test.InstrumentationRegistry.getInstrumentation;
 import static android.support.test.espresso.Espresso.onView;
@@ -41,7 +43,14 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 public class CreateTextCoolNoteTest {
 
     @Rule
-    public ActivityTestRule<HomeActivity> mActivityTestRule = new ActivityTestRule<>(HomeActivity.class);
+    public ActivityTestRule<CreateTextCoolNoteActivity> mActivityTestRule = new ActivityTestRule<CreateTextCoolNoteActivity>(CreateTextCoolNoteActivity.class) {
+        @Override
+        protected Intent getActivityIntent() {
+            Context targetContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+            Intent intent = new Intent(targetContext, CreateTextCoolNoteActivity.class);
+            intent.putExtra("position",0);
+            return intent;
+        }};
 
     @Test
     public void createTextCoolNoteTest() {
@@ -49,13 +58,6 @@ public class CreateTextCoolNoteTest {
         Context context = getInstrumentation().getTargetContext();
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         String magnetColor = sharedPreferences.getString("ownMagnetColor", "N/A");
-
-        //click plus button
-        ViewInteraction plusButton = onView(withId(R.id.plus_button));
-        plusButton.perform(click());
-
-        //check if view change was successful
-        onView(withId(R.id.createCN)).check(matches(isDisplayed()));
 
         //enter title and check if the typed title is displayed
         ViewInteraction enterTitle = onView(withId(R.id.enterTitle));
@@ -91,6 +93,14 @@ public class CreateTextCoolNoteTest {
         //click on back button
         ViewInteraction backButton = onView(withId(R.id.back_button));
         backButton.perform(click());
+
+        //check if cool note exists in home and when clicked display correctly
+        ViewInteraction coolNote1 = onView(withId(R.id.coolNote1));
+        coolNote1.check(matches(isDisplayed()));
+        coolNote1.perform(click());
+        onView(withId(R.id.fullCN)).check(matches(isDisplayed()));
+        title.check(matches(withText("testTitle")));
+        content.check(matches(withText("testContent\n\n")));
     }
 
     private static Matcher<View> childAtPosition(
