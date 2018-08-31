@@ -1,5 +1,8 @@
 package edu.kit.pse.fridget.client.activity.activityBuildTest;
 
+import android.content.Context;
+import android.content.Intent;
+import android.support.test.InstrumentationRegistry;
 import android.support.test.rule.ActivityTestRule;
 import android.view.View;
 
@@ -14,8 +17,17 @@ import edu.kit.pse.fridget.client.activity.EditTextFrozenNoteActivity;
 import static org.junit.Assert.assertNotNull;
 
 public class EditTextFrozenNoteActivityTest {
+
     @Rule
-    public ActivityTestRule<EditTextFrozenNoteActivity> mActivityTestRule = new ActivityTestRule<>(EditTextFrozenNoteActivity.class);
+    public ActivityTestRule<EditTextFrozenNoteActivity> mActivityTestRule = new ActivityTestRule<EditTextFrozenNoteActivity>(EditTextFrozenNoteActivity.class) {
+        @Override
+        protected Intent getActivityIntent() {
+            Context targetContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+            Intent intent = new Intent(targetContext, EditTextFrozenNoteActivity.class);
+            intent.putExtra("position",0);
+            intent.putExtra("frozenNoteId", "testId");
+            return intent;
+        }};
 
     private EditTextFrozenNoteActivity editTextFrozenNoteActivity =null;
 

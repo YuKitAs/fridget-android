@@ -12,9 +12,6 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".activity.AccessCodeActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".activity.CreateFlatshareActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -44,9 +41,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.FullTextCoolNoteActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.MemberListActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.StartActivity"
