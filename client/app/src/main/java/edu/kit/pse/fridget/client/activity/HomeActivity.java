@@ -104,7 +104,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
        if (fragment != null) {
            fragment.setArguments(bundle);
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.placeholder_frame, fragment);
+            ft.replace(R.id.placeholder_frame_home, fragment);
             this.setButtonsInvisible();
             ft.commit();
         }
