@@ -92,7 +92,7 @@
                         <RelativeLayout
                             android:id="@+id/relativeLayout"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="480dp"
                             android:layout_centerInParent="true"
                             android:layout_marginBottom="16dp"
                             android:layout_marginEnd="8dp"
@@ -122,7 +122,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentStart="true"
-                                android:layout_below="@+id/title"
+                                android:layout_below="@+id/titleFrozen"
                                 android:fontFamily="@font/commonsregular"
                                 android:maxLength="300"
                                 android:text="@{fullFrozenNoteVM.liveDataStyledContent}"

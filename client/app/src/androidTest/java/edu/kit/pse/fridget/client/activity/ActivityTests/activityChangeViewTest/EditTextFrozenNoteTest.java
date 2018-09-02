@@ -1,4 +1,4 @@
-package edu.kit.pse.fridget.client.activity.espresso;
+package edu.kit.pse.fridget.client.activity.ActivityTests.activityChangeViewTest;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -39,6 +39,8 @@ public class EditTextFrozenNoteTest {
         ViewInteraction frozenNote = onView(withId(R.id.frozenNote1));
         frozenNote.perform(click());
 
+        onView(withId(R.id.edit_button)).perform(click());
+
         ViewInteraction enterTitle = onView(withId(R.id.enterTitleEditFrozen));
         enterTitle.perform(click());
         enterTitle.perform(replaceText("testTitle"), closeSoftKeyboard());
@@ -56,7 +58,7 @@ public class EditTextFrozenNoteTest {
         title.check(matches(withText("testTitle")));
 
         ViewInteraction content = onView(withId(R.id.contentFrozen));
-        content.check(matches(withText("testContent")));
+        content.check(matches(withText("testContent\n\n")));
 
         ViewInteraction backButton = onView(withId(R.id.back_button));
         backButton.perform(click());
