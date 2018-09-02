@@ -73,9 +73,38 @@
 		\hline
 		\textbf{Fehlersymptom} & \textbf{Fehlergrund} & \textbf{Fehlerbehebung} \\
 		\hline	
-		\textbf{Editierung von Frozen Note wird überschrieben, wenn zwei Leute gleichzeitig editieren
-		} & \textbf{EditFrozenNoteActivity wird nicht geblockt, wenn ein User drin ist} & \textbf{} \\
+		{Editierung von Frozen Note wird überschrieben, wenn zwei Leute gleichzeitig editieren} & {EditFrozenNoteActivity wird nicht geblockt, wenn ein User drin ist} & {Sobald jemand auf editFrozenNoteButton drückt, wird ein Request an den Server gesendet, um den Inhalt der FrozenNote erneut zu holen. Außerdem muss dann eine Variable mitgegeben werden, um den “editFrozenRequest” zu sperren. Sobald die Activity verlassen wird, durch Speichern oder Abbruch, wird wieder entsperrt.
+} \\
 		\hline
+		{Wenn ein Member dabei ist, die letzte Cool Note zu schreiben und ein anderer Member auf den Plus-Button drückt, wird er nicht aufgehalten und es passiert nichts.} & {Position der Cool Note wird erst "belegt", wenn die Cool Note gepostet wurde.} & {Jedes Mal wenn ein Member auf den Plus-Button in der HomeAnsicht drückt, muss ein Request an den Server gesendet werden, dass eine Dummy-CoolNote mit der von der HomeAnsicht übergebenen Position erstellt wird. Wenn der Member dann in CreateCoolNoteActivity auf “Post-It” drückt, wird die CoolNote an den Server gesendet. Wenn der Member auf den “Back” Button drückt, und somit das Erstellen einer CoolNote abbricht, wird ein Request an den Server gesendet, der die zuvor erstellte Dummy CoolNote löscht.} \\
+\hline
+
+{Wenn eine WG voll ist und ein weiteres Mitglied beitreten will, gibt es keine Fehleranzeige auf der Client Seite.} & {Es gibt auf der Client Seite keine Abfrage, ob bereits 15 Member erreicht sind.} & {Wenn man 15 Mitglieder in der Mitgliederliste hat, sollte beim Erstellen eines neuen AccessCodes ein Toast angezeigt werden mit “The flatshare is already full, you are not allowed to invite new members!”. 
+} \\
+
+\hline
+
+{Die App wird nicht an Screen Sizes angepasst.} & {Wir hatten es aus zeitlichen Gründen nicht mehr geschafft.} & {Durch das Constraint Layout werden die Bilder von der Skalierung her an die Bildschirmgröße angepasst. Man müsste noch die einzelnen images Dateien in mehreren Auflösungen und Größen zur Verfügung stellen. Außerdem müssen Textgrößen und Bildgrößen flexibel definiert werden.
+} \\
+
+\hline
+
+{Wir haben vielfachen Code wie (z.B. beim Menü)} & {Wir haben keine Menü-Activity.} & {Wir brauchen eine Klasse um den Code vom Menü zu extrahieren.} \\
+
+\hline
+
+{Wir haben vielfache Implementierungen von den gleichen Services.} & {Wir haben nicht daran gedacht, die Implementierungen, die wir mehrfach in verschiedenen Viewmodels brauchen, in Extra-Klassen abzukapseln.} & {Wir hätten für jeden Service eine Klasse schreiben müssen, die die Services implementieren.} \\
+
+
+\hline
+
+{Die geöffneten Acitivitys kommen alle in ein Stack, welches nicht gelöscht wird. Auf Dauer kann es zu Speicherproblemen führen.} & {Keine Zerstörung der Aktivities } & {Wir müssen die Activities zerstören, welche nicht mehr gebraucht werden.} \\
+
+\hline
+
+{} & {} & {} \\
+
+\hline
 		\end{longtable}
 	\end{flushleft}	
 	
