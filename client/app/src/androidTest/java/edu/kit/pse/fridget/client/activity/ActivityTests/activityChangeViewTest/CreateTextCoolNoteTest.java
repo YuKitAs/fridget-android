@@ -1,4 +1,4 @@
-package edu.kit.pse.fridget.client.activity.espresso;
+package edu.kit.pse.fridget.client.activity.ActivityTests.activityChangeViewTest;
 
 
 import android.content.Context;
