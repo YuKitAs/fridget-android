@@ -72,7 +72,7 @@
 
 
                 <EditText
-                    android:id="@+id/enterTitle"
+                    android:id="@+id/enterTitleEditFrozen"
                     android:layout_width="208dp"
                     android:layout_height="53dp"
                     android:layout_alignParentEnd="true"
@@ -148,7 +148,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/content" />
 
                 <EditText
-                    android:id="@+id/enterContent"
+                    android:id="@+id/enterContentEditFrozen"
                     android:layout_width="275dp"
                     android:layout_height="121dp"
                     android:layout_alignStart="@+id/title"
@@ -230,7 +230,7 @@
                     app:layout_constraintVertical_bias="0.437" />
 
                 <Button
-                    android:id="@+id/postButton"
+                    android:id="@+id/saveButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"

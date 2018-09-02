@@ -105,7 +105,7 @@
                             app:layout_constraintVertical_bias="0.628">
 
                             <TextView
-                                android:id="@+id/title"
+                                android:id="@+id/titleFrozen"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentStart="true"
@@ -118,7 +118,7 @@
                                 android:textSize="25sp" />
 
                             <TextView
-                                android:id="@+id/content"
+                                android:id="@+id/contentFrozen"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentStart="true"

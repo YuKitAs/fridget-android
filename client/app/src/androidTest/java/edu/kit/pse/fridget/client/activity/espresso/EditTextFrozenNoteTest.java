@@ -39,23 +39,23 @@ public class EditTextFrozenNoteTest {
         ViewInteraction frozenNote = onView(withId(R.id.frozenNote1));
         frozenNote.perform(click());
 
-        ViewInteraction enterTitle = onView(withId(R.id.enterTitle));
+        ViewInteraction enterTitle = onView(withId(R.id.enterTitleEditFrozen));
         enterTitle.perform(click());
         enterTitle.perform(replaceText("testTitle"), closeSoftKeyboard());
         enterTitle.check(matches(withText("testTitle")));
 
-        ViewInteraction enterContent = onView(withId(R.id.enterContent));
+        ViewInteraction enterContent = onView(withId(R.id.enterContentEditFrozen));
         enterContent.perform(click());
         enterContent.perform(replaceText("testContent"), closeSoftKeyboard());
         enterContent.check(matches(withText("testContent")));
 
-        ViewInteraction saveButton = onView(withId(R.id.postButton));
+        ViewInteraction saveButton = onView(withId(R.id.saveButton));
         saveButton.perform(click());
 
-        ViewInteraction title = onView(withId(R.id.title));
+        ViewInteraction title = onView(withId(R.id.titleFrozen));
         title.check(matches(withText("testTitle")));
 
-        ViewInteraction content = onView(withId(R.id.content));
+        ViewInteraction content = onView(withId(R.id.contentFrozen));
         content.check(matches(withText("testContent")));
 
         ViewInteraction backButton = onView(withId(R.id.back_button));
