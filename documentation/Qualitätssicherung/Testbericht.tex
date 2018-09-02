@@ -68,6 +68,9 @@
 		\begin{longtable}{|p{.32\textwidth}|p{.32\textwidth}|p{.32\textwidth}|}
 		\hline
 		\textbf{Fehlersymptom} & \textbf{Fehlergrund} & \textbf{Fehlerbehebung} \\
+		\hline	
+		\textbf{Editierung von Frozen Note wird überschrieben, wenn zwei Leute gleichzeitig editieren
+		} & \textbf{EditFrozenNoteActivity wird nicht geblockt, wenn ein User drin ist} & \textbf{} \\
 		\hline
 		\end{longtable}
 	\end{flushleft}	
@@ -487,7 +490,65 @@
 	\chapter{Espresso-Tests}
 	\section{Cool Note}
 	\subsection{\texttt{public class CreateTextCoolNoteTest}}
-	
+	\textbf{Beschreibung}\\
+	\textit{Diese Klasse testet die Interaktion mit der View im Hinblick auf das Erstellen einer Cool Note.}\\
+	\\
+	\textbf{Methoden}
+	\begin{itemize}
+		
+		\item\texttt{{public void createTextCoolNoteTest()}}
+		
+		\textit{Diese Methode testet die Viewkomponenten, die bei der Erstellung, dem Anzeigen und dem Antippen einer Cool Note eine Rolle spielen.}
+		
+	\end{itemize}
+	\subsection{\texttt{public class CreateFlatshareActivityChangeViewTest}}
+	\textbf{Beschreibung}\\
+	\textit{Diese Klasse testet den Viewwechsel von der CreateCoolNoteActivity zur HomeActivity.}\\
+	\\
+	\textbf{Methoden}
+	\begin{itemize}
+		
+		\item\texttt{{public void clickOnCreate()}}
+		
+		\textit{Diese Methode testet das Klicken auf den Create-Button.}
+		
+	\end{itemize}	
+	\subsection{\texttt{public class HomeActivityChangeViewTest}}
+	\textbf{Beschreibung}\\
+	\textit{Diese Klasse testet den Viewwechsel von der HomeActivity zur CreateCoolNoteActivity.}\\
+	\\
+	\textbf{Methoden}
+	\begin{itemize}
+		
+		\item\texttt{{public void onPlusButtonClickedTest()}}
+		
+		\textit{Diese Methode testet das Klicken auf den Plus-Button.}
+		
+	\end{itemize}
+	\subsection{\texttt{public class StartActivityChangeViewTest}}
+	\textbf{Beschreibung}\\
+	\textit{Diese Klasse testet den Viewwechsel von der StartActivity zur CreateFlatshareActivity.}\\
+	\\
+	\textbf{Methoden}
+	\begin{itemize}
+		
+		\item\texttt{{public void clickOnRegisterYourFlatshare()}}
+		
+		\textit{Diese Methode testet das Klicken auf den Register-Your-Flatshare-Button.}
+		
+	\end{itemize}
+	\subsection{\texttt{public class EditTextFrozenNoteTest}}
+	\textbf{Beschreibung}\\
+	\textit{Diese Klasse testet die Interaktion mit der View im Hinblick auf das Editieren einer Frozen Note.}\\
+	\\
+	\textbf{Methoden}
+	\begin{itemize}
+		
+		\item\texttt{{public void editTextFrozenNoteTest()}}
+		
+		\textit{Diese Methode testet die Viewkomponenten, die bei der Editierung, dem Anzeigen und dem Antippen einer Frozen Note eine Rolle spielen.}
+		
+	\end{itemize}
 	\chapter{Nutzerstudie}
 	
 
