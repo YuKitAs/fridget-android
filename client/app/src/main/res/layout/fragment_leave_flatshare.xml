@@ -20,7 +20,7 @@
         android:background="#cdfeed">
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/enter_access_code"
+            android:id="@+id/fragment_leave_flatshare"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"

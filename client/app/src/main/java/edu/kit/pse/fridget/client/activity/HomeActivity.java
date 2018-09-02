@@ -60,12 +60,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         drawerLayout = findViewById(R.id.drawer_layout);
 
-        NavHeaderBinding _bind = DataBindingUtil.inflate(getLayoutInflater(), R.layout.nav_header, binding
-                .navView, false);
-        binding.navView.addHeaderView(_bind.getRoot());
+        NavHeaderBinding _bind = DataBindingUtil.inflate(getLayoutInflater(), R.layout.nav_header, binding.navViewHome, false);
+        binding.navViewHome.addHeaderView(_bind.getRoot());
         _bind.flatsharename.setText(flatshareName);
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_home);
         navigationView.setNavigationItemSelectedListener(this);
 
     }

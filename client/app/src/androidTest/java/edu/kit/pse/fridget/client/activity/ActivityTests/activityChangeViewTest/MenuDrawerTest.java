@@ -1,4 +1,4 @@
-package edu.kit.pse.fridget.client.activity.espresso;
+package edu.kit.pse.fridget.client.activity.ActivityTests.activityChangeViewTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.LargeTest;
@@ -33,11 +33,11 @@ public class MenuDrawerTest {
                 .perform(DrawerActions.open()); // Open Drawer
 
         // Start the screen of your activity.
-        onView(withId(R.id.nav_view))
+        onView(withId(R.id.nav_view_home))
                 .perform(NavigationViewActions.navigateTo(R.id.memlist));
 
         // Check that you Activity was opened.
-        onView(withId(R.id.memlist)).check(matches(isDisplayed()));
+        onView(withId(R.id.member_list)).check(matches(isDisplayed()));
     }
 
     @Test
@@ -48,11 +48,11 @@ public class MenuDrawerTest {
                 .perform(DrawerActions.open()); // Open Drawer
 
         // Start the screen of your activity.
-        onView(withId(R.id.nav_view))
+        onView(withId(R.id.nav_view_home))
                 .perform(NavigationViewActions.navigateTo(R.id.add_member));
 
         // Check that you Activity was opened.
-        onView(withId(R.id.add_member)).check(matches(isDisplayed()));
+        onView(withId(R.id.fragment_create_access_code)).check(matches(isDisplayed()));
     }
 
     @Test
@@ -63,11 +63,11 @@ public class MenuDrawerTest {
                 .perform(DrawerActions.open()); // Open Drawer
 
         // Start the screen of your activity.
-        onView(withId(R.id.nav_view))
+        onView(withId(R.id.nav_view_home))
                 .perform(NavigationViewActions.navigateTo(R.id.leave_flatshare));
 
         // Check that you Activity was opened.
-        onView(withId(R.id.leave_flatshare)).check(matches(isDisplayed()));
+        onView(withId(R.id.fragment_leave_flatshare)).check(matches(isDisplayed()));
     }
 
 }
