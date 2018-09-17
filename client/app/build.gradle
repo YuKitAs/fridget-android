@@ -3,7 +3,7 @@ project.ext {
     constraintLayout = "1.1.2"
     retrofit = "2.4.0"
     arch = "1.1.1"
-    playServices = "15.0.1"
+    playServices = "16.0.0"
 }
 
 apply plugin: 'com.android.application'
@@ -53,9 +53,9 @@ dependencies {
     // google play
     implementation "com.google.android.gms:play-services-auth:$project.playServices"
     // firebase
-    implementation 'com.google.firebase:firebase-auth:16.0.2'
-    implementation 'com.google.firebase:firebase-core:16.0.1'
-    implementation 'com.google.firebase:firebase-crash:16.0.1'
+    implementation 'com.google.firebase:firebase-auth:16.0.3'
+    implementation 'com.google.firebase:firebase-core:16.0.3'
+    implementation 'com.google.firebase:firebase-crash:16.2.0'
     implementation 'com.google.firebase:firebase-messaging:17.1.0'
 
     implementation 'com.android.support:support-v4:27.1.1'
